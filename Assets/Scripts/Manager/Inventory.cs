@@ -9,19 +9,21 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
     public class Inventory : MonoBehaviour {
 
-        private int column = 0;
-        private int row = 0;
-        [SerializeField] private GameObject[] _line1 = new GameObject[5];
-        [SerializeField] private GameObject[] _line2 = new GameObject[5];
-        [SerializeField] private GameObject[] _line3 = new GameObject[5];
-        [SerializeField] private GameObject[] _line4 = new GameObject[5];
-        [SerializeField] private Image _emptyItemSlot;
-        [SerializeField] private Image _ghostSelectorOutline;
-        [SerializeField] private Image _humanSelectorOutline;
+        //Array der Inventarslots [zeile, spalte]
+        private readonly GameObject[,] _slots = new GameObject[4, 5];
+        private readonly GameObject[,] _selectorHuman = new GameObject[4, 5];
+        private readonly GameObject[,] _selectorGhost = new GameObject[4, 5];
+
+        [SerializeField] private float _axisDelay = 0.5f;
         [SerializeField] private CharacterType _characterType;
 
-        //Array der Inventarslots [zeile, spalte]
-        private GameObject[,] _slots = new GameObject[4, 5];
+        private float _currentAxisDelay;
+        [SerializeField] private Sprite _emptyItemSlot;
+        [SerializeField] private Sprite _ghostSelectorOutline;
+        [SerializeField] private Sprite _humanSelectorOutline;
+
+        private int _x = 0;
+        private int _y = 0;
 
         // Use this for initialization
         void Start() {
