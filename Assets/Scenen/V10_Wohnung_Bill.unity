@@ -548,6 +548,7 @@ MonoBehaviour:
   _ghostFlavourText: {fileID: 1662987296}
   _humanFlavourText: {fileID: 1764738551}
   _healthText: {fileID: 0}
+  _flavourTextWaitTimer: 0
 --- !u!4 &256732445
 Transform:
   m_ObjectHideFlags: 0
@@ -989,6 +990,7 @@ MonoBehaviour:
   _animationType: 1
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _flavourTextWaitTimer: 5
   _keyType: 0
   _animationDurationInFrames: 66
   _animationStepsPerKlick: 10
@@ -1113,6 +1115,7 @@ MonoBehaviour:
   _animationType: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _flavourTextWaitTimer: 5
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -1783,7 +1786,7 @@ MonoBehaviour:
   m_IsWalking: 0
   m_WalkSpeed: 250
   m_RunSpeed: 0
-  Health: 5
+  _health: 5
   m_RunstepLenghten: 0.7
   m_JumpSpeed: 6
   m_StickToGroundForce: 20
@@ -2795,6 +2798,7 @@ MonoBehaviour:
   _animationType: 1
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _flavourTextWaitTimer: 5
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -2852,6 +2856,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1124870393 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100010, guid: a55008299abc5a24fb3a9e042fa52843, type: 3}
+  m_PrefabInternal: {fileID: 1606006228}
+--- !u!114 &1124870398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1124870393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6463c622c60465a42a1a59f11d32e62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 1124870393}
+  _material: {fileID: 2100000, guid: bc068d81624ad4ee98c7b986f055d4b1, type: 2}
 --- !u!1 &1138159723
 GameObject:
   m_ObjectHideFlags: 0
