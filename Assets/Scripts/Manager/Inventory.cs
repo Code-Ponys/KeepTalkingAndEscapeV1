@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.UI;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
@@ -26,8 +25,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private int _y = 0;
 
         // Use this for initialization
-        void Start() {
-            ValidateData();
+        private void Start() {
+            SearchInventoryObjects();
         }
 
         private void SearchInventoryObjects() {
@@ -56,8 +55,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             }
         }
 
+
         // Update is called once per frame
-        void Update() {
         private void Update() {
             InventoryInput();
             UpdateSelection();
