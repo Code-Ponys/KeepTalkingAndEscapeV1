@@ -62,6 +62,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             InventoryInput();
             UpdateSelection();
         }
+
+        private void UpdateSelection() {
+            if(_characterType == CharacterType.Ghost) {
+                _selectorGhost[_y, _x].GetComponent<Image>().sprite = _ghostSelectorOutline;
+                Debug.Log("Change");
+            }
+            else if(_characterType == CharacterType.Human) {
+                _selectorHuman[_y, _x].GetComponent<Image>().sprite = _humanSelectorOutline;
+            }
+        }
+
             if(_characterType == CharacterType.Human) {
                 if(Input.GetAxis(ButtonNames.GhostVerticalPad) < 0) {
                 }
