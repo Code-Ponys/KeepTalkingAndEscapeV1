@@ -28,13 +28,18 @@ public enum ActivateChildWhen {
 
 public enum ItemId {
     Testitem,
-    
 }
 
 public enum CombineWith {
     Clean,
     Item,
-    
+
+}
+
+public enum CharacterType {
+    Unassigned,
+    Ghost,
+    Human
 }
 
 public static class ButtonNames {
@@ -94,65 +99,53 @@ public static class ButtonNames {
     public static string HumanInventory {
         get {return _humanInventory;}
     }
-    
-    public static string GhostJoystickButtonA
-    {
-        get { return _ghostJoystickButtonA; }
+
+    public static string GhostJoystickButtonA {
+        get {return _ghostJoystickButtonA;}
     }
 
-    public static string HumanJoystickButtonA
-    {
-        get { return _humanJoystickButtonA; }
+    public static string HumanJoystickButtonA {
+        get {return _humanJoystickButtonA;}
     }
 
-    public static string GhostjoystickButtonB
-    {
-        get { return _ghostjoystickButtonB; }
+    public static string GhostjoystickButtonB {
+        get {return _ghostjoystickButtonB;}
     }
 
-    public static string HumanjoystickButtonB
-    {
-        get { return _humanjoystickButtonB; }
+    public static string HumanjoystickButtonB {
+        get {return _humanjoystickButtonB;}
     }
 
-    public static string GhostJoystickButtonX
-    {
-        get { return _ghostJoystickButtonX; }
+    public static string GhostJoystickButtonX {
+        get {return _ghostJoystickButtonX;}
     }
 
-    public static string HumanJoystickButtonX
-    {
-        get { return _humanJoystickButtonX; }
+    public static string HumanJoystickButtonX {
+        get {return _humanJoystickButtonX;}
     }
 
-    public static string GhostJoystickButtonY
-    {
-        get { return _ghostJoystickButtonY; }
+    public static string GhostJoystickButtonY {
+        get {return _ghostJoystickButtonY;}
     }
 
-    public static string HumanJoystickButtonY
-    {
-        get { return _humanJoystickButtonY; }
+    public static string HumanJoystickButtonY {
+        get {return _humanJoystickButtonY;}
     }
 
-    public static string GhostVerticalPad
-    {
-        get { return _ghostVerticalPad; }
+    public static string GhostVerticalPad {
+        get {return _ghostVerticalPad;}
     }
 
-    public static string HumanVerticalPad
-    {
-        get { return _humanVerticalPad; }
+    public static string HumanVerticalPad {
+        get {return _humanVerticalPad;}
     }
 
-    public static string GhostHorizontalPad
-    {
-        get { return _ghostHorizontalPad; }
+    public static string GhostHorizontalPad {
+        get {return _ghostHorizontalPad;}
     }
 
-    public static string HumanHorizontalPad
-    {
-        get { return _humanHorizontalPad; }
+    public static string HumanHorizontalPad {
+        get {return _humanHorizontalPad;}
     }
 
     private static string _moveGhostX = "Move Ghost Left Joystick X-Axis";
