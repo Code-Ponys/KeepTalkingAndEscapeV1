@@ -18,6 +18,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Image _emptyItemSlot;
         [SerializeField] private Image _ghostSelectorOutline;
         [SerializeField] private Image _humanSelectorOutline;
+        [SerializeField] private CharacterType _characterType;
 
         //Array der Inventarslots [zeile, spalte]
         private GameObject[,] _slots = new GameObject[4, 5];
@@ -28,7 +29,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
         private void CreateSlotsArray() {
-            for(int j = 0; j < _line1.Length-1; j++) {
+            for(int j = 0; j < _line1.Length - 1; j++) {
                 _slots[0, j] = _line1[j];
                 _slots[1, j] = _line2[j];
                 _slots[2, j] = _line3[j];
@@ -47,7 +48,16 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         // Update is called once per frame
         void Update() {
-            if(Input.GetButtonDown(ButtonNames.GhostVerticalPad))
+            if(_characterType == CharacterType.Human) {
+                if(Input.GetAxis(ButtonNames.GhostVerticalPad) < 0) {
+                }
+            }
+
+            else if(_characterType == CharacterType.Ghost) {
+            }
+            else {
+                throw new ArgumentException("Character type not set.");
+            }
         }
     }
 }
