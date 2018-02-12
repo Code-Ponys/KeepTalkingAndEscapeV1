@@ -58,6 +58,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         // Update is called once per frame
         void Update() {
+        private void Update() {
+            InventoryInput();
+            UpdateSelection();
+        }
             if(_characterType == CharacterType.Human) {
                 if(Input.GetAxis(ButtonNames.GhostVerticalPad) < 0) {
                 }
