@@ -30,9 +30,29 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             ValidateData();
         }
 
+        private void SearchInventoryObjects() {
+            if(_characterType == CharacterType.Ghost) {
+                for(int i = 0; i < 4; i++) {
+                    for(int j = 0; j < 5; j++) {
+                        _slots[i, j] = GameObject.Find(i + "," + j + "G");
+                        _selectorHuman[i, j] = GameObject.Find(i + "," + j + "GSH");
+                        _selectorGhost[i, j] = GameObject.Find(i + "," + j + "GSG");
+                    }
+                }
 
+                Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
+            }
+            else if(_characterType == CharacterType.Human) {
+                for(int i = 0; i < 4; i++) {
+                    for(int j = 0; j < 5; j++) {
+                        _slots[i, j] = GameObject.Find(i + "," + j + "H");
+                        _selectorHuman[i, j] = GameObject.Find(i + "," + j + "HSH");
+                        _selectorGhost[i, j] = GameObject.Find(i + "," + j + "HSG");
+                    }
+                }
             }
             else {
+                throw new ArgumentException("Character type not set.");
             }
         }
 
