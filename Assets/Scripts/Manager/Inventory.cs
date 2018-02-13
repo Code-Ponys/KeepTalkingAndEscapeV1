@@ -199,5 +199,22 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     break;
             }
         }
+
+        private CharacterType CharacterType {
+            get {return _characterType;}
+        }
+
+        private int X {
+            get {return _x;}
+        }
+
+        private int Y {
+            get {return _y;}
+        }
+
+        public bool InventoryActive {
+            get {return _inventoryActive;}
+            set {_inventoryActive = value;}
+        }
     }
 }
