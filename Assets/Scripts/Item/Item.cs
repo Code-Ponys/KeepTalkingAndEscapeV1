@@ -28,14 +28,9 @@
         //Description of the Item for human.
         private string _humanDescription;
 
-        public string GhostDescription {
-            get {return _ghostDescription;}
-            set {_ghostDescription = value;}
-        }
-
-        public string HumanDescription {
-            get {return _humanDescription;}
-            set {_humanDescription = value;}
+        public string ItemId {
+            get {return _itemId;}
+            set {_itemId = value;}
         }
 
         public string Name {
@@ -48,9 +43,14 @@
             set {_spritePath = value;}
         }
 
-        public string ItemId {
-            get {return _itemId;}
-            set {_itemId = value;}
+        public string GhostDescription {
+            get {return _ghostDescription;}
+            set {_ghostDescription = value;}
+        }
+
+        public string HumanDescription {
+            get {return _humanDescription;}
+            set {_humanDescription = value;}
         }
 
         public bool Combineable {

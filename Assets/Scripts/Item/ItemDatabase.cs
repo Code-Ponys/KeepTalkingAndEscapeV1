@@ -13,16 +13,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Datatypes {
         private void Awake() {
             _itemDatabase = new List<Item>();
             for(var i = 1; i < 11; i++) {
-                var obj = new Item();
-                obj.ItemId = "testitem" + i;
-                obj.Name = "testitem " + i;
-                obj.SpritePath = "assets/2D_Art/itempics/sendnudes.jpg";
-                obj.GhostDescription = "testitem" + i + " beschreibung geist";
-                obj.HumanDescription = "testitem" + i + " beschreibung human";
-                obj.Combineable = true;
-                obj.CombineWith = CombineWith.Item;
-                obj.CombineWithItem = "testitem " + i + 1;
-                obj.NextItem = "testitem " + i + 2;
+                var obj = new Item {
+                    ItemId = "testitem" + i,
+                    Name = "testitem " + i,
+                    SpritePath = "assets/2D_Art/itempics/sendnudes.jpg",
+                    GhostDescription = "testitem" + i + " beschreibung geist",
+                    HumanDescription = "testitem" + i + " beschreibung human",
+                    Combineable = true,
+                    CombineWith = CombineWith.Item,
+                    CombineWithItem = "testitem " + (i + 1),
+                    NextItem = "testitem " + (i + 2)
+                };
                 _itemDatabase.Add(obj);
             }
             ItemDatabaseHandler.WriteDatabase();

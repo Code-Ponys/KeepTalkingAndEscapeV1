@@ -45,15 +45,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         [SerializeField] private Inventory _inventoryGhost;
         [SerializeField] private Inventory _inventoryHuman;
-        
+
         [SerializeField] private Sprite _a;
         [SerializeField] private Sprite _b;
         [SerializeField] private Sprite _x;
         [SerializeField] private Sprite _y;
-
         [SerializeField] private Sprite _start;
         [SerializeField] private Sprite _back;
-
         [SerializeField] private Sprite _rb;
         [SerializeField] private Sprite _lb;
         [SerializeField] private Sprite _rt;
@@ -61,8 +59,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Sprite _pad;
         [SerializeField] private Sprite _l;
         [SerializeField] private Sprite _r;
+
         private float _timerHuman;
+
         private float _timerGhost;
+
         [Range(1, 100)] [SerializeField] private float _flavourTextWaitTimer;
 
         private GameManager _gameManager;
@@ -100,6 +101,58 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     _timerGhost = 0;
                 }
             }
+        }
+
+        public Sprite A {
+            get {return _a;}
+        }
+
+        public Sprite B {
+            get {return _b;}
+        }
+
+        public Sprite X {
+            get {return _x;}
+        }
+
+        public Sprite Y {
+            get {return _y;}
+        }
+
+        public Sprite Start1 {
+            get {return _start;}
+        }
+
+        public Sprite Back {
+            get {return _back;}
+        }
+
+        public Sprite Rb {
+            get {return _rb;}
+        }
+
+        public Sprite Lb {
+            get {return _lb;}
+        }
+
+        public Sprite Rt {
+            get {return _rt;}
+        }
+
+        public Sprite Lt {
+            get {return _lt;}
+        }
+
+        public Sprite Pad {
+            get {return _pad;}
+        }
+
+        public Sprite L {
+            get {return _l;}
+        }
+
+        public Sprite R {
+            get {return _r;}
         }
     }
 }
