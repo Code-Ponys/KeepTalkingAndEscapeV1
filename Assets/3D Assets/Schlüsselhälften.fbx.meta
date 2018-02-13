@@ -1,22 +1,28 @@
 fileFormatVersion: 2
-guid: 0a79c0f648eb9344ba6aab1cbacb8bf1
-timeCreated: 1518515818
+guid: ab0659d2afabd7042ba3578e24aeeda9
+timeCreated: 1518529183
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: USB_Stick
-    6400000: //RootNode
+    100000: Schluesselhaelfte_1
+    100002: Schluesselhaelfte_2
+    100004: //RootNode
+    400000: Schluesselhaelfte_1
+    400002: Schluesselhaelfte_2
+    400004: //RootNode
+    2300000: Schluesselhaelfte_1
+    2300002: Schluesselhaelfte_2
+    3300000: Schluesselhaelfte_1
+    3300002: Schluesselhaelfte_2
+    4300000: Schluesselhaelfte_1
+    4300002: Schluesselhaelfte_2
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {instanceID: 0}
+      name: lambert5
+    second: {fileID: 2100000, guid: 2ff2eb622736fcc4499d43d03f43099f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -46,9 +52,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 100
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
