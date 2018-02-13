@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TrustfallGames.KeepTalkingAndEscape.DataController;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using UnityEditor;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine;
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class ItemHandler : MonoBehaviour {
         //All Items which can exist.
-        private ItemDatabase _itemDatabase;
+        private List<Item> _itemDatabase;
         
         //The current Items in the Inventory
         private List<Item> _inventory = new List<Item>();
@@ -17,9 +18,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void Start() {
-            _itemDatabase = ItemDatabase.GetInstance();
-
-            
+            //_itemDatabase = ItemDatabaseHandler.LoadDataBase().ItemDatabaseList;
         }
 
         /// <summary>
@@ -44,7 +43,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// </summary>
         /// <param name="Item you want to add"></param>
         public void AddItemToInv(string itemId) {
-            foreach(var obj in _itemDatabase.ItemDatabaseList) {
+            foreach(var obj in _itemDatabase) {
                 if(!string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) throw new ArgumentException("Item is not in Databse. Please Check you database file.");
                 _inventory.Add(obj);
                 return;
@@ -73,7 +72,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         private Item GetItemFromDatabase(string itemId) {
-            foreach(var obj in _itemDatabase.ItemDatabaseList) {
+            foreach(var obj in _itemDatabase) {
                 if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
                     return obj;
                 }
@@ -88,8 +87,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         public List<Item> ItemsDatabase {
-            get {return _itemDatabase.ItemDatabaseList;}
-            set {_itemDatabase.ItemDatabaseList = value;}
+            get {return _itemDatabase;}
+            set {_itemDatabase = value;}
         }
     }
 }

@@ -3,11 +3,17 @@ using System.IO;
 using NUnit.Framework.Constraints;
 using NUnit.Framework.Internal.Execution;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
+using UnityEngine;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
 namespace TrustfallGames.KeepTalkingAndEscape.DataController {
     public static class ItemDatabaseHandler {
+
+        /// <summary>
+        /// Loads the Database.
+        /// </summary>
+        /// <returns></returns>
         public static ItemDatabase LoadDataBase() {
             string content;
 
@@ -25,6 +31,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.DataController {
             return database;
         }
 
+        /// <summary>
+        /// Validates the database. Checks if every dependency is valid.
+        /// </summary>
+        /// <param name="database"></param>
+        /// <exception cref="Exception"></exception>
         private static void ValidateDatabaseData(ItemDatabase database) {
             foreach(var testitem in database.ItemDatabaseList) {
                 var combinePartnerValid = false;
@@ -65,11 +76,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.DataController {
             }
         }
 
+        /// <summary>
+        /// Writes the database to the YAML File.
+        /// </summary>
         public static void WriteDatabase() {
             using(var writer = new StreamWriter(DataPath.ItemDatabase)) {
                 var serializer = new SerializerBuilder().Build();
                 var yaml = serializer.Serialize(ItemDatabase.GetInstance().ItemDatabaseList);
                 writer.WriteLine(yaml);
+                Debug.Log(yaml);
             }
         }
     }
