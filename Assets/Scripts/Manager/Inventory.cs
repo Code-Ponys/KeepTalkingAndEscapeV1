@@ -63,6 +63,21 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private void Update() {
             InventoryInput();
             UpdateSelection();
+        private void InventoryVisible() {
+            switch(_characterType) {
+                case CharacterType.Ghost:
+                    if(Input.GetButtonDown(ButtonNames.GhostInventory))
+                        _inventoryActive = !_inventoryActive;
+                    break;
+                case CharacterType.Human:
+                    if(Input.GetButtonDown(ButtonNames.HumanInventory))
+                        _inventoryActive = !_inventoryActive;
+                    break;
+                default:
+                    throw new Exception("CharacterType must be ghost or human");
+            }
+
+            _inventoryVisibleObject.SetActive(_inventoryActive);
         }
 
         private void UpdateSelection() {
