@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GhostParticleHandler : MonoBehaviour {
 	
+	//Allows change in the Editor for Technical Artist/Level designer
 	[SerializeField] private GameObject _meshGameObject;
 	[SerializeField] private Material _material;
 	
@@ -28,24 +29,29 @@ public class GhostParticleHandler : MonoBehaviour {
 
 	private ParticleSystem _particle;
 
-	// Use this for initialization
+	
 	void Start () {
 		ParticleHandler();
 	}
-
+	//Changes size over time to give dynamic 
 	private void Update() {
 		UpdateParticleHandler();
 	}
-
+	
+	/// <summary>
+	/// Controlls the particle system from this script
+	/// </summary>
 	private void ParticleHandler() {
-		
+		//Creates new game object with the particle
 		GameObject particleObject = new GameObject("Particle");
 		particleObject.transform.parent = _meshGameObject.transform;
 		particleObject.transform.position = new Vector3(_meshGameObject.transform.position.x + _particlePositionX, _meshGameObject.transform.position.y + _particlePositionY, _meshGameObject.transform.position.z + _particlePositionZ);
 		particleObject.transform.rotation = Quaternion.Euler(_meshGameObject.transform.rotation.x + _particleRotationX,_meshGameObject.transform.rotation.y + _particleRotationY,_meshGameObject.transform.rotation.z + _particleRotationZ);
 		particleObject.transform.localScale = _meshGameObject.transform.localScale;
+		//Sets layer, so only ghost can see it
 		particleObject.layer = 9;
-
+		
+		//Assigns the particle system on the game object.
 		_particle = particleObject.AddComponent<ParticleSystem>();
 		_particle.GetComponent<Renderer>().material = _material;
 		var particleMaster = _particle;
@@ -64,7 +70,7 @@ public class GhostParticleHandler : MonoBehaviour {
 
 		particleCollision.type = ParticleSystemCollisionType.World;
 	}
-
+	
 	private void UpdateParticleHandler() {
 		_particle.startSize = Random.Range(_particleSizeMin, _particleSizeMax);
 	}
