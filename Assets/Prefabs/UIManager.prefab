@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1863026549908918}
+  m_IsPrefabParent: 1
+--- !u!1 &1863026549908918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4934145902821038}
+  - component: {fileID: 114281799077280876}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4934145902821038
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863026549908918}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1822.6323, y: -773.72644, z: -838.54785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114281799077280876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863026549908918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495b297cb2754dc996d275ef36770fff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ghostHoverText: {fileID: 0}
+  _humanHoverText: {fileID: 0}
+  _ghostFlavourText: {fileID: 0}
+  _humanFlavourText: {fileID: 0}
+  _healthText: {fileID: 0}
+  _a: {fileID: 21300000, guid: fa308bf891e4c3544b48fff1156e9e6d, type: 3}
+  _b: {fileID: 21300000, guid: bc03a25e301d91b45909fe1633e443f0, type: 3}
+  _x: {fileID: 21300000, guid: a0b6eec8b2dce24459ea309201a92ffd, type: 3}
+  _y: {fileID: 21300000, guid: aa4b41c1a53423043b85727239c0fcbe, type: 3}
+  _start: {fileID: 21300000, guid: 5f65c82e1b3b8724fbaa475778802ca7, type: 3}
+  _back: {fileID: 21300000, guid: 5a0f86ce045212a408cb8929e4f91131, type: 3}
+  _rb: {fileID: 21300000, guid: e6be8749b83e67843a33ac4b8d83326e, type: 3}
+  _lb: {fileID: 21300000, guid: 9e87ae4ccdf3a07489542a3d86d540c4, type: 3}
+  _rt: {fileID: 21300000, guid: 3aa8ae9106df1144fb313e1cc47c8a06, type: 3}
+  _lt: {fileID: 21300000, guid: 128947b892ae8c04a9940b5092931003, type: 3}
+  _pad: {fileID: 21300000, guid: 520eb55763b6175489b5172a94a1f3a4, type: 3}
+  _l: {fileID: 21300000, guid: 41753c059e7d6244f98a3f1d3f5b5422, type: 3}
+  _r: {fileID: 21300000, guid: 7dfbd87bf19351b4286dc58143a462bb, type: 3}
+  _flavourTextWaitTimer: 10

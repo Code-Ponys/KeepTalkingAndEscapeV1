@@ -175,3 +175,16 @@ public static class ButtonNames {
     private static string _ghostHorizontalPad = "Ghost Horizontal Pad";
     private static string _humanHorizontalPad = "Human Horizontal Pad";
 }
+
+public static class DataPath {
+    private static string _itemDatabase = "data/itemDatabase.yml";
+    private static string _saveGame = "data/savegame.yml";
+
+    public static string ItemDatabase {
+        get {return _itemDatabase;}
+    }
+
+    public static string SaveGame {
+        get {return _saveGame;}
+    }
+}
