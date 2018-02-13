@@ -62,3 +62,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.DataController {
                 }
             }
         }
+
+        public static void WriteDatabase() {
+            using(var writer = new StreamWriter(DataPath.ItemDatabase)) {
+                var serializer = new SerializerBuilder().Build();
+                var yaml = serializer.Serialize(ItemDatabase.GetInstance().ItemDatabaseList);
+                writer.WriteLine(yaml);
+            }
+        }
+    }
+}
