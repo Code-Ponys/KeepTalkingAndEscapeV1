@@ -7,18 +7,19 @@ using UnityEngine;
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class ItemHandler : MonoBehaviour {
         //All Items which can exist.
-        private List<Item> _itemsDatabase = new List<Item>();
+        private ItemDatabase _itemDatabase;
+        
         //The current Items in the Inventory
         private List<Item> _inventory = new List<Item>();
 
-        public List<Item> Inventory {
-            get {return _inventory;}
-            set {_inventory = value;}
+        public static ItemHandler GetItemHandler() {
+            return GameObject.Find("ItemHandler").GetComponent<ItemHandler>();
         }
 
-        public List<Item> ItemsDatabase {
-            get {return _itemsDatabase;}
-            set {_itemsDatabase = value;}
+        private void Start() {
+            _itemDatabase = ItemDatabase.GetInstance();
+
+            
         }
 
         /// <summary>
@@ -36,7 +37,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             RemoveItemFromInventory(item2.ItemId);
             return true;
 
-            return false;
         }
 
         /// <summary>
@@ -79,7 +79,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
             }
             throw new ArgumentException("Item is not in Database. Please check the database file.");
-        } 
+        }
+
+
         public List<Item> Inventory {
             get {return _inventory;}
             set {_inventory = value;}

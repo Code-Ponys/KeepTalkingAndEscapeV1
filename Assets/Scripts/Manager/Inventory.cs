@@ -15,18 +15,29 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         [SerializeField] private float _axisDelay = 0.5f;
         [SerializeField] private CharacterType _characterType;
+        [SerializeField] private Inventory _secondInventory;
+        [SerializeField] private GameObject _inventoryVisibleObject;
 
         private float _currentAxisDelay;
         [SerializeField] private Sprite _emptyItemSlot;
         [SerializeField] private Sprite _ghostSelectorOutline;
         [SerializeField] private Sprite _humanSelectorOutline;
+        [SerializeField] private Sprite _transparentSprite;
+        private bool _inventoryActive;
+        private bool _lastInventoryState;
+
 
         private int _x = 0;
+
+
         private int _y = 0;
 
         // Use this for initialization
         private void Start() {
             SearchInventoryObjects();
+            if(_secondInventory.CharacterType == _characterType) {
+                throw new Exception("Inventory must have different character types");
+            }
         }
 
         private void SearchInventoryObjects() {
@@ -61,8 +72,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         // Update is called once per frame
         private void Update() {
-            InventoryInput();
-            UpdateSelection();
+            InventoryVisible();
+            if(_inventoryActive) {
+                UpdateSelection();
+                InventoryInput();
+            }
+        }
+
         private void InventoryVisible() {
             switch(_characterType) {
                 case CharacterType.Ghost:

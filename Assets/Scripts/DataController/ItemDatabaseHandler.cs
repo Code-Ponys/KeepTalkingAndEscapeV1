@@ -7,6 +7,7 @@ using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
 namespace TrustfallGames.KeepTalkingAndEscape.DataController {
+    public static class ItemDatabaseHandler {
         public static ItemDatabase LoadDataBase() {
             string content;
 
@@ -23,6 +24,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.DataController {
             ValidateDatabaseData(database);
             return database;
         }
+
         private static void ValidateDatabaseData(ItemDatabase database) {
             foreach(var testitem in database.ItemDatabaseList) {
                 var combinePartnerValid = false;

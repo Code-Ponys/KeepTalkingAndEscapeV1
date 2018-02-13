@@ -63,17 +63,16 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Sprite _r;
         private float _timerHuman;
         private float _timerGhost;
-        [Range(1,100)][SerializeField] private float _flavourTextWaitTimer;
+        [Range(1, 100)] [SerializeField] private float _flavourTextWaitTimer;
 
         private GameManager _gameManager;
-        
+
         public static UIManager GetUiManager() {
             return GameObject.Find("UIManager").GetComponent<UIManager>();
         }
 
         private void Start() {
             _gameManager = GameManager.GetGameManager();
-            
         }
 
         private void FixedUpdate() {
@@ -82,7 +81,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
         private void UpdateHealth() {
-             _healthText.text = "Gesundheit: " + _gameManager.Human.GetComponent<FirstPersonControllerHuman>().Health;
+            _healthText.text = "Gesundheit: " + _gameManager.Human.GetComponent<FirstPersonControllerHuman>().Health;
         }
 
         private void UpdateFlavourText() {
@@ -93,7 +92,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     _timerHuman = 0;
                 }
             }
-            
+
             if(_ghostFlavourText.text != "") {
                 _timerGhost += Time.deltaTime;
                 if(_timerGhost > _flavourTextWaitTimer) {
@@ -101,7 +100,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     _timerGhost = 0;
                 }
             }
-
         }
     }
 }
