@@ -81,12 +81,34 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
         private void UpdateSelection() {
-            if(_characterType == CharacterType.Ghost) {
-                _selectorGhost[_y, _x].GetComponent<Image>().sprite = _ghostSelectorOutline;
-                Debug.Log("Change");
+            foreach(var obj in _selectorGhost) {
+                obj.GetComponent<Image>().sprite = _transparentSprite;
             }
-            else if(_characterType == CharacterType.Human) {
-                _selectorHuman[_y, _x].GetComponent<Image>().sprite = _humanSelectorOutline;
+
+            foreach(var obj in _selectorHuman) {
+                obj.GetComponent<Image>().sprite = _transparentSprite;
+            }
+
+            switch(_characterType) {
+                case CharacterType.Ghost:
+                    _selectorGhost[_y, _x].GetComponent<Image>().sprite = _ghostSelectorOutline;
+                    break;
+                case CharacterType.Human:
+                    _selectorHuman[_y, _x].GetComponent<Image>().sprite = _humanSelectorOutline;
+                    break;
+            }
+
+            if(_secondInventory.InventoryActive) {
+                switch(_secondInventory.CharacterType) {
+                    case CharacterType.Ghost:
+                        _selectorGhost[_secondInventory.Y, _secondInventory.X].GetComponent<Image>().sprite = _ghostSelectorOutline;
+                        break;
+                    case CharacterType.Human:
+                        _selectorHuman[_secondInventory.Y, _secondInventory.X].GetComponent<Image>().sprite = _humanSelectorOutline;
+                        break;
+                    default:
+                        throw new ArgumentException("Your second Inventory does not have a valid character type.");
+                }
             }
         }
 
