@@ -50,15 +50,19 @@ public class GhostParticleHandler : MonoBehaviour {
 		_particle.GetComponent<Renderer>().material = _material;
 		var particleMaster = _particle;
 		var particleShape = _particle.shape;
+		var particleCollision = _particle.collision;
 
 		particleMaster.startSpeed = _particleStartSpeed;
 		particleMaster.startSize = _particleStartSize;
 		particleMaster.maxParticles = _particleMaxParticles;
 		particleMaster.startLifetime = _particleStartLifeTime;
+		particleMaster.startColor = _particleColor;
+		
 		particleShape.radius = _particleRadius;
 		particleShape.shapeType = ParticleSystemShapeType.Circle;
 		particleShape.normalOffset = _particleNormalOffset;
-		particleMaster.startColor = _particleColor;
+
+		particleCollision.type = ParticleSystemCollisionType.World;
 	}
 
 	private void UpdateParticleHandler() {
