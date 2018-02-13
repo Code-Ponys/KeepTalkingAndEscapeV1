@@ -80,5 +80,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
             throw new ArgumentException("Item is not in Database. Please check the database file.");
         } 
+        public List<Item> Inventory {
+            get {return _inventory;}
+            set {_inventory = value;}
+        }
+
+        public List<Item> ItemsDatabase {
+            get {return _itemDatabase.ItemDatabaseList;}
+            set {_itemDatabase.ItemDatabaseList = value;}
+        }
     }
 }
