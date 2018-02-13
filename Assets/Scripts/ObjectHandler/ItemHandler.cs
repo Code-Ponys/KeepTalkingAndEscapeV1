@@ -28,14 +28,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <param name="item2"></param>
         /// <returns>Returns true, if the combination was valid.</returns>
         public bool ItemsCombineable(Item item1, Item item2) {
-            if(item1.Combineable && item2.Combineable)
-                if(item1.CombineWith == CombineWith.Item && item2.CombineWith == CombineWith.Item)
-                    if(item1.CombineWithItem == item2.ItemId && item2.CombineWithItem == item1.ItemId) {
-                        AddItemToInv(item1.NextItem);
-                        RemoveItemFromInventory(item1.ItemId);
-                        RemoveItemFromInventory(item2.ItemId);
-                        return true;
-                    }
+            if(!item1.Combineable || !item2.Combineable) return false;
+            if(item1.CombineWith != CombineWith.Item || item2.CombineWith != CombineWith.Item) return false;
+            if(item1.CombineWithItem != item2.ItemId || item2.CombineWithItem != item1.ItemId) return false;
+            AddItemToInv(item1.NextItem);
+            RemoveItemFromInventory(item1.ItemId);
+            RemoveItemFromInventory(item2.ItemId);
+            return true;
 
             return false;
         }
