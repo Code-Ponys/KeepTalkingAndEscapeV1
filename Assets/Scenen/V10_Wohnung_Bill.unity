@@ -2407,6 +2407,14 @@ Prefab:
       propertyPath: InitialModule.startSize.scalar
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: bcf46e46336114145b09deb1db11d480, type: 2}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800004, guid: bcf46e46336114145b09deb1db11d480, type: 2}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bcf46e46336114145b09deb1db11d480, type: 2}
   m_IsPrefabParent: 0
@@ -2781,6 +2789,34 @@ CanvasRenderer:
 GameObject:
   m_PrefabParentObject: {fileID: 100008, guid: a55008299abc5a24fb3a9e042fa52843, type: 3}
   m_PrefabInternal: {fileID: 1606006228}
+--- !u!114 &1076299346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1076299344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a427107eed8004b43b58be61430305cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 1076299344}
+  _material: {fileID: 2100000, guid: 8371c910b6db2463391a051e571e2558, type: 2}
+  _particleStartSpeed: 0.01
+  _particleStartLifeTime: 1
+  _particleStartSize: 0.1
+  _particleRadius: 0.1
+  _particlePositionX: 0
+  _particlePositionY: 5
+  _particlePositionZ: 20
+  _particleRotationX: 90
+  _particleRotationY: 0
+  _particleRotationZ: 0
+  _particleMaxParticles: 100
+  _particleNormalOffset: 0.1
+  _particleSizeMin: 0.1
+  _particleSizeMax: 0.2
+  _particleColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1076299347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2811,25 +2847,6 @@ MonoBehaviour:
   _onlyHuman: 0
   _canObjectDamage: 0
   _canDisableObjectDamage: 0
---- !u!114 &1076299350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1076299344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54281b0c60cb1fd409ba0d2aca324e98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1076299344}
-  _material: {fileID: 2100000, guid: 8371c910b6db2463391a051e571e2558, type: 2}
-  _lightRange: 30
-  _lightIntensity: 10
-  _lightPositionX: 0
-  _lightPositionY: 0
-  _lightPositionZ: 0
-  _lightColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1096397767
 Prefab:
   m_ObjectHideFlags: 0
@@ -4984,7 +5001,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 6400006, guid: a55008299abc5a24fb3a9e042fa52843, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a55008299abc5a24fb3a9e042fa52843, type: 3}
