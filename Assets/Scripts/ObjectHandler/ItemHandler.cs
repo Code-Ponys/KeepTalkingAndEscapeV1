@@ -43,14 +43,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// Search in the item database for the item and adds it to the inventory.
         /// </summary>
         /// <param name="Item you want to add"></param>
-        public void AddItemToInv(ItemId itemId) {
-            foreach(var obj in _itemsDatabase) {
-                if(obj.ItemId == itemId) {
-                    _inventory.Add(obj);
-                    return;
-                }
+        public void AddItemToInv(string itemId) {
+            foreach(var obj in _itemDatabase.ItemDatabaseList) {
+                if(!string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) throw new ArgumentException("Item is not in Databse. Please Check you database file.");
+                _inventory.Add(obj);
+                return;
 
-                throw new ArgumentException("Item is not in Databse. Please Check you database file.");
             }
         }
 
@@ -58,10 +56,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// Removes the Item from the inventory.
         /// </summary>
         /// <param name="itemId"></param>
-        private void RemoveItemFromInventory(ItemId itemId) {
+        private void RemoveItemFromInventory(string itemId) {
             for(int i = 0; i < _inventory.Count; i++) {
                 var obj = _inventory[i];
-                if(obj.ItemId == itemId) {
+                if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
                     _inventory.RemoveAt(i);
                     return;
                 }
@@ -74,9 +72,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <param name="itemId"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        private Item GetItemFromDatabase(ItemId itemId) {
-            foreach(var obj in _itemsDatabase) {
-                if(obj.ItemId == itemId) {
+        private Item GetItemFromDatabase(string itemId) {
+            foreach(var obj in _itemDatabase.ItemDatabaseList) {
+                if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
                     return obj;
                 }
             }
