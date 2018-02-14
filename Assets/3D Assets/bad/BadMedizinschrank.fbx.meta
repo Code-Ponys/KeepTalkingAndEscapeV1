@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bf06fd19b79318c4ebb4dcfaa8c80cb6
-timeCreated: 1518088327
+timeCreated: 1518621698
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -19,9 +19,9 @@ ModelImporter:
     3300000: MS_Door_Left
     3300002: MS_Door_Right
     3300004: MS_Schrank
-    4300000: MS_Door_Left
+    4300000: MS_Door_Right
     4300002: MS_Schrank
-    4300004: MS_Door_Right
+    4300004: MS_Door_Left
     6400000: MS_Door_Left
     6400002: MS_Door_Right
     6400004: MS_Schrank
@@ -29,8 +29,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: initialShadingGroup.003
-    second: {fileID: 2100000, guid: 4a8b1eac18019da458b39658abdba0a2, type: 2}
+      name: No Name
+    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -60,7 +60,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 150
+    globalScale: 100
     meshCompression: 0
     addColliders: 1
     importVisibility: 1

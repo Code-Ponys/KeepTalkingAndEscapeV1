@@ -25,9 +25,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         private void Start() {
             _itemDatabase = new ItemDatabase();
-            //_itemDatabase.GenerateTestdatabase();
-
             _itemDatabase = ItemDatabaseHandler.LoadDataBase();
+            _itemList = _itemDatabase.ItemDatabaseList;
+            _inventory.Add(_itemList[0]);
+            _inventory.Add(_itemList[1]);
         }
 
         private void Update() {

@@ -12,7 +12,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Datatypes {
         private List<Item> _itemDatabase;
 
         private int _dataBaseVersion;
-
         private string _language;
 
         public void GenerateTestdatabase() {
