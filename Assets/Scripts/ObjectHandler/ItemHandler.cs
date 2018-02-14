@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NUnit.Framework.Constraints;
 using TrustfallGames.KeepTalkingAndEscape.DataController;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using UnityEditor;
@@ -8,9 +9,14 @@ using UnityEngine;
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class ItemHandler : MonoBehaviour {
         //All Items which can exist.
-        private List<Item> _itemDatabase;
-        
+        private ItemDatabase _itemDatabase;
+        [SerializeField] private int _itemsInDatabase;
+
+
+        private List<Item> _itemList;
+
         //The current Items in the Inventory
+
         private List<Item> _inventory = new List<Item>();
 
         public static ItemHandler GetItemHandler() {
@@ -18,7 +24,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void Start() {
-            //_itemDatabase = ItemDatabaseHandler.LoadDataBase().ItemDatabaseList;
+            _itemDatabase = new ItemDatabase();
+            //_itemDatabase.GenerateTestdatabase();
+
+            _itemDatabase = ItemDatabaseHandler.LoadDataBase();
+        }
+
+        private void Update() {
+            _itemsInDatabase = _itemDatabase.ItemDatabaseList.Count;
         }
 
         /// <summary>
@@ -35,7 +48,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             RemoveItemFromInventory(item1.ItemId);
             RemoveItemFromInventory(item2.ItemId);
             return true;
-
         }
 
         /// <summary>
@@ -43,11 +55,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// </summary>
         /// <param name="Item you want to add"></param>
         public void AddItemToInv(string itemId) {
-            foreach(var obj in _itemDatabase) {
+            foreach(var obj in _itemList) {
                 if(!string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) throw new ArgumentException("Item is not in Databse. Please Check you database file.");
                 _inventory.Add(obj);
                 return;
-
             }
         }
 
@@ -72,11 +83,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         private Item GetItemFromDatabase(string itemId) {
-            foreach(var obj in _itemDatabase) {
+            foreach(var obj in _itemList) {
                 if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
                     return obj;
                 }
             }
+
             throw new ArgumentException("Item is not in Database. Please check the database file.");
         }
 
@@ -87,6 +99,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         public List<Item> ItemsDatabase {
+            get {return _itemList;}
+            set {_itemList = value;}
+        }
+
+        public ItemDatabase ItemDatabase {
             get {return _itemDatabase;}
             set {_itemDatabase = value;}
         }

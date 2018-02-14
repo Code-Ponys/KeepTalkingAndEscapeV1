@@ -3,6 +3,7 @@ using System.IO;
 using NUnit.Framework.Constraints;
 using NUnit.Framework.Internal.Execution;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
+using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
@@ -62,11 +63,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.DataController {
                     }
                 }
 
-                if(combinePartnerValid == false) {
+                if(combinePartnerValid == false && testitem.CombineWithItem.ToLower() != "none") {
                     throw new Exception("The Item to combine with is not existent.Exception Occured with Item ID: " + testitem.ItemId);
                 }
 
-                if(combineItemValid == false) {
+                if(combineItemValid == false && testitem.CombineWithItem.ToLower() != "none") {
                     throw new Exception("The combined item id does not exist. Exception Occured with Item ID: " + testitem.ItemId);
                 }
 
@@ -82,7 +83,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.DataController {
         public static void WriteDatabase() {
             using(var writer = new StreamWriter(DataPath.ItemDatabase)) {
                 var serializer = new SerializerBuilder().Build();
-                var yaml = serializer.Serialize(ItemDatabase.GetInstance().ItemDatabaseList);
+                var yaml = serializer.Serialize(ItemHandler.GetItemHandler().ItemDatabase);
                 writer.WriteLine(yaml);
                 Debug.Log(yaml);
             }

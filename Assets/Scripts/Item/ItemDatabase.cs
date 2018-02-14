@@ -1,16 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TrustfallGames.KeepTalkingAndEscape.DataController;
+using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Datatypes {
-    public class ItemDatabase : MonoBehaviour {
+    [Serializable]
+    public class ItemDatabase {
 
+        [SerializeField]
         private List<Item> _itemDatabase;
 
-        private ItemDatabase() {
-        }
+        private int _dataBaseVersion;
 
-        private void Awake() {
+        private string _language;
+
+        public void GenerateTestdatabase() {
+            DataBaseVersion = 1;
+            Language = "de_DE";
+            
             _itemDatabase = new List<Item>();
             for(var i = 1; i < 11; i++) {
                 var obj = new Item {
@@ -26,14 +34,24 @@ namespace TrustfallGames.KeepTalkingAndEscape.Datatypes {
                 };
                 _itemDatabase.Add(obj);
             }
+
             ItemDatabaseHandler.WriteDatabase();
         }
 
-
-        public static ItemDatabase GetInstance() {
-            return GameObject.Find("ItemDatabase").GetComponent<ItemDatabase>();
+        public int DataBaseVersion {
+            get {return _dataBaseVersion;}
+            set {_dataBaseVersion = value;}
         }
 
+        public string Language {
+            get {return _language;}
+            set {_language = value;}
+        }
+
+        public static ItemDatabase GetInstance() {
+            return GameObject.Find("ItemHandler").GetComponent<ItemHandler>().ItemDatabase;
+        }
+        
         public List<Item> ItemDatabaseList {
             get {return _itemDatabase;}
             set {_itemDatabase = value;}
