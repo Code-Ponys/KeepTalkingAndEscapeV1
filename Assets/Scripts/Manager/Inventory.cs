@@ -1,4 +1,6 @@
 ﻿using System;
+using TrustfallGames.KeepTalkingAndEscape.Datatypes;
+using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
 using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.UI;
@@ -17,6 +19,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private CharacterType _characterType;
         [SerializeField] private Inventory _secondInventory;
         [SerializeField] private GameObject _inventoryVisibleObject;
+        private ItemHandler _itemHandler;
 
         private float _currentAxisDelay;
         [SerializeField] private Sprite _emptyItemSlot;
@@ -26,49 +29,21 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private bool _inventoryActive;
         private bool _lastInventoryState;
 
-
         private int _x = 0;
-
-
         private int _y = 0;
 
+        Item[] combine = new Item[2];
+
         // Use this for initialization
+
         private void Start() {
             SearchInventoryObjects();
             if(_secondInventory.CharacterType == _characterType) {
                 throw new Exception("Inventory must have different character types");
             }
+
+            _itemHandler = ItemHandler.GetItemHandler();
         }
-
-        private void SearchInventoryObjects() {
-            switch(_characterType) {
-                case CharacterType.Ghost:
-                    for(var i = 0; i < 4; i++) {
-                        for(var j = 0; j < 5; j++) {
-                            _slots[i, j] = GameObject.Find(i + "," + j + "G");
-                            _selectorHuman[i, j] = GameObject.Find(i + "," + j + "GSH");
-                            _selectorGhost[i, j] = GameObject.Find(i + "," + j + "GSG");
-                        }
-                    }
-
-                    Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
-                    break;
-                case CharacterType.Human:
-                    for(var i = 0; i < 4; i++) {
-                        for(var j = 0; j < 5; j++) {
-                            _slots[i, j] = GameObject.Find(i + "," + j + "H");
-                            _selectorHuman[i, j] = GameObject.Find(i + "," + j + "HSH");
-                            _selectorGhost[i, j] = GameObject.Find(i + "," + j + "HSG");
-                        }
-                    }
-
-                    Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
-                    break;
-                default:
-                    throw new Exception("Character type not set.");
-            }
-        }
-
 
         // Update is called once per frame
         private void Update() {
@@ -79,6 +54,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             }
         }
 
+        /// <summary>
+        /// Toggles Inventory visibility. Rearranges the items, if the other inventory is closed
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         private void InventoryVisible() {
             switch(_characterType) {
                 case CharacterType.Ghost:
@@ -93,9 +72,53 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     throw new Exception("CharacterType must be ghost or human");
             }
 
+            if(!_secondInventory.InventoryActive) {
+                RearrangeItems();
+            }
+
             _inventoryVisibleObject.SetActive(_inventoryActive);
         }
 
+        /// <summary>
+        /// Search all Inventory Objects for init.
+        /// </summary>
+        /// <exception cref="Exception"></exception>
+        private void SearchInventoryObjects() {
+            switch(_characterType) {
+                case CharacterType.Ghost:
+                    for(var i = 0; i < 4; i++) {
+                        for(var j = 0; j < 5; j++) {
+                            _slots[i, j] = GameObject.Find(i + "," + j + "G");
+                            _selectorHuman[i, j] = GameObject.Find(i + "," + j + "GSH");
+                            _selectorGhost[i, j] = GameObject.Find(i + "," + j + "GSG");
+                            _slots[i, j].AddComponent<ItemSlotHandler>().CharacterType = CharacterType.Ghost;
+                        }
+                    }
+
+                    Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
+                    break;
+                case CharacterType.Human:
+                    for(var i = 0; i < 4; i++) {
+                        for(var j = 0; j < 5; j++) {
+                            _slots[i, j] = GameObject.Find(i + "," + j + "H");
+                            _selectorHuman[i, j] = GameObject.Find(i + "," + j + "HSH");
+                            _selectorGhost[i, j] = GameObject.Find(i + "," + j + "HSG");
+                            _slots[i, j].AddComponent<ItemSlotHandler>().CharacterType = CharacterType.Human;
+                        }
+                    }
+
+                    Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
+                    break;
+                default:
+                    throw new Exception("Character type not set.");
+            }
+        }
+
+
+        /// <summary>
+        /// Updates the selection for both characters
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
         private void UpdateSelection() {
             foreach(var obj in _selectorGhost) {
                 obj.GetComponent<Image>().sprite = _transparentSprite;
@@ -136,8 +159,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             //Button input for human
             switch(_characterType) {
                 case CharacterType.Human:
-                    Debug.Log("Input Humyn Y: " + Input.GetAxis(ButtonNames.MoveHumanY));
-                    Debug.Log("Input Human X: " + Input.GetAxis(ButtonNames.MoveHumanX));
                     //Change current choosed Item
                     if(_currentAxisDelay < 0) {
                         if(Input.GetAxis(ButtonNames.MoveHumanX) < 0) {
@@ -170,12 +191,30 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                         _currentAxisDelay -= Time.deltaTime;
                     }
 
+                    if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
+                        if(_slots[_y, _x] != null) {
+                            if(combine[0] == null) {
+                                combine[0] = _slots[_y, _x].GetComponent<Item>();
+                            }
+                            else {
+                                combine[1] = _slots[_y, _x].GetComponent<Item>();
+                            }
+
+                            if(combine[0] != null && combine[1] != null) {
+                                if(_itemHandler.ItemsCombineable(combine[0], combine[1])) {
+                                    RearrangeItems();
+                                }
+
+                                combine[0] = null;
+                                combine[1] = null;
+                            }
+                        }
+                    }
+
                     break;
                 case CharacterType.Ghost:
                     //Change current choosed Item
                     if(_currentAxisDelay <= 0) {
-                        Debug.Log("Input Ghost Y: " + Input.GetAxis(ButtonNames.MoveGhostY));
-                        Debug.Log("Input Ghost X: " + Input.GetAxis(ButtonNames.MoveGhostX));
                         if(Input.GetAxis(ButtonNames.MoveGhostX) < 0) {
                             //Left
                             Debug.Log("Pressed Left");
@@ -216,8 +255,36 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             }
         }
 
+        /// <summary>
+        /// Rearrange all items in both inventories
+        /// </summary>
+        private void RearrangeItems() {
+            var list = _itemHandler.Inventory;
+            var listcount = 0;
+            foreach(var obj in _slots) {
+                obj.GetComponent<ItemSlotHandler>().Item = listcount > list.Count - 1 ? null : list[listcount];
+
+                listcount++;
+            }
+
+            listcount = 0;
+            foreach(var obj in _secondInventory._slots) {
+                obj.GetComponent<ItemSlotHandler>().Item = listcount > list.Count - 1 ? null : list[listcount];
+
+                listcount++;
+            }
+        }
+
+        public static Inventory GetInstance() {
+            return GameObject.Find("Ghost Inventory").GetComponent<Inventory>();
+        }
+
         private CharacterType CharacterType {
             get {return _characterType;}
+        }
+
+        public Sprite EmptyItemSlot {
+            get {return _emptyItemSlot;}
         }
 
         private int X {
@@ -231,6 +298,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         public bool InventoryActive {
             get {return _inventoryActive;}
             set {_inventoryActive = value;}
+        }
+
+        public static Inventory GetInstance(CharacterType characterType) {
+            if(characterType == CharacterType.Ghost) {
+                return GameObject.Find("GhostInventory").GetComponent<Inventory>();
+            }
+
+            return GameObject.Find("HumanInventory").GetComponent<Inventory>();
         }
     }
 }
