@@ -27,8 +27,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _itemDatabase = new ItemDatabase();
             _itemDatabase = ItemDatabaseHandler.LoadDataBase();
             _itemList = _itemDatabase.ItemDatabaseList;
-            _inventory.Add(_itemList[0]);
-            _inventory.Add(_itemList[1]);
         }
 
         private void Update() {
@@ -48,6 +46,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             AddItemToInv(item1.NextItem);
             RemoveItemFromInventory(item1.ItemId);
             RemoveItemFromInventory(item2.ItemId);
+            Debug.Log("Items combined");
             return true;
         }
 
@@ -57,10 +56,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <param name="Item you want to add"></param>
         public void AddItemToInv(string itemId) {
             foreach(var obj in _itemList) {
-                if(!string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) throw new ArgumentException("Item is not in Databse. Please Check you database file.");
+                if(!string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) continue;
                 _inventory.Add(obj);
                 return;
             }
+
+            throw new ArgumentException("Item is not in Database. Please Check you database file.");
         }
 
         /// <summary>
@@ -83,7 +84,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <param name="itemId"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        private Item GetItemFromDatabase(string itemId) {
+        public Item GetItemFromDatabase(string itemId) {
             foreach(var obj in _itemList) {
                 if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
                     return obj;

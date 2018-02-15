@@ -2,6 +2,7 @@
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.UI;
 
@@ -19,6 +20,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private CharacterType _characterType;
         [SerializeField] private Inventory _secondInventory;
         [SerializeField] private GameObject _inventoryVisibleObject;
+        [SerializeField] private Text _itemName;
+        [SerializeField] private Text _itemText;
+        [SerializeField] private Text _itemCombineText;
+
+
         private ItemHandler _itemHandler;
 
         private float _currentAxisDelay;
@@ -32,7 +38,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private int _x = 0;
         private int _y = 0;
 
-        Item[] combine = new Item[2];
+        GameObject[] combine = new GameObject[2];
 
         // Use this for initialization
 
@@ -51,6 +57,28 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             if(_inventoryActive) {
                 UpdateSelection();
                 InventoryInput();
+                UpdateUI();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void UpdateUI() {
+            if(_slots[_y, _x].GetComponent<ItemSlotHandler>().Item != null) {
+                var item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
+                _itemName.text = item.Name;
+                if(_characterType == CharacterType.Ghost) {
+                    _itemText.text = item.GhostDescription;
+                }
+                else {
+                    _itemText.text = item.HumanDescription;
+                }
+            }
+            else {
+                _itemName.text = "";
+                _itemText.text = "";
             }
         }
 
@@ -61,19 +89,31 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private void InventoryVisible() {
             switch(_characterType) {
                 case CharacterType.Ghost:
-                    if(Input.GetButtonDown(ButtonNames.GhostInventory))
+                    if(Input.GetButtonDown(ButtonNames.GhostInventory)) {
                         _inventoryActive = !_inventoryActive;
+                        if(_inventoryActive && !_secondInventory._inventoryActive) {
+                            RearrangeItems();
+                        }
+                        _itemCombineText.text = "";
+                        _x = 0;
+                        _y = 0;
+                    }
+
                     break;
                 case CharacterType.Human:
-                    if(Input.GetButtonDown(ButtonNames.HumanInventory))
+                    if(Input.GetButtonDown(ButtonNames.HumanInventory)) {
                         _inventoryActive = !_inventoryActive;
+                        if(_inventoryActive && !_secondInventory._inventoryActive) {
+                            RearrangeItems();
+                        }
+                        _itemCombineText.text = "";
+                        _x = 0;
+                        _y = 0;
+                    }
+
                     break;
                 default:
                     throw new Exception("CharacterType must be ghost or human");
-            }
-
-            if(!_secondInventory.InventoryActive) {
-                RearrangeItems();
             }
 
             _inventoryVisibleObject.SetActive(_inventoryActive);
@@ -95,6 +135,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                         }
                     }
 
+                    combine[0] = GameObject.Find("FirstG");
+                    combine[1] = GameObject.Find("SecondG");
+                    combine[0].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
+                    combine[1].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
+
                     Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
                     break;
                 case CharacterType.Human:
@@ -106,6 +151,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                             _slots[i, j].AddComponent<ItemSlotHandler>().CharacterType = CharacterType.Human;
                         }
                     }
+
+                    combine[0] = GameObject.Find("FirstH");
+                    combine[1] = GameObject.Find("SecondH");
+                    combine[0].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
+                    combine[1].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
 
                     Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
                     break;
@@ -192,21 +242,34 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     }
 
                     if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
-                        if(_slots[_y, _x] != null) {
-                            if(combine[0] == null) {
-                                combine[0] = _slots[_y, _x].GetComponent<Item>();
+                        if(_slots[_y, _x].GetComponent<ItemSlotHandler>().Item != null) {
+                            if(combine[0].GetComponent<ItemCombineSlotHandler>().Item == null) {
+                                combine[0].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
+                                _secondInventory.combine[0].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
                             }
                             else {
-                                combine[1] = _slots[_y, _x].GetComponent<Item>();
+                                combine[1].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
+                                _secondInventory.combine[1].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
                             }
 
-                            if(combine[0] != null && combine[1] != null) {
-                                if(_itemHandler.ItemsCombineable(combine[0], combine[1])) {
+                            if(combine[0].GetComponent<ItemCombineSlotHandler>().Item != null && combine[1].GetComponent<ItemCombineSlotHandler>().Item != null) {
+                                Debug.Log("Trying to combine");
+                                if(_itemHandler.ItemsCombineable(combine[0].GetComponent<ItemCombineSlotHandler>().Item, combine[1].GetComponent<ItemCombineSlotHandler>().Item)) {
+                                    var item = _itemHandler.GetItemFromDatabase(combine[0].GetComponent<ItemCombineSlotHandler>().Item.NextItem);
+                                    _itemCombineText.text = "Kombinieren erfolgreich. " + item.Name + " erhalten";
+                                    _secondInventory._itemCombineText.text = "Kombinieren erfolgreich. " + item.Name + " erhalten";
                                     RearrangeItems();
                                 }
+                                else {
+                                    _itemCombineText.text = "Diese Gegenstände können nicht kombiniert werden.";
+                                }
 
-                                combine[0] = null;
-                                combine[1] = null;
+                                combine[0].GetComponent<ItemCombineSlotHandler>().Item = null;
+                                combine[1].GetComponent<ItemCombineSlotHandler>().Item = null;
+                                if(_characterType == CharacterType.Human) {
+                                    _secondInventory.combine[0].GetComponent<ItemCombineSlotHandler>().Item = null;
+                                    _secondInventory.combine[1].GetComponent<ItemCombineSlotHandler>().Item = null;
+                                }
                             }
                         }
                     }

@@ -41,10 +41,13 @@ namespace UnityStandardAssets.Characters.FirstPerson {
         private bool m_Jumping;
         private AudioSource m_AudioSource;
         private GameManager _gameManager;
+        private Inventory _inventory;
 
         // Use this for initialization
         private void Start() {
             _gameManager = GameManager.GetGameManager();
+            _inventory = Inventory.GetInstance(CharacterType.Ghost);
+            
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -156,7 +159,7 @@ namespace UnityStandardAssets.Characters.FirstPerson {
 
 
         private void GetInput(out float speed) {
-            if(_gameManager.GhostDrivenAnimationActive) {
+            if(_gameManager.GhostDrivenAnimationActive || _inventory.InventoryActive) {
                 speed = 2;
                 return;
             }
@@ -164,7 +167,6 @@ namespace UnityStandardAssets.Characters.FirstPerson {
             // Read input
             float horizontal = CrossPlatformInputManager.GetAxis(ButtonNames.MoveGhostX);
             float vertical = CrossPlatformInputManager.GetAxis(ButtonNames.MoveGhostY);
-
             bool waswalking = m_IsWalking;
 
 #if !MOBILE_INPUT
