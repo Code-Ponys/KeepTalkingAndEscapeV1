@@ -116,10 +116,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     throw new Exception("CharacterType must be ghost or human");
             }
 
-            if(!_secondInventory.InventoryActive) {
-                RearrangeItems();
-            }
-
             _inventoryVisibleObject.SetActive(_inventoryActive);
         }
 
