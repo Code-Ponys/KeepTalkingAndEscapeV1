@@ -48,7 +48,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _ghostDrivenAnimationActive;
         private bool _ghostDrivenAnimationActiveLast;
         private bool _motherObjectActive;
-        [SerializeField] private bool _canBeTakenToInventory;
+        [SerializeField] public bool _canBeTakenToInventory;
         [SerializeField] private bool _canBeTakenButStayInScene;
         [SerializeField] private bool _onedirectionAnimation = false;
         [SerializeField] private bool _activateGravityAtEnd;
