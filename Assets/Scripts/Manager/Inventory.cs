@@ -135,6 +135,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                         }
                     }
 
+                    combine[0] = GameObject.Find("FirstG");
+                    combine[1] = GameObject.Find("SecondG");
+                    combine[0].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
+                    combine[1].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
+
                     Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
                     break;
                 case CharacterType.Human:
@@ -146,6 +151,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                             _slots[i, j].AddComponent<ItemSlotHandler>().CharacterType = CharacterType.Human;
                         }
                     }
+
+                    combine[0] = GameObject.Find("FirstH");
+                    combine[1] = GameObject.Find("SecondH");
+                    combine[0].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
+                    combine[1].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
 
                     Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
                     break;
