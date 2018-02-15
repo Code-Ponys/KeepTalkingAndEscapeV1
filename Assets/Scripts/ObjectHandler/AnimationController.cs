@@ -106,6 +106,51 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
         }
 
+//        /// <summary>
+//        /// Moves object by pressing the same button consecutively
+//        /// </summary>
+//        private void MoveOnKeySmash() {
+//            //Abbrechen
+//            if(Input.GetButtonDown(GetButtonName(KeyType.A))) {
+//                Debug.Log("Leave Object");
+//                _ghostDrivenAnimationActive = false;
+//                if(_objectInteractionListener._canBeTakenToInventory) {
+//                    _objectInteractionListener._canBePickedUpAfterGhostAction = false;
+//                }
+//                if(_activateObjectPhysikAfterAnimation) {
+//                    _rigidbody.useGravity = true;
+//                    _rigidbody.isKinematic = false;
+//                    _animationActive = false;
+//                }
+//            }
+//
+//            if(GhostDrivenAnimationActive)
+//                if(_animationType == AnimationType.GhostMoveOnKeySmash) {
+//                    //Button, which sould be smashed
+//                    if(Input.GetButtonDown(GetButtonName(_keyType))) {
+//                        //Add More Frames to procedure
+//                        if(_framesToNextStop == 0 && _animationDurationInFrames != _frameCount) {
+//                            _framesToNextStop = _animationStepsPerKlick;
+//                        }
+//                    }
+//
+//                    //If there are frames left, he proceeds the animation
+//                    if(_framesToNextStop != 0 && _animationDurationInFrames != _frameCount) {
+//                        _framesToNextStop--;
+//                        TransformObject(_positionStepOpen, _scaleStepOpen);
+//                    }
+//                    //Checks if animation is processed
+//                    else if(_animationDurationInFrames == _frameCount) {
+//                        _framesToNextStop = 0;
+//                        _open = true;
+//                        SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleBase);
+//                    }
+//                }
+//
+//            if(_open && !_onedirectionAnimation) {
+//            }
+//        }
+        
         /// <summary>
         /// Moves object by pressing the same button consecutively
         /// </summary>
@@ -113,15 +158,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             //Abbrechen
             if(Input.GetButtonDown(GetButtonName(KeyType.A))) {
                 Debug.Log("Leave Object");
-                _ghostDrivenAnimationActive = false;
-                if(_objectInteractionListener._canBeTakenToInventory) {
-                    _objectInteractionListener._canBePickedUpAfterGhostAction = false;
-                }
-                if(_activateObjectPhysikAfterAnimation) {
-                    _rigidbody.useGravity = true;
-                    _rigidbody.isKinematic = false;
-                    _animationActive = false;
-                }
             }
 
             if(GhostDrivenAnimationActive)
@@ -142,6 +178,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     //Checks if animation is processed
                     else if(_animationDurationInFrames == _frameCount) {
                         _framesToNextStop = 0;
+                        _ghostDrivenAnimationActive = false;
+                        if(_objectInteractionListener._canBeTakenToInventory) {
+                            _objectInteractionListener._canBePickedUpAfterGhostAction = false;
+                        }
+                        if(_activateObjectPhysikAfterAnimation) {
+                            _rigidbody.useGravity = true;
+                            _rigidbody.isKinematic = false;
+                            _animationActive = false;
+                            }
                         _open = true;
                         SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleBase);
                     }
