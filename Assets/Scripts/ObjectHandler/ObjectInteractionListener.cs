@@ -60,6 +60,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private void Start() {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
+            _itemHandler = ItemHandler.GetItemHandler();
             
             _uiManager.GhostHoverText = "";
             _uiManager.GhostFlavourText = "";
@@ -175,13 +176,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     else {
                         // Disable GameObject and Put the Gameobject in the Inventory
                         if(_canBeTakenToInventory) {
-//                            _itemHandler.AddItemToInv(_itemName);
+                            _itemHandler.AddItemToInv(_itemName);
                             _meshGameObject.SetActive(false);
                             _uiManager.HumanHoverText = "";
                         }
                         // Put gameobject only in inventory but disables further inventory adding
                         else if(_canBeTakenButStayInScene) {
-//                            _canBeTakenButStayInScene = false;
+                            _canBeTakenButStayInScene = false;
                             _itemHandler.AddItemToInv(_itemName);
                         }
                         //Starts Animation, if it isnt disabled
