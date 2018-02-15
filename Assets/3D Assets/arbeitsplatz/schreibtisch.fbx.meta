@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 82b3360574e3a5f419bf8f92e48deaf4
-timeCreated: 1517829244
+timeCreated: 1518712488
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -23,10 +23,10 @@ ModelImporter:
     3300002: ST_Schublade1
     3300004: ST_Schublade2
     3300006: ST_Tisch
-    4300000: ST_Ablage
-    4300002: ST_Schublade1
-    4300004: ST_Schublade2
-    4300006: ST_Tisch
+    4300000: ST_Tisch
+    4300002: ST_Schublade2
+    4300004: ST_Schublade1
+    4300006: ST_Ablage
     6400000: ST_Ablage
     6400002: ST_Schublade1
     6400004: ST_Schublade2
@@ -35,8 +35,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: fc827094fd229114a85a31b0ca4f58fa, type: 2}
+      name: Material.001
+    second: {fileID: 2100000, guid: 93c271d665c8e5b41be7b23306297d4f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -66,7 +66,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 180
+    globalScale: 100
     meshCompression: 0
     addColliders: 1
     importVisibility: 1
