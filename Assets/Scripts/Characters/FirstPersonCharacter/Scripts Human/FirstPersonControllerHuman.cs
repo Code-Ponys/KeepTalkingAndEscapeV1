@@ -31,6 +31,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private AudioClip m_JumpSound;           // the sound played when character leaves the ground.
         [SerializeField] private AudioClip m_LandSound;           // the sound played when character touches back on ground.
 
+        private Inventory _inventory;
+        
         private Camera m_Camera;
         private bool m_Jump;
         private float m_YRotation;
@@ -48,6 +50,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Use this for initialization
         private void Start()
         {
+            _inventory = Inventory.GetInstance(CharacterType.Human);
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = GameObject.Find("FirstPersonCharacterHuman").GetComponent<Camera>();
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -175,6 +178,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void GetInput(out float speed)
         {
+            if(_inventory.InventoryActive) {
+                speed = 2;
+                return;
+            }
+            
             // Read input
             float horizontal = CrossPlatformInputManager.GetAxis(ButtonNames.MoveHumanX);
             float vertical = CrossPlatformInputManager.GetAxis(ButtonNames.MoveHumanY);
