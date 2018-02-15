@@ -2,6 +2,7 @@
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.UI;
 
@@ -88,7 +89,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private void InventoryVisible() {
             switch(_characterType) {
                 case CharacterType.Ghost:
-                    if(Input.GetButtonDown(ButtonNames.GhostInventory))
                     if(Input.GetButtonDown(ButtonNames.GhostInventory)) {
                         _inventoryActive = !_inventoryActive;
                         if(_inventoryActive && !_secondInventory._inventoryActive) {
