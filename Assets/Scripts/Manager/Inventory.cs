@@ -37,7 +37,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private int _x = 0;
         private int _y = 0;
 
-        Item[] combine = new Item[2];
+        GameObject[] combine = new GameObject[2];
 
         // Use this for initialization
 
