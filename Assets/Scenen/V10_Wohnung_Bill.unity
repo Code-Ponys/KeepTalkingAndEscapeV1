@@ -43,7 +43,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -89,7 +89,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 2e7127f78d08ab34397d04b08bedc094,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -548,6 +549,21 @@ MonoBehaviour:
   _ghostFlavourText: {fileID: 1662987296}
   _humanFlavourText: {fileID: 1764738551}
   _healthText: {fileID: 1221314825}
+  _inventoryGhost: {fileID: 0}
+  _inventoryHuman: {fileID: 0}
+  _a: {fileID: 0}
+  _b: {fileID: 0}
+  _x: {fileID: 0}
+  _y: {fileID: 0}
+  _start: {fileID: 0}
+  _back: {fileID: 0}
+  _rb: {fileID: 0}
+  _lb: {fileID: 0}
+  _rt: {fileID: 0}
+  _lt: {fileID: 0}
+  _pad: {fileID: 0}
+  _l: {fileID: 0}
+  _r: {fileID: 0}
   _flavourTextWaitTimer: 5
 --- !u!4 &256732445
 Transform:
@@ -5008,7 +5024,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &1606006229 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: a55008299abc5a24fb3a9e042fa52843, type: 3}
+  m_PrefabParentObject: {fileID: 400002, guid: a55008299abc5a24fb3a9e042fa52843, type: 3}
   m_PrefabInternal: {fileID: 1606006228}
 --- !u!4 &1654629184 stripped
 Transform:

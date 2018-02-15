@@ -15,7 +15,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private float _currentAxisDelay;
         private static int _currentPressedButtonHuman;
         private static int _currentPressedButtonGhost;
-        private ControllerChecker _controllerChecker;
         
         [SerializeField] private Sprite _outline;
         [SerializeField] private Sprite _defaultSprite;
@@ -185,6 +184,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private void SceneManagement() {
             if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) {
                 SceneManager.LoadScene("V10_Wohnung_Bill");
+            }
+
+            if(_currentPressedButtonHuman == 4 && _currentPressedButtonGhost == 4) {
+                Application.Quit();
             }
         }
         
