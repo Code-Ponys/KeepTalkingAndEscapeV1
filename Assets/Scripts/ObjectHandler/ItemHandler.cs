@@ -83,7 +83,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <param name="itemId"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
-        private Item GetItemFromDatabase(string itemId) {
+        public Item GetItemFromDatabase(string itemId) {
             foreach(var obj in _itemList) {
                 if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
                     return obj;
