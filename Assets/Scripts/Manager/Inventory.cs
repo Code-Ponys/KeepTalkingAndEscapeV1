@@ -56,6 +56,28 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             if(_inventoryActive) {
                 UpdateSelection();
                 InventoryInput();
+                UpdateUI();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void UpdateUI() {
+            if(_slots[_y, _x].GetComponent<ItemSlotHandler>().Item != null) {
+                var item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
+                _itemName.text = item.Name;
+                if(_characterType == CharacterType.Ghost) {
+                    _itemText.text = item.GhostDescription;
+                }
+                else {
+                    _itemText.text = item.HumanDescription;
+                }
+            }
+            else {
+                _itemName.text = "";
+                _itemText.text = "";
             }
         }
 
