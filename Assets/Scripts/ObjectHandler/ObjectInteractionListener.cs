@@ -14,6 +14,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private GameObject _SecondGameObject;
         [SerializeField] private string _objectDescription;
         [SerializeField] private string _objectFlavourText;
+        [SerializeField] private string _itemName;
 
         [SerializeField] private AnimationType _animationType;
         [SerializeField] private ActivateChildWhen _activateChildWhen;
@@ -37,6 +38,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         private UIManager _uiManager;
         private GameManager _gameManager;
+        private ItemHandler _itemHandler;
         private bool _humanMessageActive;
         private bool _ghostMessageActive;
         private bool _humanLookingAtMe;
@@ -46,6 +48,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _ghostDrivenAnimationActive;
         private bool _ghostDrivenAnimationActiveLast;
         private bool _motherObjectActive;
+        [SerializeField] private bool _canBeTakenToInventory;
+        [SerializeField] private bool _canBeTakenButStayInScene;
         [SerializeField] private bool _onedirectionAnimation = false;
         [SerializeField] private bool _activateGravityAtEnd;
         [SerializeField] private bool _onlyHuman;
@@ -169,10 +173,22 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         _uiManager.HealthText = _gameManager.Human.GetComponent<FirstPersonControllerHuman>().Health.ToString();
                     }
                     else {
+                        // Disable GameObject and Put the Gameobject in the Inventory
+                        if(_canBeTakenToInventory) {
+//                            _itemHandler.AddItemToInv(_itemName);
+                            _meshGameObject.SetActive(false);
+                            _uiManager.HumanHoverText = "";
+                        }
+                        // Put gameobject only in inventory but disables further inventory adding
+                        else if(_canBeTakenButStayInScene) {
+//                            _canBeTakenButStayInScene = false;
+                            _itemHandler.AddItemToInv(_itemName);
+                        }
+                        //Starts Animation, if it isnt disabled
                         if(AnimationType == AnimationType.Open) {
                             _animationController.StartNewAnimation(this);
                         }
-
+                        //Used for Linked objects
                         if(Input.GetButton(ButtonNames.HumanInteract)) {
                             if(_animationType == AnimationType.OpenLinkedOnHold) {
                                 _SecondGameObject.GetComponent<ObjectInteractionListener>().StartAnimation(_meshGameObject);
@@ -181,13 +197,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     }
                 }
             }
-
+            //Mostly same like player 1 but for player 2
             if(_ghostReachable && !_onlyHuman) {
                 if(_gameManager.GhostDrivenAnimationActive) return;
                 if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
                     _uiManager.GhostFlavourText = _objectFlavourText;
                 }
                 else if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
+                    //Disables damage for linked object
                     if(_canDisableObjectDamage) {
                         _SecondGameObject.GetComponent<ObjectInteractionListener>()._canObjectDamage = false;
                     }
