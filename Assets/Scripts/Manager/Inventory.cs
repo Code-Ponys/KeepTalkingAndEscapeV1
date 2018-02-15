@@ -19,6 +19,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private CharacterType _characterType;
         [SerializeField] private Inventory _secondInventory;
         [SerializeField] private GameObject _inventoryVisibleObject;
+        [SerializeField] private Text _itemName;
+        [SerializeField] private Text _itemText;
+        [SerializeField] private Text _itemCombineText;
+
+
         private ItemHandler _itemHandler;
 
         private float _currentAxisDelay;
