@@ -114,7 +114,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(Input.GetButtonDown(GetButtonName(KeyType.A))) {
                 Debug.Log("Leave Object");
                 _ghostDrivenAnimationActive = false;
-                _objectInteractionListener._canBeTakenToInventory = true;
+                if(_objectInteractionListener._canBeTakenToInventory) {
+                    _objectInteractionListener._canBePickedUpAfterGhostAction = false;
+                }
                 if(_activateObjectPhysikAfterAnimation) {
                     _rigidbody.useGravity = true;
                     _rigidbody.isKinematic = false;

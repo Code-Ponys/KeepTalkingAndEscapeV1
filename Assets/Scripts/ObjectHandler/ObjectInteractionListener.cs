@@ -48,6 +48,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _ghostDrivenAnimationActive;
         private bool _ghostDrivenAnimationActiveLast;
         private bool _motherObjectActive;
+        [SerializeField] public bool _canBePickedUpAfterGhostAction;
         [SerializeField] public bool _canBeTakenToInventory;
         [SerializeField] private bool _canBeTakenButStayInScene;
         [SerializeField] private bool _onedirectionAnimation = false;
@@ -175,7 +176,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     }
                     else {
                         // Disable GameObject and Put the Gameobject in the Inventory
-                        if(_canBeTakenToInventory) {
+                        if(_canBeTakenToInventory && _canBePickedUpAfterGhostAction != true) {
                             _itemHandler.AddItemToInv(_itemName);
                             _meshGameObject.SetActive(false);
                             _uiManager.HumanHoverText = "";
