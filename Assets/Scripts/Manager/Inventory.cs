@@ -242,21 +242,34 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     }
 
                     if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
-                        if(_slots[_y, _x] != null) {
-                            if(combine[0] == null) {
-                                combine[0] = _slots[_y, _x].GetComponent<Item>();
+                        if(_slots[_y, _x].GetComponent<ItemSlotHandler>().Item != null) {
+                            if(combine[0].GetComponent<ItemCombineSlotHandler>().Item == null) {
+                                combine[0].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
+                                _secondInventory.combine[0].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
                             }
                             else {
-                                combine[1] = _slots[_y, _x].GetComponent<Item>();
+                                combine[1].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
+                                _secondInventory.combine[1].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
                             }
 
-                            if(combine[0] != null && combine[1] != null) {
-                                if(_itemHandler.ItemsCombineable(combine[0], combine[1])) {
+                            if(combine[0].GetComponent<ItemCombineSlotHandler>().Item != null && combine[1].GetComponent<ItemCombineSlotHandler>().Item != null) {
+                                Debug.Log("Trying to combine");
+                                if(_itemHandler.ItemsCombineable(combine[0].GetComponent<ItemCombineSlotHandler>().Item, combine[1].GetComponent<ItemCombineSlotHandler>().Item)) {
+                                    var item = _itemHandler.GetItemFromDatabase(combine[0].GetComponent<ItemCombineSlotHandler>().Item.NextItem);
+                                    _itemCombineText.text = "Kombinieren erfolgreich. " + item.Name + " erhalten";
+                                    _secondInventory._itemCombineText.text = "Kombinieren erfolgreich. " + item.Name + " erhalten";
                                     RearrangeItems();
                                 }
+                                else {
+                                    _itemCombineText.text = "Diese Gegenstände können nicht kombiniert werden.";
+                                }
 
-                                combine[0] = null;
-                                combine[1] = null;
+                                combine[0].GetComponent<ItemCombineSlotHandler>().Item = null;
+                                combine[1].GetComponent<ItemCombineSlotHandler>().Item = null;
+                                if(_characterType == CharacterType.Human) {
+                                    _secondInventory.combine[0].GetComponent<ItemCombineSlotHandler>().Item = null;
+                                    _secondInventory.combine[1].GetComponent<ItemCombineSlotHandler>().Item = null;
+                                }
                             }
                         }
                     }
