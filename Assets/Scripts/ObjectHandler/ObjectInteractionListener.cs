@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
+using UnityEditor;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class ObjectInteractionListener : MonoBehaviour {
@@ -24,6 +25,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private float _timer = 0f;
 
         [SerializeField] private KeyType _keyType;
+        [SerializeField] private int _ghostReachHeight = 300;
         [Range(1, 1000)] [SerializeField] private int _animationDurationInFrames = 60;
         [Range(1, 1000)] [SerializeField] private int _animationStepsPerKlick = 10;
 
@@ -54,7 +56,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private bool _onedirectionAnimation = false;
         [SerializeField] private bool _activateGravityAtEnd;
         [SerializeField] private bool _onlyHuman;
-        [SerializeField] private bool _canObjectDamage;
+        [SerializeField] private PlayerDamage _playerDamage;
         [SerializeField] private bool _canDisableObjectDamage;
 
 
@@ -170,10 +172,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _uiManager.HumanFlavourText = _objectFlavourText;
                 }
                 else if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
-                    if(_canObjectDamage) {
+                    if(_playerDamage == PlayerDamage.DamageOnTouch) {
                         _gameManager.Human.GetComponent<FirstPersonControllerHuman>().TakeHealth(1);
                         _uiManager.HealthText = _gameManager.Human.GetComponent<FirstPersonControllerHuman>().Health.ToString();
                     }
+                    
                     else {
                         // Disable GameObject and Put the Gameobject in the Inventory
                         if(_canBeTakenToInventory && _canBePickedUpAfterGhostAction != true) {
@@ -208,7 +211,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 else if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
                     //Disables damage for linked object
                     if(_canDisableObjectDamage) {
-                        _SecondGameObject.GetComponent<ObjectInteractionListener>()._canObjectDamage = false;
+                        _SecondGameObject.GetComponent<ObjectInteractionListener>()._playerDamage = PlayerDamage.None;
                     }
                     if(AnimationType != AnimationType.None) {
                         if(_animationType == AnimationType.Open)
@@ -262,7 +265,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             var characterpos = obj.GetComponent<Transform>().position;
             var closesPointToCharacter = _meshGameObject.GetComponent<Collider>().ClosestPointOnBounds(characterpos);
             characterpos.y = 0;
-            if(closesPointToCharacter.y > 200) {
+            if(closesPointToCharacter.y > _ghostReachHeight) {
                 return false;
             }
             closesPointToCharacter.y = 0;
