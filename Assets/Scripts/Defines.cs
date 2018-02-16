@@ -21,6 +21,12 @@ public enum KeyType {
     L2
 }
 
+public enum PlayerDamage {
+    None,
+    DamageOnTouch,
+    DamageAfterFail
+}
+
 public enum ActivateChildWhen {
     AnimationDone,
     ButtonPressed
