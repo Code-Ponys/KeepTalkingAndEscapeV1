@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
     public class MainMenu : MonoBehaviour {
 
         [SerializeField] private GameObject[] _menu;
+        [SerializeField] private String[] _scene;
 
         [SerializeField] private float _axisDelay = 0.5f;
         [SerializeField] private CharacterType _characterType;
@@ -183,7 +185,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void SceneManagement() {
             if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) {
-                SceneManager.LoadScene("V11_Art");
+                SceneManager.LoadScene(_scene[0]);
             }
 
             if(_currentPressedButtonHuman == 4 && _currentPressedButtonGhost == 4) {
