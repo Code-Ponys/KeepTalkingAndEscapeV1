@@ -183,7 +183,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void SceneManagement() {
             if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) {
-                SceneManager.LoadScene("V10_Wohnung_Bill");
+                SceneManager.LoadScene("V11_Art");
             }
 
             if(_currentPressedButtonHuman == 4 && _currentPressedButtonGhost == 4) {

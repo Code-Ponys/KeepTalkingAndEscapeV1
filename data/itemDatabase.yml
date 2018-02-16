@@ -2,28 +2,28 @@ DataBaseVersion: 1
 Language: de_DE
 ItemDatabaseList:
 - ItemId: schluessel1
-  Name: Schlüsselhälfte
-  SpritePath: itempics/sendnudes
-  GhostDescription: eine vordere Schlüsselhälfte
-  HumanDescription: eine vordere Schlüsselhälfte
+  Name: SchlÃ¼sselhÃ¤lfte
+  SpritePath: itempics/linkers
+  GhostDescription: eine vordere SchlÃ¼sselhÃ¤lfte
+  HumanDescription: eine vordere SchlÃ¼sselhÃ¤lfte
   Combineable: true
   CombineWith: Item
   CombineWithItem: schluessel2
   NextItem: schluessel3
 - ItemId: schluessel2
-  Name: Schlüsselhälfte
-  SpritePath: itempics/sendnudes
-  GhostDescription: eine hintere Schlüsselhälfte
-  HumanDescription: eine hintere Schlüsselhälfte
+  Name: SchlÃ¼sselhÃ¤lfte
+  SpritePath: itempics/rechters
+  GhostDescription: eine hintere SchlÃ¼sselhÃ¤lfte
+  HumanDescription: eine hintere SchlÃ¼sselhÃ¤lfte
   Combineable: true
   CombineWith: Item
   CombineWithItem: schluessel1
   NextItem: schluessel3
 - ItemId: schluessel3
-  Name: Schlüssel
-  SpritePath: itempics/sendnudes
-  GhostDescription: ein vollständiger Schlüssel
-  HumanDescription: ein vollständiger Schlüssel
+  Name: SchlÃ¼ssel
+  SpritePath: itempics/schluessel
+  GhostDescription: ein vollstÃ¤ndiger SchlÃ¼ssel
+  HumanDescription: ein vollstÃ¤ndiger SchlÃ¼ssel
   Combineable: false
   CombineWith: Item
   CombineWithItem: none
