@@ -42,6 +42,12 @@ public enum CharacterType {
     Human
 }
 
+public enum NumButtonType {
+    Number,
+    Reset,
+    Confirm,
+}
+
 public static class ButtonNames {
 
     public static string MoveGhostX {
@@ -187,4 +193,5 @@ public static class DataPath {
     public static string SaveGame {
         get {return _saveGame;}
     }
+
 }
