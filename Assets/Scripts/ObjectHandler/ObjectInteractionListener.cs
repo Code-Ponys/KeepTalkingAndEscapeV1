@@ -18,6 +18,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private string _itemName;
 
         [SerializeField] private AnimationType _animationType;
+        [SerializeField] private bool _animationAllowWhenNumButtonActive;
+        [SerializeField] private NumButtonHandler _numButtonHandler;
         [SerializeField] private ActivateChildWhen _activateChildWhen;
         [SerializeField] private bool _getActivationFromMother;
                                
@@ -190,6 +192,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         }
                         //Starts Animation, if it isnt disabled
                         if(AnimationType == AnimationType.Open) {
+                            if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
+                                _numButtonHandler.OpenButtonField();
+                            }
                             _animationController.StartNewAnimation(this);
                         }
                         //Used for Linked objects
@@ -214,6 +219,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     }
                     if(AnimationType != AnimationType.None) {
                         if(_animationType == AnimationType.Open)
+                            if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
+                               return;
+                            }
                             _animationController.StartNewAnimation(this);
                         if(_animationType == AnimationType.GhostMoveOnKeySmash)
                             _animationController.StartNewAnimation(this);
