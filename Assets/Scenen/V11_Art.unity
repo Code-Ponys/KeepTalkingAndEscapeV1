@@ -2204,7 +2204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 36632e4c91b6ff54fb1fb71143cfc2aa, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 36632e4c91b6ff54fb1fb71143cfc2aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2592,6 +2592,7 @@ GameObject:
   - component: {fileID: 500243640}
   - component: {fileID: 500243639}
   - component: {fileID: 500243641}
+  - component: {fileID: 500243642}
   m_Layer: 0
   m_Name: Schluesselhaelfte_2
   m_TagString: Untagged
@@ -2670,7 +2671,7 @@ MonoBehaviour:
   _SecondGameObject: {fileID: 0}
   _objectDescription: "Schl\xFCssel1"
   _objectFlavourText: 
-  _itemName: "Schl\xFCsselh\xE4lfte_vorne"
+  _itemName: schluessel2
   _animationType: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
@@ -2689,6 +2690,20 @@ MonoBehaviour:
   _onlyHuman: 0
   _canObjectDamage: 0
   _canDisableObjectDamage: 0
+--- !u!64 &500243642
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 500243637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
 --- !u!1 &504101068 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100010, guid: a55008299abc5a24fb3a9e042fa52843, type: 3}
@@ -2904,7 +2919,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c7e369c4cd9b604594afc2bc7e851d2, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5c7e369c4cd9b604594afc2bc7e851d2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -4574,7 +4589,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0a79c0f648eb9344ba6aab1cbacb8bf1, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0a79c0f648eb9344ba6aab1cbacb8bf1, type: 3}
       propertyPath: m_LocalScale.x
@@ -5548,6 +5563,7 @@ GameObject:
   - component: {fileID: 983221498}
   - component: {fileID: 983221497}
   - component: {fileID: 983221499}
+  - component: {fileID: 983221500}
   m_Layer: 0
   m_Name: Schluesselhaelfte_1
   m_TagString: Untagged
@@ -5626,7 +5642,7 @@ MonoBehaviour:
   _SecondGameObject: {fileID: 0}
   _objectDescription: "schl\xFCssel2"
   _objectFlavourText: 
-  _itemName: "Schl\xFCsselh\xE4lfte_hinten"
+  _itemName: schluessel1
   _animationType: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
@@ -5645,6 +5661,20 @@ MonoBehaviour:
   _onlyHuman: 0
   _canObjectDamage: 0
   _canDisableObjectDamage: 0
+--- !u!64 &983221500
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 983221495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
 --- !u!1 &995281163 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100010, guid: d52d77984f6dac24da00507119473e50, type: 3}
@@ -8937,7 +8967,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10188,7 +10218,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 763216d5f13a4e34fba955e0c0ac96b8, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 763216d5f13a4e34fba955e0c0ac96b8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

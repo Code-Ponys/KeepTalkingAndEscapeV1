@@ -1,29 +1,29 @@
 DataBaseVersion: 1
 Language: de_DE
 ItemDatabaseList:
-- ItemId: testitem1
-  Name: testitem 1
+- ItemId: schluessel1
+  Name: Schlüsselhälfte
   SpritePath: itempics/sendnudes
-  GhostDescription: testitem1 beschreibung geist
-  HumanDescription: testitem1 beschreibung human
+  GhostDescription: eine vordere Schlüsselhälfte
+  HumanDescription: eine vordere Schlüsselhälfte
   Combineable: true
   CombineWith: Item
-  CombineWithItem: testitem2
-  NextItem: testitem3
-- ItemId: testitem2
-  Name: testitem 2
+  CombineWithItem: schluessel2
+  NextItem: schluessel3
+- ItemId: schluessel2
+  Name: Schlüsselhälfte
   SpritePath: itempics/sendnudes
-  GhostDescription: testitem2 beschreibung geist
-  HumanDescription: testitem2 beschreibung human
+  GhostDescription: eine hintere Schlüsselhälfte
+  HumanDescription: eine hintere Schlüsselhälfte
   Combineable: true
   CombineWith: Item
-  CombineWithItem: testitem1
-  NextItem: testitem3
-- ItemId: testitem3
-  Name: testitem 3
+  CombineWithItem: schluessel1
+  NextItem: schluessel3
+- ItemId: schluessel3
+  Name: Schlüssel
   SpritePath: itempics/sendnudes
-  GhostDescription: testitem3 beschreibung geist
-  HumanDescription: testitem3 beschreibung human
+  GhostDescription: ein vollständiger Schlüssel
+  HumanDescription: ein vollständiger Schlüssel
   Combineable: false
   CombineWith: Item
   CombineWithItem: none
