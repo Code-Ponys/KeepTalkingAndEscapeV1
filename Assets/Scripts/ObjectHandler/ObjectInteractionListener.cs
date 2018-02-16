@@ -25,7 +25,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private float _timer = 0f;
 
         [SerializeField] private KeyType _keyType;
-        [SerializeField] private int _ghostReachHeight = 300;
         [Range(1, 1000)] [SerializeField] private int _animationDurationInFrames = 60;
         [Range(1, 1000)] [SerializeField] private int _animationStepsPerKlick = 10;
 
@@ -265,12 +264,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             var characterpos = obj.GetComponent<Transform>().position;
             var closesPointToCharacter = _meshGameObject.GetComponent<Collider>().ClosestPointOnBounds(characterpos);
             characterpos.y = 0;
-<<<<<<< HEAD
-            if(closesPointToCharacter.y > _ghostReachHeight) {
-=======
-            if(closesPointToCharacter.y > 350) {
->>>>>>> e8b1463af121204a4e5c058ed369d004c712e96a
-                return false;
+            if(obj == _gameManager.Ghost) {
+                if(closesPointToCharacter.y > 350) {
+                    return false;
+                }               
+            }
+            else {
+                if(closesPointToCharacter.y > 200) {
+                    return false;
+                }
             }
             closesPointToCharacter.y = 0;
             var distance = Vector3.Distance(characterpos, closesPointToCharacter);
