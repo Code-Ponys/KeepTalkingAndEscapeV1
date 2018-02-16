@@ -1,16 +1,16 @@
-﻿using TrustfallGames.KeepTalkingAndEscape.Listener;
+﻿using System.Runtime.Serialization.Formatters;
+using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Datatypes {
-    public class NumButton :MonoBehaviour {
-        [SerializeField] private NumButtonHandler _numButtonHandler;
+    public class NumButton : MonoBehaviour {
+        private NumButtonHandler _numButtonHandler;
         [SerializeField] private NumButtonType _numButtonType;
         [SerializeField] private int _number;
-        private bool _active;
-        private Sprite _sprite;
-        private float counter;
+        private Image _sprite;
+        private float _counter;
 
-        
 
         private float _timer;
         private float _buttonPressedTime;
@@ -22,24 +22,32 @@ namespace TrustfallGames.KeepTalkingAndEscape.Datatypes {
         public int Number {
             get {return _number;}
         }
+
         public void Active() {
-            counter = 0.5f;
+            _counter = 0.5f;
         }
 
         private void Start() {
-            _sprite = gameObject.GetComponent<Sprite>();
+            _sprite = gameObject.GetComponent<Image>();
         }
 
         private void Update() {
-            if(_active) {
-                _sprite = _numButtonHandler.Clicked;
-                counter -= Time.deltaTime;
+            if(_numButtonHandler == null)
+                return;
+
+            if(_counter > 0) {
+                _sprite.sprite = _numButtonHandler.Clicked;
+                _counter -= Time.deltaTime;
             }
             else {
-                _sprite = _numButtonHandler.NotClicked;
+                _sprite.sprite = _numButtonHandler.NotClicked;
             }
-            
         }
 
+        public NumButtonHandler NumButtonHandler {
+            get {return _numButtonHandler;}
+            set {_numButtonHandler = value;}
+        }
+        
     }
 }
