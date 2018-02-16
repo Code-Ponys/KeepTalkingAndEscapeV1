@@ -262,7 +262,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             var characterpos = obj.GetComponent<Transform>().position;
             var closesPointToCharacter = _meshGameObject.GetComponent<Collider>().ClosestPointOnBounds(characterpos);
             characterpos.y = 0;
-            if(closesPointToCharacter.y > 200) {
+            if(closesPointToCharacter.y > 350) {
                 return false;
             }
             closesPointToCharacter.y = 0;
