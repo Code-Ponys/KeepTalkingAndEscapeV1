@@ -11,30 +11,41 @@ using UnityEditor;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class ObjectInteractionListener : MonoBehaviour {
-        [SerializeField] private GameObject _meshGameObject;
-        [SerializeField] private GameObject _SecondGameObject;
+        //The Gameobect which holds the script
+        private GameObject _meshGameObject;
+        //The second Gameobject which is associated with this one and should be affected by this gameobject
+        [SerializeField] private GameObject _secondGameObject;
+        //The hover description of the object
         [SerializeField] private string _objectDescription;
+        //The object description for inspect
         [SerializeField] private string _objectFlavourText;
+        //the id of the item which should be recieved on interaction
         [SerializeField] private string _itemName;
 
+        //The animation Type
         [SerializeField] private AnimationType _animationType;
+        //Activates nummlock for the object. You have to type in a code
         [SerializeField] private bool _animationAllowWhenNumButtonActive;
+        //The num Button Object for the ui
         [SerializeField] private NumButtonHandler _numButtonHandler;
+        //At which state should the child be activated
         [SerializeField] private ActivateChildWhen _activateChildWhen;
+        //Should the animation be triggered by a mother object. (Second GameObject)
         [SerializeField] private bool _getActivationFromMother;
 
-        [SerializeField] private float _flavourTextWaitTimer = 5f;
-        private float _timer = 0f;
-
+        //Which key hsoould be smashed. Only some action
         [SerializeField] private KeyType _keyType;
-        [Range(1, 1000)] [SerializeField] private int _animationDurationInFrames = 60;
-        [Range(1, 1000)] [SerializeField] private int _animationStepsPerKlick = 10;
+        //How long should the animation go. In Frames
+        [UnityEngine.Range(1, 1000)] [SerializeField] private int _animationDurationInFrames = 60;
+        //How many steps (frames) should the animation go with one klick.
+        [UnityEngine.Range(1, 1000)] [SerializeField] private int _animationStepsPerKlick = 10;
 
         private AnimationController _animationController;
         private Vector3 _positionBase;
         private Vector3 _rotationBase;
         private Vector3 _scaleBase;
 
+        //The goal coordinates.
         [SerializeField] private Vector3 _positionAnimated;
         [SerializeField] private Vector3 _rotationAnimated;
         [SerializeField] private Vector3 _scaleAnimated;
@@ -51,15 +62,28 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _ghostDrivenAnimationActive;
         private bool _ghostDrivenAnimationActiveLast;
         private bool _motherObjectActive;
+        //Can the object only picked up after the ghost interacted with the item.
         [SerializeField] private bool _canBePickedUpAfterGhostAction;
+        //Should the item can be taken to the inventory and the object should be removed
         [SerializeField] private bool _canBeTakenToInventory;
+        //Should the item stay in scene after the item is picked up
         [SerializeField] private bool _canBeTakenButStayInScene;
+        //should the item only be moveable in one direction
         [SerializeField] private bool _onedirectionAnimation = false;
+        //Should the item fall down after the ghost interacted
         [SerializeField] private bool _activateGravityAtEnd;
+        //only a human can interact with this item
         [SerializeField] private bool _onlyHuman;
-        [SerializeField] private PlayerDamage _playerDamage;
-        [SerializeField] private bool _canDisableObjectDamage;
-
+        //The item id which disables damage.
+        [SerializeField] private string _disableDamageWithItem;
+        //The object which can be disabled
+        [SerializeField] private ObjectInteractionListener _disableDamageWithObject;
+        //Should item pickup be canceled on damage
+        [SerializeField] private bool _cancelPickupOnDamage;
+        //Each damage type can recieved only one time. So max 3 HP can be taken by one object
+        [SerializeField] private bool _OneTimeDamage;
+        //Damage can be disabled by Ghost
+        [SerializeField] private bool _disableDamageByGhost;
         [SerializeField] private bool _objectMustUnlocked;
         private bool _objectUnlocked;
         [SerializeField] private ObjectInteractionListener[] _objectsToUnlock;
