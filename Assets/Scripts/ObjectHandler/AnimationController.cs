@@ -130,8 +130,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     else if(_animationDurationInFrames == _frameCount) {
                         _framesToNextStop = 0;
                         _ghostDrivenAnimationActive = false;
-                        if(_objectInteractionListener._canBeTakenToInventory) {
-                            _objectInteractionListener._canBePickedUpAfterGhostAction = false;
+                        if(_objectInteractionListener.CanBeTakenToInventory) {
+                            _objectInteractionListener.CanBePickedUpAfterGhostAction = false;
                         }
                         if(_activateObjectPhysikAfterAnimation) {
                             _rigidbody.useGravity = true;

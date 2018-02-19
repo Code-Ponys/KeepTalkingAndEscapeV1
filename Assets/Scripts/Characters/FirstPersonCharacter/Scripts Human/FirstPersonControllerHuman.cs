@@ -239,5 +239,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             get {return _health;}
             set {_health = value;}
         }
+
+        public Inventory Inventory {
+            get {return _inventory;}
+            set {_inventory = value;}
+        }
     }
 }

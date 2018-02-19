@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
     public class GameManager : MonoBehaviour {
@@ -24,8 +25,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
         [SerializeField] private Camera _ghostCamera;
         [SerializeField] private CharacterController _ghost;
+        [SerializeField] private FirstPersonControllerGhost _ghostController;
         [SerializeField] private Camera _humanCamera;
         [SerializeField] private CharacterController _human;
+        [SerializeField] private FirstPersonControllerHuman _humanController;
         [SerializeField] private bool _ghostDrivenAnimationActive;
 
         public static GameManager GetGameManager() {

@@ -96,6 +96,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         throw new ArgumentOutOfRangeException();
                 }
             }
+            CloseButtonField();
         }
 
 
