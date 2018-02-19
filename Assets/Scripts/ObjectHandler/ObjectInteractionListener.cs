@@ -168,6 +168,48 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// Controls the Inputs made by the players
         /// </summary>
         private void KeyInteraction() {
+            if(KeyInterActionHuman()) return;
+
+            //Mostly same like player 1 but for player 2
+            KeyInteractionGhost();
+        }
+
+        /// <summary>
+        /// KeyInteraction for Ghost aka Player 2
+        /// </summary>
+        private void KeyInteractionGhost() {
+            if(_ghostReachable && !_onlyHuman) {
+                if(_gameManager.GhostDrivenAnimationActive) return;
+                if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
+                    _uiManager.GhostFlavourText = _objectFlavourText;
+                }
+                else if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
+                    //Disables damage for linked object
+                    if(_canDisableObjectDamage) {
+                        _SecondGameObject.GetComponent<ObjectInteractionListener>()._playerDamage = PlayerDamage.None;
+                    }
+
+                    if(AnimationType != AnimationType.None) {
+                        if(_animationType == AnimationType.Open)
+                            if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
+                                return;
+                            }
+
+                        _animationController.StartNewAnimation(this);
+                        if(_animationType == AnimationType.GhostMoveOnKeySmash)
+                            _animationController.StartNewAnimation(this);
+                        if(_animationType == AnimationType.GhostActivateOnKeyHold)
+                            _animationController.StartNewAnimation(this);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// KeyInteraction for Human aka Player 1
+        /// </summary>
+        /// <returns></returns>
+        private bool KeyInterActionHuman() {
             if(_humanReachable) {
                 if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
                     _uiManager.HumanFlavourText = _objectFlavourText;
@@ -177,7 +219,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         _gameManager.Human.GetComponent<FirstPersonControllerHuman>().TakeHealth(1);
                         _uiManager.HealthText = _gameManager.Human.GetComponent<FirstPersonControllerHuman>().Health.ToString();
                     }
-                    
+
                     else {
                         // Disable GameObject and Put the Gameobject in the Inventory
                         if(_canBeTakenToInventory && _canBePickedUpAfterGhostAction != true) {
@@ -190,13 +232,23 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                             _canBeTakenButStayInScene = false;
                             _itemHandler.AddItemToInv(_itemName);
                         }
+
                         //Starts Animation, if it isnt disabled
                         if(AnimationType == AnimationType.Open) {
+                            if(_objectMustUnlocked) {
+                                foreach(var obj in _objectsToUnlock) {
+                                    if(obj._objectUnlocked == false) return true;
+                                }
+                            }
+
                             if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
                                 _numButtonHandler.OpenButtonField();
+                                return true;
                             }
+
                             _animationController.StartNewAnimation(this);
                         }
+
                         //Used for Linked objects
                         if(Input.GetButton(ButtonNames.HumanInteract)) {
                             if(_animationType == AnimationType.OpenLinkedOnHold) {
@@ -206,30 +258,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     }
                 }
             }
-            //Mostly same like player 1 but for player 2
-            if(_ghostReachable && !_onlyHuman) {
-                if(_gameManager.GhostDrivenAnimationActive) return;
-                if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
-                    _uiManager.GhostFlavourText = _objectFlavourText;
-                }
-                else if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
-                    //Disables damage for linked object
-                    if(_canDisableObjectDamage) {
-                        _SecondGameObject.GetComponent<ObjectInteractionListener>()._playerDamage = PlayerDamage.None;
-                    }
-                    if(AnimationType != AnimationType.None) {
-                        if(_animationType == AnimationType.Open)
-                            if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
-                               return;
-                            }
-                            _animationController.StartNewAnimation(this);
-                        if(_animationType == AnimationType.GhostMoveOnKeySmash)
-                            _animationController.StartNewAnimation(this);
-                        if(_animationType == AnimationType.GhostActivateOnKeyHold)
-                            _animationController.StartNewAnimation(this);
-                    }
-                }
-            }
+
+            return false;
         }
 
         private void UpdateUi() {
