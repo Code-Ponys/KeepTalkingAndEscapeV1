@@ -159,6 +159,14 @@ public static class ButtonNames {
     public static string HumanHorizontalPad {
         get {return _humanHorizontalPad;}
     }
+    
+    public static string GhostHighlighting {
+        get {return _ghostHighighting;}
+    }
+    
+    public static string HumanHighlighting {
+        get {return _humanHighlighting;}
+    }
 
     private static string _moveGhostX = "Move Ghost Left Joystick X-Axis";
     private static string _moveGhostY = "Move Ghost Left Joystick Y-Axis";
@@ -186,6 +194,8 @@ public static class ButtonNames {
     private static string _humanVerticalPad = "Human Vertical Pad";
     private static string _ghostHorizontalPad = "Ghost Horizontal Pad";
     private static string _humanHorizontalPad = "Human Horizontal Pad";
+    private static string _ghostHighighting = "Ghost Highlighting";
+    private static string _humanHighlighting = "Human Highlighting";
 }
 
 public static class DataPath {
