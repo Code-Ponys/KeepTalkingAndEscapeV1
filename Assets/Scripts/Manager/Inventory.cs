@@ -149,6 +149,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                             _selectorHuman[i, j] = GameObject.Find(i + "," + j + "HSH");
                             _selectorGhost[i, j] = GameObject.Find(i + "," + j + "HSG");
                             _slots[i, j].AddComponent<ItemSlotHandler>().CharacterType = CharacterType.Human;
+                            _slots[i, j] = GameObject.Find(i + "," + j + "H").AddComponent<ItemSlotHandler>();
+                            _selectorHuman[i, j] = GameObject.Find(i + "," + j + "HSH").GetComponent<Image>();
+                            _selectorGhost[i, j] = GameObject.Find(i + "," + j + "HSG").GetComponent<Image>();
+                            _slots[i, j].CharacterType = CharacterType.Human;
                         }
                     }
 
@@ -209,33 +213,94 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             //Button input for human
             switch(_characterType) {
                 case CharacterType.Human:
-                    //Change current choosed Item
-                    if(_currentAxisDelay < 0) {
-                        if(Input.GetAxis(ButtonNames.MoveHumanX) < 0) {
-                            //Left
-                            if(_x == 0) return;
-                            _x--;
-                            _currentAxisDelay = _axisDelay;
-                        }
-                        else if(Input.GetAxis(ButtonNames.MoveHumanX) > 0) {
-                            //Right
-                            if(_x == 4) return;
-                            _x++;
-                            _currentAxisDelay = _axisDelay;
-                        }
+                    InputHuman();
 
-                        if(Input.GetAxis(ButtonNames.MoveHumanY) < 0) {
-                            //Down
-                            if(_y == 3) return;
-                            _y++;
-                            _currentAxisDelay = _axisDelay;
-                        }
-                        else if(Input.GetAxis(ButtonNames.MoveHumanY) > 0) {
-                            //Up
-                            if(_y == 0) return;
-                            _y--;
-                            _currentAxisDelay = _axisDelay;
-                        }
+                    break;
+                case CharacterType.Ghost:
+                    InputGhost();
+
+                    break;
+            }
+        }
+
+        private void InputGhost() {
+            if(_currentAxisDelay <= 0) {
+                //Change current choosed Item
+                if(Input.GetAxis(ButtonNames.MoveGhostX) < 0) {
+                    //Left
+                    Debug.Log("Pressed Left");
+                    if(_x == 0) return;
+                    _x--;
+                    _currentAxisDelay = _axisDelay;
+                }
+
+                if(Input.GetAxis(ButtonNames.MoveGhostX) > 0) {
+                    //Right
+                    Debug.Log("Pressed right");
+                    if(_x == 4) return;
+                    _x++;
+                    _currentAxisDelay = _axisDelay;
+                }
+
+                if(Input.GetAxis(ButtonNames.MoveGhostY) < 0) {
+                    //Down
+                    Debug.Log("Pressed Down");
+                    if(_y == 3) return;
+                    _y++;
+                    _currentAxisDelay = _axisDelay;
+                }
+
+                if(Input.GetAxis(ButtonNames.MoveGhostY) > 0) {
+                    //Up
+                    Debug.Log("Pressed Up");
+                    if(_y == 0) return;
+                    _y--;
+                    _currentAxisDelay = _axisDelay;
+                }
+            }
+            else {
+                _currentAxisDelay -= Time.deltaTime;
+            }
+        }
+
+        private void InputHuman() {
+            if(_currentAxisDelay < 0) {
+                //Change current choosed Item
+                if(Input.GetAxis(ButtonNames.MoveHumanX) < 0) {
+                    //Left
+                    if(_x == 0) return;
+                    _x--;
+                    _currentAxisDelay = _axisDelay;
+                }
+                else if(Input.GetAxis(ButtonNames.MoveHumanX) > 0) {
+                    //Right
+                    if(_x == 4) return;
+                    _x++;
+                    _currentAxisDelay = _axisDelay;
+                }
+
+                if(Input.GetAxis(ButtonNames.MoveHumanY) < 0) {
+                    //Down
+                    if(_y == 3) return;
+                    _y++;
+                    _currentAxisDelay = _axisDelay;
+                }
+                else if(Input.GetAxis(ButtonNames.MoveHumanY) > 0) {
+                    //Up
+                    if(_y == 0) return;
+                    _y--;
+                    _currentAxisDelay = _axisDelay;
+                }
+            }
+            else {
+                _currentAxisDelay -= Time.deltaTime;
+            }
+
+            if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
+                if(_slots[_y, _x].GetComponent<ItemSlotHandler>().Item != null) {
+                    if(combine[0].GetComponent<ItemCombineSlotHandler>().Item == null) {
+                        combine[0].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
+                        _secondInventory.combine[0].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
                     }
                     else {
                         _currentAxisDelay -= Time.deltaTime;
