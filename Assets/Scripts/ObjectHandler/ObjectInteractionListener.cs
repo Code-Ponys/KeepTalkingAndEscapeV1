@@ -22,7 +22,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private NumButtonHandler _numButtonHandler;
         [SerializeField] private ActivateChildWhen _activateChildWhen;
         [SerializeField] private bool _getActivationFromMother;
-                               
+
         [SerializeField] private float _flavourTextWaitTimer = 5f;
         private float _timer = 0f;
 
@@ -60,17 +60,21 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private PlayerDamage _playerDamage;
         [SerializeField] private bool _canDisableObjectDamage;
 
+        [SerializeField] private bool _objectMustUnlocked;
+        private bool _objectUnlocked;
+        [SerializeField] private ObjectInteractionListener[] _objectsToUnlock;
+
 
         private void Start() {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _itemHandler = ItemHandler.GetItemHandler();
-            
+
             _uiManager.GhostHoverText = "";
             _uiManager.GhostFlavourText = "";
             _uiManager.HumanHoverText = "";
             _uiManager.HumanFlavourText = "";
-            
+
             if(AnimationType != AnimationType.None) {
                 _animationController = _meshGameObject.AddComponent<AnimationController>();
             }
@@ -104,8 +108,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             KeyInteraction();
             UpdateMotherState();
         }
-        
-        
+
+
         private void UpdateMotherState() {
             if(_getActivationFromMother) {
                 if(_SecondGameObject.GetComponent<AnimationController>().Open) {
@@ -126,33 +130,28 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             _ghostDrivenAnimationActiveLast = _animationController.GhostDrivenAnimationActive;
         }
-        
+
         /// <summary>
         /// Checks which player is looking at the object. Raycast shows how far the player is from the object
         /// </summary>
         private void IsCharacterLookingAtMe() {
-            Camera _ghostCamera = _gameManager.GhostCamera;
-            Camera _humanCamera = _gameManager.HumanCamera;
+            var _ghostCamera = _gameManager.GhostCamera;
+            var _humanCamera = _gameManager.HumanCamera;
 
 
             RaycastHit hit;
             //Check Ghost;
             var cameraCenter = _ghostCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f,
-                _ghostCamera.nearClipPlane));
+                                                                           _ghostCamera.nearClipPlane));
             if(Physics.Raycast(cameraCenter, _ghostCamera.transform.forward, out hit, 300)) {
                 var obj = hit.transform.gameObject;
-                if(obj == _meshGameObject) {
-                    _ghostLookingAtMe = true;
-                }
-                else {
-                    _ghostLookingAtMe = false;
-                }
+                _ghostLookingAtMe = obj == _meshGameObject;
             }
 
             //Check Human;
             cameraCenter =
                 _humanCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f,
-                    _humanCamera.nearClipPlane));
+                                                            _humanCamera.nearClipPlane));
             if(Physics.Raycast(cameraCenter, _humanCamera.transform.forward, out hit, 300)) {
                 var obj = hit.transform.gameObject;
                 if(obj == _meshGameObject) {
@@ -163,7 +162,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
             }
         }
-        
+
         /// <summary>
         /// Controls the Inputs made by the players
         /// </summary>
@@ -303,15 +302,16 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             var closesPointToCharacter = _meshGameObject.GetComponent<Collider>().ClosestPointOnBounds(characterpos);
             characterpos.y = 0;
             if(obj == _gameManager.Ghost) {
-                if(closesPointToCharacter.y > 350) {
-                    return false;
-                }               
-            }
-            else {
-                if(closesPointToCharacter.y > 200) {
+                if(closesPointToCharacter.y > 450) {
                     return false;
                 }
             }
+            else {
+                if(closesPointToCharacter.y > 350) {
+                    return false;
+                }
+            }
+
             closesPointToCharacter.y = 0;
             var distance = Vector3.Distance(characterpos, closesPointToCharacter);
             return distance < 150;
@@ -393,6 +393,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         public ActivateChildWhen ActivateChildWhen {
             get {return _activateChildWhen;}
             set {_activateChildWhen = value;}
+        }
+
+        public bool ObjectUnlocked {
+            get {return _objectUnlocked;}
         }
     }
 }
