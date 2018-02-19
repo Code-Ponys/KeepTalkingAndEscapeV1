@@ -220,15 +220,23 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
                 else if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
                     //Disables damage for linked object
-                    if(_canDisableObjectDamage) {
-                        _SecondGameObject.GetComponent<ObjectInteractionListener>()._playerDamage = PlayerDamage.None;
+                    if(_disableDamageByGhost) {
+                        _damageDisabledByGhost = true;
                     }
 
                     if(AnimationType != AnimationType.None) {
                         if(_animationType == AnimationType.Open)
-                            if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
-                                return;
+                            if(_objectMustUnlocked) {
+                                foreach(var obj in _objectsToUnlock) {
+                                    if(obj._objectUnlocked == false)
+                                        _uiManager.GhostFlavourText = "Blockiert";
+                                    return;
+                                }
                             }
+
+                        if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
+                            return;
+                        }
 
                         _animationController.StartNewAnimation(this);
                         if(_animationType == AnimationType.GhostMoveOnKeySmash)
