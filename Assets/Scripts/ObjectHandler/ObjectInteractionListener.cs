@@ -171,24 +171,24 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// Checks which player is looking at the object. Raycast shows how far the player is from the object
         /// </summary>
         private void IsCharacterLookingAtMe() {
-            var _ghostCamera = _gameManager.GhostCamera;
-            var _humanCamera = _gameManager.HumanCamera;
+            var ghostCamera = _gameManager.GhostCamera;
+            var humanCamera = _gameManager.HumanCamera;
 
 
             RaycastHit hit;
             //Check Ghost;
-            var cameraCenter = _ghostCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f,
-                                                                           _ghostCamera.nearClipPlane));
-            if(Physics.Raycast(cameraCenter, _ghostCamera.transform.forward, out hit, 300)) {
+            var cameraCenter = ghostCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f,
+                                                                          ghostCamera.nearClipPlane));
+            if(Physics.Raycast(cameraCenter, ghostCamera.transform.forward, out hit, 300)) {
                 var obj = hit.transform.gameObject;
                 _ghostLookingAtMe = obj == _meshGameObject;
             }
 
             //Check Human;
             cameraCenter =
-                _humanCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f,
-                                                            _humanCamera.nearClipPlane));
-            if(Physics.Raycast(cameraCenter, _humanCamera.transform.forward, out hit, 300)) {
+                humanCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f,
+                                                           humanCamera.nearClipPlane));
+            if(Physics.Raycast(cameraCenter, humanCamera.transform.forward, out hit, 300)) {
                 var obj = hit.transform.gameObject;
                 if(obj == _meshGameObject) {
                     _humanLookingAtMe = true;
@@ -203,7 +203,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// Controls the Inputs made by the players
         /// </summary>
         private void KeyInteraction() {
-            if(KeyInterActionHuman()) return;
+            KeyInteractionHuman();
 
             //Mostly same like player 1 but for player 2
             KeyInteractionGhost();
