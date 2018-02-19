@@ -12,9 +12,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
     public class Inventory : MonoBehaviour {
 
         //Array der Inventarslots [zeile, spalte]
-        private readonly GameObject[,] _slots = new GameObject[4, 5];
-        private readonly GameObject[,] _selectorHuman = new GameObject[4, 5];
-        private readonly GameObject[,] _selectorGhost = new GameObject[4, 5];
+        private readonly ItemSlotHandler[,] _slots = new ItemSlotHandler[4, 5];
+        private readonly Image[,] _selectorHuman = new Image[4, 5];
+        private readonly Image[,] _selectorGhost = new Image[4, 5];
 
         [SerializeField] private float _axisDelay = 0.5f;
         [SerializeField] private CharacterType _characterType;
@@ -35,6 +35,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private bool _inventoryActive;
         private bool _lastInventoryState;
 
+        [SerializeField]private string _itemInHand;
+
         private int _x = 0;
         private int _y = 0;
 
@@ -54,11 +56,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         // Update is called once per frame
         private void Update() {
             InventoryVisible();
-            if(_inventoryActive) {
-                UpdateSelection();
-                InventoryInput();
-                UpdateUI();
-            }
+            if(!_inventoryActive) return;
+            UpdateSelection();
+            InventoryInput();
+            UpdateUI();
         }
 
         /// <summary>
@@ -66,8 +67,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
         private void UpdateUI() {
-            if(_slots[_y, _x].GetComponent<ItemSlotHandler>().Item != null) {
-                var item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
+            if(_slots[_y, _x].Item != null) {
+                var item = _slots[_y, _x].Item;
                 _itemName.text = item.Name;
                 if(_characterType == CharacterType.Ghost) {
                     _itemText.text = item.GhostDescription;
@@ -94,6 +95,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                         if(_inventoryActive && !_secondInventory._inventoryActive) {
                             RearrangeItems();
                         }
+
                         _itemCombineText.text = "";
                         _x = 0;
                         _y = 0;
@@ -106,6 +108,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                         if(_inventoryActive && !_secondInventory._inventoryActive) {
                             RearrangeItems();
                         }
+
                         _itemCombineText.text = "";
                         _x = 0;
                         _y = 0;
@@ -128,10 +131,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 case CharacterType.Ghost:
                     for(var i = 0; i < 4; i++) {
                         for(var j = 0; j < 5; j++) {
-                            _slots[i, j] = GameObject.Find(i + "," + j + "G");
-                            _selectorHuman[i, j] = GameObject.Find(i + "," + j + "GSH");
-                            _selectorGhost[i, j] = GameObject.Find(i + "," + j + "GSG");
-                            _slots[i, j].AddComponent<ItemSlotHandler>().CharacterType = CharacterType.Ghost;
+                            _slots[i, j] = GameObject.Find(i + "," + j + "G").AddComponent<ItemSlotHandler>();
+                            _selectorHuman[i, j] = GameObject.Find(i + "," + j + "GSH").GetComponent<Image>();
+                            _selectorGhost[i, j] = GameObject.Find(i + "," + j + "GSG").GetComponent<Image>();
+                            _slots[i, j].CharacterType = CharacterType.Ghost;
                         }
                     }
 
@@ -145,10 +148,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 case CharacterType.Human:
                     for(var i = 0; i < 4; i++) {
                         for(var j = 0; j < 5; j++) {
-                            _slots[i, j] = GameObject.Find(i + "," + j + "H");
-                            _selectorHuman[i, j] = GameObject.Find(i + "," + j + "HSH");
-                            _selectorGhost[i, j] = GameObject.Find(i + "," + j + "HSG");
-                            _slots[i, j].AddComponent<ItemSlotHandler>().CharacterType = CharacterType.Human;
                             _slots[i, j] = GameObject.Find(i + "," + j + "H").AddComponent<ItemSlotHandler>();
                             _selectorHuman[i, j] = GameObject.Find(i + "," + j + "HSH").GetComponent<Image>();
                             _selectorGhost[i, j] = GameObject.Find(i + "," + j + "HSG").GetComponent<Image>();
@@ -303,83 +302,34 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                         _secondInventory.combine[0].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
                     }
                     else {
-                        _currentAxisDelay -= Time.deltaTime;
+                        combine[1].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
+                        _secondInventory.combine[1].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
                     }
 
-                    if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
-                        if(_slots[_y, _x].GetComponent<ItemSlotHandler>().Item != null) {
-                            if(combine[0].GetComponent<ItemCombineSlotHandler>().Item == null) {
-                                combine[0].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
-                                _secondInventory.combine[0].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
-                            }
-                            else {
-                                combine[1].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
-                                _secondInventory.combine[1].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
-                            }
+                    if(combine[0].GetComponent<ItemCombineSlotHandler>().Item != null && combine[1].GetComponent<ItemCombineSlotHandler>().Item != null) {
+                        Debug.Log("Trying to combine");
+                        if(_itemHandler.ItemsCombineable(combine[0].GetComponent<ItemCombineSlotHandler>().Item, combine[1].GetComponent<ItemCombineSlotHandler>().Item)) {
+                            var item = _itemHandler.GetItemFromDatabase(combine[0].GetComponent<ItemCombineSlotHandler>().Item.NextItem);
+                            _itemCombineText.text = "Kombinieren erfolgreich. " + item.Name + " erhalten";
+                            _secondInventory._itemCombineText.text = "Kombinieren erfolgreich. " + item.Name + " erhalten";
+                            RearrangeItems();
+                        }
+                        else {
+                            _itemCombineText.text = "Diese Gegenstände können nicht kombiniert werden.";
+                        }
 
-                            if(combine[0].GetComponent<ItemCombineSlotHandler>().Item != null && combine[1].GetComponent<ItemCombineSlotHandler>().Item != null) {
-                                Debug.Log("Trying to combine");
-                                if(_itemHandler.ItemsCombineable(combine[0].GetComponent<ItemCombineSlotHandler>().Item, combine[1].GetComponent<ItemCombineSlotHandler>().Item)) {
-                                    var item = _itemHandler.GetItemFromDatabase(combine[0].GetComponent<ItemCombineSlotHandler>().Item.NextItem);
-                                    _itemCombineText.text = "Kombinieren erfolgreich. " + item.Name + " erhalten";
-                                    _secondInventory._itemCombineText.text = "Kombinieren erfolgreich. " + item.Name + " erhalten";
-                                    RearrangeItems();
-                                }
-                                else {
-                                    _itemCombineText.text = "Diese Gegenstände können nicht kombiniert werden.";
-                                }
-
-                                combine[0].GetComponent<ItemCombineSlotHandler>().Item = null;
-                                combine[1].GetComponent<ItemCombineSlotHandler>().Item = null;
-                                if(_characterType == CharacterType.Human) {
-                                    _secondInventory.combine[0].GetComponent<ItemCombineSlotHandler>().Item = null;
-                                    _secondInventory.combine[1].GetComponent<ItemCombineSlotHandler>().Item = null;
-                                }
-                            }
+                        combine[0].GetComponent<ItemCombineSlotHandler>().Item = null;
+                        combine[1].GetComponent<ItemCombineSlotHandler>().Item = null;
+                        if(_characterType == CharacterType.Human) {
+                            _secondInventory.combine[0].GetComponent<ItemCombineSlotHandler>().Item = null;
+                            _secondInventory.combine[1].GetComponent<ItemCombineSlotHandler>().Item = null;
                         }
                     }
+                }
+            }
 
-                    break;
-                case CharacterType.Ghost:
-                    //Change current choosed Item
-                    if(_currentAxisDelay <= 0) {
-                        if(Input.GetAxis(ButtonNames.MoveGhostX) < 0) {
-                            //Left
-                            Debug.Log("Pressed Left");
-                            if(_x == 0) return;
-                            _x--;
-                            _currentAxisDelay = _axisDelay;
-                        }
-
-                        if(Input.GetAxis(ButtonNames.MoveGhostX) > 0) {
-                            //Right
-                            Debug.Log("Pressed right");
-                            if(_x == 4) return;
-                            _x++;
-                            _currentAxisDelay = _axisDelay;
-                        }
-
-                        if(Input.GetAxis(ButtonNames.MoveGhostY) < 0) {
-                            //Down
-                            Debug.Log("Pressed Down");
-                            if(_y == 3) return;
-                            _y++;
-                            _currentAxisDelay = _axisDelay;
-                        }
-
-                        if(Input.GetAxis(ButtonNames.MoveGhostY) > 0) {
-                            //Up
-                            Debug.Log("Pressed Up");
-                            if(_y == 0) return;
-                            _y--;
-                            _currentAxisDelay = _axisDelay;
-                        }
-                    }
-                    else {
-                        _currentAxisDelay -= Time.deltaTime;
-                    }
-
-                    break;
+            if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonY)) {
+                _itemInHand = _slots[_y, _x].Item.ItemId;
             }
         }
 
@@ -426,6 +376,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         public bool InventoryActive {
             get {return _inventoryActive;}
             set {_inventoryActive = value;}
+        }
+
+        public string ItemInHand {
+            get {return _itemInHand;}
+            set {_itemInHand = value;}
         }
 
         public static Inventory GetInstance(CharacterType characterType) {
