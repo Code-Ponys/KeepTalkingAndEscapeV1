@@ -84,8 +84,20 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private bool _OneTimeDamage;
         //Damage can be disabled by Ghost
         [SerializeField] private bool _disableDamageByGhost;
+
+        private bool _damageDisabled;
+        private bool _damageItemRecieved;
+        private bool _damageObjectRecieved;
+        private bool _damageGhostRecieved;
+        private bool _damageDisabledByGhost;
+
+        //Must the Objects in object to unlock be unlocked to interact with the object
         [SerializeField] private bool _objectMustUnlocked;
         private bool _objectUnlocked;
+        //which item is needed to unlock the object
+        [SerializeField] private string _itemToUnlock;
+
+        //All object which must be unlocked to interact with the object.
         [SerializeField] private ObjectInteractionListener[] _objectsToUnlock;
 
 
