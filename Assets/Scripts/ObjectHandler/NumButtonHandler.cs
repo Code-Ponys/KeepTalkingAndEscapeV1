@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security;
+using System.Security.Cryptography;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,16 +8,18 @@ using UnityEngine.UI;
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class NumButtonHandler : MonoBehaviour {
         [SerializeField] private string _password;
-        [SerializeField] private Image[] _buttonsInput;
+        [SerializeField] private NumButton[] _buttonsInput;
         [SerializeField] private Text _display;
-        private Image[,] _buttons = new Image[4, 3];
+        private NumButton[,] _buttons = new NumButton[4, 3];
         private Image[,] _highlights = new Image[4, 3];
         [SerializeField] private GameObject _visibleObject;
         [SerializeField] private Sprite _highlight;
         [SerializeField] private Sprite _empty;
         [SerializeField] private Sprite _clicked;
         [SerializeField] private Sprite _notClicked;
-        
+        [SerializeField] private float _closeTimeAfterCodeSolved = 5;
+        private bool _codeSolved;
+
 
         private int _x;
         private int _y;
@@ -30,8 +34,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         private void Start() {
             foreach(var button in _buttonsInput) {
-                var num = button.GetComponent<NumButton>().Number;
-                var type = button.GetComponent<NumButton>().NumButtonType;
+                var num = button.Number;
+                var type = button.NumButtonType;
+                button.NumButtonHandler = gameObject.GetComponent<NumButtonHandler>();
 
                 switch(type) {
                     case NumButtonType.Number:
@@ -95,24 +100,34 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
 
         private void Update() {
+            if(!_visibleObject.activeInHierarchy) return;
+
             foreach(var image in _highlights) {
                 var a = image;
-                    a.sprite = _empty;
+                a.sprite = _empty;
             }
 
             _highlights[_y, _x].sprite = _highlight;
-            InputUI();
+            InputUi();
             UpdateDisplay();
+            AutoClose();
+        }
+
+        private void AutoClose() {
+            if(!_codeSolved) return;
+            _closeTimeAfterCodeSolved -= Time.deltaTime;
+            if(_closeTimeAfterCodeSolved < 0 && _visibleObject.activeInHierarchy)
+                CloseButtonField();
         }
 
         private void UpdateDisplay() {
             _display.text = _displayText;
         }
 
-        private void InputUI() {
+        private void InputUi() {
             //Change current choosed Item
+            if(_codeSolved) return;
             if(_currentAxisDelay < 0) {
-                Debug.Log("input");
                 if(Input.GetAxis(ButtonNames.MoveHumanX) < 0) {
                     //Left
                     if(_x == 0) return;
@@ -143,34 +158,45 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _currentAxisDelay -= Time.deltaTime;
             }
 
-            if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
-                _buttons[_y, _x].GetComponent<NumButton>().Active();
-                switch(_buttons[_y,_x].GetComponent<NumButton>().NumButtonType) {
-                    case NumButtonType.Number:
-                        if(_displayText == "Korrekt" || _displayText == "Falsch") {
-                            _displayText = "";
-                        }
-                        _displayText = _displayText + _buttons[_y,_x].GetComponent<NumButton>().Number;
-                        if(_displayText.Length == _password.Length) {
-                            if(string.Equals(_displayText, _password, StringComparison.CurrentCultureIgnoreCase)) {
-                                _displayText = "Korrekt";
-                            }
-                            else {
-                                _displayText = "Falsch";
-                            }
-                        }
-
-                        break;
-                    case NumButtonType.Reset:
+            if(!Input.GetButtonDown(ButtonNames.HumanInspect)) return;
+            _buttons[_y, _x].GetComponent<NumButton>().Active();
+            switch(_buttons[_y, _x].GetComponent<NumButton>().NumButtonType) {
+                case NumButtonType.Number:
+                    if(_displayText == "Korrekt" || _displayText == "Falsch") {
                         _displayText = "";
-                        break;
-                    case NumButtonType.Confirm:
-                        _displayText = "Falsch";
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                    }
+
+                    _displayText = _displayText + _buttons[_y, _x].GetComponent<NumButton>().Number;
+                    if(_displayText.Length == _password.Length) {
+                        if(string.Equals(_displayText, _password, StringComparison.CurrentCultureIgnoreCase)) {
+                            _displayText = "Korrekt";
+                            _codeSolved = true;
+                        }
+                        else {
+                            _displayText = "Falsch";
+                        }
+                    }
+
+                    break;
+                case NumButtonType.Reset:
+                    _displayText = "";
+                    break;
+                case NumButtonType.Confirm:
+                    _displayText = "Falsch";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public void CloseButtonField() {
+            if(_codeSolved && !_visibleObject.activeInHierarchy) return;
+            _visibleObject.SetActive(false);
+        }
+
+        public void OpenButtonField() {
+            if(_codeSolved) return;
+            _visibleObject.SetActive(true);
         }
 
         public Sprite Clicked {
@@ -182,5 +208,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             get {return _notClicked;}
             set {_notClicked = value;}
         }
+
+        public bool CodeSolved {
+            get {return _codeSolved;}
+        }
+
     }
 }
