@@ -252,57 +252,80 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// KeyInteraction for Human aka Player 1
         /// </summary>
         /// <returns></returns>
-        private bool KeyInterActionHuman() {
-            if(_humanReachable) {
-                if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
-                    _uiManager.HumanFlavourText = _objectFlavourText;
-                }
-                else if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
-                    if(_playerDamage == PlayerDamage.DamageOnTouch) {
-                        _gameManager.Human.GetComponent<FirstPersonControllerHuman>().TakeHealth(1);
-                        _uiManager.HealthText = _gameManager.Human.GetComponent<FirstPersonControllerHuman>().Health.ToString();
-                    }
+        private void KeyInteractionHuman() {
+            if(!_humanReachable) return;
 
-                    else {
-                        // Disable GameObject and Put the Gameobject in the Inventory
-                        if(_canBeTakenToInventory && _canBePickedUpAfterGhostAction != true) {
-                            _itemHandler.AddItemToInv(_itemName);
-                            _meshGameObject.SetActive(false);
-                            _uiManager.HumanHoverText = "";
-                        }
-                        // Put gameobject only in inventory but disables further inventory adding
-                        else if(_canBeTakenButStayInScene) {
-                            _canBeTakenButStayInScene = false;
-                            _itemHandler.AddItemToInv(_itemName);
-                        }
-
-                        //Starts Animation, if it isnt disabled
-                        if(AnimationType == AnimationType.Open) {
-                            if(_objectMustUnlocked) {
-                                foreach(var obj in _objectsToUnlock) {
-                                    if(obj._objectUnlocked == false) return true;
-                                }
-                            }
-
-                            if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
-                                _numButtonHandler.OpenButtonField();
-                                return true;
-                            }
-
-                            _animationController.StartNewAnimation(this);
-                        }
-
-                        //Used for Linked objects
-                        if(Input.GetButton(ButtonNames.HumanInteract)) {
-                            if(_animationType == AnimationType.OpenLinkedOnHold) {
-                                _SecondGameObject.GetComponent<ObjectInteractionListener>().StartAnimation(_meshGameObject);
-                            }
-                        }
-                    }
-                }
+            if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
+                _uiManager.HumanFlavourText = _objectFlavourText;
             }
 
-            return false;
+            else if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
+                //Object Damage
+                if(_disableDamageWithObject != null && !_damageObjectRecieved) {
+                    if(!_disableDamageWithObject._damageDisabled) {
+                        _gameManager.Human.GetComponent<FirstPersonControllerHuman>().TakeHealth(1);
+                        if(_OneTimeDamage) _damageObjectRecieved = true;
+                        if(_cancelPickupOnDamage) return;
+                    }
+                }
+
+                //Item Damage
+                if(_disableDamageWithItem != "" && !_damageItemRecieved) {
+                    if(!string.Equals(Inventory.GetInstance(CharacterType.Human).ItemInHand, _disableDamageWithItem,
+                                      StringComparison.CurrentCultureIgnoreCase)) {
+                        _gameManager.Human.GetComponent<FirstPersonControllerHuman>().TakeHealth(1);
+                        if(_OneTimeDamage) _damageItemRecieved = true;
+                        if(_cancelPickupOnDamage) return;
+                    }
+                }
+
+                //Ghost Damage
+                if(!_damageDisabledByGhost && _disableDamageByGhost && !_damageGhostRecieved) {
+                    if(_OneTimeDamage) _damageGhostRecieved = true;
+                    if(_cancelPickupOnDamage) return;
+                }
+
+                // Disable GameObject and Put the Gameobject in the Inventory
+                if(_canBeTakenToInventory && _canBePickedUpAfterGhostAction != true) {
+                    _itemHandler.AddItemToInv(_itemName);
+                    _uiManager.HumanHoverText = "";
+                    _meshGameObject.SetActive(false);
+                }
+                // Put gameobject only in inventory but disables further inventory adding
+                else if(_canBeTakenButStayInScene) {
+                    _canBeTakenButStayInScene = false;
+                    _itemHandler.AddItemToInv(_itemName);
+                }
+
+
+                //Starts Animation, if it isnt disabled
+                if(AnimationType == AnimationType.Open) {
+                    if(_objectMustUnlocked) {
+                        foreach(var obj in _objectsToUnlock) {
+                            if(obj._objectUnlocked == false)
+                                _uiManager.HumanFlavourText = "Blockiert";
+                            return;
+                        }
+                    }
+
+                    if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
+                        _numButtonHandler.OpenButtonField();
+                        return;
+                    }
+
+                    _animationController.StartNewAnimation(this);
+                }
+
+                //Used for Linked objects
+                if(_animationType == AnimationType.OpenLinkedOnHold) {
+                    _secondGameObject.GetComponent<ObjectInteractionListener>().StartAnimation(_meshGameObject);
+                }
+
+                if(_itemToUnlock == "") return;
+                if(string.Equals(Inventory.GetInstance(CharacterType.Human).ItemInHand, _itemToUnlock, StringComparison.CurrentCultureIgnoreCase)) {
+                    _objectUnlocked = true;
+                }
+            }
         }
 
         private void UpdateUi() {
