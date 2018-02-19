@@ -1,7 +1,9 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters;
 using System.Security.Cryptography.X509Certificates;
 using System.Timers;
+using NUnit.Framework;
 using NUnit.Framework.Internal;
 using UnityEngine;
 using UnityEngine.UI;
@@ -118,6 +120,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _positionBase = _meshGameObject.transform.localPosition;
             _rotationBase = _meshGameObject.transform.localRotation.eulerAngles;
             _scaleBase = _meshGameObject.transform.localScale;
+
+            _meshGameObject = gameObject;
         }
 
         private void Update() {
@@ -148,7 +152,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         private void UpdateMotherState() {
             if(_getActivationFromMother) {
-                if(_SecondGameObject.GetComponent<AnimationController>().Open) {
+                if(_secondGameObject.GetComponent<AnimationController>().Open) {
                     _motherObjectActive = true;
                 }
                 else {
@@ -464,6 +468,21 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         public bool ObjectUnlocked {
             get {return _objectUnlocked;}
+        }
+
+        public bool CanBePickedUpAfterGhostAction {
+            get {return _canBePickedUpAfterGhostAction;}
+            set {_canBePickedUpAfterGhostAction = value;}
+        }
+
+        public bool CanBeTakenToInventory {
+            get {return _canBeTakenToInventory;}
+            set {_canBeTakenToInventory = value;}
+        }
+
+        public bool CanBeTakenButStayInScene {
+            get {return _canBeTakenButStayInScene;}
+            set {_canBeTakenButStayInScene = value;}
         }
     }
 }
