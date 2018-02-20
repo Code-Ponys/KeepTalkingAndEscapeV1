@@ -1,54 +1,85 @@
 fileFormatVersion: 2
 guid: ce947008c1a6b5e418e40df0b5a5da12
-timeCreated: 1518620113
+timeCreated: 1519140405
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: "Bett_gro\xDFeKissen"
-    100004: Bett_kleineKissen
-    100006: Bett_Matratze
-    100008: Bett_MesserKissen
-    100010: Bettdecke
-    100012: Bettgestell
-    400000: //RootNode
-    400002: "Bett_gro\xDFeKissen"
-    400004: Bett_kleineKissen
-    400006: Bett_Matratze
-    400008: Bett_MesserKissen
-    400010: Bettdecke
-    400012: Bettgestell
-    2300000: "Bett_gro\xDFeKissen"
-    2300002: Bett_kleineKissen
-    2300004: Bett_Matratze
-    2300006: Bett_MesserKissen
-    2300008: Bettdecke
-    2300010: Bettgestell
-    3300000: "Bett_gro\xDFeKissen"
-    3300002: Bett_kleineKissen
-    3300004: Bett_Matratze
-    3300006: Bett_MesserKissen
-    3300008: Bettdecke
-    3300010: Bettgestell
-    4300000: Bettdecke
-    4300002: Bett_MesserKissen
-    4300004: "Bett_gro\xDFeKissen"
-    4300006: Bett_kleineKissen
-    4300008: Bett_Matratze
-    4300010: Bettgestell
-    6400000: "Bett_gro\xDFeKissen"
-    6400002: Bett_kleineKissen
-    6400004: Bett_Matratze
-    6400006: Bett_MesserKissen
-    6400008: Bettdecke
-    6400010: Bettgestell
+    100000: bedstead
+    100002: //RootNode
+    100004: blanket
+    100006: mattress
+    100008: pillow lonely
+    100010: pillows big and little
+    100012: pillows couple
+    400000: bedstead
+    400002: //RootNode
+    400004: blanket
+    400006: mattress
+    400008: pillow lonely
+    400010: pillows big and little
+    400012: pillows couple
+    2100000: blanket.002
+    2100002: pollow lonely.002
+    2100004: pillows couple.002
+    2100006: pillows big and little.002
+    2100008: mattress.002
+    2100010: bed stead.002
+    2300000: bedstead
+    2300002: blanket
+    2300004: mattress
+    2300006: pillow lonely
+    2300008: pillows big and little
+    2300010: pillows couple
+    3300000: bedstead
+    3300002: blanket
+    3300004: mattress
+    3300006: pillow lonely
+    3300008: pillows big and little
+    3300010: pillows couple
+    4300000: blanket
+    4300002: pillow lonely
+    4300004: pillows couple
+    4300006: pillows big and little
+    4300008: mattress
+    4300010: bedstead
+    6400000: bedstead
+    6400002: blanket
+    6400004: mattress
+    6400006: pillow lonely
+    6400008: pillows big and little
+    6400010: pillows couple
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: initialShadingGroup.002
-    second: {fileID: 2100000, guid: d7eccf9997b748e4aa487c9238b8585f, type: 2}
+      name: bed stead.002
+    second: {fileID: 2100000, guid: 806ae12577ad2c84ea662d6a5999c263, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blanket.002
+    second: {fileID: 2100000, guid: 78d743636243bb6468d08f0c0034cabd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mattress.002
+    second: {fileID: 2100000, guid: 3884577d02936d84898cbd48eda770fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillows big and little.002
+    second: {fileID: 2100000, guid: 11670b7136743564984f19540e7d54b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillows couple.002
+    second: {fileID: 2100000, guid: f6dae62e4f77c1346b14e74da0dc72a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pollow lonely.002
+    second: {fileID: 2100000, guid: 2d231d7ef061c4249b1ed018d77a4f4d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -86,11 +117,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

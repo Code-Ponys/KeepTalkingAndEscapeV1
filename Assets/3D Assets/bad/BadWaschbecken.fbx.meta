@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1f6d766af9e209e4fae3ea672b58701e
-timeCreated: 1518692236
+timeCreated: 1519141514
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -25,6 +25,15 @@ ModelImporter:
     400014: BZWB_Knauf_right
     400016: BZWB_Unterschrank
     400018: BZWB_Wasserhahn
+    2100000: Material.Bzwb knauf teil 2
+    2100002: Material. BZWB_ KNauf teil
+    2100004: Material.BZWB_Abfluss
+    2100006: Material. bzwb knauf links
+    2100008: Material.bzwb knauf rechts
+    2100010: Material.bzwb wasserhahn
+    2100012: "Material.BZWB_Linke T\xFCr"
+    2100014: Material. bzwb unterschrank
+    2100016: "Material.BZWB_rechte T\xFCr"
     2300000: BZWB_Abfluss
     2300002: BZWB_Door_Left
     2300004: BZWB_Door_right
@@ -65,8 +74,48 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Material. BZWB_ KNauf teil
+    second: {fileID: 2100000, guid: 18f4cf3e64c86fd46a837294545b1ffd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material. bzwb knauf links
+    second: {fileID: 2100000, guid: 981858e19a0025c478177aae1ed4d8bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material. bzwb unterschrank
+    second: {fileID: 2100000, guid: a20eddb0341e78b49af1f074312f3503, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.BZWB_Abfluss
+    second: {fileID: 2100000, guid: c7de54c7e0b65f547a2b322041e19951, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Material.BZWB_Linke T\xFCr"
+    second: {fileID: 2100000, guid: 1b4aa7b610f5413459d23fec42a811b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Material.BZWB_rechte T\xFCr"
+    second: {fileID: 2100000, guid: 818b1b76936255f469ca3f57f9734ed5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.Bzwb knauf teil 2
+    second: {fileID: 2100000, guid: df379c6748b60af4b9995e9a9247f2af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.bzwb knauf rechts
+    second: {fileID: 2100000, guid: a046caf29a4472c4990d921c3a556030, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.bzwb wasserhahn
+    second: {fileID: 2100000, guid: 36ae20270b6fba24592f3a6456cb8c8a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -104,11 +153,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

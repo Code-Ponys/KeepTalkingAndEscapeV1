@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d50ff5725fc1b92489762369cd8e26db
-timeCreated: 1518712376
+timeCreated: 1519119979
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,20 +11,27 @@ ModelImporter:
     400000: "M\xFCll_Deckel"
     400002: "M\xFClleimer"
     400004: //RootNode
+    2100000: Tonne
+    2100002: Deckel.001
     2300000: "M\xFCll_Deckel"
     2300002: "M\xFClleimer"
     3300000: "M\xFCll_Deckel"
     3300002: "M\xFClleimer"
-    4300000: "M\xFCll_Deckel"
-    4300002: "M\xFClleimer"
+    4300000: "M\xFClleimer"
+    4300002: "M\xFCll_Deckel"
     6400000: "M\xFCll_Deckel"
     6400002: "M\xFClleimer"
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Deckel.001
+    second: {fileID: 2100000, guid: 0ee61198501d5364f95ce188986d2f8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tonne
+    second: {fileID: 2100000, guid: cce138e5a75c8c84ea60926638e76f8f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -67,6 +74,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

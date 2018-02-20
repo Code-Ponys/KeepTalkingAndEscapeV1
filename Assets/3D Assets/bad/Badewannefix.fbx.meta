@@ -1,54 +1,109 @@
 fileFormatVersion: 2
 guid: c59a00561b5edf944b32892c508dec03
-timeCreated: 1518621421
+timeCreated: 1519120826
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: badewanne
     100002: //RootNode
-    100004: duschkopf und schlauch
+    100004: duschkopfFuerschlauch
     100006: haltestange
     100008: knaufe
-    100010: vorhang links und rechts
-    100012: wasserhahn
+    100010: Stoepsel2
+    100012: Vorhang_beweglich
+    100014: Vorhang_unbeweglich
+    100016: wasserhahn
     400000: badewanne
     400002: //RootNode
-    400004: duschkopf und schlauch
+    400004: duschkopfFuerschlauch
     400006: haltestange
     400008: knaufe
-    400010: vorhang links und rechts
-    400012: wasserhahn
+    400010: Stoepsel2
+    400012: Vorhang_beweglich
+    400014: Vorhang_unbeweglich
+    400016: wasserhahn
+    2100000: Badewanne
+    2100002: Hahn
+    2100004: Knauf
+    2100006: Stange
+    2100008: Duschkopf_und_Schlauch
+    2100010: Vorhang_beweglich2
+    2100012: Vorhang
+    2100014: Stoepsel
     2300000: badewanne
-    2300002: duschkopf und schlauch
+    2300002: duschkopfFuerschlauch
     2300004: haltestange
     2300006: knaufe
-    2300008: vorhang links und rechts
-    2300010: wasserhahn
+    2300008: Stoepsel2
+    2300010: Vorhang_beweglich
+    2300012: Vorhang_unbeweglich
+    2300014: wasserhahn
     3300000: badewanne
-    3300002: duschkopf und schlauch
+    3300002: duschkopfFuerschlauch
     3300004: haltestange
     3300006: knaufe
-    3300008: vorhang links und rechts
-    3300010: wasserhahn
-    4300000: duschkopf und schlauch
-    4300002: haltestange
+    3300008: Stoepsel2
+    3300010: Vorhang_beweglich
+    3300012: Vorhang_unbeweglich
+    3300014: wasserhahn
+    4300000: badewanne
+    4300002: wasserhahn
     4300004: knaufe
-    4300006: vorhang links und rechts
-    4300008: wasserhahn
-    4300010: badewanne
+    4300006: haltestange
+    4300008: duschkopfFuerschlauch
+    4300010: Vorhang_beweglich
+    4300012: Vorhang_unbeweglich
+    4300014: Stoepsel2
     6400000: badewanne
-    6400002: duschkopf und schlauch
+    6400002: duschkopfFuerschlauch
     6400004: haltestange
     6400006: knaufe
-    6400008: vorhang links und rechts
-    6400010: wasserhahn
+    6400008: Stoepsel2
+    6400010: Vorhang_beweglich
+    6400012: Vorhang_unbeweglich
+    6400014: wasserhahn
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Badewanne
+    second: {fileID: 2100000, guid: fd660b7ac751e0e419e3ed36cbfdeffa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Duschkopf_und_Schlauch
+    second: {fileID: 2100000, guid: db21303d789d8404795b91a236e219ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hahn
+    second: {fileID: 2100000, guid: 116983f3daaf8dc4d94bd712945a106a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Knauf
+    second: {fileID: 2100000, guid: 29b4f7cf52ec84d4c8b068525d1d7f78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stange
+    second: {fileID: 2100000, guid: 8d61068878004cc4187dcce558f2752e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stoepsel
+    second: {fileID: 2100000, guid: 79f9aeafe195e004cade15751c8e1eee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vorhang
+    second: {fileID: 2100000, guid: 56f9913735488f84c9a5f759d32c44ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vorhang_beweglich2
+    second: {fileID: 2100000, guid: ef8a556dd860c1941a508b1c11c9ac94, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -91,6 +146,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

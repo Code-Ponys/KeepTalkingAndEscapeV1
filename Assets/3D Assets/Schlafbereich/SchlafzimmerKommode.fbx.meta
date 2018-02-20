@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a55008299abc5a24fb3a9e042fa52843
-timeCreated: 1518620523
+timeCreated: 1519139935
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -9,63 +9,89 @@ ModelImporter:
     100002: //RootNode
     100004: SZK_Door_left
     100006: SZK_Door_right
-    100008: SZK_Kommode
-    100010: SZK_Schublade1
-    100012: SZK_Schublade2
-    100014: SZK_Schublade3
-    100016: SZK_Schublade4
+    100008: SZK_Schublade1
+    100010: SZK_Schublade2
+    100012: SZK_Schublade3
+    100014: SZK_Schublade4
     400000: Cube
     400002: //RootNode
     400004: SZK_Door_left
     400006: SZK_Door_right
-    400008: SZK_Kommode
-    400010: SZK_Schublade1
-    400012: SZK_Schublade2
-    400014: SZK_Schublade3
-    400016: SZK_Schublade4
+    400008: SZK_Schublade1
+    400010: SZK_Schublade2
+    400012: SZK_Schublade3
+    400014: SZK_Schublade4
+    2100000: Rechte_Kommodentuer
+    2100002: Linke_Kommodentuer
+    2100004: Kommode
+    2100006: Schublade1
+    2100008: Schublade2
+    2100010: Schublade3
+    2100012: Schublade4
     2300000: Cube
     2300002: SZK_Door_left
     2300004: SZK_Door_right
-    2300006: SZK_Kommode
-    2300008: SZK_Schublade1
-    2300010: SZK_Schublade2
-    2300012: SZK_Schublade3
-    2300014: SZK_Schublade4
+    2300006: SZK_Schublade1
+    2300008: SZK_Schublade2
+    2300010: SZK_Schublade3
+    2300012: SZK_Schublade4
     3300000: Cube
     3300002: SZK_Door_left
     3300004: SZK_Door_right
-    3300006: SZK_Kommode
-    3300008: SZK_Schublade1
-    3300010: SZK_Schublade2
-    3300012: SZK_Schublade3
-    3300014: SZK_Schublade4
-    4300000: SZK_Schublade1
-    4300002: SZK_Door_right
-    4300004: SZK_Door_left
-    4300006: SZK_Kommode
-    4300008: Cube
-    4300010: SZK_Schublade2
-    4300012: SZK_Schublade3
-    4300014: SZK_Schublade4
+    3300006: SZK_Schublade1
+    3300008: SZK_Schublade2
+    3300010: SZK_Schublade3
+    3300012: SZK_Schublade4
+    4300000: SZK_Door_right
+    4300002: SZK_Door_left
+    4300004: Cube
+    4300006: SZK_Schublade1
+    4300008: SZK_Schublade2
+    4300010: SZK_Schublade3
+    4300012: SZK_Schublade4
     6400000: Cube
     6400002: SZK_Door_left
     6400004: SZK_Door_right
-    6400006: SZK_Kommode
-    6400008: SZK_Schublade1
-    6400010: SZK_Schublade2
-    6400012: SZK_Schublade3
-    6400014: SZK_Schublade4
+    6400006: SZK_Schublade1
+    6400008: SZK_Schublade2
+    6400010: SZK_Schublade3
+    6400012: SZK_Schublade4
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Kommode
+    second: {fileID: 2100000, guid: 7978fdfd9ca4967408fc56e0568d1112, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: initialShadingGroup.002
-    second: {fileID: 2100000, guid: d7eccf9997b748e4aa487c9238b8585f, type: 2}
+      name: Linke_Kommodentuer
+    second: {fileID: 2100000, guid: ab3f37770dd5411408bc4e87a259ee7e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rechte_Kommodentuer
+    second: {fileID: 2100000, guid: f25d6d6357ed5f24fa963a9da6d0e12a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Schublade1
+    second: {fileID: 2100000, guid: ad65f8557dc783941a403d30015188ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Schublade2
+    second: {fileID: 2100000, guid: 300332ef5edc7644da7367faec8a8034, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Schublade3
+    second: {fileID: 2100000, guid: a531baeeff9270b4d91cf1229a361e8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Schublade4
+    second: {fileID: 2100000, guid: d8e19c6702c5d18408557c6076e4c197, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -103,11 +129,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

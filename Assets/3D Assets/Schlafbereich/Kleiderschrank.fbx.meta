@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d52d77984f6dac24da00507119473e50
-timeCreated: 1518620155
+timeCreated: 1519139571
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -12,7 +12,7 @@ ModelImporter:
     100008: "kleine t\xFCr links"
     100010: "kleine t\xFCr rechts"
     100012: schublade oben
-    100014: schublade unten
+    100014: schublade oben.002
     400000: "gro\xDFe t\xFCr links"
     400002: "gro\xDFe t\xFCr rechts"
     400004: //RootNode
@@ -20,41 +20,78 @@ ModelImporter:
     400008: "kleine t\xFCr links"
     400010: "kleine t\xFCr rechts"
     400012: schublade oben
-    400014: schublade unten
+    400014: schublade oben.002
+    2100000: schublade oben
+    2100002: "gro\xDFe t\xFCr links"
+    2100004: "kleine t\xFCr links"
+    2100006: "kleine t\xFCr rechts"
+    2100008: "gro\xDFe t\xFCr rechts"
+    2100010: Kleiderschrank
+    2100012: schublade oben.002
     2300000: "gro\xDFe t\xFCr links"
     2300002: "gro\xDFe t\xFCr rechts"
     2300004: Kleiderschrank
     2300006: "kleine t\xFCr links"
     2300008: "kleine t\xFCr rechts"
     2300010: schublade oben
-    2300012: schublade unten
+    2300012: schublade oben.002
     3300000: "gro\xDFe t\xFCr links"
     3300002: "gro\xDFe t\xFCr rechts"
     3300004: Kleiderschrank
     3300006: "kleine t\xFCr links"
     3300008: "kleine t\xFCr rechts"
     3300010: schublade oben
-    3300012: schublade unten
-    4300000: schublade unten
-    4300002: schublade oben
-    4300004: "gro\xDFe t\xFCr links"
-    4300006: "kleine t\xFCr links"
-    4300008: "kleine t\xFCr rechts"
-    4300010: "gro\xDFe t\xFCr rechts"
-    4300012: Kleiderschrank
+    3300012: schublade oben.002
+    4300000: schublade oben
+    4300002: "gro\xDFe t\xFCr links"
+    4300004: "kleine t\xFCr links"
+    4300006: "kleine t\xFCr rechts"
+    4300008: "gro\xDFe t\xFCr rechts"
+    4300010: Kleiderschrank
+    4300012: schublade oben.002
     6400000: "gro\xDFe t\xFCr links"
     6400002: "gro\xDFe t\xFCr rechts"
     6400004: Kleiderschrank
     6400006: "kleine t\xFCr links"
     6400008: "kleine t\xFCr rechts"
     6400010: schublade oben
-    6400012: schublade unten
+    6400012: schublade oben.002
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Kleiderschrank
+    second: {fileID: 2100000, guid: e3750c22f031dfe48a8ead5fd8f35d3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "gro\xDFe t\xFCr links"
+    second: {fileID: 2100000, guid: 81617301f7ad4c243990e588131ca0b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "gro\xDFe t\xFCr rechts"
+    second: {fileID: 2100000, guid: 6134039797efaa041bd6c940fe8a5630, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "kleine t\xFCr links"
+    second: {fileID: 2100000, guid: a23510f133c63124bbb57e3cd2fb35f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "kleine t\xFCr rechts"
+    second: {fileID: 2100000, guid: a6e1ff40ee3b01c48977fc76afb2e268, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: schublade oben
+    second: {fileID: 2100000, guid: d658360a17d1c9d48a46b72bf641d256, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: schublade oben.002
+    second: {fileID: 2100000, guid: e15ee5ade1eab684d96d2fd7e8a1f3d8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -92,11 +129,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
