@@ -437,37 +437,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //Calculations
 
-        private Vector3 RotationNormalize(Vector3 rotation) {
-            if(rotation.x < 0) {
-                while(rotation.x < 0) {
-                    rotation.x = rotation.x + 360;
-                }
-            }
-            else if(rotation.x > 360) {
-                rotation.x = rotation.x % 360;
-            }
-
-            if(rotation.y < 0) {
-                while(rotation.y < 0) {
-                    rotation.y = rotation.y + 360;
-                }
-            }
-            else if(rotation.y > 360) {
-                rotation.y = rotation.y % 360;
-            }
-
-            if(rotation.z < 0) {
-                while(rotation.z < 0) {
-                    rotation.z = rotation.z + 360;
-                }
-            }
-            else if(rotation.z > 360) {
-                rotation.z = rotation.z % 360;
-            }
-
-            return rotation;
-        }
-
         public Vector3 StepsPerFrame(Vector3 a, Vector3 b, int frames) {
             Vector3 result = new Vector3();
             if(a.x < 0 && b.x > 0) {
