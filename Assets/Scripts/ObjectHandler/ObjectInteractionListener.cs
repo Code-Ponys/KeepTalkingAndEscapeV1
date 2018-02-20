@@ -333,10 +333,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _humanMessageActive = true;
             }
 
-            if(!_humanReachable && _humanMessageActive) {
-                _uiManager.HumanHoverText = "";
-                _humanMessageActive = false;
-            }
+            if(_humanReachable || !_humanMessageActive) return;
+            _uiManager.HumanHoverText = "";
+            _humanMessageActive = false;
         }
 
         private void UpdateGhostUi() {
@@ -346,10 +345,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _ghostMessageActive = true;
             }
 
-            if(!_ghostReachable && _ghostMessageActive) {
-                _uiManager.GhostHoverText = "";
-                _ghostMessageActive = false;
-            }
+            if(_ghostReachable || !_ghostMessageActive) return;
+            _uiManager.GhostHoverText = "";
+            _ghostMessageActive = false;
         }
 
         /// <summary>
@@ -382,32 +380,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         public bool IsHumanPressingAgainsObject() {
-            if(_humanReachable) {
-                if(_animationType == AnimationType.OpenLinkedOnHold)
-                    return Input.GetButton(ButtonNames.HumanInteract);
-            }
-
-            return false;
+            if(!_humanReachable) return false;
+            return _animationType == AnimationType.OpenLinkedOnHold && Input.GetButton(ButtonNames.HumanInteract);
         }
 
         public int AnimationDurationInFrames {
             get {return _animationDurationInFrames;}
             set {_animationDurationInFrames = value;}
-        }
-
-        public Vector3 PositionBase {
-            get {return _positionBase;}
-            set {_positionBase = value;}
-        }
-
-        public Vector3 RotationBase {
-            get {return _rotationBase;}
-            set {_rotationBase = value;}
-        }
-
-        public Vector3 ScaleBase {
-            get {return _scaleBase;}
-            set {_scaleBase = value;}
         }
 
         public Vector3 PositionAnimated {
