@@ -107,11 +107,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _itemHandler = ItemHandler.GetItemHandler();
-
-            _uiManager.GhostHoverText = "";
-            _uiManager.GhostFlavourText = "";
-            _uiManager.HumanHoverText = "";
-            _uiManager.HumanFlavourText = "";
+            _meshGameObject = gameObject;
 
             if(AnimationType != AnimationType.None) {
                 _animationController = _meshGameObject.AddComponent<AnimationController>();
@@ -120,8 +116,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _positionBase = _meshGameObject.transform.localPosition;
             _rotationBase = _meshGameObject.transform.localRotation.eulerAngles;
             _scaleBase = _meshGameObject.transform.localScale;
-
-            _meshGameObject = gameObject;
         }
 
         private void Update() {
@@ -152,12 +146,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         private void UpdateMotherState() {
             if(_getActivationFromMother) {
-                if(_secondGameObject.GetComponent<AnimationController>().Open) {
-                    _motherObjectActive = true;
-                }
-                else {
-                    _motherObjectActive = false;
-                }
+                _motherObjectActive = _secondGameObject.GetComponent<AnimationController>().Open;
             }
         }
 
