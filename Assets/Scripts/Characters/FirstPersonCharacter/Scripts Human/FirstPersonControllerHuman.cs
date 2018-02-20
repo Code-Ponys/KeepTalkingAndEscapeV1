@@ -45,12 +45,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
+        
         private AudioSource m_AudioSource;
+        private GameManager _gameManager;
 
         // Use this for initialization
         private void Start()
         {
+            _gameManager = GameManager.GetGameManager();
             _inventory = Inventory.GetInstance(CharacterType.Human);
+            
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = GameObject.Find("FirstPersonCharacterHuman").GetComponent<Camera>();
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -178,7 +182,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void GetInput(out float speed)
         {
-            if(_inventory.InventoryActive) {
+            if(_gameManager.HumanNumPadActive || _inventory.InventoryActive) {
                 speed = 2;
                 return;
             }
