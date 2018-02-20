@@ -32,12 +32,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private bool _inventoryActive;
         private bool _lastInventoryState;
 
-        [SerializeField]private string _itemInHand;
+        [SerializeField] private string _itemInHand;
 
         private int _x = 0;
         private int _y = 0;
 
         private GameObject[] combine = new GameObject[2];
+        private GameManager _gameManager;
 
         // Use this for initialization
 
@@ -46,6 +47,23 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             if(_secondInventory.CharacterType == _characterType) throw new Exception("Inventory must have different character types");
 
             _itemHandler = ItemHandler.GetItemHandler();
+            _gameManager = GameManager.GetGameManager();
+
+            switch(_characterType) {
+                case CharacterType.Ghost:
+                    gameObject.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+                    gameObject.GetComponent<Canvas>().worldCamera = _gameManager.GhostCamera;
+                    break;
+                case CharacterType.Human:
+                    gameObject.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
+                    gameObject.GetComponent<Canvas>().worldCamera = _gameManager.HumanCamera;
+                    break;
+                case CharacterType.Unassigned:
+                    throw new Exception("Inventory is missing a character type");
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         // Update is called once per frame
