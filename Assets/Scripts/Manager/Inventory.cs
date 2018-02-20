@@ -1,9 +1,6 @@
 ﻿using System;
-using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Networking.NetworkSystem;
 using UnityEngine.UI;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
@@ -40,15 +37,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private int _x = 0;
         private int _y = 0;
 
-        GameObject[] combine = new GameObject[2];
+        private GameObject[] combine = new GameObject[2];
 
         // Use this for initialization
 
         private void Start() {
             SearchInventoryObjects();
-            if(_secondInventory.CharacterType == _characterType) {
-                throw new Exception("Inventory must have different character types");
-            }
+            if(_secondInventory.CharacterType == _characterType) throw new Exception("Inventory must have different character types");
 
             _itemHandler = ItemHandler.GetItemHandler();
         }
@@ -70,12 +65,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             if(_slots[_y, _x].Item != null) {
                 var item = _slots[_y, _x].Item;
                 _itemName.text = item.Name;
-                if(_characterType == CharacterType.Ghost) {
+                if(_characterType == CharacterType.Ghost)
                     _itemText.text = item.GhostDescription;
-                }
-                else {
+                else
                     _itemText.text = item.HumanDescription;
-                }
             }
             else {
                 _itemName.text = "";
@@ -92,9 +85,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 case CharacterType.Ghost:
                     if(Input.GetButtonDown(ButtonNames.GhostInventory)) {
                         _inventoryActive = !_inventoryActive;
-                        if(_inventoryActive && !_secondInventory._inventoryActive) {
-                            RearrangeItems();
-                        }
+                        if(_inventoryActive && !_secondInventory._inventoryActive) RearrangeItems();
 
                         _itemCombineText.text = "";
                         _x = 0;
@@ -105,9 +96,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 case CharacterType.Human:
                     if(Input.GetButtonDown(ButtonNames.HumanInventory)) {
                         _inventoryActive = !_inventoryActive;
-                        if(_inventoryActive && !_secondInventory._inventoryActive) {
-                            RearrangeItems();
-                        }
+                        if(_inventoryActive && !_secondInventory._inventoryActive) RearrangeItems();
 
                         _itemCombineText.text = "";
                         _x = 0;
@@ -129,13 +118,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private void SearchInventoryObjects() {
             switch(_characterType) {
                 case CharacterType.Ghost:
-                    for(var i = 0; i < 4; i++) {
-                        for(var j = 0; j < 5; j++) {
-                            _slots[i, j] = GameObject.Find(i + "," + j + "G").AddComponent<ItemSlotHandler>();
-                            _selectorHuman[i, j] = GameObject.Find(i + "," + j + "GSH").GetComponent<Image>();
-                            _selectorGhost[i, j] = GameObject.Find(i + "," + j + "GSG").GetComponent<Image>();
-                            _slots[i, j].CharacterType = CharacterType.Ghost;
-                        }
+                    for(var i = 0; i < 4; i++)
+                    for(var j = 0; j < 5; j++) {
+                        _slots[i, j] = GameObject.Find(i + "," + j + "G").AddComponent<ItemSlotHandler>();
+                        _selectorHuman[i, j] = GameObject.Find(i + "," + j + "GSH").GetComponent<Image>();
+                        _selectorGhost[i, j] = GameObject.Find(i + "," + j + "GSG").GetComponent<Image>();
+                        _slots[i, j].CharacterType = CharacterType.Ghost;
                     }
 
                     combine[0] = GameObject.Find("FirstG");
@@ -146,13 +134,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
                     break;
                 case CharacterType.Human:
-                    for(var i = 0; i < 4; i++) {
-                        for(var j = 0; j < 5; j++) {
-                            _slots[i, j] = GameObject.Find(i + "," + j + "H").AddComponent<ItemSlotHandler>();
-                            _selectorHuman[i, j] = GameObject.Find(i + "," + j + "HSH").GetComponent<Image>();
-                            _selectorGhost[i, j] = GameObject.Find(i + "," + j + "HSG").GetComponent<Image>();
-                            _slots[i, j].CharacterType = CharacterType.Human;
-                        }
+                    for(var i = 0; i < 4; i++)
+                    for(var j = 0; j < 5; j++) {
+                        _slots[i, j] = GameObject.Find(i + "," + j + "H").AddComponent<ItemSlotHandler>();
+                        _selectorHuman[i, j] = GameObject.Find(i + "," + j + "HSH").GetComponent<Image>();
+                        _selectorGhost[i, j] = GameObject.Find(i + "," + j + "HSG").GetComponent<Image>();
+                        _slots[i, j].CharacterType = CharacterType.Human;
                     }
 
                     combine[0] = GameObject.Find("FirstH");
@@ -160,7 +147,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     combine[0].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
                     combine[1].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
 
-                    Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
                     break;
                 default:
                     throw new Exception("Character type not set.");
@@ -173,13 +159,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         /// </summary>
         /// <exception cref="ArgumentException"></exception>
         private void UpdateSelection() {
-            foreach(var obj in _selectorGhost) {
-                obj.GetComponent<Image>().sprite = _transparentSprite;
-            }
+            foreach(var obj in _selectorGhost) obj.GetComponent<Image>().sprite = _transparentSprite;
 
-            foreach(var obj in _selectorHuman) {
-                obj.GetComponent<Image>().sprite = _transparentSprite;
-            }
+            foreach(var obj in _selectorHuman) obj.GetComponent<Image>().sprite = _transparentSprite;
 
             switch(_characterType) {
                 case CharacterType.Ghost:
@@ -190,7 +172,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     break;
             }
 
-            if(_secondInventory.InventoryActive) {
+            if(_secondInventory.InventoryActive)
                 switch(_secondInventory.CharacterType) {
                     case CharacterType.Ghost:
                         _selectorGhost[_secondInventory.Y, _secondInventory.X].GetComponent<Image>().sprite = _ghostSelectorOutline;
@@ -201,7 +183,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     default:
                         throw new ArgumentException("Your second Inventory does not have a valid character type.");
                 }
-            }
         }
 
         /// <summary>
@@ -295,7 +276,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 _currentAxisDelay -= Time.deltaTime;
             }
 
-            if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
+            if(Input.GetButtonDown(ButtonNames.HumanInspect))
                 if(_slots[_y, _x].GetComponent<ItemSlotHandler>().Item != null) {
                     if(combine[0].GetComponent<ItemCombineSlotHandler>().Item == null) {
                         combine[0].GetComponent<ItemCombineSlotHandler>().Item = _slots[_y, _x].GetComponent<ItemSlotHandler>().Item;
@@ -326,11 +307,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                         }
                     }
                 }
-            }
 
-            if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonY)) {
-                _itemInHand = _slots[_y, _x].Item.ItemId;
-            }
+            if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonY)) _itemInHand = _slots[_y, _x].Item.ItemId;
         }
 
         /// <summary>
@@ -384,9 +362,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
         public static Inventory GetInstance(CharacterType characterType) {
-            if(characterType == CharacterType.Ghost) {
-                return GameObject.Find("GhostInventory").GetComponent<Inventory>();
-            }
+            if(characterType == CharacterType.Ghost) return GameObject.Find("GhostInventory").GetComponent<Inventory>();
 
             return GameObject.Find("HumanInventory").GetComponent<Inventory>();
         }

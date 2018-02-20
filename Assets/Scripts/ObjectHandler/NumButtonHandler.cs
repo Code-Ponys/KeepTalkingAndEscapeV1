@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Security;
-using System.Security.Cryptography;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
-using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -165,12 +162,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _buttons[_y, _x].GetComponent<NumButton>().Active();
             switch(_buttons[_y, _x].GetComponent<NumButton>().NumButtonType) {
                 case NumButtonType.Number:
-                    if(_displayText == "Korrekt" || _displayText == "Falsch") {
-                        _displayText = "";
-                    }
+                    if(_displayText == "Korrekt" || _displayText == "Falsch") _displayText = "";
 
                     _displayText = _displayText + _buttons[_y, _x].GetComponent<NumButton>().Number;
-                    if(_displayText.Length == _password.Length) {
+                    if(_displayText.Length == _password.Length)
                         if(string.Equals(_displayText, _password, StringComparison.CurrentCultureIgnoreCase)) {
                             _displayText = "Korrekt";
                             _codeSolved = true;
@@ -178,7 +173,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         else {
                             _displayText = "Falsch";
                         }
-                    }
 
                     break;
                 case NumButtonType.Reset:

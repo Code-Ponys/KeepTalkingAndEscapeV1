@@ -17,9 +17,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _image = gameObject.GetComponent<Image>();
         }
         private void Update() {
-            if(_inventory == null) {
-                _inventory = Inventory.GetInstance(_characterType);
-            }
+            if(_inventory == null) _inventory = Inventory.GetInstance(_characterType);
 
             if(_item == null && _currentitemId == "") return;
             if(_item == null && _currentitemId != "") {

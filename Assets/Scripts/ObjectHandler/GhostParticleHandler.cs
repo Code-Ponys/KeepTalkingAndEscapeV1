@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GhostParticleHandler : MonoBehaviour {
 	
@@ -29,8 +27,8 @@ public class GhostParticleHandler : MonoBehaviour {
 
 	private ParticleSystem _particle;
 
-	
-	void Start () {
+
+	private void Start () {
 		ParticleHandler();
 	}
 	//Changes size over time to give dynamic 
@@ -43,7 +41,7 @@ public class GhostParticleHandler : MonoBehaviour {
 	/// </summary>
 	private void ParticleHandler() {
 		//Creates new game object with the particle
-		GameObject particleObject = new GameObject("Particle");
+		var particleObject = new GameObject("Particle");
 		particleObject.transform.parent = _meshGameObject.transform;
 		particleObject.transform.position = new Vector3(_meshGameObject.transform.position.x + _particlePositionX, _meshGameObject.transform.position.y + _particlePositionY, _meshGameObject.transform.position.z + _particlePositionZ);
 		particleObject.transform.rotation = Quaternion.Euler(_meshGameObject.transform.rotation.x + _particleRotationX,_meshGameObject.transform.rotation.y + _particleRotationY,_meshGameObject.transform.rotation.z + _particleRotationZ);
