@@ -64,45 +64,45 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             ActivateChildOnHold();
-            if(_animationActive) {
-                OpenAnimation();
-                MoveOnKeySmash();
-            }
+            if(!_animationActive) return;
+            OpenAnimation();
+            MoveOnKeySmash();
         }
-        //Animation Types
+
+
+//Animation Types
 
         /// <summary>
         /// Operates opening of objects. Moves the object to a specific position
         /// </summary>
         private void OpenAnimation() {
-            if(_animationType == AnimationType.Open) {
-                if(_open) {
-                    //close Door
-                    if(_frameCount == _animationDurationInFrames) {
-                        SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
-                        _open = false;
-                        _animationActive = false;
-                        _frameCount = 0;
-                        Debug.Log("Door closed");
-                        return;
-                    }
-
-                    TransformObject(_positionStepClose, _scaleStepClose);
+            if(_animationType != AnimationType.Open) return;
+            if(_open) {
+                //close Door
+                if(_frameCount == _animationDurationInFrames) {
+                    SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
+                    _open = false;
+                    _animationActive = false;
+                    _frameCount = 0;
+                    Debug.Log("Door closed");
+                    return;
                 }
-                else {
-                    //Open Door
-                    if(_frameCount == _animationDurationInFrames) {
-                        SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleAnimated);
-                        _open = true;
-                        _animationActive = false;
-                        _frameCount = 0;
-                        Debug.Log("Door opened");
-                        return;
-                    }
 
-                    //close Door
-                    TransformObject(_positionStepOpen, _scaleStepOpen);
+                TransformObject(_positionStepClose, _scaleStepClose);
+            }
+            else {
+                //Open Door
+                if(_frameCount == _animationDurationInFrames) {
+                    SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleAnimated);
+                    _open = true;
+                    _animationActive = false;
+                    _frameCount = 0;
+                    Debug.Log("Door opened");
+                    return;
                 }
+
+                //close Door
+                TransformObject(_positionStepOpen, _scaleStepOpen);
             }
         }
 
@@ -179,18 +179,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 TransformObject(_positionStepOpen, _scaleStepOpen);
             }
 
-            if(!_childAnimationActive && _childAnimationOpen) {
-                //close Door
-                if(_frameCount == _animationDurationInFrames) {
-                    Debug.Log("CloseDoor");
-                    SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
-                    _childAnimationOpen = false;
-                    _open = false;
-                    return;
-                }
-
-                TransformObject(_positionStepClose, _scaleStepClose);
+            if(_childAnimationActive || !_childAnimationOpen) return;
+            //close Door
+            if(_frameCount == _animationDurationInFrames) {
+                Debug.Log("CloseDoor");
+                SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
+                _childAnimationOpen = false;
+                _open = false;
+                return;
             }
+
+            TransformObject(_positionStepClose, _scaleStepClose);
         }
 
         /// <summary>
@@ -254,10 +253,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             TransformObject(_positionStepClose, _scaleStepClose);
         }
-        //End of Animation Type
+//End of Animation Type
 
 
-        //Methodes for moving 
+//Methodes for moving 
 
         /// <summary>
         /// Moves the object to a point determined in the editor
@@ -283,10 +282,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _meshGameObject.transform.localRotation = rotation;
             _meshGameObject.transform.localScale = scale;
         }
-        //End of Methodes for Moving
+//End of Methodes for Moving
 
 
-        //New animation methode
+//New animation methode
 
         /// <summary>
         /// Reverses Rotation values for animation and activates animations
@@ -426,6 +425,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _linkedMeshGameObject = linkedGameObject;
         }
 
+//End of new animation Methodes
+
+
+//Calculations
+
         /// <summary>
         /// Writes the data of the given Object listener to the Animation Controller.
         /// </summary>
@@ -444,9 +448,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _keyType = self.KeyType;
             _animationDurationInFrames = self.AnimationDurationInFrames;
         }
-        //End of new animation Methodes
 
-        //Calculations
 
         private Vector3 StepsPerFrame(Vector3 a, Vector3 b, int frames) {
             var result = new Vector3();
@@ -482,9 +484,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _rotationSteps = a;
         }
 
-        //End of Calculations
+//End of Calculations
 
-        //Getter and Setter for Animations
+//Getter and Setter for Animations
 
         public bool Open {
             get {return _open;}
@@ -500,6 +502,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             set {_parentAnimationDone = value;}
         }
 
-        //End of Getter and Setter for Animations
+//End of Getter and Setter for Animations
     }
 }
