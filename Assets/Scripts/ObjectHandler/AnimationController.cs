@@ -423,6 +423,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _activateObjectPhysikAfterAnimation = self.ActivateGravityAtEnd;
             _rotationAnimated = Quaternion.Euler(self.RotationAnimated);
             _onedirectionAnimation = self.OnedirectionAnimation;
+            _positionStepClose = _positionStepOpen * (-1);
+            _scaleStepClose = _scaleStepOpen * (-1);
             if(_positionAnimated.x == 0) {
                 _positionAnimated.x = _positionBase.x;
             }
