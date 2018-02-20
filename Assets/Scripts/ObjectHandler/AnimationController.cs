@@ -105,16 +105,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
             }
         }
-        
+
         /// <summary>
         /// Moves object by pressing the same button consecutively
         /// </summary>
         private void MoveOnKeySmash() {
-
             if(GhostDrivenAnimationActive)
                 if(_animationType == AnimationType.GhostMoveOnKeySmash) {
                     //Button, which sould be smashed
-                    if(Input.GetButtonDown(GetButtonName(_keyType))) {
+                    if(Input.GetButtonDown(ButtonNames.GetButtonName(_keyType))) {
                         //Add More Frames to procedure
                         if(_framesToNextStop == 0 && _animationDurationInFrames != _frameCount) {
                             _framesToNextStop = _animationStepsPerKlick;
@@ -133,11 +132,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         if(_objectInteractionListener.CanBeTakenToInventory) {
                             _objectInteractionListener.CanBePickedUpAfterGhostAction = false;
                         }
+
                         if(_activateObjectPhysikAfterAnimation) {
                             _rigidbody.useGravity = true;
                             _rigidbody.isKinematic = false;
                             _animationActive = false;
-                            }
+                        }
+
                         _open = true;
                         SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleBase);
                     }
@@ -215,45 +216,43 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private void ActivateChildOnHold() {
             //Abbrechen
 
-            if(Input.GetButtonDown(GetButtonName(KeyType.A))) {
+            if(Input.GetButtonDown(ButtonNames.GetButtonName(KeyType.A))) {
                 Debug.Log("Leave Object");
                 _ghostDrivenAnimationActive = false;
             }
 
-            if(_animationType == AnimationType.GhostActivateOnKeyHold) {
-                if(_ghostDrivenAnimationActive) {
-                    if(Input.GetButton(GetButtonName(_keyType)) && !_animationActivated) {
-                        _animationActivated = true;
-                        _frameCount = 0;
-                    }
-                }
-
-                if(!_ghostDrivenAnimationActive || !Input.GetButton(GetButtonName(_keyType))) {
-                    if(_open && _animationActivated) {
-                        _frameCount = 0;
-                        _animationActivated = false;
-                    }
-                }
-
-                if(_animationActivated && !_open) {
-                    if(_frameCount == _animationDurationInFrames) {
-                        SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleAnimated);
-                        _open = true;
-                    }
-
-                    TransformObject(_positionStepOpen, _scaleStepOpen);
-                }
-
-                if(!_animationActivated && _open) {
-                    if(_frameCount == _animationDurationInFrames) {
-                        SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
-                        _animationActive = false;
-                        _open = false;
-                    }
-
-                    TransformObject(_positionStepClose, _scaleStepClose);
+            if(_animationType != AnimationType.GhostActivateOnKeyHold) return;
+            if(_ghostDrivenAnimationActive) {
+                if(Input.GetButton(ButtonNames.GetButtonName(_keyType)) && !_animationActivated) {
+                    _animationActivated = true;
+                    _frameCount = 0;
                 }
             }
+
+            if(!_ghostDrivenAnimationActive || !Input.GetButton(ButtonNames.GetButtonName(_keyType))) {
+                if(_open && _animationActivated) {
+                    _frameCount = 0;
+                    _animationActivated = false;
+                }
+            }
+
+            if(_animationActivated && !_open) {
+                if(_frameCount == _animationDurationInFrames) {
+                    SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleAnimated);
+                    _open = true;
+                }
+
+                TransformObject(_positionStepOpen, _scaleStepOpen);
+            }
+
+            if(_animationActivated || !_open) return;
+            if(_frameCount == _animationDurationInFrames) {
+                SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
+                _animationActive = false;
+                _open = false;
+            }
+
+            TransformObject(_positionStepClose, _scaleStepClose);
         }
         //End of Animation Type
 
@@ -273,12 +272,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _scaleCurrent = _meshGameObject.transform.localScale;
             //Transform
             _meshGameObject.transform.localPosition = new Vector3(_positionCurrent.x + positionStep.x, _positionCurrent.y + positionStep.y, _positionCurrent.z + positionStep.z);
-            if(_open) {
-                _meshGameObject.transform.localRotation = Quaternion.RotateTowards(_rotationAnimated, _rotationBase, _rotationSteps * _frameCount);
-            }
-            else{
-                _meshGameObject.transform.localRotation = Quaternion.RotateTowards(_rotationBase, _rotationAnimated, _rotationSteps * _frameCount);
-            }
+            _meshGameObject.transform.localRotation = _open ? Quaternion.RotateTowards(_rotationAnimated, _rotationBase, _rotationSteps * _frameCount) : Quaternion.RotateTowards(_rotationBase, _rotationAnimated, _rotationSteps * _frameCount);
 
             _meshGameObject.transform.localScale = new Vector3(_scaleCurrent.x + scaleStep.x, _scaleCurrent.y + scaleStep.y, _scaleCurrent.z + scaleStep.z);
             _frameCount++;
@@ -291,20 +285,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
         //End of Methodes for Moving
 
-        private string GetButtonName(KeyType keyType) {
-            switch(keyType) {
-                case KeyType.A:
-                    return ButtonNames.GhostJoystickButtonA;
-                case KeyType.B:
-                    return ButtonNames.GhostjoystickButtonB;
-                case KeyType.X:
-                    return ButtonNames.GhostJoystickButtonX;
-                case KeyType.Y:
-                    return ButtonNames.GhostJoystickButtonY;
-                default:
-                    return null;
-            }
-        }
 
         //New animation methode
 
@@ -324,7 +304,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_animationType != AnimationType.Open) {
                 WriteData(self);
             }
-            
+
             validateData(self);
 
             CalculateSteps();
@@ -364,6 +344,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _animationActive = true;
         }
 
+        /// <summary>
+        /// Calculate the step size for the frame duration.
+        /// </summary>
         private void CalculateSteps() {
             _positionStepOpen = StepsPerFrame(_positionBase, _positionAnimated, _animationDurationInFrames);
             _positionStepClose = _positionStepOpen * (-1);
@@ -372,6 +355,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _scaleStepClose = _scaleStepOpen * (-1);
         }
 
+        /// <summary>
+        /// Validates the given data to make 0 input possible.
+        /// </summary>
+        /// <param name="self"></param>
         private void validateData(ObjectInteractionListener self) {
             if(_positionAnimated.x == 0) {
                 _positionAnimated.x = _positionBase.x;
@@ -439,6 +426,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _linkedMeshGameObject = linkedGameObject;
         }
 
+        /// <summary>
+        /// Writes the data of the given Object listener to the Animation Controller.
+        /// </summary>
+        /// <param name="self"></param>
         private void WriteData(ObjectInteractionListener self) {
             _meshGameObject = self.gameObject;
             _positionBase = _meshGameObject.transform.localPosition;
@@ -457,94 +448,32 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //Calculations
 
-        private Vector3 RotationNormalize(Vector3 rotation) {
-            if(rotation.x < 0) {
-                while(rotation.x < 0) {
-                    rotation.x = rotation.x + 360;
-                }
-            }
-            else if(rotation.x > 360) {
-                rotation.x = rotation.x % 360;
-            }
-
-            if(rotation.y < 0) {
-                while(rotation.y < 0) {
-                    rotation.y = rotation.y + 360;
-                }
-            }
-            else if(rotation.y > 360) {
-                rotation.y = rotation.y % 360;
-            }
-
-            if(rotation.z < 0) {
-                while(rotation.z < 0) {
-                    rotation.z = rotation.z + 360;
-                }
-            }
-            else if(rotation.z > 360) {
-                rotation.z = rotation.z % 360;
-            }
-
-            return rotation;
-        }
-
-        public Vector3 StepsPerFrame(Vector3 a, Vector3 b, int frames) {
-            Vector3 result = new Vector3();
-            if(a.x < 0 && b.x > 0) {
+        private Vector3 StepsPerFrame(Vector3 a, Vector3 b, int frames) {
+            var result = new Vector3();
+            if(a.x < 0 && b.x > 0 || a.x < 0 && b.x < 0) {
                 a.x = a.x * -1;
                 result.x = b.x + a.x;
             }
 
-            if(a.x > 0 && b.x < 0) {
-                result.x = b.x - a.x;
-            }
+            if(a.x > 0 && b.x < 0 || a.x > 0 && b.x > 0) result.x = b.x - a.x;
 
-            if(a.x > 0 && b.x > 0) {
-                result.x = b.x - a.x;
-            }
 
-            if(a.x < 0 && b.x < 0) {
-                a.x = a.x * -1;
-                result.x = b.x + a.x;
-            }
-
-            if(a.y < 0 && b.y > 0) {
+            if(a.y < 0 && b.y > 0 || a.y < 0 && b.y < 0) {
                 a.y = a.y * -1;
                 result.y = b.y + a.y;
             }
 
-            if(a.y > 0 && b.y < 0) {
-                result.y = b.y - a.y;
-            }
+            if(a.y > 0 && b.y < 0 || a.y > 0 && b.y > 0) result.y = b.y - a.y;
 
-            if(a.y > 0 && b.y > 0) {
-                result.y = b.y - a.y;
-            }
 
-            if(a.y < 0 && b.y < 0) {
-                a.y = a.y * -1;
-                result.y = b.y + a.y;
-            }
-
-            if(a.z < 0 && b.z > 0) {
+            if(a.z < 0 && b.z > 0 || a.z < 0 && b.z < 0) {
                 a.z = a.z * -1;
                 result.z = b.z + a.z;
             }
 
-            if(a.z > 0 && b.z < 0) {
-                result.z = b.z - a.z;
-            }
+            if(a.z > 0 && b.z < 0 || a.z > 0 && b.z > 0) result.z = b.z - a.z;
 
-            if(a.z > 0 && b.z > 0) {
-                result.z = b.z - a.z;
-            }
-
-            if(a.z < 0 && b.z < 0) {
-                a.z = a.z * -1;
-                result.z = b.z + a.z;
-            }
-
-            return (result / frames);
+            return result / frames;
         }
 
         private void CalculateRotationSteps(Quaternion aQuaternion, Quaternion bQuaternion, int frames) {

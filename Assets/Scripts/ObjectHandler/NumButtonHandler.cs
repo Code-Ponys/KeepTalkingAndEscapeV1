@@ -2,6 +2,7 @@
 using System.Security;
 using System.Security.Cryptography;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
+using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private Sprite _clicked;
         [SerializeField] private Sprite _notClicked;
         [SerializeField] private float _closeTimeAfterCodeSolved = 5;
+        private bool _humanNumPadActive = false;
         private bool _codeSolved;
 
 
@@ -137,14 +139,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
                 else if(Input.GetAxis(ButtonNames.MoveHumanX) > 0) {
                     //Right
-                    if(_x == 2) return;
+                    if(_x == _buttons.GetLength(1)-1) return;
                     _x++;
                     _currentAxisDelay = _axisDelay;
                 }
 
                 if(Input.GetAxis(ButtonNames.MoveHumanY) < 0) {
                     //Down
-                    if(_y == 3) return;
+                    if(_y == _buttons.GetLength(0)-1) return;
                     _y++;
                     _currentAxisDelay = _axisDelay;
                 }
@@ -192,11 +194,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         public void CloseButtonField() {
             if(_codeSolved && !_visibleObject.activeInHierarchy) return;
+            _humanNumPadActive = false;
             _visibleObject.SetActive(false);
         }
 
         public void OpenButtonField() {
             if(_codeSolved) return;
+            _humanNumPadActive = true;
             _visibleObject.SetActive(true);
         }
 
@@ -213,6 +217,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         public bool CodeSolved {
             get {return _codeSolved;}
         }
-
+        
+        public bool HumanNumPadActive {
+            get {return _humanNumPadActive;}
+        }
     }
 }

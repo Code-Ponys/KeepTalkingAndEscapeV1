@@ -1,9 +1,9 @@
 using System;
+using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
-using TrustfallGames.KeepTalkingAndEscape.Manager;
 
 namespace UnityStandardAssets.Characters.FirstPerson {
     [RequireComponent(typeof(CharacterController))]
