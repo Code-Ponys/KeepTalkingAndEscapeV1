@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityStandardAssets.Utility;
 
@@ -43,10 +42,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             Camera.transform.localPosition = newCameraPosition;
 
-            if (!m_PreviouslyGrounded && RigidbodyFirstPersonControllerGhost.Grounded)
-            {
-                StartCoroutine(jumpAndLandingBob.DoBobCycle());
-            }
+            if (!m_PreviouslyGrounded && RigidbodyFirstPersonControllerGhost.Grounded) StartCoroutine(jumpAndLandingBob.DoBobCycle());
 
             m_PreviouslyGrounded = RigidbodyFirstPersonControllerGhost.Grounded;
           //  m_CameraRefocus.SetFocusPoint();

@@ -55,6 +55,33 @@ public enum NumButtonType {
 }
 
 public static class ButtonNames {
+    /// <summary>
+    /// Get the button name of the pressed key depends on Key Type
+    /// </summary>
+    /// <param name="KeyType">KeyType Enum</param>
+    /// <returns>Returns the Button name as string</returns>
+    public static string GetButtonName(KeyType keyType) {
+        switch(keyType) {
+            case KeyType.A:
+                return GhostJoystickButtonA;
+            case KeyType.B:
+                return GhostjoystickButtonB;
+            case KeyType.X:
+                return GhostJoystickButtonX;
+            case KeyType.Y:
+                return GhostJoystickButtonY;
+            case KeyType.R1:
+                return null;
+            case KeyType.R2:
+                return null;
+            case KeyType.L1:
+                return null;
+            case KeyType.L2:
+                return null;
+            default:
+                return null;
+        }
+    }
 
     public static string MoveGhostX {
         get {return _moveGhostX;}
@@ -159,11 +186,11 @@ public static class ButtonNames {
     public static string HumanHorizontalPad {
         get {return _humanHorizontalPad;}
     }
-    
+
     public static string GhostHighlighting {
         get {return _ghostHighighting;}
     }
-    
+
     public static string HumanHighlighting {
         get {return _humanHighlighting;}
     }
@@ -209,5 +236,6 @@ public static class DataPath {
     public static string SaveGame {
         get {return _saveGame;}
     }
+
 
 }

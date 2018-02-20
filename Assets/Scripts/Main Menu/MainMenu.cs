@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
     public class MainMenu : MonoBehaviour {
@@ -29,7 +27,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
         // Update is called once per frame
-        void Update() {
+        private void Update() {
             MainMenuInput();
             UpdateSelection();
             Clicked();
@@ -37,13 +35,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
         
         private void UpdateSelection() {
-            foreach(var obj in _menu) {
-                obj.GetComponent<Image>().sprite = _defaultSprite;
-            }
+            foreach(var obj in _menu) obj.GetComponent<Image>().sprite = _defaultSprite;
 
-            foreach(var obj in _menu) {
-                obj.GetComponent<Image>().sprite = _defaultSprite;
-            }
+            foreach(var obj in _menu) obj.GetComponent<Image>().sprite = _defaultSprite;
             switch(_characterType) {
                 case CharacterType.Ghost:
                     _menu[_y].GetComponent<Image>().sprite = _outline;
@@ -107,7 +101,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             switch(_characterType) {
                 case CharacterType.Human:
                     if(_currentAxisDelay <= 0) {
-                        if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
+                        if(Input.GetButtonDown(ButtonNames.HumanInspect))
                             if(_menu[_y] != null) {
                                 if(_menu[0]) {
                                     _currentPressedButtonHuman =_y;
@@ -135,7 +129,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                                     _currentAxisDelay = _axisDelay;
                                 }
                             }
-                        }
                     }
                     else {
                         _currentAxisDelay -= Time.deltaTime;
@@ -144,37 +137,36 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
                 case CharacterType.Ghost:
                     if(_currentAxisDelay < 0) {
-                       if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
-                            if(_menu[_y] != null) {
-                                if(_menu[0]) {
-                                    _currentPressedButtonGhost =_y;
-                                    _currentAxisDelay = _axisDelay;
-                                }
+                       if(Input.GetButtonDown(ButtonNames.GhostInspect))
+                           if(_menu[_y] != null) {
+                               if(_menu[0]) {
+                                   _currentPressedButtonGhost =_y;
+                                   _currentAxisDelay = _axisDelay;
+                               }
                                 
-                                if(_menu[1]) {
-                                    _currentPressedButtonGhost =_y;
-                                    _currentAxisDelay = _axisDelay;
-                                }
+                               if(_menu[1]) {
+                                   _currentPressedButtonGhost =_y;
+                                   _currentAxisDelay = _axisDelay;
+                               }
                                 
-                                if(_menu[2]) {
-                                    _currentPressedButtonGhost =_y;
-                                    _currentAxisDelay = _axisDelay;
-                                }
+                               if(_menu[2]) {
+                                   _currentPressedButtonGhost =_y;
+                                   _currentAxisDelay = _axisDelay;
+                               }
                                 
-                                if(_menu[3]) {
-                                    _currentPressedButtonGhost =_y;
-                                    _currentAxisDelay = _axisDelay;
-                                }
+                               if(_menu[3]) {
+                                   _currentPressedButtonGhost =_y;
+                                   _currentAxisDelay = _axisDelay;
+                               }
 
                                 
-                                if(_menu[4]) {
-                                    _currentPressedButtonGhost =_y;
-                                    _currentAxisDelay = _axisDelay;
-                                }
+                               if(_menu[4]) {
+                                   _currentPressedButtonGhost =_y;
+                                   _currentAxisDelay = _axisDelay;
+                               }
 
-                                Debug.Log("Pressed Ghost Button is number: " + _currentPressedButtonGhost);
-                            }
-                        }
+                               Debug.Log("Pressed Ghost Button is number: " + _currentPressedButtonGhost);
+                           }
                     }
                     else {
                         _currentAxisDelay -= Time.deltaTime;
@@ -184,13 +176,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
         private void SceneManagement() {
-            if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) {
-                SceneManager.LoadScene(_scene[0]);
-            }
+            if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) SceneManager.LoadScene(_scene[0]);
 
-            if(_currentPressedButtonHuman == 4 && _currentPressedButtonGhost == 4) {
-                Application.Quit();
-            }
+            if(_currentPressedButtonHuman == 4 && _currentPressedButtonGhost == 4) Application.Quit();
         }
         
         private CharacterType CharacterType {

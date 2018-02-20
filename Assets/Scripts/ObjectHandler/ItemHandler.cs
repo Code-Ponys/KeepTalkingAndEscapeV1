@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using NUnit.Framework.Constraints;
 using TrustfallGames.KeepTalkingAndEscape.DataController;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
-using UnityEditor;
 using UnityEngine;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
@@ -69,7 +67,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// </summary>
         /// <param name="itemId"></param>
         private void RemoveItemFromInventory(string itemId) {
-            for(int i = 0; i < _inventory.Count; i++) {
+            for(var i = 0; i < _inventory.Count; i++) {
                 var obj = _inventory[i];
                 if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
                     _inventory.RemoveAt(i);
@@ -85,11 +83,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         public Item GetItemFromDatabase(string itemId) {
-            foreach(var obj in _itemList) {
-                if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
-                    return obj;
-                }
-            }
+            foreach(var obj in _itemList)
+                if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) return obj;
 
             throw new ArgumentException("Item is not in Database. Please check the database file.");
         }

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using NUnit.Framework.Constraints;
-using NUnit.Framework.Internal.Execution;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
@@ -44,36 +42,25 @@ namespace TrustfallGames.KeepTalkingAndEscape.DataController {
                 var count = 0;
                 foreach(var checkitem in database.ItemDatabaseList) {
                     if(string.Equals(testitem.ItemId, checkitem.ItemId,
-                                     StringComparison.CurrentCultureIgnoreCase)) {
+                                     StringComparison.CurrentCultureIgnoreCase))
                         count++;
-                    }
 
                     if(testitem.CombineWithItem.ToLower() != "none") {
                         if(string.Equals(checkitem.CombineWithItem, testitem.ItemId,
-                                         StringComparison.CurrentCultureIgnoreCase)) {
+                                         StringComparison.CurrentCultureIgnoreCase))
                             if(string.Equals(testitem.CombineWithItem, checkitem.ItemId,
-                                             StringComparison.CurrentCultureIgnoreCase)) {
+                                             StringComparison.CurrentCultureIgnoreCase))
                                 combinePartnerValid = true;
-                            }
-                        }
 
-                        if(string.Equals(testitem.NextItem, checkitem.ItemId, StringComparison.CurrentCultureIgnoreCase)) {
-                            combineItemValid = true;
-                        }
+                        if(string.Equals(testitem.NextItem, checkitem.ItemId, StringComparison.CurrentCultureIgnoreCase)) combineItemValid = true;
                     }
                 }
 
-                if(combinePartnerValid == false && testitem.CombineWithItem.ToLower() != "none") {
-                    throw new Exception("The Item to combine with is not existent.Exception Occured with Item ID: " + testitem.ItemId);
-                }
+                if(combinePartnerValid == false && testitem.CombineWithItem.ToLower() != "none") throw new Exception("The Item to combine with is not existent.Exception Occured with Item ID: " + testitem.ItemId);
 
-                if(combineItemValid == false && testitem.CombineWithItem.ToLower() != "none") {
-                    throw new Exception("The combined item id does not exist. Exception Occured with Item ID: " + testitem.ItemId);
-                }
+                if(combineItemValid == false && testitem.CombineWithItem.ToLower() != "none") throw new Exception("The combined item id does not exist. Exception Occured with Item ID: " + testitem.ItemId);
 
-                if(count != 1) {
-                    throw new Exception("The itemId " + testitem.ItemId + " is not unique. Please Check your itemDatabase.yml");
-                }
+                if(count != 1) throw new Exception("The itemId " + testitem.ItemId + " is not unique. Please Check your itemDatabase.yml");
             }
         }
 

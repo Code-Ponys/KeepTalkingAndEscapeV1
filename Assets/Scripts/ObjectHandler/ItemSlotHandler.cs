@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Runtime.InteropServices;
-using UnityEngine;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
@@ -19,9 +18,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void Update() {
-            if(_inventory == null) {
-                _inventory = Inventory.GetInstance(_characterType);
-            }
+            if(_inventory == null) _inventory = Inventory.GetInstance(_characterType);
 
             if(_item == null && _currentitemId == "") return;
             if(_item == null && _currentitemId != "") {

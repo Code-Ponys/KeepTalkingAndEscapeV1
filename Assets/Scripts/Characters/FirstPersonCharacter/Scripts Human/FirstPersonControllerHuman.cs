@@ -1,10 +1,7 @@
-using System;
-using TrustfallGames.KeepTalkingAndEscape.Listener;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
-using Random = UnityEngine.Random;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -45,12 +42,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle;
         private float m_NextStep;
         private bool m_Jumping;
+        
         private AudioSource m_AudioSource;
+        private GameManager _gameManager;
 
         // Use this for initialization
         private void Start()
         {
+            _gameManager = GameManager.GetGameManager();
             _inventory = Inventory.GetInstance(CharacterType.Human);
+            
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = GameObject.Find("FirstPersonCharacterHuman").GetComponent<Camera>();
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
@@ -70,10 +71,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             RotateView();
             // the jump state needs to read here to make sure it is not missed
 
-            if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded)
-            {
-                m_MoveDir.y = 0f;
-            }
+            if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded) m_MoveDir.y = 0f;
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
         }
@@ -83,7 +81,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float speed;
             GetInput(out speed);
             // always move along the camera forward as it is the direction that it being aimed at
-            Vector3 desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
+            var desiredMove = transform.forward*m_Input.y + transform.right*m_Input.x;
 
             // get a normal for the surface that is being touched to move along it
             RaycastHit hitInfo;
@@ -96,14 +94,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
             if (m_CharacterController.isGrounded)
-            {
                 m_MoveDir.y = -m_StickToGroundForce;
-
-            }
             else
-            {
                 m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
-            }
             m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
 
             ProgressStepCycle(speed);
@@ -119,15 +112,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void ProgressStepCycle(float speed)
         {
             if (m_CharacterController.velocity.sqrMagnitude > 0 && (m_Input.x != 0 || m_Input.y != 0))
-            {
-                m_StepCycle += (m_CharacterController.velocity.magnitude + (speed*(m_IsWalking ? 1f : m_RunstepLenghten)))*
-                             Time.fixedDeltaTime;
-            }
+                m_StepCycle += (m_CharacterController.velocity.magnitude + speed*(m_IsWalking ? 1f : m_RunstepLenghten))*
+                               Time.fixedDeltaTime;
 
-            if (!(m_StepCycle > m_NextStep))
-            {
-                return;
-            }
+            if (!(m_StepCycle > m_NextStep)) return;
 
             m_NextStep = m_StepCycle + m_StepInterval;
 
@@ -137,13 +125,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void PlayFootStepAudio()
         {
-            if (!m_CharacterController.isGrounded)
-            {
-                return;
-            }
+            if (!m_CharacterController.isGrounded) return;
             // pick & play a random footstep sound from the array,
             // excluding sound at index 0
-            int n = Random.Range(1, m_FootstepSounds.Length);
+            var n = Random.Range(1, m_FootstepSounds.Length);
             m_AudioSource.clip = m_FootstepSounds[n];
             //m_AudioSource.PlayOneShot(m_AudioSource.clip);
             // move picked sound to index 0 so it's not picked next time
@@ -155,15 +140,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void UpdateCameraPosition(float speed)
         {
             Vector3 newCameraPosition;
-            if (!m_UseHeadBob)
-            {
-                return;
-            }
+            if (!m_UseHeadBob) return;
             if (m_CharacterController.velocity.magnitude > 0 && m_CharacterController.isGrounded)
             {
                 m_Camera.transform.localPosition =
                     m_HeadBob.DoHeadBob(m_CharacterController.velocity.magnitude +
-                                      (speed*(m_IsWalking ? 1f : m_RunstepLenghten)));
+                                      speed*(m_IsWalking ? 1f : m_RunstepLenghten));
                 newCameraPosition = m_Camera.transform.localPosition;
                 newCameraPosition.y = m_Camera.transform.localPosition.y - m_JumpBob.Offset();
             }
@@ -178,15 +160,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void GetInput(out float speed)
         {
-            if(_inventory.InventoryActive) {
+            if(_gameManager.HumanNumPadActive || _inventory.InventoryActive) {
                 speed = 2;
                 return;
             }
             
             // Read input
-            float horizontal = CrossPlatformInputManager.GetAxis(ButtonNames.MoveHumanX);
-            float vertical = CrossPlatformInputManager.GetAxis(ButtonNames.MoveHumanY);
-            bool waswalking = m_IsWalking;
+            var horizontal = CrossPlatformInputManager.GetAxis(ButtonNames.MoveHumanX);
+            var vertical = CrossPlatformInputManager.GetAxis(ButtonNames.MoveHumanY);
+            var waswalking = m_IsWalking;
 
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
@@ -198,10 +180,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:
-            if (m_Input.sqrMagnitude > 1)
-            {
-                m_Input.Normalize();
-            }
+            if (m_Input.sqrMagnitude > 1) m_Input.Normalize();
 
             // handle speed change to give an fov kick
             // only if the player is going to a run, is running and the fovkick is to be used
@@ -221,17 +200,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
-            Rigidbody body = hit.collider.attachedRigidbody;
+            var body = hit.collider.attachedRigidbody;
             //dont move the rigidbody if the character is on top of it
-            if (m_CollisionFlags == CollisionFlags.Below)
-            {
-                return;
-            }
+            if (m_CollisionFlags == CollisionFlags.Below) return;
 
-            if (body == null || body.isKinematic)
-            {
-                return;
-            }
+            if (body == null || body.isKinematic) return;
             body.AddForceAtPosition(m_CharacterController.velocity*0.1f, hit.point, ForceMode.Impulse);
         }
         

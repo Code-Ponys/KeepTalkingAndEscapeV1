@@ -1,46 +1,54 @@
 ﻿using System;
-using System.Runtime.InteropServices;
-using System.Runtime.Serialization.Formatters;
-using System.Security.Cryptography.X509Certificates;
-using System.Timers;
-using NUnit.Framework;
-using NUnit.Framework.Internal;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityStandardAssets.Characters.FirstPerson;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
-using UnityEditor;
+using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class ObjectInteractionListener : MonoBehaviour {
         //The Gameobect which holds the script
         private GameObject _meshGameObject;
+
         //The second Gameobject which is associated with this one and should be affected by this gameobject
         [SerializeField] private GameObject _secondGameObject;
+
         //The hover description of the object
         [SerializeField] private string _objectDescription;
+
         //The object description for inspect
         [SerializeField] private string _objectFlavourText;
+
         //the id of the item which should be recieved on interaction
         [SerializeField] private string _itemName;
 
         //The animation Type
         [SerializeField] private AnimationType _animationType;
+
         //Activates nummlock for the object. You have to type in a code
         [SerializeField] private bool _animationAllowWhenNumButtonActive;
+
         //The num Button Object for the ui
         [SerializeField] private NumButtonHandler _numButtonHandler;
+
         //At which state should the child be activated
         [SerializeField] private ActivateChildWhen _activateChildWhen;
-        //Should the animation be triggered by a mother object. (Second GameObject)
+
+        //Should the object be triggered by a mother object. (Second GameObject)
         [SerializeField] private bool _getActivationFromMother;
+
+        //Switch between to gameobjects if active
+        [SerializeField] private bool _toggleActiveGameobjectByMother;
+        [SerializeField] private GameObject _activeObject;
+        [SerializeField] private GameObject _inactiveObject;
+
 
         //Which key hsoould be smashed. Only some action
         [SerializeField] private KeyType _keyType;
+
         //How long should the animation go. In Frames
-        [UnityEngine.Range(1, 1000)] [SerializeField] private int _animationDurationInFrames = 60;
+        [Range(1, 1000)] [SerializeField] private int _animationDurationInFrames = 60;
+
         //How many steps (frames) should the animation go with one klick.
-        [UnityEngine.Range(1, 1000)] [SerializeField] private int _animationStepsPerKlick = 10;
+        [Range(1, 1000)] [SerializeField] private int _animationStepsPerKlick = 10;
 
         private AnimationController _animationController;
         private Vector3 _positionBase;
@@ -63,39 +71,65 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _ghostReachable;
         private bool _ghostDrivenAnimationActive;
         private bool _ghostDrivenAnimationActiveLast;
+        private bool _humanNumPadActiveLast;
+
         private bool _motherObjectActive;
+
         //Can the object only picked up after the ghost interacted with the item.
         [SerializeField] private bool _canBePickedUpAfterGhostAction;
+
         //Should the item can be taken to the inventory and the object should be removed
         [SerializeField] private bool _canBeTakenToInventory;
+
         //Should the item stay in scene after the item is picked up
         [SerializeField] private bool _canBeTakenButStayInScene;
+
         //should the item only be moveable in one direction
-        [SerializeField] private bool _onedirectionAnimation = false;
+        [SerializeField] private bool _onedirectionAnimation;
+
         //Should the item fall down after the ghost interacted
         [SerializeField] private bool _activateGravityAtEnd;
+
         //only a human can interact with this item
         [SerializeField] private bool _onlyHuman;
+
         //The item id which disables damage.
         [SerializeField] private string _disableDamageWithItem;
+
         //The object which can be disabled
         [SerializeField] private ObjectInteractionListener _disableDamageWithObject;
+
         //Should item pickup be canceled on damage
         [SerializeField] private bool _cancelPickupOnDamage;
+
         //Each damage type can recieved only one time. So max 3 HP can be taken by one object
         [SerializeField] private bool _OneTimeDamage;
+
         //Damage can be disabled by Ghost
         [SerializeField] private bool _disableDamageByGhost;
 
-        private bool _damageDisabled;
         private bool _damageItemRecieved;
         private bool _damageObjectRecieved;
         private bool _damageGhostRecieved;
         private bool _damageDisabledByGhost;
 
+        //Object damage disable
+        [SerializeField] private bool _objectCanBeDisabledToAvoidDamage;
+        [SerializeField] private GameObject _enabledObject;
+        [SerializeField] private GameObject _disabledObject;
+        private bool _damageDisabled;
+
+        [SerializeField] private bool _animationBlockedCauseOfObject;
+        [SerializeField] private ObjectInteractionListener _animationBlockObject;
+
+        [SerializeField] private bool _objectCanBeDisabledToUnblockAnimation;
+        [SerializeField] private GameObject _disableAnimationObject;
+        [SerializeField] private GameObject _enableAnimationObject;
+        private bool _objectDisabled;
+
         //Must the Objects in object to unlock be unlocked to interact with the object
         [SerializeField] private bool _objectMustUnlocked;
-        private bool _objectUnlocked;
+
         //which item is needed to unlock the object
         [SerializeField] private string _itemToUnlock;
 
@@ -107,11 +141,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _itemHandler = ItemHandler.GetItemHandler();
-            _meshGameObject = gameObject;
+            if(_meshGameObject == null) _meshGameObject = gameObject;
 
-            if(AnimationType != AnimationType.None) {
-                _animationController = _meshGameObject.AddComponent<AnimationController>();
-            }
+            if(AnimationType != AnimationType.None) _animationController = _meshGameObject.AddComponent<AnimationController>();
 
             _positionBase = _meshGameObject.transform.localPosition;
             _rotationBase = _meshGameObject.transform.localRotation.eulerAngles;
@@ -139,15 +171,27 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             UpdateUi();
 
             UpdateGhostDrivenAnimation();
+            UpdateHumanNumPad();
             KeyInteraction();
             UpdateMotherState();
         }
 
 
         private void UpdateMotherState() {
-            if(_getActivationFromMother) {
+            if(_getActivationFromMother)
                 _motherObjectActive = _secondGameObject.GetComponent<AnimationController>().Open;
-            }
+            else
+                return;
+
+            if(_toggleActiveGameobjectByMother)
+                if(_motherObjectActive) {
+                    _activeObject.SetActive(true);
+                    _inactiveObject.SetActive(false);
+                }
+                else {
+                    _activeObject.SetActive(false);
+                    _inactiveObject.SetActive(true);
+                }
         }
 
         private void UpdateGhostDrivenAnimation() {
@@ -160,8 +204,18 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _ghostDrivenAnimationActiveLast = _animationController.GhostDrivenAnimationActive;
         }
 
+        private void UpdateHumanNumPad() {
+            if(_numButtonHandler == null) return;
+            if(_numButtonHandler.HumanNumPadActive != _humanNumPadActiveLast) {
+                _humanNumPadActiveLast = _numButtonHandler.HumanNumPadActive;
+                _gameManager.HumanNumPadActive = _numButtonHandler.HumanNumPadActive;
+            }
+
+            _humanNumPadActiveLast = _numButtonHandler.HumanNumPadActive;
+        }
+
         /// <summary>
-        /// Checks which player is looking at the object. Raycast shows how far the player is from the object
+        ///     Checks which player is looking at the object. Raycast shows how far the player is from the object
         /// </summary>
         private void IsCharacterLookingAtMe() {
             var ghostCamera = _gameManager.GhostCamera;
@@ -183,17 +237,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                                                            humanCamera.nearClipPlane));
             if(Physics.Raycast(cameraCenter, humanCamera.transform.forward, out hit, 300)) {
                 var obj = hit.transform.gameObject;
-                if(obj == _meshGameObject) {
-                    _humanLookingAtMe = true;
-                }
-                else {
-                    _humanLookingAtMe = false;
-                }
+                _humanLookingAtMe = obj == _meshGameObject;
             }
         }
 
         /// <summary>
-        /// Controls the Inputs made by the players
+        ///     Controls the Inputs made by the players
         /// </summary>
         private void KeyInteraction() {
             KeyInteractionHuman();
@@ -203,46 +252,43 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         /// <summary>
-        /// KeyInteraction for Ghost aka Player 2
+        ///     KeyInteraction for Ghost aka Player 2
         /// </summary>
         private void KeyInteractionGhost() {
-            if(_ghostReachable && !_onlyHuman) {
-                if(_gameManager.GhostDrivenAnimationActive) return;
-                if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
-                    _uiManager.GhostFlavourText = _objectFlavourText;
-                }
-                else if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
-                    //Disables damage for linked object
-                    if(_disableDamageByGhost) {
-                        _damageDisabledByGhost = true;
-                    }
+            if(!_ghostReachable || _onlyHuman) return;
+            if(_gameManager.GhostDrivenAnimationActive) return;
+            if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
+                _uiManager.GhostFlavourText = _objectFlavourText;
+            }
+            else if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
+                //Disables damage for linked object
+                if(_disableDamageByGhost) _damageDisabledByGhost = true;
 
-                    if(AnimationType != AnimationType.None) {
-                        if(_animationType == AnimationType.Open)
-                            if(_objectMustUnlocked) {
-                                foreach(var obj in _objectsToUnlock) {
-                                    if(obj._objectUnlocked == false)
-                                        _uiManager.GhostFlavourText = "Blockiert";
-                                    return;
-                                }
-                            }
-
-                        if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
+                if(AnimationType == AnimationType.None) return;
+                if(_animationType == AnimationType.Open)
+                    if(_objectMustUnlocked)
+                        foreach(var obj in _objectsToUnlock) {
+                            if(obj.ObjectUnlocked == false)
+                                _uiManager.GhostFlavourText = "Blockiert";
                             return;
                         }
 
+                if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) return;
+
+                _animationController.StartNewAnimation(this);
+                switch(_animationType) {
+                    case AnimationType.GhostMoveOnKeySmash:
                         _animationController.StartNewAnimation(this);
-                        if(_animationType == AnimationType.GhostMoveOnKeySmash)
-                            _animationController.StartNewAnimation(this);
-                        if(_animationType == AnimationType.GhostActivateOnKeyHold)
-                            _animationController.StartNewAnimation(this);
-                    }
+                        break;
+                    case AnimationType.GhostActivateOnKeyHold:
+                        _animationController.StartNewAnimation(this);
+                        break;
                 }
             }
         }
 
         /// <summary>
-        /// KeyInteraction for Human aka Player 1
+        ///     KeyInteraction for Human aka Player 1
         /// </summary>
         /// <returns></returns>
         private void KeyInteractionHuman() {
@@ -254,23 +300,21 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             else if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
                 //Object Damage
-                if(_disableDamageWithObject != null && !_damageObjectRecieved) {
+                if(_disableDamageWithObject != null && !_damageObjectRecieved)
                     if(!_disableDamageWithObject._damageDisabled) {
                         _gameManager.Human.GetComponent<FirstPersonControllerHuman>().TakeHealth(1);
                         if(_OneTimeDamage) _damageObjectRecieved = true;
                         if(_cancelPickupOnDamage) return;
                     }
-                }
 
                 //Item Damage
-                if(_disableDamageWithItem != "" && !_damageItemRecieved) {
+                if(_disableDamageWithItem != "" && !_damageItemRecieved)
                     if(!string.Equals(Inventory.GetInstance(CharacterType.Human).ItemInHand, _disableDamageWithItem,
                                       StringComparison.CurrentCultureIgnoreCase)) {
                         _gameManager.Human.GetComponent<FirstPersonControllerHuman>().TakeHealth(1);
                         if(_OneTimeDamage) _damageItemRecieved = true;
                         if(_cancelPickupOnDamage) return;
                     }
-                }
 
                 //Ghost Damage
                 if(!_damageDisabledByGhost && _disableDamageByGhost && !_damageGhostRecieved) {
@@ -290,16 +334,32 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _itemHandler.AddItemToInv(_itemName);
                 }
 
+                if(_objectCanBeDisabledToAvoidDamage) {
+                    if(_damageDisabled) return;
+                    _enabledObject.SetActive(false);
+                    _disabledObject.SetActive(true);
+                    _damageDisabled = true;
+                }
+
+                if(_objectCanBeDisabledToUnblockAnimation) {
+                    if(_objectDisabled) return;
+                    _objectDisabled = true;
+                    _disableAnimationObject.SetActive(false);
+                    _disableAnimationObject.SetActive(true);
+                }
+
+                if(_animationBlockedCauseOfObject) {
+                    if(!_animationBlockObject._objectDisabled) return;
+                }
 
                 //Starts Animation, if it isnt disabled
                 if(AnimationType == AnimationType.Open) {
-                    if(_objectMustUnlocked) {
+                    if(_objectMustUnlocked)
                         foreach(var obj in _objectsToUnlock) {
-                            if(obj._objectUnlocked == false)
+                            if(obj.ObjectUnlocked == false)
                                 _uiManager.HumanFlavourText = "Blockiert";
                             return;
                         }
-                    }
 
                     if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
                         _numButtonHandler.OpenButtonField();
@@ -310,14 +370,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
 
                 //Used for Linked objects
-                if(_animationType == AnimationType.OpenLinkedOnHold) {
-                    _secondGameObject.GetComponent<ObjectInteractionListener>().StartAnimation(_meshGameObject);
-                }
+                if(_animationType == AnimationType.OpenLinkedOnHold) _secondGameObject.GetComponent<ObjectInteractionListener>().StartAnimation(_meshGameObject);
 
                 if(_itemToUnlock == "") return;
-                if(string.Equals(Inventory.GetInstance(CharacterType.Human).ItemInHand, _itemToUnlock, StringComparison.CurrentCultureIgnoreCase)) {
-                    _objectUnlocked = true;
-                }
+                if(string.Equals(Inventory.GetInstance(CharacterType.Human).ItemInHand, _itemToUnlock, StringComparison.CurrentCultureIgnoreCase)) ObjectUnlocked = true;
             }
         }
 
@@ -327,7 +383,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void UpdateHumanUi() {
-            if(_humanReachable == true && _humanMessageActive == true) return;
+            if(_humanReachable && _humanMessageActive) return;
             if(_humanReachable && !_humanMessageActive) {
                 _uiManager.HumanHoverText = _objectDescription;
                 _humanMessageActive = true;
@@ -351,7 +407,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         /// <summary>
-        /// Determines if the players are close enough to the object
+        ///     Determines if the players are close enough to the object
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -360,14 +416,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             var closesPointToCharacter = _meshGameObject.GetComponent<Collider>().ClosestPointOnBounds(characterpos);
             characterpos.y = 0;
             if(obj == _gameManager.Ghost) {
-                if(closesPointToCharacter.y > 450) {
-                    return false;
-                }
+                if(closesPointToCharacter.y > 450) return false;
             }
             else {
-                if(closesPointToCharacter.y > 350) {
-                    return false;
-                }
+                if(closesPointToCharacter.y > 350) return false;
             }
 
             closesPointToCharacter.y = 0;
@@ -434,9 +486,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             set {_activateChildWhen = value;}
         }
 
-        public bool ObjectUnlocked {
-            get {return _objectUnlocked;}
-        }
+        public bool ObjectUnlocked {get; private set;}
 
         public bool CanBePickedUpAfterGhostAction {
             get {return _canBePickedUpAfterGhostAction;}
