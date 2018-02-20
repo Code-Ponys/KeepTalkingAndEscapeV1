@@ -64,53 +64,52 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             ActivateChildOnHold();
-            if(_animationActive) {
-                OpenAnimation();
-                MoveOnKeySmash();
-            }
+            if(!_animationActive) return;
+            OpenAnimation();
+            MoveOnKeySmash();
         }
-        //Animation Types
+
+
+//Animation Types
 
         /// <summary>
         /// Operates opening of objects. Moves the object to a specific position
         /// </summary>
         private void OpenAnimation() {
-            if(_animationType == AnimationType.Open) {
-                if(_open) {
-                    //close Door
-                    if(_frameCount == _animationDurationInFrames) {
-                        SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
-                        _open = false;
-                        _animationActive = false;
-                        _frameCount = 0;
-                        Debug.Log("Door closed");
-                        return;
-                    }
-
-                    TransformObject(_positionStepClose, _scaleStepClose);
+            if(_animationType != AnimationType.Open) return;
+            if(_open) {
+                //close Door
+                if(_frameCount == _animationDurationInFrames) {
+                    SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
+                    _open = false;
+                    _animationActive = false;
+                    _frameCount = 0;
+                    Debug.Log("Door closed");
+                    return;
                 }
-                else {
-                    //Open Door
-                    if(_frameCount == _animationDurationInFrames) {
-                        SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleAnimated);
-                        _open = true;
-                        _animationActive = false;
-                        _frameCount = 0;
-                        Debug.Log("Door opened");
-                        return;
-                    }
 
-                    //close Door
-                    TransformObject(_positionStepOpen, _scaleStepOpen);
+                TransformObject(_positionStepClose, _scaleStepClose);
+            }
+            else {
+                //Open Door
+                if(_frameCount == _animationDurationInFrames) {
+                    SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleAnimated);
+                    _open = true;
+                    _animationActive = false;
+                    _frameCount = 0;
+                    Debug.Log("Door opened");
+                    return;
                 }
+
+                //close Door
+                TransformObject(_positionStepOpen, _scaleStepOpen);
             }
         }
-        
+
         /// <summary>
         /// Moves object by pressing the same button consecutively
         /// </summary>
         private void MoveOnKeySmash() {
-
             if(GhostDrivenAnimationActive)
                 if(_animationType == AnimationType.GhostMoveOnKeySmash) {
                     //Button, which sould be smashed
@@ -133,11 +132,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         if(_objectInteractionListener.CanBeTakenToInventory) {
                             _objectInteractionListener.CanBePickedUpAfterGhostAction = false;
                         }
+
                         if(_activateObjectPhysikAfterAnimation) {
                             _rigidbody.useGravity = true;
                             _rigidbody.isKinematic = false;
                             _animationActive = false;
-                            }
+                        }
+
                         _open = true;
                         SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleBase);
                     }
@@ -178,18 +179,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 TransformObject(_positionStepOpen, _scaleStepOpen);
             }
 
-            if(!_childAnimationActive && _childAnimationOpen) {
-                //close Door
-                if(_frameCount == _animationDurationInFrames) {
-                    Debug.Log("CloseDoor");
-                    SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
-                    _childAnimationOpen = false;
-                    _open = false;
-                    return;
-                }
-
-                TransformObject(_positionStepClose, _scaleStepClose);
+            if(_childAnimationActive || !_childAnimationOpen) return;
+            //close Door
+            if(_frameCount == _animationDurationInFrames) {
+                Debug.Log("CloseDoor");
+                SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
+                _childAnimationOpen = false;
+                _open = false;
+                return;
             }
+
+            TransformObject(_positionStepClose, _scaleStepClose);
         }
 
         /// <summary>
@@ -253,10 +253,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             TransformObject(_positionStepClose, _scaleStepClose);
         }
-        //End of Animation Type
+//End of Animation Type
 
 
-        //Methodes for moving 
+//Methodes for moving 
 
         /// <summary>
         /// Moves the object to a point determined in the editor
@@ -282,11 +282,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _meshGameObject.transform.localRotation = rotation;
             _meshGameObject.transform.localScale = scale;
         }
-        //End of Methodes for Moving
+//End of Methodes for Moving
 
-        
 
-        //New animation methode
+//New animation methode
 
         /// <summary>
         /// Reverses Rotation values for animation and activates animations
@@ -304,7 +303,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_animationType != AnimationType.Open) {
                 WriteData(self);
             }
-            
+
             validateData(self);
 
             CalculateSteps();
@@ -344,6 +343,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _animationActive = true;
         }
 
+        /// <summary>
+        /// Calculate the step size for the frame duration.
+        /// </summary>
         private void CalculateSteps() {
             _positionStepOpen = StepsPerFrame(_positionBase, _positionAnimated, _animationDurationInFrames);
             _positionStepClose = _positionStepOpen * (-1);
@@ -352,6 +354,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _scaleStepClose = _scaleStepOpen * (-1);
         }
 
+        /// <summary>
+        /// Validates the given data to make 0 input possible.
+        /// </summary>
+        /// <param name="self"></param>
         private void validateData(ObjectInteractionListener self) {
             if(_positionAnimated.x == 0) {
                 _positionAnimated.x = _positionBase.x;
@@ -419,6 +425,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _linkedMeshGameObject = linkedGameObject;
         }
 
+//End of new animation Methodes
+
+
+//Calculations
+
+        /// <summary>
+        /// Writes the data of the given Object listener to the Animation Controller.
+        /// </summary>
+        /// <param name="self"></param>
         private void WriteData(ObjectInteractionListener self) {
             _meshGameObject = self.gameObject;
             _positionBase = _meshGameObject.transform.localPosition;
@@ -433,98 +448,34 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _keyType = self.KeyType;
             _animationDurationInFrames = self.AnimationDurationInFrames;
         }
-        //End of new animation Methodes
 
-        //Calculations
 
-        private Vector3 RotationNormalize(Vector3 rotation) {
-            if(rotation.x < 0) {
-                while(rotation.x < 0) {
-                    rotation.x = rotation.x + 360;
-                }
-            }
-            else if(rotation.x > 360) {
-                rotation.x = rotation.x % 360;
-            }
-
-            if(rotation.y < 0) {
-                while(rotation.y < 0) {
-                    rotation.y = rotation.y + 360;
-                }
-            }
-            else if(rotation.y > 360) {
-                rotation.y = rotation.y % 360;
-            }
-
-            if(rotation.z < 0) {
-                while(rotation.z < 0) {
-                    rotation.z = rotation.z + 360;
-                }
-            }
-            else if(rotation.z > 360) {
-                rotation.z = rotation.z % 360;
-            }
-
-            return rotation;
-        }
-
-        public Vector3 StepsPerFrame(Vector3 a, Vector3 b, int frames) {
-            Vector3 result = new Vector3();
-            if(a.x < 0 && b.x > 0) {
+        private Vector3 StepsPerFrame(Vector3 a, Vector3 b, int frames) {
+            var result = new Vector3();
+            if(a.x < 0 && b.x > 0 || a.x < 0 && b.x < 0) {
                 a.x = a.x * -1;
                 result.x = b.x + a.x;
             }
 
-            if(a.x > 0 && b.x < 0) {
-                result.x = b.x - a.x;
-            }
+            if(a.x > 0 && b.x < 0 || a.x > 0 && b.x > 0) result.x = b.x - a.x;
 
-            if(a.x > 0 && b.x > 0) {
-                result.x = b.x - a.x;
-            }
 
-            if(a.x < 0 && b.x < 0) {
-                a.x = a.x * -1;
-                result.x = b.x + a.x;
-            }
-
-            if(a.y < 0 && b.y > 0) {
+            if(a.y < 0 && b.y > 0 || a.y < 0 && b.y < 0) {
                 a.y = a.y * -1;
                 result.y = b.y + a.y;
             }
 
-            if(a.y > 0 && b.y < 0) {
-                result.y = b.y - a.y;
-            }
+            if(a.y > 0 && b.y < 0 || a.y > 0 && b.y > 0) result.y = b.y - a.y;
 
-            if(a.y > 0 && b.y > 0) {
-                result.y = b.y - a.y;
-            }
 
-            if(a.y < 0 && b.y < 0) {
-                a.y = a.y * -1;
-                result.y = b.y + a.y;
-            }
-
-            if(a.z < 0 && b.z > 0) {
+            if(a.z < 0 && b.z > 0 || a.z < 0 && b.z < 0) {
                 a.z = a.z * -1;
                 result.z = b.z + a.z;
             }
 
-            if(a.z > 0 && b.z < 0) {
-                result.z = b.z - a.z;
-            }
+            if(a.z > 0 && b.z < 0 || a.z > 0 && b.z > 0) result.z = b.z - a.z;
 
-            if(a.z > 0 && b.z > 0) {
-                result.z = b.z - a.z;
-            }
-
-            if(a.z < 0 && b.z < 0) {
-                a.z = a.z * -1;
-                result.z = b.z + a.z;
-            }
-
-            return (result / frames);
+            return result / frames;
         }
 
         private void CalculateRotationSteps(Quaternion aQuaternion, Quaternion bQuaternion, int frames) {
@@ -533,9 +484,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _rotationSteps = a;
         }
 
-        //End of Calculations
+//End of Calculations
 
-        //Getter and Setter for Animations
+//Getter and Setter for Animations
 
         public bool Open {
             get {return _open;}
@@ -551,6 +502,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             set {_parentAnimationDone = value;}
         }
 
-        //End of Getter and Setter for Animations
+//End of Getter and Setter for Animations
     }
 }

@@ -56,10 +56,10 @@ public enum NumButtonType {
 
 public static class ButtonNames {
     /// <summary>
-    /// Get the button name of the pressed key
+    /// Get the button name of the pressed key depends on Key Type
     /// </summary>
-    /// <param name="keyType"></param>
-    /// <returns></returns>
+    /// <param name="KeyType">KeyType Enum</param>
+    /// <returns>Returns the Button name as string</returns>
     public static string GetButtonName(KeyType keyType) {
         switch(keyType) {
             case KeyType.A:
