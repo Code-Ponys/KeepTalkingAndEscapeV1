@@ -1,9 +1,5 @@
 ﻿using System;
-using JetBrains.Annotations;
-using NUnit.Framework;
 using UnityEngine;
-using UnityEngineInternal.Input;
-using UnityStandardAssets.Utility;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class AnimationController : MonoBehaviour {
@@ -59,9 +55,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //Update
         private void FixedUpdate() {
-            if(_linkedMeshGameObject != null) {
-                linkedAnimation();
-            }
+            if(_linkedMeshGameObject != null) linkedAnimation();
 
             ActivateChildOnHold();
             if(!_animationActive) return;
@@ -113,12 +107,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(GhostDrivenAnimationActive)
                 if(_animationType == AnimationType.GhostMoveOnKeySmash) {
                     //Button, which sould be smashed
-                    if(Input.GetButtonDown(ButtonNames.GetButtonName(_keyType))) {
-                        //Add More Frames to procedure
-                        if(_framesToNextStop == 0 && _animationDurationInFrames != _frameCount) {
-                            _framesToNextStop = _animationStepsPerKlick;
-                        }
-                    }
+                    if(Input.GetButtonDown(ButtonNames.GetButtonName(_keyType)))
+                        if(_framesToNextStop == 0 && _animationDurationInFrames != _frameCount) _framesToNextStop = _animationStepsPerKlick;
 
                     //If there are frames left, he proceeds the animation
                     if(_framesToNextStop != 0 && _animationDurationInFrames != _frameCount) {
@@ -129,9 +119,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     else if(_animationDurationInFrames == _frameCount) {
                         _framesToNextStop = 0;
                         _ghostDrivenAnimationActive = false;
-                        if(_objectInteractionListener.CanBeTakenToInventory) {
-                            _objectInteractionListener.CanBePickedUpAfterGhostAction = false;
-                        }
+                        if(_objectInteractionListener.CanBeTakenToInventory) _objectInteractionListener.CanBePickedUpAfterGhostAction = false;
 
                         if(_activateObjectPhysikAfterAnimation) {
                             _rigidbody.useGravity = true;
@@ -152,19 +140,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// Controls the animation for two GameObjects, that are linked with each other
         /// </summary>
         private void linkedAnimation() {
-            if(LinkedAnimationActive()) {
+            if(LinkedAnimationActive())
                 if(!_childAnimationOpen && !_childAnimationActive) {
                     _childAnimationActive = true;
                     _frameCount = 0;
                 }
-            }
 
-            if(!LinkedAnimationActive()) {
+            if(!LinkedAnimationActive())
                 if(_childAnimationOpen && _childAnimationActive) {
                     _frameCount = 0;
                     _childAnimationActive = false;
                 }
-            }
 
             if(_childAnimationActive && !_childAnimationOpen) {
                 //Open Door
@@ -198,13 +184,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         private bool LinkedAnimationActive() {
-            if(_linkedMeshGameObject.GetComponent<ObjectInteractionListener>().ActivateChildWhen == ActivateChildWhen.ButtonPressed) {
-                return _linkedMeshGameObject.GetComponent<ObjectInteractionListener>().IsHumanPressingAgainsObject();
-            }
+            if(_linkedMeshGameObject.GetComponent<ObjectInteractionListener>().ActivateChildWhen == ActivateChildWhen.ButtonPressed) return _linkedMeshGameObject.GetComponent<ObjectInteractionListener>().IsHumanPressingAgainsObject();
 
-            if(_linkedMeshGameObject.GetComponent<ObjectInteractionListener>().ActivateChildWhen == ActivateChildWhen.AnimationDone) {
-                return _linkedMeshGameObject.GetComponent<AnimationController>().ParentAnimationDone;
-            }
+            if(_linkedMeshGameObject.GetComponent<ObjectInteractionListener>().ActivateChildWhen == ActivateChildWhen.AnimationDone) return _linkedMeshGameObject.GetComponent<AnimationController>().ParentAnimationDone;
 
             throw new ArgumentException("Linked Animation failed");
         }
@@ -221,19 +203,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(_animationType != AnimationType.GhostActivateOnKeyHold) return;
-            if(_ghostDrivenAnimationActive) {
+            if(_ghostDrivenAnimationActive)
                 if(Input.GetButton(ButtonNames.GetButtonName(_keyType)) && !_animationActivated) {
                     _animationActivated = true;
                     _frameCount = 0;
                 }
-            }
 
-            if(!_ghostDrivenAnimationActive || !Input.GetButton(ButtonNames.GetButtonName(_keyType))) {
+            if(!_ghostDrivenAnimationActive || !Input.GetButton(ButtonNames.GetButtonName(_keyType)))
                 if(_open && _animationActivated) {
                     _frameCount = 0;
                     _animationActivated = false;
                 }
-            }
 
             if(_animationActivated && !_open) {
                 if(_frameCount == _animationDurationInFrames) {
@@ -300,9 +280,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _dataRead = true;
             }
 
-            if(_animationType != AnimationType.Open) {
-                WriteData(self);
-            }
+            if(_animationType != AnimationType.Open) WriteData(self);
 
             validateData(self);
 
@@ -313,14 +291,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_animationActive && _animationType == AnimationType.Open) return;
 
             if(_activateObjectPhysikAfterAnimation) {
-                if(_meshGameObject.GetComponent<Rigidbody>() == null) {
-                    _meshGameObject.AddComponent<Rigidbody>();
-                }
+                if(_meshGameObject.GetComponent<Rigidbody>() == null) _meshGameObject.AddComponent<Rigidbody>();
 
                 _rigidbody = _meshGameObject.GetComponent<Rigidbody>();
-                if(_rigidbody.useGravity == true) {
-                    _rigidbody.useGravity = false;
-                }
+                if(_rigidbody.useGravity == true) _rigidbody.useGravity = false;
 
                 _rigidbody.isKinematic = true;
             }
@@ -330,15 +304,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_animationType == AnimationType.GhostMoveOnKeySmash || _animationType == AnimationType.GhostActivateOnKeyHold)
                 _ghostDrivenAnimationActive = true;
 
-            if(!_open && _animationType == AnimationType.GhostActivateOnKeyHold) {
-                _frameCount = 0;
-            }
+            if(!_open && _animationType == AnimationType.GhostActivateOnKeyHold) _frameCount = 0;
 
             if(_onedirectionAnimation && _animationType == AnimationType.GhostMoveOnKeySmash)
                 _frameCount = 0;
-            if(_keyType == KeyType.A && _animationType == AnimationType.GhostMoveOnKeySmash) {
-                throw new ArgumentException("Key Type can not be A for a GhostMoveOnSmash animation");
-            }
+            if(_keyType == KeyType.A && _animationType == AnimationType.GhostMoveOnKeySmash) throw new ArgumentException("Key Type can not be A for a GhostMoveOnSmash animation");
 
             _animationActive = true;
         }
@@ -348,10 +318,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// </summary>
         private void CalculateSteps() {
             _positionStepOpen = StepsPerFrame(_positionBase, _positionAnimated, _animationDurationInFrames);
-            _positionStepClose = _positionStepOpen * (-1);
+            _positionStepClose = _positionStepOpen * -1;
             CalculateRotationSteps(_rotationBase, _rotationAnimated, _animationDurationInFrames);
             _scaleStepOpen = StepsPerFrame(_scaleBase, _scaleAnimated, _animationDurationInFrames);
-            _scaleStepClose = _scaleStepOpen * (-1);
+            _scaleStepClose = _scaleStepOpen * -1;
         }
 
         /// <summary>
@@ -359,32 +329,20 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// </summary>
         /// <param name="self"></param>
         private void validateData(ObjectInteractionListener self) {
-            if(_positionAnimated.x == 0) {
-                _positionAnimated.x = _positionBase.x;
-            }
+            if(_positionAnimated.x == 0) _positionAnimated.x = _positionBase.x;
 
-            if(_positionAnimated.y == 0) {
-                _positionAnimated.y = _positionBase.y;
-            }
+            if(_positionAnimated.y == 0) _positionAnimated.y = _positionBase.y;
 
-            if(_positionAnimated.z == 0) {
-                _positionAnimated.z = _positionBase.z;
-            }
+            if(_positionAnimated.z == 0) _positionAnimated.z = _positionBase.z;
 
             _rotationAnimated = Quaternion.Euler(self.RotationAnimated);
 
             _scaleAnimated = self.ScaleAnimated;
-            if(_scaleAnimated.x == 0) {
-                _scaleAnimated.x = _scaleBase.x;
-            }
+            if(_scaleAnimated.x == 0) _scaleAnimated.x = _scaleBase.x;
 
-            if(_scaleAnimated.y == 0) {
-                _scaleAnimated.y = _scaleBase.y;
-            }
+            if(_scaleAnimated.y == 0) _scaleAnimated.y = _scaleBase.y;
 
-            if(_scaleAnimated.z == 0) {
-                _scaleAnimated.z = _scaleBase.z;
-            }
+            if(_scaleAnimated.z == 0) _scaleAnimated.z = _scaleBase.z;
         }
 
         /// <summary>
@@ -408,14 +366,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_animationActive && _animationType == AnimationType.Open) return;
 
             if(_activateObjectPhysikAfterAnimation) {
-                if(_meshGameObject.GetComponent<Rigidbody>() == null) {
-                    _meshGameObject.AddComponent<Rigidbody>();
-                }
+                if(_meshGameObject.GetComponent<Rigidbody>() == null) _meshGameObject.AddComponent<Rigidbody>();
 
                 _rigidbody = _meshGameObject.GetComponent<Rigidbody>();
-                if(_rigidbody.useGravity == true) {
-                    _rigidbody.useGravity = false;
-                }
+                if(_rigidbody.useGravity == true) _rigidbody.useGravity = false;
 
                 _rigidbody.isKinematic = true;
             }

@@ -30,8 +30,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public void LookRotation(Transform character, Transform camera)
         {
-            float yRot = CrossPlatformInputManager.GetAxis(ButtonNames.CameraGhostX) * XSensitivity;
-            float xRot = CrossPlatformInputManager.GetAxis(ButtonNames.CameraGhostY) * YSensitivity;
+            var yRot = CrossPlatformInputManager.GetAxis(ButtonNames.CameraGhostX) * XSensitivity;
+            var xRot = CrossPlatformInputManager.GetAxis(ButtonNames.CameraGhostY) * YSensitivity;
 
             m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
             m_CameraTargetRot *= Quaternion.Euler (-xRot, 0f, 0f);
@@ -75,13 +75,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void InternalLockUpdate()
         {
             if(Input.GetKeyUp(KeyCode.Escape))
-            {
                 m_cursorIsLocked = false;
-            }
             else if(Input.GetMouseButtonUp(0))
-            {
                 m_cursorIsLocked = true;
-            }
 
             if (m_cursorIsLocked)
             {
@@ -95,14 +91,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
-        Quaternion ClampRotationAroundXAxis(Quaternion q)
+        private Quaternion ClampRotationAroundXAxis(Quaternion q)
         {
             q.x /= q.w;
             q.y /= q.w;
             q.z /= q.w;
             q.w = 1.0f;
 
-            float angleX = 2.0f * Mathf.Rad2Deg * Mathf.Atan (q.x);
+            var angleX = 2.0f * Mathf.Rad2Deg * Mathf.Atan (q.x);
 
             angleX = Mathf.Clamp (angleX, MinimumX, MaximumX);
 

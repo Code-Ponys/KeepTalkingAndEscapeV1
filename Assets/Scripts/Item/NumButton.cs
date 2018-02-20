@@ -1,5 +1,4 @@
-﻿using System.Runtime.Serialization.Formatters;
-using TrustfallGames.KeepTalkingAndEscape.Listener;
+﻿using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
 using UnityEngine.UI;
 
