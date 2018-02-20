@@ -16,6 +16,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             set {_ghostDrivenAnimationActive = value;}
         }
 
+        public bool HumanNumPadActive {
+            get {return _humanNumPadActive;}
+            set {_humanNumPadActive = value;}
+        }
+
         public CharacterController Ghost {
             get {return _ghost;}
         }
@@ -30,6 +35,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private CharacterController _human;
         [SerializeField] private FirstPersonControllerHuman _humanController;
         [SerializeField] private bool _ghostDrivenAnimationActive;
+        [SerializeField] private bool _humanNumPadActive;
 
         public static GameManager GetGameManager() {
             return GameObject.Find("GameManager").GetComponent<GameManager>();

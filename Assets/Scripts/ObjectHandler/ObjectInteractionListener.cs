@@ -63,6 +63,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _ghostReachable;
         private bool _ghostDrivenAnimationActive;
         private bool _ghostDrivenAnimationActiveLast;
+        private bool _humanNumPadActiveLast;
         private bool _motherObjectActive;
         //Can the object only picked up after the ghost interacted with the item.
         [SerializeField] private bool _canBePickedUpAfterGhostAction;
@@ -139,6 +140,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             UpdateUi();
 
             UpdateGhostDrivenAnimation();
+            UpdateHumanNumPad();
             KeyInteraction();
             UpdateMotherState();
         }
@@ -158,6 +160,16 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             _ghostDrivenAnimationActiveLast = _animationController.GhostDrivenAnimationActive;
+        }
+
+        private void UpdateHumanNumPad() {
+            if(_numButtonHandler == null) return;
+            if(_numButtonHandler.HumanNumPadActive != _humanNumPadActiveLast) {
+                _humanNumPadActiveLast = _numButtonHandler.HumanNumPadActive;
+                _gameManager.HumanNumPadActive = _numButtonHandler.HumanNumPadActive;
+            }
+
+            _humanNumPadActiveLast = _numButtonHandler.HumanNumPadActive;
         }
 
         /// <summary>
