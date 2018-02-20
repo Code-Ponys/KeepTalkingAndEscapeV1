@@ -344,6 +344,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _animationActive = true;
         }
 
+        /// <summary>
+        /// Calculate the step size for the frame duration.
+        /// </summary>
         private void CalculateSteps() {
             _positionStepOpen = StepsPerFrame(_positionBase, _positionAnimated, _animationDurationInFrames);
             _positionStepClose = _positionStepOpen * (-1);
@@ -352,6 +355,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _scaleStepClose = _scaleStepOpen * (-1);
         }
 
+        /// <summary>
+        /// Validates the given data to make 0 input possible.
+        /// </summary>
+        /// <param name="self"></param>
         private void validateData(ObjectInteractionListener self) {
             if(_positionAnimated.x == 0) {
                 _positionAnimated.x = _positionBase.x;
@@ -419,6 +426,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _linkedMeshGameObject = linkedGameObject;
         }
 
+        /// <summary>
+        /// Writes the data of the given Object listener to the Animation Controller.
+        /// </summary>
+        /// <param name="self"></param>
         private void WriteData(ObjectInteractionListener self) {
             _meshGameObject = self.gameObject;
             _positionBase = _meshGameObject.transform.localPosition;
