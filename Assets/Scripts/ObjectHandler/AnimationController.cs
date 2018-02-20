@@ -105,12 +105,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
             }
         }
-        
+
         /// <summary>
         /// Moves object by pressing the same button consecutively
         /// </summary>
         private void MoveOnKeySmash() {
-
             if(GhostDrivenAnimationActive)
                 if(_animationType == AnimationType.GhostMoveOnKeySmash) {
                     //Button, which sould be smashed
@@ -133,11 +132,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         if(_objectInteractionListener.CanBeTakenToInventory) {
                             _objectInteractionListener.CanBePickedUpAfterGhostAction = false;
                         }
+
                         if(_activateObjectPhysikAfterAnimation) {
                             _rigidbody.useGravity = true;
                             _rigidbody.isKinematic = false;
                             _animationActive = false;
-                            }
+                        }
+
                         _open = true;
                         SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleBase);
                     }
@@ -284,7 +285,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
         //End of Methodes for Moving
 
-        
 
         //New animation methode
 
@@ -304,7 +304,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_animationType != AnimationType.Open) {
                 WriteData(self);
             }
-            
+
             validateData(self);
 
             CalculateSteps();
@@ -437,63 +437,32 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //Calculations
 
-        public Vector3 StepsPerFrame(Vector3 a, Vector3 b, int frames) {
-            Vector3 result = new Vector3();
-            if(a.x < 0 && b.x > 0) {
+        private Vector3 StepsPerFrame(Vector3 a, Vector3 b, int frames) {
+            var result = new Vector3();
+            if(a.x < 0 && b.x > 0 || a.x < 0 && b.x < 0) {
                 a.x = a.x * -1;
                 result.x = b.x + a.x;
             }
 
-            if(a.x > 0 && b.x < 0) {
-                result.x = b.x - a.x;
-            }
+            if(a.x > 0 && b.x < 0 || a.x > 0 && b.x > 0) result.x = b.x - a.x;
 
-            if(a.x > 0 && b.x > 0) {
-                result.x = b.x - a.x;
-            }
 
-            if(a.x < 0 && b.x < 0) {
-                a.x = a.x * -1;
-                result.x = b.x + a.x;
-            }
-
-            if(a.y < 0 && b.y > 0) {
+            if(a.y < 0 && b.y > 0 || a.y < 0 && b.y < 0) {
                 a.y = a.y * -1;
                 result.y = b.y + a.y;
             }
 
-            if(a.y > 0 && b.y < 0) {
-                result.y = b.y - a.y;
-            }
+            if(a.y > 0 && b.y < 0 || a.y > 0 && b.y > 0) result.y = b.y - a.y;
 
-            if(a.y > 0 && b.y > 0) {
-                result.y = b.y - a.y;
-            }
 
-            if(a.y < 0 && b.y < 0) {
-                a.y = a.y * -1;
-                result.y = b.y + a.y;
-            }
-
-            if(a.z < 0 && b.z > 0) {
+            if(a.z < 0 && b.z > 0 || a.z < 0 && b.z < 0) {
                 a.z = a.z * -1;
                 result.z = b.z + a.z;
             }
 
-            if(a.z > 0 && b.z < 0) {
-                result.z = b.z - a.z;
-            }
+            if(a.z > 0 && b.z < 0 || a.z > 0 && b.z > 0) result.z = b.z - a.z;
 
-            if(a.z > 0 && b.z > 0) {
-                result.z = b.z - a.z;
-            }
-
-            if(a.z < 0 && b.z < 0) {
-                a.z = a.z * -1;
-                result.z = b.z + a.z;
-            }
-
-            return (result / frames);
+            return result / frames;
         }
 
         private void CalculateRotationSteps(Quaternion aQuaternion, Quaternion bQuaternion, int frames) {
