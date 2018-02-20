@@ -291,20 +291,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
         //End of Methodes for Moving
 
-        private string GetButtonName(KeyType keyType) {
-            switch(keyType) {
-                case KeyType.A:
-                    return ButtonNames.GhostJoystickButtonA;
-                case KeyType.B:
-                    return ButtonNames.GhostjoystickButtonB;
-                case KeyType.X:
-                    return ButtonNames.GhostJoystickButtonX;
-                case KeyType.Y:
-                    return ButtonNames.GhostJoystickButtonY;
-                default:
-                    return null;
-            }
-        }
+        
 
         //New animation methode
 
