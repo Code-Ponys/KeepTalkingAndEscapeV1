@@ -12729,6 +12729,22 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
+    - target: {fileID: 400022, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
   m_IsPrefabParent: 0
@@ -12777,7 +12793,7 @@ MonoBehaviour:
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
-  _positionAnimated: {x: -240.8676, y: 113.5368, z: -15}
+  _positionAnimated: {x: -240.8676, y: 113.5368, z: -11}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _canBePickedUpAfterGhostAction: 0
