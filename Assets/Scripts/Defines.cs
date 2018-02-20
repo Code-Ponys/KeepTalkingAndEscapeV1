@@ -55,6 +55,7 @@ public enum NumButtonType {
 }
 
 public static class ButtonNames {
+    /// <summary>
     /// Get the button name of the pressed key
     /// </summary>
     /// <param name="keyType"></param>

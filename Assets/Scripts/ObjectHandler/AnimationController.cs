@@ -114,7 +114,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(GhostDrivenAnimationActive)
                 if(_animationType == AnimationType.GhostMoveOnKeySmash) {
                     //Button, which sould be smashed
-                    if(Input.GetButtonDown(GetButtonName(_keyType))) {
+                    if(Input.GetButtonDown(ButtonNames.GetButtonName(_keyType))) {
                         //Add More Frames to procedure
                         if(_framesToNextStop == 0 && _animationDurationInFrames != _frameCount) {
                             _framesToNextStop = _animationStepsPerKlick;
@@ -215,45 +215,43 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private void ActivateChildOnHold() {
             //Abbrechen
 
-            if(Input.GetButtonDown(GetButtonName(KeyType.A))) {
+            if(Input.GetButtonDown(ButtonNames.GetButtonName(KeyType.A))) {
                 Debug.Log("Leave Object");
                 _ghostDrivenAnimationActive = false;
             }
 
-            if(_animationType == AnimationType.GhostActivateOnKeyHold) {
-                if(_ghostDrivenAnimationActive) {
-                    if(Input.GetButton(GetButtonName(_keyType)) && !_animationActivated) {
-                        _animationActivated = true;
-                        _frameCount = 0;
-                    }
-                }
-
-                if(!_ghostDrivenAnimationActive || !Input.GetButton(GetButtonName(_keyType))) {
-                    if(_open && _animationActivated) {
-                        _frameCount = 0;
-                        _animationActivated = false;
-                    }
-                }
-
-                if(_animationActivated && !_open) {
-                    if(_frameCount == _animationDurationInFrames) {
-                        SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleAnimated);
-                        _open = true;
-                    }
-
-                    TransformObject(_positionStepOpen, _scaleStepOpen);
-                }
-
-                if(!_animationActivated && _open) {
-                    if(_frameCount == _animationDurationInFrames) {
-                        SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
-                        _animationActive = false;
-                        _open = false;
-                    }
-
-                    TransformObject(_positionStepClose, _scaleStepClose);
+            if(_animationType != AnimationType.GhostActivateOnKeyHold) return;
+            if(_ghostDrivenAnimationActive) {
+                if(Input.GetButton(ButtonNames.GetButtonName(_keyType)) && !_animationActivated) {
+                    _animationActivated = true;
+                    _frameCount = 0;
                 }
             }
+
+            if(!_ghostDrivenAnimationActive || !Input.GetButton(ButtonNames.GetButtonName(_keyType))) {
+                if(_open && _animationActivated) {
+                    _frameCount = 0;
+                    _animationActivated = false;
+                }
+            }
+
+            if(_animationActivated && !_open) {
+                if(_frameCount == _animationDurationInFrames) {
+                    SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleAnimated);
+                    _open = true;
+                }
+
+                TransformObject(_positionStepOpen, _scaleStepOpen);
+            }
+
+            if(_animationActivated || !_open) return;
+            if(_frameCount == _animationDurationInFrames) {
+                SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
+                _animationActive = false;
+                _open = false;
+            }
+
+            TransformObject(_positionStepClose, _scaleStepClose);
         }
         //End of Animation Type
 
@@ -273,12 +271,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _scaleCurrent = _meshGameObject.transform.localScale;
             //Transform
             _meshGameObject.transform.localPosition = new Vector3(_positionCurrent.x + positionStep.x, _positionCurrent.y + positionStep.y, _positionCurrent.z + positionStep.z);
-            if(_open) {
-                _meshGameObject.transform.localRotation = Quaternion.RotateTowards(_rotationAnimated, _rotationBase, _rotationSteps * _frameCount);
-            }
-            else{
-                _meshGameObject.transform.localRotation = Quaternion.RotateTowards(_rotationBase, _rotationAnimated, _rotationSteps * _frameCount);
-            }
+            _meshGameObject.transform.localRotation = _open ? Quaternion.RotateTowards(_rotationAnimated, _rotationBase, _rotationSteps * _frameCount) : Quaternion.RotateTowards(_rotationBase, _rotationAnimated, _rotationSteps * _frameCount);
 
             _meshGameObject.transform.localScale = new Vector3(_scaleCurrent.x + scaleStep.x, _scaleCurrent.y + scaleStep.y, _scaleCurrent.z + scaleStep.z);
             _frameCount++;
