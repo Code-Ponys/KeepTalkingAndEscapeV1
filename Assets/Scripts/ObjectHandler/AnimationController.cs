@@ -317,61 +317,19 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _objectInteractionListener = self;
             _meshGameObject = self.gameObject;
             if(_animationType == AnimationType.Open && _dataRead != true) {
-                _positionBase = _meshGameObject.transform.localPosition;
-                _rotationBase = _meshGameObject.transform.localRotation;
-                _scaleBase = _meshGameObject.transform.localScale;
+                WriteData(self);
                 _dataRead = true;
             }
 
             if(_animationType != AnimationType.Open) {
-                _positionBase = _meshGameObject.transform.localPosition;
-                _rotationBase = _meshGameObject.transform.localRotation;
-                _scaleBase = _meshGameObject.transform.localScale;
+                WriteData(self);
             }
+            
+            validateData(self);
 
-            _animationStepsPerKlick = self.AnimationStepsPerKlick;
-            _positionAnimated = self.PositionAnimated;
-            _activateObjectPhysikAfterAnimation = self.ActivateGravityAtEnd;
-            _onedirectionAnimation = self.OnedirectionAnimation;
-            if(_positionAnimated.x == 0) {
-                _positionAnimated.x = _positionBase.x;
-            }
-
-            if(_positionAnimated.y == 0) {
-                _positionAnimated.y = _positionBase.y;
-            }
-
-            if(_positionAnimated.z == 0) {
-                _positionAnimated.z = _positionBase.z;
-            }
-
-            _rotationAnimated = Quaternion.Euler(self.RotationAnimated);
-
-            _scaleAnimated = self.ScaleAnimated;
-            if(_scaleAnimated.x == 0) {
-                _scaleAnimated.x = _scaleBase.x;
-            }
-
-            if(_scaleAnimated.y == 0) {
-                _scaleAnimated.y = _scaleBase.y;
-            }
-
-            if(_scaleAnimated.z == 0) {
-                _scaleAnimated.z = _scaleBase.z;
-            }
-
-            _animationType = self.AnimationType;
-            _keyType = self.KeyType;
-            _animationDurationInFrames = self.AnimationDurationInFrames;
-
-            _positionStepOpen = StepsPerFrame(_positionBase, _positionAnimated, _animationDurationInFrames);
-            _positionStepClose = StepsPerFrame(_positionAnimated, _positionBase, _animationDurationInFrames);
-            CalculateRotationSteps(_rotationBase, _rotationAnimated, _animationDurationInFrames);
-            _scaleStepOpen = StepsPerFrame(_scaleBase, _scaleAnimated, _animationDurationInFrames);
-            _scaleStepClose = StepsPerFrame(_scaleAnimated, _scaleBase, _animationDurationInFrames);
+            CalculateSteps();
 
             _dataRead = true;
-
 
             if(_animationActive && _animationType == AnimationType.Open) return;
 
@@ -406,23 +364,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _animationActive = true;
         }
 
-        /// <summary>
-        /// Forms the link between GameObject and the animation
-        /// </summary>
-        /// <param name="linkedGameObject"></param>
-        /// <param name="self"></param>
-        public void StartNewAnimation(GameObject linkedGameObject, ObjectInteractionListener self) {
-            if(_childAnimationActive || _childAnimationOpen) return;
-            _frameCount = 0;
-            _meshGameObject = self.gameObject;
-            _positionBase = _meshGameObject.transform.localPosition;
-            _rotationBase = _meshGameObject.transform.localRotation;
-            _scaleBase = _meshGameObject.transform.localScale;
-            _animationStepsPerKlick = self.AnimationStepsPerKlick;
-            _positionAnimated = self.PositionAnimated;
-            _activateObjectPhysikAfterAnimation = self.ActivateGravityAtEnd;
-            _rotationAnimated = Quaternion.Euler(self.RotationAnimated);
-            _onedirectionAnimation = self.OnedirectionAnimation;
+        private void CalculateSteps() {
+            _positionStepOpen = StepsPerFrame(_positionBase, _positionAnimated, _animationDurationInFrames);
+            _positionStepClose = _positionStepOpen * (-1);
+            CalculateRotationSteps(_rotationBase, _rotationAnimated, _animationDurationInFrames);
+            _scaleStepOpen = StepsPerFrame(_scaleBase, _scaleAnimated, _animationDurationInFrames);
+            _scaleStepClose = _scaleStepOpen * (-1);
+        }
+
+        private void validateData(ObjectInteractionListener self) {
             if(_positionAnimated.x == 0) {
                 _positionAnimated.x = _positionBase.x;
             }
@@ -434,6 +384,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_positionAnimated.z == 0) {
                 _positionAnimated.z = _positionBase.z;
             }
+
+            _rotationAnimated = Quaternion.Euler(self.RotationAnimated);
 
             _scaleAnimated = self.ScaleAnimated;
             if(_scaleAnimated.x == 0) {
@@ -447,16 +399,22 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_scaleAnimated.z == 0) {
                 _scaleAnimated.z = _scaleBase.z;
             }
+        }
 
-            _animationType = self.AnimationType;
-            _keyType = self.KeyType;
-            _animationDurationInFrames = self.AnimationDurationInFrames;
+        /// <summary>
+        /// Forms the link between GameObject and the animation
+        /// </summary>
+        /// <param name="linkedGameObject"></param>
+        /// <param name="self"></param>
+        public void StartNewAnimation(GameObject linkedGameObject, ObjectInteractionListener self) {
+            if(_childAnimationActive || _childAnimationOpen) return;
+            _frameCount = 0;
+            WriteData(self);
 
-            _positionStepOpen = StepsPerFrame(_positionBase, _positionAnimated, _animationDurationInFrames);
-            _positionStepClose = StepsPerFrame(_positionAnimated, _positionBase, _animationDurationInFrames);
-            CalculateRotationSteps(_rotationBase, _rotationAnimated, _animationDurationInFrames);
-            _scaleStepOpen = StepsPerFrame(_scaleBase, _scaleAnimated, _animationDurationInFrames);
-            _scaleStepClose = StepsPerFrame(_scaleAnimated, _scaleBase, _animationDurationInFrames);
+            validateData(self);
+
+
+            CalculateSteps();
 
             _dataRead = true;
 
@@ -479,6 +437,21 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             var a = _meshGameObject.GetComponent<Rigidbody>();
 
             _linkedMeshGameObject = linkedGameObject;
+        }
+
+        private void WriteData(ObjectInteractionListener self) {
+            _meshGameObject = self.gameObject;
+            _positionBase = _meshGameObject.transform.localPosition;
+            _rotationBase = _meshGameObject.transform.localRotation;
+            _scaleBase = _meshGameObject.transform.localScale;
+            _animationStepsPerKlick = self.AnimationStepsPerKlick;
+            _positionAnimated = self.PositionAnimated;
+            _activateObjectPhysikAfterAnimation = self.ActivateGravityAtEnd;
+            _rotationAnimated = Quaternion.Euler(self.RotationAnimated);
+            _onedirectionAnimation = self.OnedirectionAnimation;
+            _animationType = self.AnimationType;
+            _keyType = self.KeyType;
+            _animationDurationInFrames = self.AnimationDurationInFrames;
         }
         //End of new animation Methodes
 
