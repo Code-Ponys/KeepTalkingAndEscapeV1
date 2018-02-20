@@ -26,21 +26,28 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 		private void Update() {
 			ParticleHighlighting();
 		}
-
+		
+		/// <summary>
+		/// Controlls the Highlighting for both Human and Ghost Players
+		/// </summary>
 		public void ParticleHighlighting() {
 			Camera ghostCamera = _gameManager.GhostCamera;
 			Camera humanCamera = _gameManager.HumanCamera;
 
 			RaycastHit hit;
-
+			
+			//Sets the Raycast in the very center of the Camera
 			var cameraCenter = ghostCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, ghostCamera.nearClipPlane));
 			if(Physics.Raycast(cameraCenter, ghostCamera.transform.forward, out hit, 20000)) {
 				var distance = hit.distance;
+				//After a certain amoutn of tiem, the player is allowed to hgihlight again
 				if(_currentAxisDelay <= 0) {
+					//Removes all highlights in the scene before instantiating a new one
 					if(Input.GetButtonDown(ButtonNames.GhostHighlighting)) {
 						foreach(GameObject ghostHighlights in _ghostList) {
 							Destroy(ghostHighlights);
 						}
+						//Adds instantiated highlight into a list, to prevent multiple Highlight inclusion. Adds highlight into scene at the camera point
 						_ghostList.Add(Instantiate(_ghostHighlight, cameraCenter + ghostCamera.transform.forward * distance, hit.transform.rotation));
 						_currentAxisDelay = _axisDelay;
 					}
@@ -48,7 +55,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 				else {
 					_currentAxisDelay -= Time.deltaTime;
 				}
-
+				//Removes all highlights from this player from the scene after 30 secs
 				if(_ghostList.Count != 0) {
 					_ghostTime -= Time.deltaTime;
 					if(_ghostTime <= 0.0f) {
@@ -59,6 +66,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 					}
 				}
 			}
+			//Read Ghost, but now for humans
 			
 			cameraCenter = humanCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, humanCamera.nearClipPlane));
 			if(Physics.Raycast(cameraCenter, humanCamera.transform.forward, out hit, 1000)) {
