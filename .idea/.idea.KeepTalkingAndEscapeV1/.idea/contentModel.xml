@@ -16,13 +16,6 @@
             <e p="Lighting.cs" t="Include" />
           </e>
         </e>
-        <e p="Plugins" t="Include">
-          <e p="Editor" t="Include">
-            <e p="JetBrains" t="Include">
-              <e p="Unity3DRider.cs" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="Scripts" t="Include">
           <e p="Characters" t="Include">
             <e p="FirstPersonCharacter" t="Include">
@@ -81,6 +74,7 @@
           <e p="Item" t="Include">
             <e p="Item.cs" t="Include" />
             <e p="ItemDatabase.cs" t="Include" />
+            <e p="MapButton.cs" t="Include" />
             <e p="NumButton.cs" t="Include" />
           </e>
           <e p="Main Menu" t="Include">
@@ -89,6 +83,7 @@
           <e p="Manager" t="Include">
             <e p="GameManager.cs" t="Include" />
             <e p="Inventory.cs" t="Include" />
+            <e p="Splitscreen.cs" t="Include" />
             <e p="UIManager.cs" t="Include" />
           </e>
           <e p="ObjectHandler" t="Include">
@@ -98,6 +93,7 @@
             <e p="ItemCombineSlotHandler.cs" t="Include" />
             <e p="ItemHandler.cs" t="Include" />
             <e p="ItemSlotHandler.cs" t="Include" />
+            <e p="MapHandler.cs" t="Include" />
             <e p="NumButtonHandler.cs" t="Include" />
             <e p="ObjectInteractionListener.cs" t="Include" />
           </e>
@@ -370,14 +366,6 @@
             <e p="Shaders" t="Include">
               <e p="TSF.shader" t="Include" />
               <e p="TSFOutline.shader" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Standard Assets" t="Include">
-          <e p="Defines.cs" t="Include" />
-          <e p="Editor" t="Include">
-            <e p="CrossPlatformInput" t="Include">
-              <e p="CrossPlatformInputInitialize.cs" t="Include" />
             </e>
           </e>
         </e>

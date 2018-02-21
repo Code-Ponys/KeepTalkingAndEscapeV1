@@ -46,6 +46,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Inventory _inventoryGhost;
         [SerializeField] private Inventory _inventoryHuman;
 
+        [SerializeField] private Canvas _userInterfaceGhost;
+        [SerializeField] private Canvas _userInterfaceHuman;
+
         [SerializeField] private Sprite _a;
         [SerializeField] private Sprite _b;
         [SerializeField] private Sprite _x;
@@ -74,6 +77,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void Start() {
             _gameManager = GameManager.GetGameManager();
+            _userInterfaceGhost.renderMode = RenderMode.ScreenSpaceCamera;
+            _userInterfaceHuman.renderMode = RenderMode.ScreenSpaceCamera;
+            _userInterfaceGhost.worldCamera = _gameManager.GhostCamera;
+            _userInterfaceHuman.worldCamera = _gameManager.HumanCamera;
         }
 
         private void FixedUpdate() {
