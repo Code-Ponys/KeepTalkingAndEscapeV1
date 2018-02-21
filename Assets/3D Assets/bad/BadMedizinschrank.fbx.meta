@@ -3,7 +3,7 @@ guid: bf06fd19b79318c4ebb4dcfaa8c80cb6
 timeCreated: 1519123978
 licenseType: Free
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
     100002: MS_Door_Left
@@ -28,27 +28,10 @@ ModelImporter:
     6400000: MS_Door_Left
     6400002: MS_Door_Right
     6400004: MS_Schrank
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "T\xFCr mit kreuz"
-    second: {fileID: 2100000, guid: 75530b9b63ca0eb45a5c8b7361831087, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "T\xFCr nackt"
-    second: {fileID: 2100000, guid: 7a4b6695d11437d4b95142bb57a95961, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: schrank again boah
-    second: {fileID: 2100000, guid: 4a6e59ff3faa4bc42b9f1a9e47493df5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -61,14 +44,12 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -76,18 +57,13 @@ ModelImporter:
     globalScale: 100
     meshCompression: 0
     addColliders: 1
-    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
-    preserveHierarchy: 0
-    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -97,7 +73,6 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-    normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
