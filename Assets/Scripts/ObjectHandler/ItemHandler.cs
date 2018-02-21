@@ -29,7 +29,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void Update() {
-            _itemsInDatabase = _itemDatabase.ItemDatabaseList.Count;
+            _itemsInDatabase = _itemList.Count;
             if(_itemcheck.Count != 0) {
                 var obj = _itemcheck.Dequeue();
                 if(!IsItemInDatabase(obj.ItemName)) {
