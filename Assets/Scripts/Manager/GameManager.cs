@@ -28,6 +28,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         public CharacterController Human {
             get {return _human;}
         }
+
+        public FirstPersonControllerGhost GhostController {
+            get {return _ghostController;}
+        }
+
+        public FirstPersonControllerHuman HumanController {
+            get {return _humanController;}
+        }
+
         [SerializeField] private Camera _ghostCamera;
         [SerializeField] private CharacterController _ghost;
         [SerializeField] private FirstPersonControllerGhost _ghostController;
