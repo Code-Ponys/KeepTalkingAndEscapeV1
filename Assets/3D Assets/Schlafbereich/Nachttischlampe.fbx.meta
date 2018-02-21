@@ -1,22 +1,49 @@
 fileFormatVersion: 2
 guid: 22496fa8afb77bc4c900da2ff11dc17b
-timeCreated: 1518628721
+timeCreated: 1519220497
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Nachtlampe
-    6400000: //RootNode
+    100000: Gluehbirne
+    100002: Lampenschirm
+    100004: //RootNode
+    100006: Stativ
+    400000: Gluehbirne
+    400002: Lampenschirm
+    400004: //RootNode
+    400006: Stativ
+    2100000: Gluehbirne1
+    2100002: Lampenschirm2
+    2100004: Stativ1
+    2300000: Gluehbirne
+    2300002: Lampenschirm
+    2300004: Stativ
+    3300000: Gluehbirne
+    3300002: Lampenschirm
+    3300004: Stativ
+    4300000: Gluehbirne
+    4300002: Lampenschirm
+    4300004: Stativ
+    6400000: Gluehbirne
+    6400002: Lampenschirm
+    6400004: Stativ
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Gluehbirne1
+    second: {fileID: 2100000, guid: 083f5daaf2c3eef4a880fa5828d57730, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lampenschirm2
+    second: {fileID: 2100000, guid: 44153e1ff70b0b04193556f1ae6f11dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stativ1
+    second: {fileID: 2100000, guid: fe1eb0f36d879134e9d46d40afbdcba2, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -59,6 +86,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
