@@ -3,6 +3,7 @@
 public class GhostParticleHandler : MonoBehaviour {
 	
 	//Allows change in the Editor for Technical Artist/Level designer
+	//MeshGameObject not nessesary 
 	[SerializeField] private GameObject _meshGameObject;
 	[SerializeField] private Material _material;
 	
@@ -40,6 +41,9 @@ public class GhostParticleHandler : MonoBehaviour {
 	/// Controlls the particle system from this script
 	/// </summary>
 	private void ParticleHandler() {
+		if(_meshGameObject == null) {
+			_meshGameObject = gameObject;
+		}
 		//Creates new game object with the particle
 		var particleObject = new GameObject("Particle");
 		particleObject.transform.parent = _meshGameObject.transform;
