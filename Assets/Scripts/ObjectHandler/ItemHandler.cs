@@ -29,6 +29,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         private void Update() {
             _itemsInDatabase = _itemDatabase.ItemDatabaseList.Count;
+            if(_itemcheck.Count != 0) {
+                var obj = _itemcheck.Dequeue();
+                if(!IsItemInDatabase(obj.ItemName)) {
+                    throw new Exception("The item " + obj.ItemName + " is not in Database. It's assigned to Object Listener of " + obj.gameObject.name + ". Please Check the ID in Inspector and Database");
+                }
+                
+            }
         }
 
         /// <summary>
@@ -87,6 +94,21 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) return obj;
 
             throw new ArgumentException("Item is not in Database. Please check the database file.");
+        }
+
+        private bool IsItemInDatabase(string itemId) {
+            if(itemId == "") return true;
+            foreach(var obj in _itemList) {
+                if(string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public void CheckItem(ObjectInteractionListener obj) {
+            _itemcheck.Enqueue(obj);
         }
 
 
