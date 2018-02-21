@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4419142, g: 0.48369586, b: 0.5321541, a: 1}
+  m_Sun: {fileID: 857212749}
+  m_IndirectSpecularColor: {r: 0.19532001, g: 0.16950929, b: 0.12418305, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -57,7 +57,7 @@ LightmapSettings:
     serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
+    m_TextureWidth: 512
     m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
@@ -66,7 +66,7 @@ LightmapSettings:
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
-    m_TextureCompression: 1
+    m_TextureCompression: 0
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000002, guid: b2499ebaadda79b478741ba6f845324e,
+  m_LightingDataAsset: {fileID: 112000002, guid: 7b97b060bd28abd43bb421f1cd07be19,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -142,6 +142,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -159,6 +162,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -225,7 +229,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 40.431004, y: 90.00001, z: 90.00001}
 --- !u!1001 &7814012
 Prefab:
@@ -316,11 +320,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -45
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: bbeb7f921baf5f84281c23fe21b6d040, type: 3}
+    - target: {fileID: 100000, guid: bbeb7f921baf5f84281c23fe21b6d040, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: bbeb7f921baf5f84281c23fe21b6d040, type: 3}
+    - target: {fileID: 100004, guid: bbeb7f921baf5f84281c23fe21b6d040, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -566,7 +570,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4239460557480124, guid: ea3a4fccaa647c8468ff7d82c7d60554, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1951671793994570, guid: ea3a4fccaa647c8468ff7d82c7d60554, type: 2}
       propertyPath: m_Name
@@ -603,6 +607,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -620,6 +627,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -647,6 +655,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -664,6 +675,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -749,6 +761,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -766,6 +781,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -843,6 +859,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -860,6 +879,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -1022,6 +1042,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -1039,6 +1062,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -1087,7 +1111,7 @@ Prefab:
     - target: {fileID: 224117650827869364, guid: 536469fb413e65d45ad9163180fa9b23,
         type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 224117650827869364, guid: 536469fb413e65d45ad9163180fa9b23,
         type: 2}
@@ -1148,7 +1172,7 @@ Prefab:
         type: 2}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1650567555}
+      objectReference: {fileID: 1819686650}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 536469fb413e65d45ad9163180fa9b23, type: 2}
   m_IsPrefabParent: 0
@@ -1335,6 +1359,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -1352,6 +1379,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -1388,7 +1416,7 @@ Transform:
   - {fileID: 91972222}
   - {fileID: 1926416751}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &256732443
 GameObject:
@@ -1449,7 +1477,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &263161779 stripped
 GameObject:
@@ -1475,6 +1503,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -1492,6 +1523,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -1550,10 +1582,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 13406322d506d244a9f5c422879f61ed, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13406322d506d244a9f5c422879f61ed, type: 3}
   m_IsPrefabParent: 0
@@ -1608,18 +1636,6 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
-    - target: {fileID: 100002, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
   m_IsPrefabParent: 0
@@ -1709,6 +1725,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -1726,6 +1745,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -1913,7 +1933,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &332441532
 GameObject:
@@ -2087,6 +2107,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -2104,6 +2127,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -2121,7 +2145,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &354913841
 Transform:
@@ -2172,11 +2196,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!20 &371472571 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20489878240202306, guid: 5d4ec8cd7385c59419565e4501b6b9f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1005000690}
 --- !u!1001 &377889820
 Prefab:
   m_ObjectHideFlags: 0
@@ -2333,6 +2352,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -2350,6 +2372,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -2439,6 +2462,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -2456,6 +2482,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -2553,6 +2580,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -2570,6 +2600,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -2647,7 +2678,7 @@ Transform:
   - {fileID: 715822401}
   - {fileID: 808883307}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450120084 stripped
 GameObject:
@@ -2673,6 +2704,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -2690,6 +2724,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -2752,10 +2787,6 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 49.6272
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2c92340f6aac7e446b94b64b302805ca, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c92340f6aac7e446b94b64b302805ca, type: 3}
   m_IsPrefabParent: 0
@@ -2796,7 +2827,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4939179069208748, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4191179687274544, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2815,6 +2846,10 @@ Prefab:
         type: 2}
       propertyPath: field of view
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761630395972058, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc, type: 2}
@@ -3096,6 +3131,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -3113,6 +3151,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -3152,6 +3191,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -3169,6 +3211,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -3461,26 +3504,6 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 90776a91a26e0bb43bfdf4d52c8e5836, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 90776a91a26e0bb43bfdf4d52c8e5836, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 90776a91a26e0bb43bfdf4d52c8e5836, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 90776a91a26e0bb43bfdf4d52c8e5836, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 90776a91a26e0bb43bfdf4d52c8e5836, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 90776a91a26e0bb43bfdf4d52c8e5836, type: 3}
   m_IsPrefabParent: 0
@@ -3548,7 +3571,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1650567555}
+  m_Camera: {fileID: 1819686650}
   m_PlaneDistance: 0.4
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -3576,7 +3599,7 @@ RectTransform:
   - {fileID: 1202846252}
   - {fileID: 1723182822}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3809,10 +3832,6 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
-    - target: {fileID: 100000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
   m_IsPrefabParent: 0
@@ -3983,26 +4002,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 19
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d50ff5725fc1b92489762369cd8e26db, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: d50ff5725fc1b92489762369cd8e26db, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: d50ff5725fc1b92489762369cd8e26db, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50ff5725fc1b92489762369cd8e26db, type: 3}
   m_IsPrefabParent: 0
---- !u!143 &612756362 stripped
-CharacterController:
-  m_PrefabParentObject: {fileID: 143669755801083522, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 466372215}
 --- !u!1001 &618210818
 Prefab:
   m_ObjectHideFlags: 0
@@ -4085,6 +4087,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -4102,6 +4107,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -4196,7 +4202,7 @@ Transform:
   - {fileID: 2098505777}
   - {fileID: 898702452}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &637389381
 Prefab:
@@ -4498,7 +4504,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4434972367506940, guid: 05e2586760b438542b066107245fc47e, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1152224748861314, guid: 05e2586760b438542b066107245fc47e, type: 2}
       propertyPath: m_IsActive
@@ -4575,10 +4581,6 @@ Prefab:
     - target: {fileID: 400000, guid: 04223f8bd25e3e44aa3e977dd92798d2, type: 3}
       propertyPath: m_LocalScale.x
       value: 100.000015
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 04223f8bd25e3e44aa3e977dd92798d2, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04223f8bd25e3e44aa3e977dd92798d2, type: 3}
@@ -5056,6 +5058,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -5073,6 +5078,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -5150,6 +5156,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -5167,6 +5176,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -5299,6 +5309,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -5316,6 +5329,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -5343,6 +5357,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -5360,6 +5377,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -5748,7 +5766,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: -8.02, y: 321.995, z: 7.8480005}
 --- !u!108 &857212749
 Light:
@@ -5810,6 +5828,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -5827,6 +5848,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -5877,18 +5899,6 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
-    - target: {fileID: 100004, guid: 561b39f8ae5fbc84894a4bc3d8654ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 561b39f8ae5fbc84894a4bc3d8654ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 561b39f8ae5fbc84894a4bc3d8654ae1, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 561b39f8ae5fbc84894a4bc3d8654ae1, type: 3}
   m_IsPrefabParent: 0
@@ -6048,6 +6058,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -6065,6 +6078,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -6237,7 +6251,7 @@ Prefab:
     - target: {fileID: 224961937797632820, guid: 0cbdf2d0b012bc241870661e41c591a5,
         type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 224961937797632820, guid: 0cbdf2d0b012bc241870661e41c591a5,
         type: 2}
@@ -6298,7 +6312,7 @@ Prefab:
         type: 2}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 371472571}
+      objectReference: {fileID: 1717463471}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbdf2d0b012bc241870661e41c591a5, type: 2}
   m_IsPrefabParent: 0
@@ -6348,10 +6362,6 @@ Prefab:
     - target: {fileID: 400000, guid: 53df345aa5f26d84d80d33b33bfd5dbf, type: 3}
       propertyPath: m_LocalScale.z
       value: 99.99997
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 53df345aa5f26d84d80d33b33bfd5dbf, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53df345aa5f26d84d80d33b33bfd5dbf, type: 3}
@@ -6406,10 +6416,6 @@ Prefab:
     - target: {fileID: 400000, guid: 99228130717807746b2b32363b70d801, type: 3}
       propertyPath: m_LocalScale.z
       value: 99.99997
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 99228130717807746b2b32363b70d801, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99228130717807746b2b32363b70d801, type: 3}
@@ -6524,23 +6530,7 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100014, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+    - target: {fileID: 100006, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -6552,7 +6542,23 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+    - target: {fileID: 100002, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -6583,6 +6589,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -6600,6 +6609,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -6702,6 +6712,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -6719,6 +6732,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -6758,6 +6772,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -6775,6 +6792,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -6815,7 +6833,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4067534277422478, guid: 5d4ec8cd7385c59419565e4501b6b9f5, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 20489878240202306, guid: 5d4ec8cd7385c59419565e4501b6b9f5,
         type: 2}
@@ -6827,8 +6845,54 @@ Prefab:
       propertyPath: field of view
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 4668705280919362, guid: 5d4ec8cd7385c59419565e4501b6b9f5, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d4ec8cd7385c59419565e4501b6b9f5, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1025836821
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: fe5b34fd6bfdf414e969a13c6aa3a603, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -864.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fe5b34fd6bfdf414e969a13c6aa3a603, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fe5b34fd6bfdf414e969a13c6aa3a603, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -281.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fe5b34fd6bfdf414e969a13c6aa3a603, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fe5b34fd6bfdf414e969a13c6aa3a603, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fe5b34fd6bfdf414e969a13c6aa3a603, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fe5b34fd6bfdf414e969a13c6aa3a603, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fe5b34fd6bfdf414e969a13c6aa3a603, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fe5b34fd6bfdf414e969a13c6aa3a603, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &1028662724 stripped
 GameObject:
@@ -6854,6 +6918,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -6871,6 +6938,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -6920,10 +6988,6 @@ Prefab:
     - target: {fileID: 400000, guid: c740f9653d276ca4c9186bdd4012ba88, type: 3}
       propertyPath: m_LocalScale.z
       value: 99.99997
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: c740f9653d276ca4c9186bdd4012ba88, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c740f9653d276ca4c9186bdd4012ba88, type: 3}
@@ -7085,6 +7149,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -7102,6 +7169,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -7212,19 +7280,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
+    - target: {fileID: 100002, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
+    - target: {fileID: 100006, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -7426,10 +7494,6 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 99.99997
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: d65c35f65011e884aa40c7ca33418e5f, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d65c35f65011e884aa40c7ca33418e5f, type: 3}
   m_IsPrefabParent: 0
@@ -7548,6 +7612,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -7565,6 +7632,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -7631,18 +7699,6 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
-    - target: {fileID: 100004, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
   m_IsPrefabParent: 0
@@ -7701,10 +7757,6 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2c92340f6aac7e446b94b64b302805ca, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c92340f6aac7e446b94b64b302805ca, type: 3}
   m_IsPrefabParent: 0
@@ -7732,6 +7784,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -7749,6 +7804,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -7805,6 +7861,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -7822,6 +7881,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -7896,7 +7956,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1179462789
 Transform:
@@ -7932,7 +7992,7 @@ Transform:
   - {fileID: 815756491}
   - {fileID: 1482718570}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1184984020
 GameObject:
@@ -7994,7 +8054,7 @@ Transform:
   - {fileID: 1585702926}
   - {fileID: 1362706584}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1193970317
 Prefab:
@@ -8100,10 +8160,6 @@ Prefab:
     - target: {fileID: 400000, guid: fad23638ab8f2a948a80cc55a1b1b399, type: 3}
       propertyPath: m_LocalScale.z
       value: 99.99997
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: fad23638ab8f2a948a80cc55a1b1b399, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fad23638ab8f2a948a80cc55a1b1b399, type: 3}
@@ -8227,15 +8283,15 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 079df2b37723bad448fac2cb3779e266, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 079df2b37723bad448fac2cb3779e266, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 079df2b37723bad448fac2cb3779e266, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 079df2b37723bad448fac2cb3779e266, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -8390,6 +8446,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -8407,6 +8466,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -8492,6 +8552,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -8509,14 +8572,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
---- !u!143 &1233074237 stripped
-CharacterController:
-  m_PrefabParentObject: {fileID: 143865308102213668, guid: 5d4ec8cd7385c59419565e4501b6b9f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1005000690}
 --- !u!4 &1242500590 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: bf06fd19b79318c4ebb4dcfaa8c80cb6, type: 3}
@@ -8577,6 +8636,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -8594,6 +8656,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -8647,10 +8710,6 @@ Prefab:
     - target: {fileID: 400000, guid: ff0157b689de0d649b560e1a6c7ef927, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ff0157b689de0d649b560e1a6c7ef927, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff0157b689de0d649b560e1a6c7ef927, type: 3}
@@ -8745,7 +8804,7 @@ Transform:
   - {fileID: 1211708793}
   - {fileID: 301010846}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265890411 stripped
 GameObject:
@@ -8771,6 +8830,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -8788,6 +8850,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -8819,6 +8882,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -8836,6 +8902,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -8863,6 +8930,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -8880,6 +8950,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -9125,7 +9196,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1304919450
 MonoBehaviour:
@@ -9138,11 +9209,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedad2f570a345f68d2205593758427e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ghostCamera: {fileID: 371472571}
-  _ghost: {fileID: 1233074237}
+  _ghostCamera: {fileID: 0}
+  _ghost: {fileID: 0}
   _ghostController: {fileID: 0}
-  _humanCamera: {fileID: 1650567555}
-  _human: {fileID: 612756362}
+  _humanCamera: {fileID: 0}
+  _human: {fileID: 0}
   _humanController: {fileID: 0}
   _ghostDrivenAnimationActive: 0
   _humanNumPadActive: 0
@@ -9170,6 +9241,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -9187,6 +9261,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -9299,6 +9374,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -9316,6 +9394,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -9388,11 +9467,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: bffd34e7efc3b194eba4eab5c0209773, type: 3}
+    - target: {fileID: 100004, guid: bffd34e7efc3b194eba4eab5c0209773, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: bffd34e7efc3b194eba4eab5c0209773, type: 3}
+    - target: {fileID: 100002, guid: bffd34e7efc3b194eba4eab5c0209773, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -9547,6 +9626,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -9564,6 +9646,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -9784,10 +9867,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: eb58b959d0801f444931cfe52cffcdfc, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb58b959d0801f444931cfe52cffcdfc, type: 3}
   m_IsPrefabParent: 0
@@ -9947,10 +10026,6 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
-    - target: {fileID: 100000, guid: 997e2cfc841015345bfa045569103892, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 997e2cfc841015345bfa045569103892, type: 3}
   m_IsPrefabParent: 0
@@ -10012,10 +10087,6 @@ Prefab:
     - target: {fileID: 400000, guid: a44b120c1468cde489c63913d42f2ac2, type: 3}
       propertyPath: m_LocalScale.z
       value: 100.000015
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: a44b120c1468cde489c63913d42f2ac2, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a44b120c1468cde489c63913d42f2ac2, type: 3}
@@ -10084,7 +10155,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 371472571}
+  m_Camera: {fileID: 1717463471}
   m_PlaneDistance: 0.4
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -10109,7 +10180,7 @@ RectTransform:
   - {fileID: 1662987295}
   - {fileID: 1060291886}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10190,6 +10261,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -10207,6 +10281,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -10260,10 +10335,6 @@ Prefab:
     - target: {fileID: 400000, guid: d50f708547b8172408ddd1088385c9f9, type: 3}
       propertyPath: m_LocalScale.z
       value: 99.99997
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: d50f708547b8172408ddd1088385c9f9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50f708547b8172408ddd1088385c9f9, type: 3}
@@ -10347,19 +10418,11 @@ Prefab:
       propertyPath: m_Name
       value: VorhangRechts
       objectReference: {fileID: 0}
-    - target: {fileID: 1358704860234064, guid: 75f80caf7c98f7a49b446f8978642eb5, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1098160974296994, guid: 75f80caf7c98f7a49b446f8978642eb5, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1844686923353888, guid: 75f80caf7c98f7a49b446f8978642eb5, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 1881563117637856, guid: 75f80caf7c98f7a49b446f8978642eb5, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958777155142200, guid: 75f80caf7c98f7a49b446f8978642eb5, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -10367,7 +10430,15 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 1958777155142200, guid: 75f80caf7c98f7a49b446f8978642eb5, type: 2}
+    - target: {fileID: 1844686923353888, guid: 75f80caf7c98f7a49b446f8978642eb5, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098160974296994, guid: 75f80caf7c98f7a49b446f8978642eb5, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358704860234064, guid: 75f80caf7c98f7a49b446f8978642eb5, type: 2}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -10488,6 +10559,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -10505,6 +10579,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -10606,6 +10681,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 1
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -10623,6 +10701,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -10669,7 +10748,7 @@ Transform:
   - {fileID: 540938653}
   - {fileID: 602641057}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1557284467
 Prefab:
@@ -10708,7 +10787,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 508f57d53842f53498fb549a8b42ad87, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 508f57d53842f53498fb549a8b42ad87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10840,6 +10919,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -10857,6 +10939,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -10884,6 +10967,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -10901,6 +10987,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -10988,6 +11075,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11005,6 +11095,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -11032,6 +11123,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11049,6 +11143,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -11076,6 +11171,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11093,14 +11191,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
---- !u!20 &1650567555 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20281888700028250, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 466372215}
 --- !u!1001 &1652025275
 Prefab:
   m_ObjectHideFlags: 0
@@ -11233,6 +11327,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11250,6 +11347,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -11548,10 +11646,6 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 99.99997
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 5a48235e5905dc54099c6397a626a4d7, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a48235e5905dc54099c6397a626a4d7, type: 3}
   m_IsPrefabParent: 0
@@ -11629,6 +11723,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: 7b89a8c35bddd0e418dc328510238a18, type: 3}
   m_PrefabInternal: {fileID: 437183623}
+--- !u!20 &1717463471 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20932436035406344, guid: 5d4ec8cd7385c59419565e4501b6b9f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1005000690}
 --- !u!1 &1723182821
 GameObject:
   m_ObjectHideFlags: 0
@@ -11720,6 +11819,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11737,6 +11839,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -11791,11 +11894,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 8f5c8462daca8444eace0d2cbc93f91b, type: 3}
+    - target: {fileID: 100000, guid: 8f5c8462daca8444eace0d2cbc93f91b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 8f5c8462daca8444eace0d2cbc93f91b, type: 3}
+    - target: {fileID: 100004, guid: 8f5c8462daca8444eace0d2cbc93f91b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -11834,6 +11937,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 120
   _animationStepsPerKlick: 30
@@ -11851,6 +11957,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -11882,6 +11989,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11899,6 +12009,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -12121,6 +12232,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -12138,6 +12252,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -12211,6 +12326,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 763216d5f13a4e34fba955e0c0ac96b8, type: 3}
   m_PrefabInternal: {fileID: 1787048535}
+--- !u!20 &1819686650 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20896980329263510, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 466372215}
 --- !u!1001 &1822165282
 Prefab:
   m_ObjectHideFlags: 0
@@ -12403,10 +12523,6 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 99.99997
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: e2e2653a686193a418f849f4816da694, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2e2653a686193a418f849f4816da694, type: 3}
   m_IsPrefabParent: 0
@@ -12513,7 +12629,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 512615ee22f1ab7458ccdac6f2831db4, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2300004, guid: 512615ee22f1ab7458ccdac6f2831db4, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12565,6 +12681,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 512615ee22f1ab7458ccdac6f2831db4, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1001 &1861483509
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: a3eeff33fee45f2468d7d579d43b722c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 856
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a3eeff33fee45f2468d7d579d43b722c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.36986715
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a3eeff33fee45f2468d7d579d43b722c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -140.17104
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a3eeff33fee45f2468d7d579d43b722c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a3eeff33fee45f2468d7d579d43b722c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a3eeff33fee45f2468d7d579d43b722c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a3eeff33fee45f2468d7d579d43b722c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: a3eeff33fee45f2468d7d579d43b722c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a3eeff33fee45f2468d7d579d43b722c, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &1880885264
 GameObject:
@@ -12664,6 +12822,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -12681,6 +12842,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -12844,6 +13006,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -12861,6 +13026,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -12946,6 +13112,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -12963,6 +13132,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13079,26 +13249,6 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ed15dd8806f3b0f48966a47b24ea02f2, type: 2}
-    - target: {fileID: 100000, guid: 038e2d60220529c4eb165d77c092a2f5, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 038e2d60220529c4eb165d77c092a2f5, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 038e2d60220529c4eb165d77c092a2f5, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 038e2d60220529c4eb165d77c092a2f5, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 038e2d60220529c4eb165d77c092a2f5, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 038e2d60220529c4eb165d77c092a2f5, type: 3}
   m_IsPrefabParent: 0
@@ -13174,7 +13324,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!108 &1957700754
 Light:
@@ -13263,6 +13413,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -13280,6 +13433,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13307,6 +13461,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -13324,6 +13481,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13351,6 +13509,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 30
   _animationStepsPerKlick: 10
@@ -13368,6 +13529,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13450,74 +13612,6 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 100014, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100018, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100028, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100022, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100024, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100016, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100020, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100030, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100026, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 100032, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
   m_IsPrefabParent: 0
@@ -13561,6 +13655,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -13578,6 +13675,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13601,6 +13699,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -13618,6 +13719,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13641,6 +13743,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -13658,6 +13763,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13681,6 +13787,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -13698,6 +13807,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13725,6 +13835,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -13742,6 +13855,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13769,6 +13883,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -13786,6 +13903,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13863,6 +13981,9 @@ MonoBehaviour:
   _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
+  _toggleActiveGameobject: 0
+  activeObject: {fileID: 0}
+  inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -13880,6 +14001,7 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -14125,7 +14247,7 @@ Transform:
   - {fileID: 637389382}
   - {fileID: 7814013}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2070262622
 Prefab:
@@ -14570,7 +14692,7 @@ RectTransform:
   m_LocalScale: {x: 0.00038129615, y: 0.00038129615, z: 0.00038129615}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
