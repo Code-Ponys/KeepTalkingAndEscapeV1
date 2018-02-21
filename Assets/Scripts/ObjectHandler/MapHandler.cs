@@ -52,3 +52,44 @@
             }
         }
 
+
+        private void ChangeActiveButton(Direction direction) {
+            switch(direction) {
+                case Direction.Up:
+                    if(_currentActiveButton.ButtonOnUp != null) {
+                        _currentActiveButton.ToggleActive();
+                        _currentActiveButton = _currentActiveButton.ButtonOnUp;
+                        _currentActiveButton.ToggleActive();
+                    }
+
+                    break;
+                case Direction.Down:
+                    if(_currentActiveButton.ButtonOnUp != null) {
+                        _currentActiveButton.ToggleActive();
+                        _currentActiveButton = _currentActiveButton.ButtonOnUp;
+                        _currentActiveButton.ToggleActive();
+                    }
+
+                    break;
+                case Direction.Left:
+                    if(_currentActiveButton.ButtonOnUp != null) {
+                        _currentActiveButton.ToggleActive();
+                        _currentActiveButton = _currentActiveButton.ButtonOnUp;
+                        _currentActiveButton.ToggleActive();
+                    }
+
+                    break;
+                case Direction.Right:
+                    if(_currentActiveButton.ButtonOnUp != null) {
+                        _currentActiveButton.ToggleActive();
+                        _currentActiveButton = _currentActiveButton.ButtonOnUp;
+                        _currentActiveButton.ToggleActive();
+                    }
+
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("direction", direction, null);
+            }
+        }
+    }
+}
