@@ -1,4 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using TrustfallGames.KeepTalkingAndEscape.Datatypes;
+using TrustfallGames.KeepTalkingAndEscape.Manager;
+using UnityEngine;
+
+namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class MapHandler {
+        private List<MapButton> _buttons = new List<MapButton>();
+        private float _currentAxisDelay;
+        [SerializeField] private string _password;
+        private string _passwordText;
+
+        private MapButton _currentActiveButton;
+        private bool _codeSolved;
+
+        private GameManager _gameManager;
+
         public void RegisterButton(MapButton button) {
             _buttons.Add(button);
             _gameManager = GameManager.GetGameManager();
