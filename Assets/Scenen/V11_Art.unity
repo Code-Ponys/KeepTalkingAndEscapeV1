@@ -133,15 +133,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 7154221}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Kleidung
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -154,8 +157,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &7814012
 Prefab:
   m_ObjectHideFlags: 0
@@ -461,15 +478,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 67136214}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "Die Bettdecke ist unauff\xE4llig."
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -482,8 +502,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!4 &68109749 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: e8a93267c317dc1499348fee7b6d38b3, type: 3}
@@ -557,15 +591,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 69281495}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "Die Schublade l\xE4sst sich \xF6ffnen."
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -578,8 +615,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &76222699
 Prefab:
   m_ObjectHideFlags: 0
@@ -645,15 +696,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 78852088}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "Ein auff\xE4lliges Stromkabel."
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -666,8 +720,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &91972221
 Prefab:
   m_ObjectHideFlags: 0
@@ -818,15 +886,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 137037960}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -839,8 +910,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &140401371
 Prefab:
   m_ObjectHideFlags: 0
@@ -886,7 +971,7 @@ Prefab:
     - target: {fileID: 224117650827869364, guid: 536469fb413e65d45ad9163180fa9b23,
         type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 224117650827869364, guid: 536469fb413e65d45ad9163180fa9b23,
         type: 2}
@@ -942,12 +1027,12 @@ Prefab:
         type: 2}
       propertyPath: _secondInventory
       value: 
-      objectReference: {fileID: 1961274317}
+      objectReference: {fileID: 1611375235}
     - target: {fileID: 223125876264974044, guid: 536469fb413e65d45ad9163180fa9b23,
         type: 2}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1650567555}
+      objectReference: {fileID: 1980402362}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 536469fb413e65d45ad9163180fa9b23, type: 2}
   m_IsPrefabParent: 0
@@ -1059,15 +1144,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 232828422}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -1080,8 +1168,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1 &241884505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,7 +1216,7 @@ Transform:
   - {fileID: 596147578}
   - {fileID: 91972222}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &256732443
 GameObject:
@@ -1148,8 +1250,8 @@ MonoBehaviour:
   _ghostFlavourText: {fileID: 1662987296}
   _humanFlavourText: {fileID: 1764738551}
   _healthText: {fileID: 511991011}
-  _inventoryGhost: {fileID: 0}
-  _inventoryHuman: {fileID: 0}
+  _inventoryGhost: {fileID: 1961274317}
+  _inventoryHuman: {fileID: 1611375235}
   _a: {fileID: 0}
   _b: {fileID: 0}
   _x: {fileID: 0}
@@ -1175,7 +1277,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &263161779 stripped
 GameObject:
@@ -1192,15 +1294,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 263161779}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "T\xFCr mit Kreuz"
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -1213,8 +1318,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &263177146
 Prefab:
   m_ObjectHideFlags: 0
@@ -1404,15 +1523,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 0}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -1425,8 +1547,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &296542131
 Prefab:
   m_ObjectHideFlags: 0
@@ -1493,6 +1629,17 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 9a847902b0ea77842b0e1e4f83ff0b39, type: 3}
   m_PrefabInternal: {fileID: 296542131}
+--- !u!114 &299821571 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114915812262339202, guid: 5d4ec8cd7385c59419565e4501b6b9f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1005000690}
+  m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
+--- !u!143 &299821572 stripped
+CharacterController:
+  m_PrefabParentObject: {fileID: 143937039962939618, guid: 5d4ec8cd7385c59419565e4501b6b9f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1005000690}
 --- !u!1001 &301010845
 Prefab:
   m_ObjectHideFlags: 0
@@ -1611,7 +1758,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &332441532
 GameObject:
@@ -1654,9 +1801,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300024, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &332441535
@@ -1776,15 +1923,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 343247794}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -1797,13 +1947,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
---- !u!20 &371472571 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20489878240202306, guid: 5d4ec8cd7385c59419565e4501b6b9f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1005000690}
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &377889820
 Prefab:
   m_ObjectHideFlags: 0
@@ -1892,9 +2051,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b02c82ffc587f8946a50f2cdc83d14d6, type: 3}
 --- !u!23 &410176344
@@ -1951,15 +2110,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 410176341}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Touchpad
   _objectFlavourText: "Es sieht aus als k\xF6nnte hier ein Zahlencode eingegeben werden."
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -1972,8 +2134,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &412401471
 Prefab:
   m_ObjectHideFlags: 0
@@ -2036,6 +2212,17 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ed68072cd6e3fc141b6b8d55453e3882, type: 3}
   m_PrefabInternal: {fileID: 412401471}
+--- !u!114 &424858284 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114196020376505744, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 466372215}
+  m_Script: {fileID: 11500000, guid: 0fb2306a6ed3b9d4fbf03edc727135ac, type: 3}
+--- !u!143 &424858285 stripped
+CharacterController:
+  m_PrefabParentObject: {fileID: 143994425009728842, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 466372215}
 --- !u!1001 &426150935
 Prefab:
   m_ObjectHideFlags: 0
@@ -2121,15 +2308,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 434939806}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -2142,8 +2332,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &437183623
 Prefab:
   m_ObjectHideFlags: 0
@@ -2218,7 +2422,7 @@ Transform:
   - {fileID: 715822401}
   - {fileID: 808883307}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450120084 stripped
 GameObject:
@@ -2235,15 +2439,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 450120084}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -2256,8 +2463,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &450132175
 Prefab:
   m_ObjectHideFlags: 0
@@ -2376,6 +2597,10 @@ Prefab:
         type: 2}
       propertyPath: field of view
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761630395972058, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc, type: 2}
@@ -2644,15 +2869,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 500243637}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "Schl\xFCssel1"
   _objectFlavourText: 
   _itemName: schluessel2
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -2665,8 +2893,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!65 &500243642
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2694,15 +2936,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 504101068}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -2715,8 +2960,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1 &511991010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,7 +3332,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1650567555}
+  m_Camera: {fileID: 1980402362}
   m_PlaneDistance: 0.4
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -3101,7 +3360,7 @@ RectTransform:
   - {fileID: 1202846252}
   - {fileID: 1723182822}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3249,7 +3508,7 @@ Transform:
   - {fileID: 849014560}
   - {fileID: 426150936}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &553767051 stripped
 GameObject:
@@ -3507,11 +3766,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d50ff5725fc1b92489762369cd8e26db, type: 3}
   m_IsPrefabParent: 0
---- !u!143 &612756362 stripped
-CharacterController:
-  m_PrefabParentObject: {fileID: 143669755801083522, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 466372215}
 --- !u!1001 &618210818
 Prefab:
   m_ObjectHideFlags: 0
@@ -3657,11 +3911,11 @@ Transform:
   - {fileID: 1965675368}
   - {fileID: 908533622}
   - {fileID: 1213830060}
-  - {fileID: 1209993107}
+  - {fileID: 1272488086}
   - {fileID: 2098505777}
   - {fileID: 898702452}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &637389381
 Prefab:
@@ -3770,9 +4024,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300026, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &640976660
@@ -4475,9 +4729,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 9a17f8c6efb68f94494374aeb856d202, type: 3}
 --- !u!23 &771674532
@@ -4538,15 +4792,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 793018356}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -4559,8 +4816,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &805861634
 Prefab:
   m_ObjectHideFlags: 0
@@ -4710,7 +4981,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7691fafdae9581f4986d18789faef2c1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7691fafdae9581f4986d18789faef2c1, type: 3}
@@ -4934,7 +5205,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 12.627001, y: 218.66899, z: 191.549}
 --- !u!108 &857212749
 Light:
@@ -4987,15 +5258,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 863853356}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -5008,8 +5282,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &867567645
 Prefab:
   m_ObjectHideFlags: 0
@@ -5207,15 +5495,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 901864104}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "Es sieht so aus als k\xF6nnte man hier etwas eindr\xFCcken..."
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -5228,8 +5519,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!4 &902787773 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 3a913c3c0c7d59c4a98ec09f33b11471, type: 3}
@@ -5395,7 +5700,7 @@ Prefab:
     - target: {fileID: 224961937797632820, guid: 0cbdf2d0b012bc241870661e41c591a5,
         type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 224961937797632820, guid: 0cbdf2d0b012bc241870661e41c591a5,
         type: 2}
@@ -5451,12 +5756,12 @@ Prefab:
         type: 2}
       propertyPath: _secondInventory
       value: 
-      objectReference: {fileID: 1611375235}
+      objectReference: {fileID: 1961274317}
     - target: {fileID: 223489158054572536, guid: 0cbdf2d0b012bc241870661e41c591a5,
         type: 2}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 371472571}
+      objectReference: {fileID: 1808474159}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0cbdf2d0b012bc241870661e41c591a5, type: 2}
   m_IsPrefabParent: 0
@@ -5692,15 +5997,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 945542378}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Portrait eines unbekannten Mannes.
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -5713,8 +6021,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!4 &976279028 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b73f0e069a9227e45a348d5c526b800b, type: 3}
@@ -5805,15 +6127,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 983221495}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "schl\xFCssel2"
   _objectFlavourText: 
   _itemName: schluessel1
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -5826,8 +6151,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!65 &983221500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5855,15 +6194,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 995281163}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -5876,8 +6218,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1005000690
 Prefab:
   m_ObjectHideFlags: 0
@@ -5945,15 +6301,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1028662724}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Ein kleiner Nachtschrank.
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -5966,8 +6325,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1037283752
 Prefab:
   m_ObjectHideFlags: 0
@@ -6506,9 +6879,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: b02c82ffc587f8946a50f2cdc83d14d6, type: 3}
 --- !u!23 &1154679433
@@ -6565,15 +6938,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1154679430}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "Die Safet\xFCr ist geschlossen."
   _objectFlavourText: "Du kannst sie nicht ohne weiteres \xF6ffnen."
   _itemName: 
   _animationType: 6
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -6586,8 +6962,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1155503339
 Prefab:
   m_ObjectHideFlags: 0
@@ -6712,44 +7102,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c92340f6aac7e446b94b64b302805ca, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &1165225163 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100016, guid: a55008299abc5a24fb3a9e042fa52843, type: 3}
-  m_PrefabInternal: {fileID: 1292573819}
---- !u!114 &1165225168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1165225163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1165225163}
-  _SecondGameObject: {fileID: 0}
-  _objectDescription: 
-  _objectFlavourText: 
-  _itemName: 
-  _animationType: 1
-  _activateChildWhen: 0
-  _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
-  _keyType: 0
-  _animationDurationInFrames: 60
-  _animationStepsPerKlick: 10
-  _positionAnimated: {x: -75, y: 54.66156, z: -0.1795951}
-  _rotationAnimated: {x: -90, y: 0, z: 0}
-  _scaleAnimated: {x: 0, y: 0, z: 0}
-  _canBePickedUpAfterGhostAction: 0
-  _canBeTakenToInventory: 0
-  _canBeTakenButStayInScene: 0
-  _onedirectionAnimation: 0
-  _activateGravityAtEnd: 0
-  _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
 --- !u!1 &1168250489
 GameObject:
   m_ObjectHideFlags: 0
@@ -6794,15 +7146,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1168250489}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -6815,8 +7170,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!64 &1168250492
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6827,9 +7196,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 9a17f8c6efb68f94494374aeb856d202, type: 3}
 --- !u!23 &1168250493
@@ -6924,7 +7293,7 @@ Transform:
   - {fileID: 815756491}
   - {fileID: 1482718570}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1184984020
 GameObject:
@@ -6983,7 +7352,7 @@ Transform:
   - {fileID: 68109749}
   - {fileID: 1052431801}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1193970317
 Prefab:
@@ -7212,13 +7581,13 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 079df2b37723bad448fac2cb3779e266, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 079df2b37723bad448fac2cb3779e266, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1209993107 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: 079df2b37723bad448fac2cb3779e266, type: 3}
-  m_PrefabInternal: {fileID: 1209993106}
 --- !u!1001 &1211708792
 Prefab:
   m_ObjectHideFlags: 0
@@ -7393,11 +7762,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 58193545755c3064fab3ba9a50304d49, type: 3}
   m_PrefabInternal: {fileID: 1222568666}
---- !u!143 &1233074237 stripped
-CharacterController:
-  m_PrefabParentObject: {fileID: 143865308102213668, guid: 5d4ec8cd7385c59419565e4501b6b9f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1005000690}
 --- !u!4 &1242500590 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: bf06fd19b79318c4ebb4dcfaa8c80cb6, type: 3}
@@ -7578,7 +7942,7 @@ Transform:
   - {fileID: 1211708793}
   - {fileID: 301010846}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265890411 stripped
 GameObject:
@@ -7595,15 +7959,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1265890411}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -7616,8 +7983,26 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
+--- !u!4 &1272488086 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400002, guid: 079df2b37723bad448fac2cb3779e266, type: 3}
+  m_PrefabInternal: {fileID: 1209993106}
 --- !u!4 &1273655478 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: d52d77984f6dac24da00507119473e50, type: 3}
@@ -7637,15 +8022,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1280738374}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -7658,8 +8046,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1 &1283946315 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
@@ -7675,15 +8077,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1283946315}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -7696,8 +8101,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1292573819
 Prefab:
   m_ObjectHideFlags: 0
@@ -7940,7 +8359,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1304919450
 MonoBehaviour:
@@ -7953,11 +8372,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aedad2f570a345f68d2205593758427e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ghostCamera: {fileID: 371472571}
-  _ghost: {fileID: 1233074237}
-  _humanCamera: {fileID: 1650567555}
-  _human: {fileID: 612756362}
+  _ghostCamera: {fileID: 1808474159}
+  _ghost: {fileID: 299821572}
+  _ghostController: {fileID: 299821571}
+  _humanCamera: {fileID: 1980402362}
+  _human: {fileID: 424858285}
+  _humanController: {fileID: 424858284}
   _ghostDrivenAnimationActive: 0
+  _humanNumPadActive: 0
 --- !u!1 &1305566516 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100008, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
@@ -7973,15 +8395,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1305566516}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Der Kissenbezug sieht alt aus.
   _objectFlavourText: 
   _itemName: Kissen
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -7994,8 +8419,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1306518458
 Prefab:
   m_ObjectHideFlags: 0
@@ -8096,15 +8535,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1309086228}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Kleidung
   _objectFlavourText: '...ziemlich wenig Kleidung.'
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -8117,8 +8559,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!64 &1309086231
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8128,9 +8584,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
 --- !u!4 &1319734168 stripped
@@ -8326,15 +8782,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1361549403}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -8347,8 +8806,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1362690036
 Prefab:
   m_ObjectHideFlags: 0
@@ -8846,7 +9319,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 371472571}
+  m_Camera: {fileID: 1808474159}
   m_PlaneDistance: 0.4
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -8871,13 +9344,58 @@ RectTransform:
   - {fileID: 1662987295}
   - {fileID: 1060291886}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1463239370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1463239372}
+  - component: {fileID: 1463239371}
+  m_Layer: 0
+  m_Name: HighlightManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1463239371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463239370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb278a211df27234cb2b068fa36b9a8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ghostHighlight: {fileID: 1535093786369066, guid: d1fc5611162644440a015129518a9df2,
+    type: 2}
+  _humanHighlight: {fileID: 1979738042285800, guid: c65f4a6dfa78a9943b6952e2a550d70c,
+    type: 2}
+  _axisDelay: 0.5
+--- !u!4 &1463239372
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1463239370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -726.98914, y: 148.21039, z: 740.46576}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1467840502
 Prefab:
   m_ObjectHideFlags: 0
@@ -8943,15 +9461,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1486591089}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "Ein gr0\xDFes Bett."
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -8964,8 +9485,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1 &1508603750 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: eddc4b9fc820a3049a436ac4992fab09, type: 3}
@@ -9136,9 +9671,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: b02c82ffc587f8946a50f2cdc83d14d6, type: 3}
 --- !u!23 &1528973136
@@ -9195,15 +9730,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1528973133}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Ein kleiner Safe.
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -9216,8 +9754,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!4 &1533330708 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 699c6c04c97817c4c9c713cde3285b11, type: 3}
@@ -9307,15 +9859,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1544897073}
-  _SecondGameObject: {fileID: 1154679430}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "Die Leitung ist an dieser Stelle zerst\xF6rt."
   _objectFlavourText: 
   _itemName: 
   _animationType: 5
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 1
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -9328,8 +9883,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1 &1555293538
 GameObject:
   m_ObjectHideFlags: 0
@@ -9355,7 +9924,7 @@ Transform:
   m_LocalPosition: {x: 1.5271878, y: 0.076000005, z: 47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1685225194}
+  - {fileID: 1981098046}
   - {fileID: 940698439}
   - {fileID: 1765588820}
   - {fileID: 21593132}
@@ -9373,7 +9942,7 @@ Transform:
   - {fileID: 540938653}
   - {fileID: 602641057}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &1557284467
 Prefab:
@@ -9412,7 +9981,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 508f57d53842f53498fb549a8b42ad87, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 508f57d53842f53498fb549a8b42ad87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9518,7 +10087,7 @@ Transform:
   m_Children:
   - {fileID: 1168250490}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1611375235 stripped
 MonoBehaviour:
@@ -9595,15 +10164,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1633748566}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -9616,8 +10188,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1 &1635351316 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100008, guid: d52d77984f6dac24da00507119473e50, type: 3}
@@ -9633,15 +10219,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1635351316}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -9654,8 +10243,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1 &1646759227 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100014, guid: a55008299abc5a24fb3a9e042fa52843, type: 3}
@@ -9671,15 +10274,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1646759227}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -9692,13 +10298,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
---- !u!20 &1650567555 stripped
-Camera:
-  m_PrefabParentObject: {fileID: 20281888700028250, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc,
-    type: 2}
-  m_PrefabInternal: {fileID: 466372215}
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1652025275
 Prefab:
   m_ObjectHideFlags: 0
@@ -9818,15 +10433,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1661585995}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Sekundenkleber
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -9839,8 +10457,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!114 &1661585999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10067,10 +10699,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &1685225194 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
-  m_PrefabInternal: {fileID: 1685225193}
 --- !u!4 &1705175251
 Transform:
   m_ObjectHideFlags: 0
@@ -10295,15 +10923,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1731630784}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -10316,8 +10947,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1736781379
 Prefab:
   m_ObjectHideFlags: 0
@@ -10391,15 +11036,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1743004271}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 3
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 120
   _animationStepsPerKlick: 30
@@ -10412,8 +11060,22 @@ MonoBehaviour:
   _onedirectionAnimation: 1
   _activateGravityAtEnd: 1
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!4 &1753699109 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ebe582321c3499647a276e853f85f944, type: 3}
@@ -10628,15 +11290,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1779829634}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -10649,8 +11314,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1787048535
 Prefab:
   m_ObjectHideFlags: 0
@@ -10721,6 +11400,11 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 763216d5f13a4e34fba955e0c0ac96b8, type: 3}
   m_PrefabInternal: {fileID: 1787048535}
+--- !u!20 &1808474159 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20932436035406344, guid: 5d4ec8cd7385c59419565e4501b6b9f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1005000690}
 --- !u!1001 &1822165282
 Prefab:
   m_ObjectHideFlags: 0
@@ -10758,7 +11442,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77f40add9193788458563a324ca3e0bf, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77f40add9193788458563a324ca3e0bf, type: 3}
@@ -10810,9 +11494,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 70a00c52e45bb4741a1d7b522325bf38, type: 3}
 --- !u!23 &1842795329
@@ -11011,7 +11695,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 512615ee22f1ab7458ccdac6f2831db4, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 2300004, guid: 512615ee22f1ab7458ccdac6f2831db4, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11121,15 +11805,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1883579479}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Blutiger Zahlencode.
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11142,8 +11829,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1886392408
 Prefab:
   m_ObjectHideFlags: 0
@@ -11295,15 +11996,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1890826065}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11316,8 +12020,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!4 &1894217884 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 8837dc632d1b51b46955f81e886e6e50, type: 3}
@@ -11391,15 +12109,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1900325401}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "Die Kissen liegen \xFCberall verteilt."
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11412,8 +12133,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1934659956
 Prefab:
   m_ObjectHideFlags: 0
@@ -11678,15 +12413,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1979224267}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: Die Matratze ist abgelegen.
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11699,11 +12437,34 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
+--- !u!20 &1980402362 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20896980329263510, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc,
+    type: 2}
+  m_PrefabInternal: {fileID: 466372215}
 --- !u!1 &1981098045 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
+  m_PrefabInternal: {fileID: 1685225193}
+--- !u!4 &1981098046 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400002, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
   m_PrefabInternal: {fileID: 1685225193}
 --- !u!114 &1981098050
 MonoBehaviour:
@@ -11716,15 +12477,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 1981098045}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: "Ein Paar gro\xDFe Kissen."
   _objectFlavourText: 
   _itemName: 
   _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11737,8 +12501,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &1997198821
 Prefab:
   m_ObjectHideFlags: 0
@@ -11824,15 +12602,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 2002583509}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11845,8 +12626,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1001 &2015928022
 Prefab:
   m_ObjectHideFlags: 0
@@ -11912,15 +12707,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 2018518943}
-  _SecondGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
   _itemName: 
   _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
   _activateChildWhen: 0
   _getActivationFromMother: 0
-  _flavourTextWaitTimer: 5
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -11933,8 +12731,22 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _onlyHuman: 0
-  _playerDamage: 0
-  _canDisableObjectDamage: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
 --- !u!1 &2033119523
 GameObject:
   m_ObjectHideFlags: 0
@@ -11976,9 +12788,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300020, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &2033119526
@@ -12177,7 +12989,7 @@ Transform:
   - {fileID: 637389382}
   - {fileID: 7814013}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2070262622
 Prefab:
@@ -12618,7 +13430,7 @@ RectTransform:
   m_LocalScale: {x: 0.00038129615, y: 0.00038129615, z: 0.00038129615}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
