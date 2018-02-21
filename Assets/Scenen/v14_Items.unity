@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kleidung
   _objectFlavourText: 
@@ -609,6 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -722,6 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Die Schublade l\xE4sst sich \xF6ffnen."
   _objectFlavourText: 
@@ -827,6 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Ein auff\xE4lliges Stromkabel."
   _objectFlavourText: 
@@ -1032,6 +1036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -1117,7 +1122,7 @@ Prefab:
     - target: {fileID: 224117650827869364, guid: 536469fb413e65d45ad9163180fa9b23,
         type: 2}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 224117650827869364, guid: 536469fb413e65d45ad9163180fa9b23,
         type: 2}
@@ -1234,7 +1239,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1355,6 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -1465,6 +1471,8 @@ MonoBehaviour:
   _healthText: {fileID: 511991011}
   _inventoryGhost: {fileID: 0}
   _inventoryHuman: {fileID: 0}
+  _userInterfaceGhost: {fileID: 0}
+  _userInterfaceHuman: {fileID: 0}
   _a: {fileID: 0}
   _b: {fileID: 0}
   _x: {fileID: 0}
@@ -1507,6 +1515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "T\xFCr mit Kreuz"
   _objectFlavourText: 
@@ -1624,6 +1633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Schlafzimmerkommode
   _objectFlavourText: 
@@ -2452,6 +2462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Touchpad
   _objectFlavourText: "Es sieht aus als k\xF6nnte hier ein Zahlencode eingegeben werden."
@@ -2605,6 +2616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -2730,6 +2742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -2843,7 +2856,7 @@ Transform:
   m_Children:
   - {fileID: 808883307}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450120084 stripped
 GameObject:
@@ -2860,6 +2873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Schlafzimmerkommode
   _objectFlavourText: 
@@ -3290,6 +3304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Schl\xFCssel1"
   _objectFlavourText: 
@@ -3446,6 +3461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Schlafzimmerkommode
   _objectFlavourText: 
@@ -3868,7 +3884,7 @@ RectTransform:
   - {fileID: 1202846252}
   - {fileID: 1723182822}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4016,7 +4032,7 @@ Transform:
   - {fileID: 849014560}
   - {fileID: 426150936}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &553767051 stripped
 GameObject:
@@ -4320,6 +4336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -5290,6 +5307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: test
   _objectFlavourText: 
@@ -5400,6 +5418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -5529,6 +5548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -5584,6 +5604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -6089,6 +6110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -6264,6 +6286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Es sieht so aus als k\xF6nnte man hier etwas eindr\xFCcken..."
   _objectFlavourText: 
@@ -6766,6 +6789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Portrait eines unbekannten Mannes.
   _objectFlavourText: 
@@ -6964,6 +6988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "schl\xFCssel2"
   _objectFlavourText: 
@@ -7103,6 +7128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Ein kleiner Nachtschrank.
   _objectFlavourText: 
@@ -7234,7 +7260,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalScale.x
@@ -7341,6 +7367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -7600,6 +7627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Badt\xFCr"
   _objectFlavourText: 
@@ -7677,7 +7705,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
       propertyPath: m_LocalScale.y
@@ -7850,6 +7878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Die Safet\xFCr ist geschlossen."
   _objectFlavourText: "Du kannst sie nicht ohne weiteres \xF6ffnen."
@@ -8433,6 +8462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -8546,6 +8576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -8652,6 +8683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -8916,6 +8948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -9099,7 +9132,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8140b7d7bae39574584234c06d5096f6, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8140b7d7bae39574584234c06d5096f6, type: 3}
       propertyPath: m_LocalScale.y
@@ -9588,6 +9621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Schlafzimmerkommode
   _objectFlavourText: 
@@ -9916,7 +9950,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_LocalScale.y
@@ -10496,6 +10530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Ein kleiner Safe.
   _objectFlavourText: 
@@ -10573,7 +10608,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 80166c96f84baec4bbddc9036ed79dc6, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 80166c96f84baec4bbddc9036ed79dc6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10632,6 +10667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Die Leitung ist an dieser Stelle zerst\xF6rt."
   _objectFlavourText: 
@@ -10893,6 +10929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -10948,6 +10985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -11096,6 +11134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kissen
   _objectFlavourText: "... Nichts Auff\xE4liges."
@@ -11209,6 +11248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Schlafzimmerkommode
   _objectFlavourText: 
@@ -11368,6 +11408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Sekundenkleber
   _objectFlavourText: 
@@ -11818,6 +11859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -11931,6 +11973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -11990,6 +12033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Amazonas Paket
   _objectFlavourText: Zugeklebt... ohne ein Hilfsmittel kriege ich das wohl nicht
@@ -12273,6 +12317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -12534,6 +12579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Schlafzimmerkommode
   _objectFlavourText: 
@@ -12830,7 +12876,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 22496fa8afb77bc4c900da2ff11dc17b, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22496fa8afb77bc4c900da2ff11dc17b, type: 3}
@@ -12884,7 +12930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 512615ee22f1ab7458ccdac6f2831db4, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2300004, guid: 512615ee22f1ab7458ccdac6f2831db4, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13006,6 +13052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Blutiger Zahlencode.
   _objectFlavourText: 
@@ -13427,6 +13474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kissen
   _objectFlavourText: Im Kissen ist eine seltsame Delle...
@@ -13645,6 +13693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -13782,6 +13831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -13833,6 +13883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -13884,6 +13935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -13935,6 +13987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -13990,6 +14043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Schlafzimmerkommode
   _objectFlavourText: 
@@ -14045,6 +14099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -14150,6 +14205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
   _objectFlavourText: 
@@ -14615,7 +14671,8 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114269368233558880, guid: ac3a915108a88104e8f2072bbe25b740, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ac3a915108a88104e8f2072bbe25b740, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2091818725
@@ -14980,6 +15037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Taschenmesser
   _objectFlavourText: "Wer h\xE4tte gedacht, dass hier ein Taschenmesser liegen w\xFCrde?"
