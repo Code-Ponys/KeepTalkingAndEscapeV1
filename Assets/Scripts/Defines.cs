@@ -54,6 +54,13 @@ public enum NumButtonType {
     Confirm,
 }
 
+public enum Direction {
+    Up,
+    Down,
+    Left,
+    Right
+}
+
 public static class ButtonNames {
     /// <summary>
     /// Get the button name of the pressed key depends on Key Type
