@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bd4011b7e29c51b499171ddb00e0fcec
-timeCreated: 1518686219
+timeCreated: 1519201886
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -13,15 +13,18 @@ ModelImporter:
     400002: //RootNode
     400004: Mop
     400006: Wasser
+    2100000: Material.eimer
+    2100002: Material.mop
+    2100004: Material.wasser
     2300000: Eimer
     2300002: Mop
     2300004: Wasser
     3300000: Eimer
     3300002: Mop
     3300004: Wasser
-    4300000: Wasser
+    4300000: Eimer
     4300002: Mop
-    4300004: Eimer
+    4300004: Wasser
     6400000: Eimer
     6400002: Mop
     6400004: Wasser
@@ -29,8 +32,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Material.eimer
+    second: {fileID: 2100000, guid: ab50285e3cc649749bcb0b1038b62d48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.mop
+    second: {fileID: 2100000, guid: 5887f1ef897792148a8e6dbe9af22b83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.wasser
+    second: {fileID: 2100000, guid: 0674d5d299235b249b81d0dac171d3f1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -68,11 +81,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
