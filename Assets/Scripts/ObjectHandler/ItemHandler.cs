@@ -9,6 +9,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //All Items which can exist.
         private ItemDatabase _itemDatabase;
         [SerializeField] private int _itemsInDatabase;
+        private Queue<ObjectInteractionListener> _itemcheck = new Queue<ObjectInteractionListener>();
 
 
         private List<Item> _itemList;
@@ -76,7 +77,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private void RemoveItemFromInventory(string itemId) {
             for(var i = 0; i < _inventory.Count; i++) {
                 var obj = _inventory[i];
-                if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
+                if(string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
                     _inventory.RemoveAt(i);
                     return;
                 }
@@ -91,7 +92,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <exception cref="ArgumentException"></exception>
         public Item GetItemFromDatabase(string itemId) {
             foreach(var obj in _itemList)
-                if(String.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) return obj;
+                if(string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) return obj;
 
             throw new ArgumentException("Item is not in Database. Please check the database file.");
         }
