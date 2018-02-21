@@ -1,24 +1,61 @@
 fileFormatVersion: 2
-guid: cbad97297675ee2448fa07fede47574d
-timeCreated: 1519209429
+guid: 77f7c843f1324ff4e97fabf6e73e43e2
+timeCreated: 1519212546
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: Fliesen02
-    2100002: Ground
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Boden.000
-    6400000: //RootNode
-  externalObjects: {}
+    100000: decke
+    100002: Ground
+    100004: //RootNode
+    100006: wall
+    400000: decke
+    400002: Ground
+    400004: //RootNode
+    400006: wall
+    2300000: decke
+    2300002: Ground
+    2300004: wall
+    3300000: decke
+    3300002: Ground
+    3300004: wall
+    4300000: decke
+    4300002: Ground
+    4300004: wall
+    6400000: decke
+    6400002: Ground
+    6400004: wall
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dunkelheit
+    second: {fileID: 2100000, guid: 78d9a8c68a2494043a68a1da6075b1dc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fliesen
+    second: {fileID: 2100000, guid: 71d975f54c141e34e97c7600b980727a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fliesen02
+    second: {fileID: 2100000, guid: 4fe790f74b84dd343a1ac9539476d6dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ground
+    second: {fileID: 2100000, guid: 7c34d67bc30ac1049a777d42cf1aba99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wand
+    second: {fileID: 2100000, guid: 0a724da28edcb5241900464b2a0929f4, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -43,7 +80,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 100
     meshCompression: 0
     addColliders: 1
     importVisibility: 1
