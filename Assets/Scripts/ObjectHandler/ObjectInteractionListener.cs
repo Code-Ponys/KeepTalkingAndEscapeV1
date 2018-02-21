@@ -6,7 +6,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class ObjectInteractionListener : MonoBehaviour {
         //The Gameobect which holds the script
-        private GameObject _meshGameObject;
+        [SerializeField] private GameObject _meshGameObject;
 
         //The second Gameobject which is associated with this one and should be affected by this gameobject
         [SerializeField] private GameObject _secondGameObject;
@@ -148,6 +148,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _positionBase = _meshGameObject.transform.localPosition;
             _rotationBase = _meshGameObject.transform.localRotation.eulerAngles;
             _scaleBase = _meshGameObject.transform.localScale;
+            
+            _itemHandler.CheckItem(this);
         }
 
         private void Update() {
@@ -302,7 +304,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 //Object Damage
                 if(_disableDamageWithObject != null && !_damageObjectRecieved)
                     if(!_disableDamageWithObject._damageDisabled) {
-                        _gameManager.Human.GetComponent<FirstPersonControllerHuman>().TakeHealth(1);
+                        _gameManager.HumanController.TakeHealth(1);
                         if(_OneTimeDamage) _damageObjectRecieved = true;
                         if(_cancelPickupOnDamage) return;
                     }
@@ -311,7 +313,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_disableDamageWithItem != "" && !_damageItemRecieved)
                     if(!string.Equals(Inventory.GetInstance(CharacterType.Human).ItemInHand, _disableDamageWithItem,
                                       StringComparison.CurrentCultureIgnoreCase)) {
-                        _gameManager.Human.GetComponent<FirstPersonControllerHuman>().TakeHealth(1);
+                        _gameManager.HumanController.TakeHealth(1);
                         if(_OneTimeDamage) _damageItemRecieved = true;
                         if(_cancelPickupOnDamage) return;
                     }
@@ -328,6 +330,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _uiManager.HumanHoverText = "";
                     _meshGameObject.SetActive(false);
                 }
+                
                 // Put gameobject only in inventory but disables further inventory adding
                 else if(_canBeTakenButStayInScene) {
                     _canBeTakenButStayInScene = false;
@@ -501,6 +504,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         public bool CanBeTakenButStayInScene {
             get {return _canBeTakenButStayInScene;}
             set {_canBeTakenButStayInScene = value;}
+        }
+
+        public string ItemName {
+            get {return _itemName;}
         }
     }
 }
