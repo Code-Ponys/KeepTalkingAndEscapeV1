@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e4abcbde061b21a48ae0d6da187f9229
-timeCreated: 1518623270
+timeCreated: 1519142560
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -15,6 +15,10 @@ ModelImporter:
     400004: Toilette.Deckel
     400006: "Toilette_sch\xFCssel"
     400008: "Toilette_Sp\xFChlkasten"
+    2100000: "Material.toilette.sp\xFChlkasten"
+    2100002: Material.toilette.deckel
+    2100004: "Material.toilette.sch\xFCssel"
+    2100006: Material.Toilette
     2300000: Toilette
     2300002: Toilette.Deckel
     2300004: "Toilette_sch\xFCssel"
@@ -23,10 +27,10 @@ ModelImporter:
     3300002: Toilette.Deckel
     3300004: "Toilette_sch\xFCssel"
     3300006: "Toilette_Sp\xFChlkasten"
-    4300000: Toilette
-    4300002: "Toilette_sch\xFCssel"
-    4300004: Toilette.Deckel
-    4300006: "Toilette_Sp\xFChlkasten"
+    4300000: "Toilette_Sp\xFChlkasten"
+    4300002: Toilette.Deckel
+    4300004: "Toilette_sch\xFCssel"
+    4300006: Toilette
     6400000: Toilette
     6400002: Toilette.Deckel
     6400004: "Toilette_sch\xFCssel"
@@ -35,8 +39,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Material.Toilette
+    second: {fileID: 2100000, guid: f6e450a8f50245345a07642fd9a3941d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.toilette.deckel
+    second: {fileID: 2100000, guid: eb64109307eb92c44a0db5235012890f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Material.toilette.sch\xFCssel"
+    second: {fileID: 2100000, guid: 798553bb708e66f4bb9632d22ea569a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Material.toilette.sp\xFChlkasten"
+    second: {fileID: 2100000, guid: 1aa06c03d21226749bc7867c55989c55, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -74,11 +93,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

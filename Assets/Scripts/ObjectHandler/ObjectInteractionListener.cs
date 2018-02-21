@@ -36,9 +36,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private bool _getActivationFromMother;
 
         //Switch between to gameobjects if active
-        [SerializeField] private bool _toggleActiveGameobject;
-        [SerializeField] private GameObject activeObject;
-        [SerializeField] private GameObject inactiveObject;
+        [SerializeField] private bool _toggleActiveGameobjectByMother;
+        [SerializeField] private GameObject _activeObject;
+        [SerializeField] private GameObject _inactiveObject;
 
 
         //Which key hsoould be smashed. Only some action
@@ -108,13 +108,24 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Damage can be disabled by Ghost
         [SerializeField] private bool _disableDamageByGhost;
 
-        private bool _damageDisabled;
         private bool _damageItemRecieved;
         private bool _damageObjectRecieved;
         private bool _damageGhostRecieved;
         private bool _damageDisabledByGhost;
 
+        //Object damage disable
         [SerializeField] private bool _objectCanBeDisabledToAvoidDamage;
+        [SerializeField] private GameObject _enabledObject;
+        [SerializeField] private GameObject _disabledObject;
+        private bool _damageDisabled;
+
+        [SerializeField] private bool _animationBlockedCauseOfObject;
+        [SerializeField] private ObjectInteractionListener _animationBlockObject;
+
+        [SerializeField] private bool _objectCanBeDisabledToUnblockAnimation;
+        [SerializeField] private GameObject _disableAnimationObject;
+        [SerializeField] private GameObject _enableAnimationObject;
+        private bool _objectDisabled;
 
         //Must the Objects in object to unlock be unlocked to interact with the object
         [SerializeField] private bool _objectMustUnlocked;
@@ -172,14 +183,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             else
                 return;
 
-            if(_toggleActiveGameobject)
+            if(_toggleActiveGameobjectByMother)
                 if(_motherObjectActive) {
-                    activeObject.SetActive(true);
-                    inactiveObject.SetActive(false);
+                    _activeObject.SetActive(true);
+                    _inactiveObject.SetActive(false);
                 }
                 else {
-                    activeObject.SetActive(false);
-                    inactiveObject.SetActive(true);
+                    _activeObject.SetActive(false);
+                    _inactiveObject.SetActive(true);
                 }
         }
 
@@ -323,6 +334,23 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _itemHandler.AddItemToInv(_itemName);
                 }
 
+                if(_objectCanBeDisabledToAvoidDamage) {
+                    if(_damageDisabled) return;
+                    _enabledObject.SetActive(false);
+                    _disabledObject.SetActive(true);
+                    _damageDisabled = true;
+                }
+
+                if(_objectCanBeDisabledToUnblockAnimation) {
+                    if(_objectDisabled) return;
+                    _objectDisabled = true;
+                    _disableAnimationObject.SetActive(false);
+                    _disableAnimationObject.SetActive(true);
+                }
+
+                if(_animationBlockedCauseOfObject) {
+                    if(!_animationBlockObject._objectDisabled) return;
+                }
 
                 //Starts Animation, if it isnt disabled
                 if(AnimationType == AnimationType.Open) {

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bf06fd19b79318c4ebb4dcfaa8c80cb6
-timeCreated: 1518621698
+timeCreated: 1519123978
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -13,6 +13,9 @@ ModelImporter:
     400002: MS_Door_Left
     400004: MS_Door_Right
     400006: MS_Schrank
+    2100000: "T\xFCr mit kreuz"
+    2100002: schrank again boah
+    2100004: "T\xFCr nackt"
     2300000: MS_Door_Left
     2300002: MS_Door_Right
     2300004: MS_Schrank
@@ -29,8 +32,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: "T\xFCr mit kreuz"
+    second: {fileID: 2100000, guid: 75530b9b63ca0eb45a5c8b7361831087, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "T\xFCr nackt"
+    second: {fileID: 2100000, guid: 7a4b6695d11437d4b95142bb57a95961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: schrank again boah
+    second: {fileID: 2100000, guid: 4a6e59ff3faa4bc42b9f1a9e47493df5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -73,6 +86,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

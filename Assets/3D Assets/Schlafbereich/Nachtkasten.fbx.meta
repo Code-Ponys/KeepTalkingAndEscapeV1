@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 175f036774582374c9d6f47997683cd3
-timeCreated: 1518620809
+timeCreated: 1519145052
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,25 +11,27 @@ ModelImporter:
     400000: //RootNode
     400002: Nachtkasten_schublade
     400004: "Nachtk\xE4stchen"
+    2100000: "Material.nachtk\xE4stchen"
+    2100002: Material.nachtkasten.schublade
     2300000: Nachtkasten_schublade
     2300002: "Nachtk\xE4stchen"
     3300000: Nachtkasten_schublade
     3300002: "Nachtk\xE4stchen"
-    4300000: Nachtkasten_schublade
-    4300002: "Nachtk\xE4stchen"
+    4300000: "Nachtk\xE4stchen"
+    4300002: Nachtkasten_schublade
     6400000: Nachtkasten_schublade
     6400002: "Nachtk\xE4stchen"
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Schlafzimmer_Kommode_initialShadingGroup
-    second: {fileID: 2100000, guid: 82d8002652a0c604e827f94642764999, type: 2}
+      name: Material.nachtkasten.schublade
+    second: {fileID: 2100000, guid: f7481ba4bfa59fb4993d76aa6a4df927, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: initialShadingGroup.005
-    second: {fileID: 2100000, guid: 0a3600c9ca7e65a4cb374a92d53c025e, type: 2}
+      name: "Material.nachtk\xE4stchen"
+    second: {fileID: 2100000, guid: 3aaacd2d85340ed40a417ab4099be061, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -67,11 +69,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

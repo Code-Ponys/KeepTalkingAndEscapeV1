@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b02c82ffc587f8946a50f2cdc83d14d6
-timeCreated: 1518620920
+timeCreated: 1519138693
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -13,6 +13,9 @@ ModelImporter:
     400002: Safe
     400004: SafeTouchpad.001
     400006: "SafeT\xFCr"
+    2100000: Touchpad
+    2100002: Safetuer
+    2100004: Safe1
     2300000: Safe
     2300002: SafeTouchpad.001
     2300004: "SafeT\xFCr"
@@ -29,8 +32,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Safe1
+    second: {fileID: 2100000, guid: 090858579bed97943b6c2ea02afddb07, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Safetuer
+    second: {fileID: 2100000, guid: a37ddbfb40654f1408c123ca62ee0e49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Touchpad
+    second: {fileID: 2100000, guid: c6c299cf5afbc5944ad3164b8a0f39fe, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -68,11 +81,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

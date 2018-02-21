@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e2656871a6b37254e997db8fc2a3b261
-timeCreated: 1518621090
+timeCreated: 1519138940
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,25 +11,27 @@ ModelImporter:
     400000: augenknopf
     400002: bilderrahmen
     400004: //RootNode
+    2100000: Material augenknopf
+    2100002: Material Bilderrahmen
     2300000: augenknopf
     2300002: bilderrahmen
     3300000: augenknopf
     3300002: bilderrahmen
-    4300000: bilderrahmen
-    4300002: augenknopf
+    4300000: augenknopf
+    4300002: bilderrahmen
     6400000: augenknopf
     6400002: bilderrahmen
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: 5b203b5d1e3c7e34a94b582404a3e6d9, type: 2}
+      name: Material Bilderrahmen
+    second: {fileID: 2100000, guid: 6161f200069749249bb890aca96b34fe, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Material augenknopf
+    second: {fileID: 2100000, guid: 270b6c28abda2b945ba1dca2a92272fb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -67,11 +69,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
