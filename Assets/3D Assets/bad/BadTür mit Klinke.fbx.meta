@@ -1,35 +1,37 @@
 fileFormatVersion: 2
 guid: 9a17f8c6efb68f94494374aeb856d202
-timeCreated: 1519140693
+timeCreated: 1519225087
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Klinke
-    400000: //RootNode
-    400002: Klinke
-    2100000: "Material_Badt\xFCr"
-    2100002: "Material_T\xFCrklinke"
-    2300000: //RootNode
+    100000: BadTuer
+    100002: //RootNode
+    100004: Klinke
+    400000: BadTuer
+    400002: //RootNode
+    400004: Klinke
+    2100000: Tuer
+    2100002: Klinke1
+    2300000: BadTuer
     2300002: Klinke
-    3300000: //RootNode
+    3300000: BadTuer
     3300002: Klinke
-    4300000: "BadT\xFCr.001"
+    4300000: BadTuer
     4300002: Klinke
-    6400000: //RootNode
+    6400000: BadTuer
     6400002: Klinke
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: "Material_Badt\xFCr"
-    second: {fileID: 2100000, guid: 3b7faadc69361c04b9d4f049f91a1b08, type: 2}
+      name: Klinke1
+    second: {fileID: 2100000, guid: 603e77ff998c7114eb6ebe77d34de86d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: "Material_T\xFCrklinke"
-    second: {fileID: 2100000, guid: a9c87c393a20fe54984ff65eb31dcb6f, type: 2}
+      name: Tuer
+    second: {fileID: 2100000, guid: dee94bccc7036d44aa89726aa6294192, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

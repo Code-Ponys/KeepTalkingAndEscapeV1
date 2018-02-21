@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: 80166c96f84baec4bbddc9036ed79dc6
-timeCreated: 1518707772
+timeCreated: 1519230824
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Shirt
     2300000: //RootNode
     3300000: //RootNode
     4300000: T_Shirt:Mesh
@@ -15,8 +16,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: T_Shirt_initialShadingGroup1
-    second: {fileID: 2100000, guid: 07fd92fb24616a14d8886acd60c9172f, type: 2}
+      name: Shirt
+    second: {fileID: 2100000, guid: 5ada24fe51d45aa42b74a7b848e45d7d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

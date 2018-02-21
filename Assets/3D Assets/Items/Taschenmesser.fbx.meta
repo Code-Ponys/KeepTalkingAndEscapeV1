@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: c881356e7a26fd148b49218ebcc921aa
-timeCreated: 1518609281
+timeCreated: 1519224792
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Material.Taschenmesser
     2300000: //RootNode
     3300000: //RootNode
     4300000: Taschenmesser
@@ -15,8 +16,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 3bd3751f9aab56044b01b153a0b9ecc0, type: 2}
+      name: Material.Taschenmesser
+    second: {fileID: 2100000, guid: 12bfba21e83744d4f960f1aae0c341ac, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

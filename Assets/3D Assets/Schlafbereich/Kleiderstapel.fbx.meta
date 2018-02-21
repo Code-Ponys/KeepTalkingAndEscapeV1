@@ -1,12 +1,16 @@
 fileFormatVersion: 2
 guid: 354164e8414ba854480876b194b8d414
-timeCreated: 1518705861
+timeCreated: 1519230724
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Shirt ganz oben
+    2100002: Shirt zweites von oben
+    2100004: Shirt unten
+    2100006: Shirt zweites von unten
     2300000: //RootNode
     3300000: //RootNode
     4300000: Kleiderstapel:Mesh
@@ -15,8 +19,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Kleiderstapel_initialShadingGroup1
-    second: {fileID: 2100000, guid: 8ef4f3e366c1f8444a6a575c1dc345dc, type: 2}
+      name: Shirt ganz oben
+    second: {fileID: 2100000, guid: 7d39e85fe7428ab45abe31bf7b4f4dd0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt unten
+    second: {fileID: 2100000, guid: 63326c209fa9a2b4b9f526feb6341dda, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt zweites von oben
+    second: {fileID: 2100000, guid: 48aed52bb0f849542b9f3379d1f8d139, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt zweites von unten
+    second: {fileID: 2100000, guid: 62b0e6f1ddf1ac6479c473f52d00dcf2, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +73,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

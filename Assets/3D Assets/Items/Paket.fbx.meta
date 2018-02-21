@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1d5ffb5113708b741b2e278568411cbe
-timeCreated: 1518635634
+timeCreated: 1519224172
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -15,6 +15,10 @@ ModelImporter:
     400004: //RootNode
     400006: Paket
     400008: Rechte_Klappe
+    2100000: Material.Paket
+    2100002: Material.rechte klappe
+    2100004: Material.Linke Klappe
+    2100006: Material.Klebenstreifen
     2300000: Klebstreifen
     2300002: Linke_Klappe
     2300004: Paket
@@ -35,8 +39,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Material.Klebenstreifen
+    second: {fileID: 2100000, guid: 968170e72021e9248925c27cbf89f49d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.Linke Klappe
+    second: {fileID: 2100000, guid: de6173b7ef1a0c142b82873fba798d89, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.Paket
+    second: {fileID: 2100000, guid: e8032cd16277cbb4f9ac8bfb3b3b98d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.rechte klappe
+    second: {fileID: 2100000, guid: 29ced991bea6203418ee9324218e48a9, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -74,11 +93,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

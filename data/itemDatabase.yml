@@ -27,4 +27,32 @@ ItemDatabaseList:
   Combineable: false
   CombineWith: Item
   CombineWithItem: none
-  NextItem: testitem 5
+  NextItem: taschenmesser 
+- ItemId: taschenmesser
+  Name: Taschenmesser
+  SpritePath: itempics/schluessel
+  GhostDescription: Ein scharfes Messer.
+  HumanDescription: Ein scharfes Messer.
+  Combineable: true
+  CombineWith: Item
+  CombineWithItem: paket
+  NextItem: testitem5
+- ItemId: paket
+  Name: Paket
+  SpritePath: itempics/schluessel
+  GhostDescription: Ein zugeklebtes Paket.
+  HumanDescription: Ein zugeklebtes Paket.
+  Combineable: true
+  CombineWith: Item
+  CombineWithItem: taschenmesser
+  NextItem: edelstein
+- ItemId: edelstein
+  Name: Roter Edelstein
+  SpritePath: itempics/schluessel
+  GhostDescription: Funkelnder roter Stein.
+  HumanDescription: Funkelnder Roter Stein.
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: testitem 6
+  
