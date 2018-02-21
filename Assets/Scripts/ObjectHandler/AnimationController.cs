@@ -406,29 +406,60 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         private Vector3 StepsPerFrame(Vector3 a, Vector3 b, int frames) {
             var result = new Vector3();
-            if(a.x < 0 && b.x > 0 || a.x < 0 && b.x < 0) {
+            if(a.x < 0 && b.x > 0) {
                 a.x = a.x * -1;
                 result.x = b.x + a.x;
             }
 
-            if(a.x > 0 && b.x < 0 || a.x > 0 && b.x > 0) result.x = b.x - a.x;
+            if(a.x > 0 && b.x < 0) {
+                result.x = b.x - a.x;
+            }
 
+            if(a.x > 0 && b.x > 0) {
+                result.x = b.x - a.x;
+            }
 
-            if(a.y < 0 && b.y > 0 || a.y < 0 && b.y < 0) {
+            if(a.x < 0 && b.x < 0) {
+                a.x = a.x * -1;
+                result.x = b.x + a.x;
+            }
+
+            if(a.y < 0 && b.y > 0) {
                 a.y = a.y * -1;
                 result.y = b.y + a.y;
             }
 
-            if(a.y > 0 && b.y < 0 || a.y > 0 && b.y > 0) result.y = b.y - a.y;
+            if(a.y > 0 && b.y < 0) {
+                result.y = b.y - a.y;
+            }
 
+            if(a.y > 0 && b.y > 0) {
+                result.y = b.y - a.y;
+            }
 
-            if(a.z < 0 && b.z > 0 || a.z < 0 && b.z < 0) {
+            if(a.y < 0 && b.y < 0) {
+                a.y = a.y * -1;
+                result.y = b.y + a.y;
+            }
+
+            if(a.z < 0 && b.z > 0) {
                 a.z = a.z * -1;
                 result.z = b.z + a.z;
             }
 
-            if(a.z > 0 && b.z < 0 || a.z > 0 && b.z > 0) result.z = b.z - a.z;
+            if(a.z > 0 && b.z < 0) {
+                result.z = b.z - a.z;
+            }
 
+            if(a.z > 0 && b.z > 0) {
+                result.z = b.z - a.z;
+            }
+
+            if(a.z < 0 && b.z < 0) {
+                a.z = a.z * -1;
+                result.z = b.z + a.z;
+            }
+            
             return result / frames;
         }
 
