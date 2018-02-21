@@ -1,5 +1,6 @@
 ﻿using System;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
+using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,6 +33,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _lastUiState;
 
         private void Start() {
+            var gamemanager = GameManager.GetGameManager();
+            var canvas = gameObject.GetComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            canvas.worldCamera = gamemanager.HumanCamera;
+            
             foreach(var button in _buttonsInput) {
                 var num = button.Number;
                 var type = button.NumButtonType;
