@@ -49,14 +49,16 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             _itemHandler = ItemHandler.GetItemHandler();
             _gameManager = GameManager.GetGameManager();
 
+            var canvas = gameObject.GetComponent<Canvas>();
+
             switch(_characterType) {
                 case CharacterType.Ghost:
-                    gameObject.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
-                    gameObject.GetComponent<Canvas>().worldCamera = _gameManager.GhostCamera;
+                    canvas.renderMode = RenderMode.ScreenSpaceCamera;
+                    canvas.worldCamera = _gameManager.GhostCamera;
                     break;
                 case CharacterType.Human:
-                    gameObject.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
-                    gameObject.GetComponent<Canvas>().worldCamera = _gameManager.HumanCamera;
+                    canvas.renderMode = RenderMode.ScreenSpaceCamera;
+                    canvas.worldCamera = _gameManager.HumanCamera;
                     break;
                 case CharacterType.Unassigned:
                     throw new Exception("Inventory is missing a character type");
