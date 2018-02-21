@@ -1,4 +1,4 @@
-DataBaseVersion: 1
+﻿DataBaseVersion: 1
 Language: de_DE
 ItemDatabaseList:
 - ItemId: schluessel1
@@ -36,7 +36,7 @@ ItemDatabaseList:
   Combineable: true
   CombineWith: Item
   CombineWithItem: paket
-  NextItem: testitem5
+  NextItem: edelstein
 - ItemId: paket
   Name: Paket
   SpritePath: itempics/schluessel
@@ -47,10 +47,10 @@ ItemDatabaseList:
   CombineWithItem: taschenmesser
   NextItem: edelstein
 - ItemId: edelstein
-  Name: Roter Edelstein
+  Name: Blauer Edelstein
   SpritePath: itempics/schluessel
-  GhostDescription: Funkelnder roter Stein.
-  HumanDescription: Funkelnder Roter Stein.
+  GhostDescription: Funkelnder blauer Stein.
+  HumanDescription: Funkelnder blauer Stein.
   Combineable: false
   CombineWith: Item
   CombineWithItem: none
