@@ -9,12 +9,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private List<MapButton> _buttons = new List<MapButton>();
         private float _currentAxisDelay;
         [SerializeField] private string _password;
+        [SerializeField] private GameObject _visibilityObject;
         private string _passwordText;
 
         private MapButton _currentActiveButton;
         private bool _codeSolved;
 
         private GameManager _gameManager;
+        private bool _humanMapActive;
 
         public void RegisterButton(MapButton button) {
             _buttons.Add(button);
@@ -47,10 +49,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
+                if(_codeSolved) return;
                 _passwordText = _passwordText + _currentActiveButton.ButtonNumber;
                 if(_passwordText.Length > 0 && _password[0] == _passwordText[0]) {
                     if(_passwordText.Length > 1 && _password[1] == _passwordText[1]) {
                         if(_passwordText.Length > 2 &&_password[2] == _passwordText[2]) {
+                            _codeSolved = true;
                         }
                         else {
                             _passwordText = "";
@@ -118,6 +122,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_codeSolved) return;
             _humanMapActive = true;
             _visibilityObject.SetActive(true);
+        }
+
+        public bool HumanMapActive {
+            get {return _humanMapActive;}
         }
     }
 }
