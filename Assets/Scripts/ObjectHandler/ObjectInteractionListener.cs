@@ -14,8 +14,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //The hover description of the object
         [SerializeField] private string _objectDescription;
 
-        //The object description for inspect
-        [SerializeField] private string _objectFlavourText;
+        //The object description for inspect Ghost and Human
+        [SerializeField] private string _ghostFlavourText;
+        [SerializeField] private string _humanFlavourText;
 
         //the id of the item which should be recieved on interaction
         [SerializeField] private string _itemName;
