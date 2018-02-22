@@ -164,7 +164,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _itemHandler = ItemHandler.GetItemHandler();
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
-            if(AnimationType != AnimationType.None) _animationController = _meshGameObject.AddComponent<AnimationController>();
+            if(AnimationType != AnimationType.None) _animationController = gameObject.AddComponent<AnimationController>();
 
             _positionBase = _meshGameObject.transform.localPosition;
             _rotationBase = _meshGameObject.transform.localRotation.eulerAngles;
