@@ -153,7 +153,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _itemHandler = ItemHandler.GetItemHandler();
-            _audioSource = GetComponent<AudioSource>();
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
             if(AnimationType != AnimationType.None) _animationController = _meshGameObject.AddComponent<AnimationController>();
@@ -163,6 +162,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _scaleBase = _meshGameObject.transform.localScale;
 
             _itemHandler.CheckItem(this);
+            _audioSource = _meshGameObject.AddComponent<AudioSource>();
         }
 
         private void Update() {
