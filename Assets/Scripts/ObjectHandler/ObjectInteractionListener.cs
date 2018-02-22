@@ -25,9 +25,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //Activates nummlock for the object. You have to type in a code
         [SerializeField] private bool _animationAllowWhenNumButtonActive;
+        private bool _humanNumPadActiveLast;
 
         //The num Button Object for the ui
         [SerializeField] private NumButtonHandler _numButtonHandler;
+
+        [SerializeField] private bool _AnimationAllowWhenMapSolved;
+
+        [SerializeField] private MapHandler _mapHandler;
+        private bool _humanMapActiveLast;
 
         //At which state should the child be activated
         [SerializeField] private ActivateChildWhen _activateChildWhen;
@@ -71,7 +77,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _ghostReachable;
         private bool _ghostDrivenAnimationActive;
         private bool _ghostDrivenAnimationActiveLast;
-        private bool _humanNumPadActiveLast;
 
         private bool _motherObjectActive;
 
@@ -174,8 +179,19 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             UpdateGhostDrivenAnimation();
             UpdateHumanNumPad();
+            UpdateHumanMap();
             KeyInteraction();
             UpdateMotherState();
+        }
+
+        private void UpdateHumanMap() {
+            if(_mapHandler == null) return;
+            if(_mapHandler.HumanMapActive != _humanMapActiveLast) {
+                _humanMapActiveLast = _mapHandler.HumanMapActive;
+                _gameManager.HumanMapActive = _mapHandler.HumanMapActive;
+            }
+
+            _humanMapActiveLast = _mapHandler.HumanMapActive;
         }
 
 
