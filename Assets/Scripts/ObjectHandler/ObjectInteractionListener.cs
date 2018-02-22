@@ -83,7 +83,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _humanReachable;
         private bool _ghostReachable;
         private bool _ghostDrivenAnimationActive;
-        private bool _ghostDrivenAnimationActiveLast;
 
         private bool _motherObjectActive;
 
@@ -139,9 +138,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private ObjectInteractionListener _animationBlockObject;
 
         [SerializeField] private bool _objectCanBeDisabledToUnblockAnimation;
+        [SerializeField] private bool _objectMustUnlockedWithItemForAnimation;
+        [SerializeField] private string _itemIdToUnlock;
         [SerializeField] private GameObject _disableAnimationObject;
         [SerializeField] private GameObject _enableAnimationObject;
         private bool _objectDisabled;
+        private bool _animationUnlocked;
+
 
         //Must the Objects in object to unlock be unlocked to interact with the object
         [SerializeField] private bool _objectMustUnlocked;
@@ -156,6 +159,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private bool _lightswitch;
         [SerializeField] private GameObject _light;
         [SerializeField] private GameObject _secondLight;
+        private bool _objectUnlocked;
 
 
         private void Start() {
@@ -174,7 +178,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _audioSource = _meshGameObject.AddComponent<AudioSource>();
 
             if(_activeObject != null) _inactiveObject.SetActive(false);
-            if(_enableAnimationObject != null) _disableAnimationObject.SetActive(false);
+            if(_enableAnimationObject != null) _enableAnimationObject.SetActive(false);
             if(_enabledObject != null) _activeObject.SetActive(false);
         }
 
@@ -235,12 +239,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         private void UpdateGhostDrivenAnimation() {
             if(_animationController == null) return;
-            if(_animationController.GhostDrivenAnimationActive != _ghostDrivenAnimationActiveLast) {
-                _ghostDrivenAnimationActiveLast = _animationController.GhostDrivenAnimationActive;
+            if(_animationController.GhostDrivenAnimationActive != _ghostDrivenAnimationActive) {
+                _ghostDrivenAnimationActive = _animationController.GhostDrivenAnimationActive;
                 _gameManager.GhostDrivenAnimationActive = _animationController.GhostDrivenAnimationActive;
             }
 
-            _ghostDrivenAnimationActiveLast = _animationController.GhostDrivenAnimationActive;
+            _ghostDrivenAnimationActive = _animationController.GhostDrivenAnimationActive;
         }
 
         private void UpdateHumanNumPad() {
@@ -345,12 +349,34 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
+                if(_itemToUnlock != "") {
+                    if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemToUnlock, StringComparison.CurrentCultureIgnoreCase)) {
+                        _objectUnlocked = true;
+                        _itemHandler.RemoveItemFromHandAndInventory();
+                    }
+                }
+
                 if(_lightswitch) {
                     _light.SetActive(!_light.activeSelf);
                     if(_secondLight != null) {
                         _secondLight.SetActive(!_secondLight.activeSelf);
                     }
                 }
+
+                if(_objectMustUnlockedWithItemForAnimation && !_animationUnlocked) {
+                    if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemIdToUnlock,
+                                     StringComparison.CurrentCultureIgnoreCase)) {
+                        _animationUnlocked = true;
+                        _itemHandler.RemoveItemFromHandAndInventory();
+                        _disableAnimationObject.SetActive(false);
+                        _enableAnimationObject.SetActive(true);
+                    }
+                    else {
+                        _uiManager.HumanFlavourText = "Blockiert";
+                        return;
+                    }
+                }
+
 
                 //Object Damage
                 if(_disableDamageWithObject != null && !_damageObjectRecieved)
@@ -419,9 +445,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(AnimationType == AnimationType.Open) {
                     if(_objectMustUnlocked)
                         foreach(var obj in _objectsToUnlock) {
-                            if(obj.ObjectUnlocked == false)
+                            if(obj.ObjectUnlocked == false) {
                                 _uiManager.HumanFlavourText = "Blockiert";
-                            return;
+                                return;
+                            }
                         }
 
                     if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
@@ -439,9 +466,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                 //Used for Linked objects
                 if(_animationType == AnimationType.OpenLinkedOnHold) _secondGameObject.GetComponent<ObjectInteractionListener>().StartAnimation(_meshGameObject);
-
-                if(_itemToUnlock == "") return;
-                if(string.Equals(Inventory.GetInstance(CharacterType.Human).ItemInHand, _itemToUnlock, StringComparison.CurrentCultureIgnoreCase)) ObjectUnlocked = true;
             }
         }
 
@@ -451,37 +475,37 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void UpdateHumanUi() {
-            if(_humanReachable && _humanMessageActive) return;
-            if(_humanReachable && !_humanMessageActive) {
-                _uiManager.HumanHoverText = _objectDescription;
-                _humanMessageActive = true;
-                if(_humanFlavourText == "") {
-                    _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none);
-                }
-                else {
-                    _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A);
-                }
+            if(!_humanReachable && _uiManager.HumanHoverText == _objectDescription) {
+                _uiManager.HumanHoverText = "";
+                _uiManager.HideButtons(CharacterType.Human);
+                return;
             }
 
-            if(_humanReachable || !_humanMessageActive) return;
-            _uiManager.HumanHoverText = "";
-            _humanMessageActive = false;
-            _uiManager.HideButtons(CharacterType.Human);
+            if(!_humanReachable) return;
+
+            _uiManager.HumanHoverText = _objectDescription;
+            if(_humanFlavourText == "") {
+                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none);
+            }
+            else {
+                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A);
+            }
         }
 
         private void UpdateGhostUi() {
-            if(_ghostReachable == _ghostMessageActive) return;
-            if(_ghostReachable && !_ghostMessageActive) {
-                _uiManager.GhostHoverText = _objectDescription;
-                _ghostMessageActive = true;
-                if(_ghostDrivenAnimationActive) {
-                    _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType, KeyType.A);
-                    return;
-                }
-                else {
-                    _uiManager.HideButtons(CharacterType.Ghost);
-                }
+            if(_ghostDrivenAnimationActive) {
+                _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType, KeyType.A);
+                return;
+            }
 
+            if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription) {
+                _uiManager.GhostHoverText = "";
+                _uiManager.HideButtons(CharacterType.Ghost);
+                return;
+            }
+
+            if(_ghostReachable) {
+                _uiManager.GhostHoverText = _objectDescription;
                 if(_ghostFlavourText == "" && _ghostCanOpen) {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
                 }
@@ -494,11 +518,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
                 }
             }
-
-            if(_ghostReachable || !_ghostMessageActive) return;
-            _uiManager.GhostHoverText = "";
-            _ghostMessageActive = false;
-            _uiManager.HideButtons(CharacterType.Ghost);
         }
 
         /// <summary>
@@ -581,7 +600,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             set {_activateChildWhen = value;}
         }
 
-        public bool ObjectUnlocked {get; private set;}
+        public bool ObjectUnlocked {
+            get {return _objectUnlocked;}
+        }
 
         public bool CanBePickedUpAfterGhostAction {
             get {return _canBePickedUpAfterGhostAction;}
