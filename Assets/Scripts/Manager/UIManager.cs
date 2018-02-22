@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Security;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
@@ -49,6 +51,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Canvas _userInterfaceGhost;
         [SerializeField] private Canvas _userInterfaceHuman;
 
+        [SerializeField] private Image _ghostFirstButton;
+        [SerializeField] private Image _ghostSecondButton;
+        [SerializeField] private Text _ghostFirstButtonText;
+        [SerializeField] private Text _ghostSecondButtonText;
+
+
+        [SerializeField] private Image _humanFirstButton;
+        [SerializeField] private Image _humanSecondButton;
+        [SerializeField] private Text _humanFirstButtonText;
+        [SerializeField] private Text _humanSecondButtonText;
+
         [SerializeField] private Sprite _a;
         [SerializeField] private Sprite _b;
         [SerializeField] private Sprite _x;
@@ -62,6 +75,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Sprite _pad;
         [SerializeField] private Sprite _l;
         [SerializeField] private Sprite _r;
+
+        [SerializeField] private Sprite _transparent;
 
         private float _timerHuman;
 
@@ -81,6 +96,18 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             _userInterfaceHuman.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceGhost.worldCamera = _gameManager.GhostCamera;
             _userInterfaceHuman.worldCamera = _gameManager.HumanCamera;
+            _ghostFirstButton.sprite = GetSprite(KeyType.none);
+            _ghostSecondButton.sprite = GetSprite(KeyType.none);
+            _humanFirstButton.sprite = GetSprite(KeyType.none);
+            _humanSecondButton.sprite = GetSprite(KeyType.none);
+            _ghostFirstButtonText.text = "";
+            _ghostSecondButtonText.text = "";
+            _humanFirstButtonText.text = "";
+            _humanSecondButtonText.text = "";
+            _humanHoverText.text = "";
+            _ghostHoverText.text = "";
+            _humanFlavourText.text = "";
+            _ghostFlavourText.text = "";
         }
 
         private void FixedUpdate() {
@@ -108,6 +135,74 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     _timerGhost = 0;
                 }
             }
+        }
+
+        public void ShowButtons(CharacterType type, KeyType firstButton, KeyType secondButton) {
+            switch(type) {
+                case CharacterType.Unassigned:
+                    break;
+                case CharacterType.Ghost:
+                    _ghostFirstButton.sprite = GetSprite(firstButton);
+                    switch(firstButton) {
+                        case KeyType.A:
+                            _ghostFirstButtonText.text = "Untersuchen";
+                            break;
+                        case KeyType.B:
+                            _ghostFirstButtonText.text = "Interagieren";
+                            break;
+                        case KeyType.none:
+                            _ghostFirstButtonText.text = "";
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException("firstButton", firstButton, null);
+                    }
+
+                    _ghostSecondButton.sprite = GetSprite(secondButton);
+                    switch(secondButton) {
+                        case KeyType.A:
+                            _ghostSecondButtonText.text = "Untersuchen";
+                            break;
+                        case KeyType.none:
+                            _ghostSecondButtonText.text = "";
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException("secondButton", secondButton, null);
+                    }
+
+                    break;
+                case CharacterType.Human:
+                    _humanFirstButton.sprite = GetSprite(firstButton);
+                    switch(firstButton) {
+                        case KeyType.B:
+                            _humanFirstButtonText.text = "Interagieren";
+                            break;
+                        case KeyType.none:
+                            _humanFirstButtonText.text = "";
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException("firstButton", firstButton, null);
+                    }
+
+                    _humanSecondButton.sprite = GetSprite(secondButton);
+                    switch(secondButton) {
+                        case KeyType.A:
+                            _humanSecondButtonText.text = "Untersuchen";
+                            break;
+                        case KeyType.none:
+                            _humanSecondButtonText.text = "";
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException("secondButton", secondButton, null);
+                    }
+
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("type", type, null);
+            }
+        }
+
+        public void HideButtons(CharacterType type) {
+            ShowButtons(type, KeyType.none, KeyType.none);
         }
 
         public Sprite A {
@@ -161,5 +256,39 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         public Sprite R {
             get {return _r;}
         }
+
+
+        public void ShowButtonsAnimation(CharacterType ghost, KeyType firstButton, KeyType secondButton) {
+            _ghostFirstButtonText.text = "Bewegen";
+            _ghostSecondButtonText.text = "Abbrechen";
+            _ghostFirstButton.sprite = GetSprite(firstButton);
+            _ghostSecondButton.sprite = GetSprite(secondButton);
+        }
+
+        private Sprite GetSprite(KeyType key) {
+            switch(key) {
+                case KeyType.X:
+                    return X;
+                case KeyType.Y:
+                    return Y;
+                case KeyType.A:
+                    return A;
+                case KeyType.B:
+                    return B;
+                case KeyType.R1:
+                    return Rb;
+                case KeyType.R2:
+                    return Rt;
+                case KeyType.L1:
+                    return Lb;
+                case KeyType.L2:
+                    return Lt;
+                case KeyType.none:
+                    return _transparent;
+                default:
+                    throw new ArgumentOutOfRangeException("key", key, null);
+            }
+        }
+
     }
 }

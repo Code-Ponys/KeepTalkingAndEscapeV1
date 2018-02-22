@@ -419,11 +419,19 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_humanReachable && !_humanMessageActive) {
                 _uiManager.HumanHoverText = _objectDescription;
                 _humanMessageActive = true;
+                if(_humanFlavourText == "") {
+                    _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none);
+                    
+                }
+                else {
+                    _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A);
+                }
             }
 
             if(_humanReachable || !_humanMessageActive) return;
             _uiManager.HumanHoverText = "";
             _humanMessageActive = false;
+            _uiManager.HideButtons(CharacterType.Human);
         }
 
         private void UpdateGhostUi() {
@@ -431,11 +439,31 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_ghostReachable && !_ghostMessageActive) {
                 _uiManager.GhostHoverText = _objectDescription;
                 _ghostMessageActive = true;
+                if(_ghostDrivenAnimationActive) {
+                    _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType,KeyType.A);
+                    return;
+                }
+                else {
+                    _uiManager.HideButtons(CharacterType.Ghost);
+                }
+                if(_ghostFlavourText == "" && _ghostCanOpen) {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                }
+
+                if(!_ghostCanOpen && _ghostFlavourText != "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost,KeyType.A,KeyType.none);
+                }
+
+                if(_ghostCanOpen && _ghostFlavourText != "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                }
             }
 
             if(_ghostReachable || !_ghostMessageActive) return;
             _uiManager.GhostHoverText = "";
             _ghostMessageActive = false;
+            _uiManager.HideButtons(CharacterType.Ghost);
+
         }
 
         /// <summary>
