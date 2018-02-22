@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: bd6e5cab138dc5e4eb80dadc082f8fae
-timeCreated: 1518708224
+timeCreated: 1519293061
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Material.socke
     2300000: //RootNode
     3300000: //RootNode
     4300000: Socke_1:Mesh
@@ -15,8 +16,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert3
-    second: {fileID: 2100000, guid: 08262c0579ba58d4f97d13acc4f97b25, type: 2}
+      name: Material.socke
+    second: {fileID: 2100000, guid: eb81bb5a5510f5346971b545f41b4689, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

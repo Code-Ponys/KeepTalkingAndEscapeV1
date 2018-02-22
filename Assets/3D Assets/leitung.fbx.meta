@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: db55d61900631534da1e9be0765b391e
-timeCreated: 1518685597
+timeCreated: 1519295956
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,6 +11,8 @@ ModelImporter:
     400000: Leitung
     400002: //RootNode
     400004: "zerst\xF6rtes Teil"
+    2100000: Material.Leitung
+    2100002: Material.002
     2300000: Leitung
     2300002: "zerst\xF6rtes Teil"
     3300000: Leitung
@@ -23,8 +25,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Material.002
+    second: {fileID: 2100000, guid: 5b203b5d1e3c7e34a94b582404a3e6d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.Leitung
+    second: {fileID: 2100000, guid: a9eabb3c2a9aadf4599c33c141e404b7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -62,11 +69,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
