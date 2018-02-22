@@ -96,6 +96,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Should the item stay in scene after the item is picked up
         [SerializeField] private bool _canBeTakenButStayInScene;
 
+        [SerializeField] private bool _itemRequiredToRecieveItem;
+
+        [SerializeField] private string _itemNameRequiredToRecieveItem;
+
         //should the item only be moveable in one direction
         [SerializeField] private bool _onedirectionAnimation;
 
@@ -153,7 +157,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _itemHandler = ItemHandler.GetItemHandler();
-            _audioSource = GetComponent<AudioSource>();
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
             if(AnimationType != AnimationType.None) _animationController = _meshGameObject.AddComponent<AnimationController>();
@@ -163,6 +166,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _scaleBase = _meshGameObject.transform.localScale;
 
             _itemHandler.CheckItem(this);
+            _audioSource = _meshGameObject.AddComponent<AudioSource>();
         }
 
         private void Update() {
@@ -361,9 +365,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
 
                 // Put gameobject only in inventory but disables further inventory adding
-                else if(_canBeTakenButStayInScene) {
+                else if(_canBeTakenButStayInScene && !_itemRequiredToRecieveItem) {
                     _canBeTakenButStayInScene = false;
                     _itemHandler.AddItemToInv(_itemName);
+                    
+                    //Combine Item and OObject in scene to get a new Item
+                }else if(_canBeTakenButStayInScene && _itemRequiredToRecieveItem) {
+                    if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemNameRequiredToRecieveItem, StringComparison.CurrentCultureIgnoreCase)) {
+                        _itemHandler.AddItemToInv(_itemName);
+                        _itemHandler.RemoveItemFromHandAndInventory();
+                        _canBeTakenButStayInScene = false;
+                    }
                 }
 
                 if(_objectCanBeDisabledToAvoidDamage) {
@@ -419,11 +431,19 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_humanReachable && !_humanMessageActive) {
                 _uiManager.HumanHoverText = _objectDescription;
                 _humanMessageActive = true;
+                if(_humanFlavourText == "") {
+                    _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none);
+                    
+                }
+                else {
+                    _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A);
+                }
             }
 
             if(_humanReachable || !_humanMessageActive) return;
             _uiManager.HumanHoverText = "";
             _humanMessageActive = false;
+            _uiManager.HideButtons(CharacterType.Human);
         }
 
         private void UpdateGhostUi() {
@@ -431,11 +451,31 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_ghostReachable && !_ghostMessageActive) {
                 _uiManager.GhostHoverText = _objectDescription;
                 _ghostMessageActive = true;
+                if(_ghostDrivenAnimationActive) {
+                    _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType,KeyType.A);
+                    return;
+                }
+                else {
+                    _uiManager.HideButtons(CharacterType.Ghost);
+                }
+                if(_ghostFlavourText == "" && _ghostCanOpen) {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                }
+
+                if(!_ghostCanOpen && _ghostFlavourText != "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost,KeyType.A,KeyType.none);
+                }
+
+                if(_ghostCanOpen && _ghostFlavourText != "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                }
             }
 
             if(_ghostReachable || !_ghostMessageActive) return;
             _uiManager.GhostHoverText = "";
             _ghostMessageActive = false;
+            _uiManager.HideButtons(CharacterType.Ghost);
+
         }
 
         /// <summary>
