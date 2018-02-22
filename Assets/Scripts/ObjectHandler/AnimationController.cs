@@ -283,7 +283,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <exception cref="ArgumentException"></exception>
         public void StartNewAnimation(ObjectInteractionListener self) {
             _objectInteractionListener = self;
-            _meshGameObject = self.MeshGameObject;
+            _meshGameObject = _objectInteractionListener.MeshGameObject;
             if(_animationType == AnimationType.Open && _dataRead != true) {
                 WriteData(self);
                 _dataRead = true;
@@ -406,7 +406,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// </summary>
         /// <param name="self"></param>
         private void WriteData(ObjectInteractionListener self) {
-            _meshGameObject = self.gameObject;
+            _meshGameObject = self.MeshGameObject;
             _positionBase = _meshGameObject.transform.localPosition;
             _rotationBase = _meshGameObject.transform.localRotation;
             _scaleBase = _meshGameObject.transform.localScale;
