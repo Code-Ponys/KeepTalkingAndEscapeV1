@@ -152,6 +152,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //All object which must be unlocked to interact with the object.
         [SerializeField] private ObjectInteractionListener[] _objectsToUnlock;
 
+        //Makes the object to a lightswitch
+        [SerializeField] private bool _lightswitch;
+        [SerializeField] private GameObject _light;
+
 
         private void Start() {
             _uiManager = UIManager.GetUiManager();
@@ -334,6 +338,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
+                if(_lightswitch) {
+                    _light.SetActive(!_light.activeSelf);
+                }
+                
                 //Object Damage
                 if(_disableDamageWithObject != null && !_damageObjectRecieved)
                     if(!_disableDamageWithObject._damageDisabled) {
@@ -369,7 +377,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _canBeTakenButStayInScene = false;
                     _itemHandler.AddItemToInv(_itemName);
                     
-                    //Combine Item and OObject in scene to get a new Item
+                    //Combine Item and Object in scene to get a new Item
                 }else if(_canBeTakenButStayInScene && _itemRequiredToRecieveItem) {
                     if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemNameRequiredToRecieveItem, StringComparison.CurrentCultureIgnoreCase)) {
                         _itemHandler.AddItemToInv(_itemName);
