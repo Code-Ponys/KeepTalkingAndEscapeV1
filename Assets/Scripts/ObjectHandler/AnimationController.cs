@@ -76,6 +76,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_frameCount == _animationDurationInFrames) {
                     SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
                     _open = false;
+                    _objectInteractionListener.Source.PlayOneShot(_objectInteractionListener.CloseSound);
                     _animationActive = false;
                     _frameCount = 0;
                     Debug.Log("Door closed");
@@ -89,7 +90,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_frameCount == _animationDurationInFrames) {
                     SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleAnimated);
                     _open = true;
-                    _objectInteractionListener.audioSource.Play();
+                    _objectInteractionListener.Source.PlayOneShot(_objectInteractionListener.OpenSound);
                     _animationActive = false;
                     _frameCount = 0;
                     Debug.Log("Door opened");

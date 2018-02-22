@@ -61,8 +61,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private Vector3 _scaleAnimated;
         
         //Sound implementation
-    	public AudioSource audioSource;
-        [SerializeField] private AudioClip _sound;
+    	private AudioSource _audioSource;
+        [SerializeField] private AudioClip _openSound;
+        [SerializeField] private AudioClip _smashSound;
+        [SerializeField] private AudioClip _closeSound;
 
         private UIManager _uiManager;
         private GameManager _gameManager;
@@ -145,7 +147,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _itemHandler = ItemHandler.GetItemHandler();
-            audioSource = GetComponent<AudioSource>();
+            _audioSource = GetComponent<AudioSource>();
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
             if(AnimationType != AnimationType.None) _animationController = _meshGameObject.AddComponent<AnimationController>();
@@ -373,8 +375,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
                         _numButtonHandler.OpenButtonField();
                         return;
-                    }
-
+                    }    
                     _animationController.StartNewAnimation(this);
                 }
 
@@ -514,6 +515,22 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         public string ItemName {
             get {return _itemName;}
+        }
+        
+        public AudioSource Source {
+            get {return _audioSource;}
+        }
+        
+        public AudioClip OpenSound {
+            get {return _openSound;}
+        }
+        
+        public AudioClip SmashSound {
+            get {return _smashSound;}
+        }
+        
+        public AudioClip CloseSound {
+            get {return _closeSound;}
         }
     }
 }
