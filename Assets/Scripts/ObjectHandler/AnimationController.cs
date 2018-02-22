@@ -51,7 +51,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _parentAnimationDone;
         private bool _childAnimationActive;
         private bool _childAnimationOpen;
-        private bool _ChildAnimationDone;
+        private bool _childAnimationDone;
 
         //Update
         private void FixedUpdate() {
