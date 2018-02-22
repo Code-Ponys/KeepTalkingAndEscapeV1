@@ -172,6 +172,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             _itemHandler.CheckItem(this);
             _audioSource = _meshGameObject.AddComponent<AudioSource>();
+
+            if(_inactiveObject != null) _inactiveObject.SetActive(false);
+            if(_disableAnimationObject != null) _disableAnimationObject.SetActive(false);
+            if(_activeObject != null) _activeObject.SetActive(false);
         }
 
         private void Update() {
@@ -312,6 +316,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     }
 
                     if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) return;
+                    if(_AnimationAllowWhenMapSolved && !_mapHandler.CodeSolved) return;
+
 
                     _animationController.StartNewAnimation(this);
                 }
@@ -345,7 +351,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         _secondLight.SetActive(!_secondLight.activeSelf);
                     }
                 }
-                
+
                 //Object Damage
                 if(_disableDamageWithObject != null && !_damageObjectRecieved)
                     if(!_disableDamageWithObject._damageDisabled) {
@@ -380,9 +386,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 else if(_canBeTakenButStayInScene && !_itemRequiredToRecieveItem) {
                     _canBeTakenButStayInScene = false;
                     _itemHandler.AddItemToInv(_itemName);
-                    
+
                     //Combine Item and Object in scene to get a new Item
-                }else if(_canBeTakenButStayInScene && _itemRequiredToRecieveItem) {
+                }
+                else if(_canBeTakenButStayInScene && _itemRequiredToRecieveItem) {
                     if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemNameRequiredToRecieveItem, StringComparison.CurrentCultureIgnoreCase)) {
                         _itemHandler.AddItemToInv(_itemName);
                         _itemHandler.RemoveItemFromHandAndInventory();
@@ -422,6 +429,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         return;
                     }
 
+                    if(_AnimationAllowWhenMapSolved && !_mapHandler.CodeSolved) {
+                        _mapHandler.OpenMap();
+                        return;
+                    }
+
                     _animationController.StartNewAnimation(this);
                 }
 
@@ -445,7 +457,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _humanMessageActive = true;
                 if(_humanFlavourText == "") {
                     _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none);
-                    
                 }
                 else {
                     _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A);
@@ -464,18 +475,19 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _uiManager.GhostHoverText = _objectDescription;
                 _ghostMessageActive = true;
                 if(_ghostDrivenAnimationActive) {
-                    _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType,KeyType.A);
+                    _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType, KeyType.A);
                     return;
                 }
                 else {
                     _uiManager.HideButtons(CharacterType.Ghost);
                 }
+
                 if(_ghostFlavourText == "" && _ghostCanOpen) {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
                 }
 
                 if(!_ghostCanOpen && _ghostFlavourText != "") {
-                    _uiManager.ShowButtons(CharacterType.Ghost,KeyType.A,KeyType.none);
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
                 }
 
                 if(_ghostCanOpen && _ghostFlavourText != "") {
@@ -487,7 +499,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager.GhostHoverText = "";
             _ghostMessageActive = false;
             _uiManager.HideButtons(CharacterType.Ghost);
-
         }
 
         /// <summary>
