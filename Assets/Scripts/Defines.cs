@@ -18,7 +18,8 @@ public enum KeyType {
     R1,
     R2,
     L1,
-    L2
+    L2,
+    none
 }
 
 public enum PlayerDamage {
