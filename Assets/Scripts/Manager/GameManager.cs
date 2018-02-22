@@ -3,6 +3,27 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
     public class GameManager : MonoBehaviour {
+        
+
+
+        [SerializeField] private Camera _ghostCamera;
+        [SerializeField] private CharacterController _ghost;
+        [SerializeField] private FirstPersonControllerGhost _ghostController;
+        [SerializeField] private Camera _humanCamera;
+        [SerializeField] private CharacterController _human;
+        [SerializeField] private FirstPersonControllerHuman _humanController;
+        [SerializeField] private bool _ghostDrivenAnimationActive;
+        [SerializeField] private bool _humanNumPadActive;
+        [SerializeField] private bool _humanMapActive;
+
+        public static GameManager GetGameManager() {
+            return GameObject.Find("GameManager").GetComponent<GameManager>();
+        }
+
+        public bool HumanMapActive {
+            get {return _humanMapActive;}
+            set {_humanMapActive = value;}
+        }
         public Camera GhostCamera {
             get {return _ghostCamera;}
         }
@@ -35,19 +56,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         public FirstPersonControllerHuman HumanController {
             get {return _humanController;}
-        }
-
-        [SerializeField] private Camera _ghostCamera;
-        [SerializeField] private CharacterController _ghost;
-        [SerializeField] private FirstPersonControllerGhost _ghostController;
-        [SerializeField] private Camera _humanCamera;
-        [SerializeField] private CharacterController _human;
-        [SerializeField] private FirstPersonControllerHuman _humanController;
-        [SerializeField] private bool _ghostDrivenAnimationActive;
-        [SerializeField] private bool _humanNumPadActive;
-
-        public static GameManager GetGameManager() {
-            return GameObject.Find("GameManager").GetComponent<GameManager>();
         }
     }
 }

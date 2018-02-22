@@ -136,11 +136,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kleidung
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -152,12 +154,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -590,11 +595,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -606,12 +613,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -704,11 +714,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Die Schublade l\xE4sst sich \xF6ffnen."
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -720,12 +732,15 @@ MonoBehaviour:
   _positionAnimated: {x: -70, y: 78.64456, z: -0.000002691726}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -810,11 +825,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Ein auff\xE4lliges Stromkabel."
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -826,12 +843,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -885,7 +905,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a0b140723614a6d45944d83506fa875f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a0b140723614a6d45944d83506fa875f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1005,11 +1025,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -1021,12 +1043,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -10.639, y: -90.00001, z: 90.00001}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -1264,11 +1289,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -1280,12 +1307,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -1327,6 +1357,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 135, y: 134.99994, z: 134.99994}
   m_Children:
+  - {fileID: 1513912905}
   - {fileID: 338283010}
   - {fileID: 596147578}
   - {fileID: 91972222}
@@ -1480,11 +1511,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "T\xFCr mit Kreuz"
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -1496,12 +1529,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -1976,7 +2012,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14e523a4c0d289f46ab2025ec8bc2d52, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14e523a4c0d289f46ab2025ec8bc2d52, type: 3}
       propertyPath: m_LocalScale.y
@@ -2016,11 +2052,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -2032,12 +2070,15 @@ MonoBehaviour:
   _positionAnimated: {x: -135, y: 82.10068, z: -0.1232944}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -2204,11 +2245,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Touchpad
-  _objectFlavourText: "Es sieht aus als k\xF6nnte hier ein Zahlencode eingegeben werden."
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -2220,12 +2263,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -2434,11 +2480,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -2450,12 +2498,15 @@ MonoBehaviour:
   _positionAnimated: {x: -1.708317, y: 59.27925, z: 75}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -2566,11 +2617,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -2582,12 +2635,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -2997,11 +3053,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Schl\xFCssel1"
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: schluessel2
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -3013,12 +3071,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 1
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -3065,11 +3126,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -3081,12 +3144,15 @@ MonoBehaviour:
   _positionAnimated: {x: -75, y: 24.75901, z: -0.1796018}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -3608,7 +3674,6 @@ Transform:
   m_Children:
   - {fileID: 500243638}
   - {fileID: 983221496}
-  - {fileID: 2037008735}
   - {fileID: 519545013}
   - {fileID: 1787048536}
   - {fileID: 849014560}
@@ -3747,7 +3812,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1d5ffb5113708b741b2e278568411cbe, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1d5ffb5113708b741b2e278568411cbe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3914,11 +3979,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -3930,12 +3997,15 @@ MonoBehaviour:
   _positionAnimated: {x: 62, y: 114.2044, z: -128.6476}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -4777,11 +4847,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: test
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -4793,12 +4865,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -4883,11 +4958,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -4899,12 +4976,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -4997,11 +5077,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -5013,12 +5095,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -145, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -5053,11 +5138,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -5069,12 +5156,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -5408,11 +5498,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -5424,12 +5516,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -5646,11 +5741,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Es sieht so aus als k\xF6nnte man hier etwas eindr\xFCcken..."
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -5662,12 +5759,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -6199,11 +6299,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Portrait eines unbekannten Mannes.
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -6215,12 +6317,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -6330,11 +6435,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "schl\xFCssel2"
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: schluessel1
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -6346,12 +6453,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 1
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -6398,11 +6508,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -6414,12 +6526,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -89.98, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -6506,11 +6621,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Ein kleiner Nachtschrank.
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -6522,12 +6639,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -6741,11 +6861,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -6757,12 +6879,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -7263,11 +7388,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Die Safet\xFCr ist geschlossen."
-  _objectFlavourText: "Du kannst sie nicht ohne weiteres \xF6ffnen."
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 6
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -7279,12 +7406,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -7884,11 +8014,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -7900,12 +8032,15 @@ MonoBehaviour:
   _positionAnimated: {x: 69.95777, y: 45.96978, z: 55}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -7998,11 +8133,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -8014,12 +8151,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -8276,11 +8416,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -8292,12 +8434,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -8478,11 +8623,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -8494,12 +8641,15 @@ MonoBehaviour:
   _positionAnimated: {x: -135, y: 43.60046, z: -0.1232944}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -8650,11 +8800,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -8666,12 +8818,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -89.98, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -8706,11 +8861,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -8722,12 +8879,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -8977,6 +9137,7 @@ MonoBehaviour:
   _humanController: {fileID: 542968651}
   _ghostDrivenAnimationActive: 0
   _humanNumPadActive: 0
+  _humanMapActive: 0
 --- !u!1001 &1306518458
 Prefab:
   m_ObjectHideFlags: 0
@@ -9080,11 +9241,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kleidung
-  _objectFlavourText: '...ziemlich wenig Kleidung.'
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -9096,12 +9259,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -9321,11 +9487,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -9337,12 +9505,15 @@ MonoBehaviour:
   _positionAnimated: {x: -75, y: 98.32878, z: -0.1795951}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -10590,6 +10761,64 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75f80caf7c98f7a49b446f8978642eb5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1513912904
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 241884506}
+    m_Modifications:
+    - target: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.761207
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.9153605
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.9110663
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.007407407
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0074074096
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0074074096
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+  m_IsPrefabParent: 0
+--- !u!4 &1513912905 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400006, guid: dddb12457d377654ea98b9d992eac877, type: 3}
+  m_PrefabInternal: {fileID: 1513912904}
 --- !u!4 &1526469979 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 90776a91a26e0bb43bfdf4d52c8e5836, type: 3}
@@ -10698,11 +10927,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Ein kleiner Safe.
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -10714,12 +10945,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -10828,11 +11062,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Die Leitung ist an dieser Stelle zerst\xF6rt."
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 5
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 1
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -10844,12 +11080,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -11075,11 +11314,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -11091,12 +11332,15 @@ MonoBehaviour:
   _positionAnimated: {x: 60, y: 113.5368, z: -27.1656}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -11131,11 +11375,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -11147,12 +11393,15 @@ MonoBehaviour:
   _positionAnimated: {x: 69.58524, y: 17.23637, z: 50}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -11258,11 +11507,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -11274,12 +11525,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -11314,11 +11568,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -11330,12 +11586,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -11370,11 +11629,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -11386,12 +11647,15 @@ MonoBehaviour:
   _positionAnimated: {x: -75, y: 74.73793, z: -0.1795962}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -11530,11 +11794,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Sekundenkleber
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -11546,12 +11812,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -11814,8 +12083,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1842795327}
-  - {fileID: 472922175}
   - {fileID: 1658977967}
+  - {fileID: 472922175}
   m_Father: {fileID: 635019312}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -12028,11 +12297,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -12044,12 +12315,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -12150,11 +12424,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 3
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -12166,12 +12442,15 @@ MonoBehaviour:
   _positionAnimated: {x: -150, y: 123, z: -719}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 1
   _activateGravityAtEnd: 1
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -12210,11 +12489,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -12226,12 +12507,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -12465,11 +12749,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -12481,12 +12767,15 @@ MonoBehaviour:
   _positionAnimated: {x: -1.708317, y: 89.48746, z: 75}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -12906,11 +13195,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Blutiger Zahlencode.
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -12922,12 +13213,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13106,11 +13400,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Kleiderschrank
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13122,12 +13418,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13469,11 +13768,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13485,12 +13786,15 @@ MonoBehaviour:
   _positionAnimated: {x: -80, y: 44.82546, z: -0.001302155}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13607,11 +13911,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13623,12 +13929,15 @@ MonoBehaviour:
   _positionAnimated: {x: -240.8676, y: 113.5368, z: -15}
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13659,11 +13968,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13675,12 +13986,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13711,11 +14025,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13727,12 +14043,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13763,11 +14082,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13779,12 +14100,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13819,11 +14143,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13835,12 +14161,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13875,11 +14204,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13891,12 +14222,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13981,11 +14315,13 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: 
-  _objectFlavourText: 
+  _ghostFlavourText: 
+  _humanFlavourText: 
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
+  _AnimationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13997,12 +14333,15 @@ MonoBehaviour:
   _positionAnimated: {x: 0, y: 0, z: 0}
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _smashSound: {fileID: 0}
+  _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
   _canBeTakenButStayInScene: 0
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
-  _onlyHuman: 0
+  _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -14108,68 +14447,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2033119523}
   m_Mesh: {fileID: 4300020, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
---- !u!1001 &2037008734
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 551030675}
-    m_Modifications:
-    - target: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.51837
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.959
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.934
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.007407407
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.007407413
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.007407413
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-  m_IsPrefabParent: 0
---- !u!4 &2037008735 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
-  m_PrefabInternal: {fileID: 2037008734}
 --- !u!1 &2059491607
 GameObject:
   m_ObjectHideFlags: 0

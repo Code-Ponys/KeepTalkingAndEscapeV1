@@ -14,8 +14,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //The hover description of the object
         [SerializeField] private string _objectDescription;
 
-        //The object description for inspect
-        [SerializeField] private string _objectFlavourText;
+        //The object description for inspect Ghost and Human
+        [SerializeField] private string _ghostFlavourText;
+        [SerializeField] private string _humanFlavourText;
 
         //the id of the item which should be recieved on interaction
         [SerializeField] private string _itemName;
@@ -25,9 +26,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //Activates nummlock for the object. You have to type in a code
         [SerializeField] private bool _animationAllowWhenNumButtonActive;
+        private bool _humanNumPadActiveLast;
 
         //The num Button Object for the ui
         [SerializeField] private NumButtonHandler _numButtonHandler;
+
+        [SerializeField] private bool _AnimationAllowWhenMapSolved;
+
+        [SerializeField] private MapHandler _mapHandler;
+        private bool _humanMapActiveLast;
 
         //At which state should the child be activated
         [SerializeField] private ActivateChildWhen _activateChildWhen;
@@ -60,6 +67,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private Vector3 _rotationAnimated;
         [SerializeField] private Vector3 _scaleAnimated;
 
+        //Sound implementation
+        private AudioSource _audioSource;
+        [SerializeField] private AudioClip _openSound;
+        [SerializeField] private AudioClip _smashSound;
+        [SerializeField] private AudioClip _closeSound;
+
         private UIManager _uiManager;
         private GameManager _gameManager;
         private ItemHandler _itemHandler;
@@ -71,7 +84,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _ghostReachable;
         private bool _ghostDrivenAnimationActive;
         private bool _ghostDrivenAnimationActiveLast;
-        private bool _humanNumPadActiveLast;
 
         private bool _motherObjectActive;
 
@@ -91,7 +103,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private bool _activateGravityAtEnd;
 
         //only a human can interact with this item
-        [SerializeField] private bool _onlyHuman;
+        [SerializeField] private bool _ghostCanOpen;
 
         //The item id which disables damage.
         [SerializeField] private string _disableDamageWithItem;
@@ -141,6 +153,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _itemHandler = ItemHandler.GetItemHandler();
+            _audioSource = GetComponent<AudioSource>();
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
             if(AnimationType != AnimationType.None) _animationController = _meshGameObject.AddComponent<AnimationController>();
@@ -148,7 +161,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _positionBase = _meshGameObject.transform.localPosition;
             _rotationBase = _meshGameObject.transform.localRotation.eulerAngles;
             _scaleBase = _meshGameObject.transform.localScale;
-            
+
             _itemHandler.CheckItem(this);
         }
 
@@ -174,8 +187,19 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             UpdateGhostDrivenAnimation();
             UpdateHumanNumPad();
+            UpdateHumanMap();
             KeyInteraction();
             UpdateMotherState();
+        }
+
+        private void UpdateHumanMap() {
+            if(_mapHandler == null) return;
+            if(_mapHandler.HumanMapActive != _humanMapActiveLast) {
+                _humanMapActiveLast = _mapHandler.HumanMapActive;
+                _gameManager.HumanMapActive = _mapHandler.HumanMapActive;
+            }
+
+            _humanMapActiveLast = _mapHandler.HumanMapActive;
         }
 
 
@@ -257,27 +281,32 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         ///     KeyInteraction for Ghost aka Player 2
         /// </summary>
         private void KeyInteractionGhost() {
-            if(!_ghostReachable || _onlyHuman) return;
+            if(!_ghostReachable) return;
             if(_gameManager.GhostDrivenAnimationActive) return;
             if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
-                _uiManager.GhostFlavourText = _objectFlavourText;
+                _uiManager.GhostFlavourText = _ghostFlavourText;
             }
-            else if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
+
+            if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
                 //Disables damage for linked object
                 if(_disableDamageByGhost) _damageDisabledByGhost = true;
 
                 if(AnimationType == AnimationType.None) return;
-                if(_animationType == AnimationType.Open)
-                    if(_objectMustUnlocked)
+                if(_animationType == AnimationType.Open) {
+                    if(!_ghostCanOpen) return;
+                    if(_objectMustUnlocked) {
                         foreach(var obj in _objectsToUnlock) {
                             if(obj.ObjectUnlocked == false)
                                 _uiManager.GhostFlavourText = "Blockiert";
                             return;
                         }
+                    }
 
-                if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) return;
+                    if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) return;
 
-                _animationController.StartNewAnimation(this);
+                    _animationController.StartNewAnimation(this);
+                }
+
                 switch(_animationType) {
                     case AnimationType.GhostMoveOnKeySmash:
                         _animationController.StartNewAnimation(this);
@@ -297,10 +326,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(!_humanReachable) return;
 
             if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
-                _uiManager.HumanFlavourText = _objectFlavourText;
+                _uiManager.HumanFlavourText = _humanFlavourText;
             }
 
-            else if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
+            if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
                 //Object Damage
                 if(_disableDamageWithObject != null && !_damageObjectRecieved)
                     if(!_disableDamageWithObject._damageDisabled) {
@@ -330,7 +359,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _uiManager.HumanHoverText = "";
                     _meshGameObject.SetActive(false);
                 }
-                
+
                 // Put gameobject only in inventory but disables further inventory adding
                 else if(_canBeTakenButStayInScene) {
                     _canBeTakenButStayInScene = false;
@@ -508,6 +537,22 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         public string ItemName {
             get {return _itemName;}
+        }
+
+        public AudioSource Source {
+            get {return _audioSource;}
+        }
+
+        public AudioClip OpenSound {
+            get {return _openSound;}
+        }
+
+        public AudioClip SmashSound {
+            get {return _smashSound;}
+        }
+
+        public AudioClip CloseSound {
+            get {return _closeSound;}
         }
     }
 }
