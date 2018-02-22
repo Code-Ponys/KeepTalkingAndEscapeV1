@@ -89,6 +89,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_frameCount == _animationDurationInFrames) {
                     SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleAnimated);
                     _open = true;
+                    _objectInteractionListener.audioSource.Play();
                     _animationActive = false;
                     _frameCount = 0;
                     Debug.Log("Door opened");
