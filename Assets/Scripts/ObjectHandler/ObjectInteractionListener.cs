@@ -155,6 +155,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Makes the object to a lightswitch
         [SerializeField] private bool _lightswitch;
         [SerializeField] private GameObject _light;
+        [SerializeField] private GameObject _secondLight;
 
 
         private void Start() {
@@ -340,6 +341,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
                 if(_lightswitch) {
                     _light.SetActive(!_light.activeSelf);
+                    if(_secondLight != null) {
+                        _secondLight.SetActive(!_secondLight.activeSelf);
+                    }
                 }
                 
                 //Object Damage
