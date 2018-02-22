@@ -65,9 +65,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private Vector3 _positionAnimated;
         [SerializeField] private Vector3 _rotationAnimated;
         [SerializeField] private Vector3 _scaleAnimated;
-        
+
         //Sound implementation
-    	private AudioSource _audioSource;
+        private AudioSource _audioSource;
         [SerializeField] private AudioClip _openSound;
         [SerializeField] private AudioClip _smashSound;
         [SerializeField] private AudioClip _closeSound;
@@ -160,7 +160,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _positionBase = _meshGameObject.transform.localPosition;
             _rotationBase = _meshGameObject.transform.localRotation.eulerAngles;
             _scaleBase = _meshGameObject.transform.localScale;
-            
+
             _itemHandler.CheckItem(this);
         }
 
@@ -285,23 +285,27 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
                 _uiManager.GhostFlavourText = _objectFlavourText;
             }
-            else if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
+
+            if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
                 //Disables damage for linked object
                 if(_disableDamageByGhost) _damageDisabledByGhost = true;
 
                 if(AnimationType == AnimationType.None) return;
-                if(_animationType == AnimationType.Open)
-                    if(_objectMustUnlocked)
-                        if(!_ghostCanOpen) return;
+                if(_animationType == AnimationType.Open) {
+                    if(!_ghostCanOpen) return;
+                    if(_objectMustUnlocked) {
                         foreach(var obj in _objectsToUnlock) {
                             if(obj.ObjectUnlocked == false)
                                 _uiManager.GhostFlavourText = "Blockiert";
                             return;
                         }
+                    }
 
-                if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) return;
+                    if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) return;
 
-                _animationController.StartNewAnimation(this);
+                    _animationController.StartNewAnimation(this);
+                }
+
                 switch(_animationType) {
                     case AnimationType.GhostMoveOnKeySmash:
                         _animationController.StartNewAnimation(this);
@@ -324,7 +328,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _uiManager.HumanFlavourText = _objectFlavourText;
             }
 
-            else if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
+            if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
                 //Object Damage
                 if(_disableDamageWithObject != null && !_damageObjectRecieved)
                     if(!_disableDamageWithObject._damageDisabled) {
@@ -354,7 +358,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _uiManager.HumanHoverText = "";
                     _meshGameObject.SetActive(false);
                 }
-                
+
                 // Put gameobject only in inventory but disables further inventory adding
                 else if(_canBeTakenButStayInScene) {
                     _canBeTakenButStayInScene = false;
@@ -391,7 +395,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
                         _numButtonHandler.OpenButtonField();
                         return;
-                    }    
+                    }
+
                     _animationController.StartNewAnimation(this);
                 }
 
@@ -532,19 +537,19 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         public string ItemName {
             get {return _itemName;}
         }
-        
+
         public AudioSource Source {
             get {return _audioSource;}
         }
-        
+
         public AudioClip OpenSound {
             get {return _openSound;}
         }
-        
+
         public AudioClip SmashSound {
             get {return _smashSound;}
         }
-        
+
         public AudioClip CloseSound {
             get {return _closeSound;}
         }
