@@ -96,6 +96,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Should the item stay in scene after the item is picked up
         [SerializeField] private bool _canBeTakenButStayInScene;
 
+        [SerializeField] private bool _itemRequiredToRecieveItem;
+
+        [SerializeField] private string _itemNameRequiredToRecieveItem;
+
         //should the item only be moveable in one direction
         [SerializeField] private bool _onedirectionAnimation;
 
@@ -361,9 +365,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
 
                 // Put gameobject only in inventory but disables further inventory adding
-                else if(_canBeTakenButStayInScene) {
+                else if(_canBeTakenButStayInScene && !_itemRequiredToRecieveItem) {
                     _canBeTakenButStayInScene = false;
                     _itemHandler.AddItemToInv(_itemName);
+                    
+                    //Combine Item and OObject in scene to get a new Item
+                }else if(_canBeTakenButStayInScene && _itemRequiredToRecieveItem) {
+                    if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemNameRequiredToRecieveItem, StringComparison.CurrentCultureIgnoreCase)) {
+                        _itemHandler.AddItemToInv(_itemName);
+                        _itemHandler.RemoveItemFromHandAndInventory();
+                        _canBeTakenButStayInScene = false;
+                    }
                 }
 
                 if(_objectCanBeDisabledToAvoidDamage) {

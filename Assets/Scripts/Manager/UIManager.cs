@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security;
+using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -39,6 +40,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             set {_healthText.text = value;}
         }
 
+        public Inventory InventoryGhost {
+            get {return _inventoryGhost;}
+        }
+
+        public Inventory InventoryHuman {
+            get {return _inventoryHuman;}
+        }
+
         [SerializeField] private Text _ghostHoverText;
         [SerializeField] private Text _humanHoverText;
         [SerializeField] private Text _ghostFlavourText;
@@ -50,6 +59,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         [SerializeField] private Canvas _userInterfaceGhost;
         [SerializeField] private Canvas _userInterfaceHuman;
+
+        [SerializeField] private Image _ItemInHand;
+        [SerializeField] private Text _ItemInHandText;
 
         [SerializeField] private Image _ghostFirstButton;
         [SerializeField] private Image _ghostSecondButton;
@@ -85,6 +97,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [Range(1, 100)] [SerializeField] private float _flavourTextWaitTimer;
 
         private GameManager _gameManager;
+        private ItemHandler _itemHandler;
 
         public static UIManager GetUiManager() {
             return GameObject.Find("UIManager").GetComponent<UIManager>();
@@ -92,6 +105,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void Start() {
             _gameManager = GameManager.GetGameManager();
+            _itemHandler = ItemHandler.GetItemHandler();
             _userInterfaceGhost.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceHuman.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceGhost.worldCamera = _gameManager.GhostCamera;
@@ -113,6 +127,19 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private void FixedUpdate() {
             UpdateFlavourText();
             UpdateHealth();
+            UpdateItemInHand();
+        }
+
+        private void UpdateItemInHand() {
+            if(_inventoryHuman.ItemInHand != "") {
+                var item = _itemHandler.GetItemFromDatabase(_inventoryHuman.ItemInHand);
+                _ItemInHand.sprite = Resources.Load<Sprite>(item.SpritePath);
+                _ItemInHandText.text = item.Name;
+            }
+            else {
+                _ItemInHand.sprite = _transparent;
+                _ItemInHandText.text = "";
+            }
         }
 
         private void UpdateHealth() {
@@ -200,6 +227,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     throw new ArgumentOutOfRangeException("type", type, null);
             }
         }
+        
+        
 
         public void HideButtons(CharacterType type) {
             ShowButtons(type, KeyType.none, KeyType.none);

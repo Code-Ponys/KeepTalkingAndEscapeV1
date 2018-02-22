@@ -62,7 +62,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     break;
                 case CharacterType.Unassigned:
                     throw new Exception("Inventory is missing a character type");
-                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -228,7 +227,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 //Change current choosed Item
                 if(Input.GetAxis(ButtonNames.MoveGhostX) < 0) {
                     //Left
-                    Debug.Log("Pressed Left");
                     if(_x == 0) return;
                     _x--;
                     _currentAxisDelay = _axisDelay;
@@ -236,7 +234,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
                 if(Input.GetAxis(ButtonNames.MoveGhostX) > 0) {
                     //Right
-                    Debug.Log("Pressed right");
                     if(_x == 4) return;
                     _x++;
                     _currentAxisDelay = _axisDelay;
@@ -244,7 +241,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
                 if(Input.GetAxis(ButtonNames.MoveGhostY) < 0) {
                     //Down
-                    Debug.Log("Pressed Down");
                     if(_y == 3) return;
                     _y++;
                     _currentAxisDelay = _axisDelay;
@@ -252,7 +248,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
                 if(Input.GetAxis(ButtonNames.MoveGhostY) > 0) {
                     //Up
-                    Debug.Log("Pressed Up");
                     if(_y == 0) return;
                     _y--;
                     _currentAxisDelay = _axisDelay;
@@ -328,8 +323,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     }
                 }
 
-            if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonY)) _itemInHand = _slots[_y, _x].Item.ItemId;
+            if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonY)) {
+                _itemInHand = _slots[_y, _x].Item.ItemId;
+            
+
+            InventoryVisible();
         }
+
+    }
 
         /// <summary>
         /// Rearrange all items in both inventories
