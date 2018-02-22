@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 90776a91a26e0bb43bfdf4d52c8e5836
-timeCreated: 1518698534
+timeCreated: 1519305976
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -15,6 +15,10 @@ ModelImporter:
     400004: "K\xFChlschrank_lower_Door"
     400006: "K\xFChlschrank_Schublade"
     400008: "K\xFChlschrank_upper_Door"
+    2100000: "K\xFChlschrank_Schublade"
+    2100002: "K\xFChlschrank_upper_Door"
+    2100004: "K\xFChlschrank_lower_Door"
+    2100006: "K\xFChlschrank"
     2300000: "K\xFChlschrank"
     2300002: "K\xFChlschrank_lower_Door"
     2300004: "K\xFChlschrank_Schublade"
@@ -23,10 +27,10 @@ ModelImporter:
     3300002: "K\xFChlschrank_lower_Door"
     3300004: "K\xFChlschrank_Schublade"
     3300006: "K\xFChlschrank_upper_Door"
-    4300000: "K\xFChlschrank"
-    4300002: "K\xFChlschrank_lower_Door"
-    4300004: "K\xFChlschrank_upper_Door"
-    4300006: "K\xFChlschrank_Schublade"
+    4300000: "K\xFChlschrank_Schublade"
+    4300002: "K\xFChlschrank_upper_Door"
+    4300004: "K\xFChlschrank_lower_Door"
+    4300006: "K\xFChlschrank"
     6400000: "K\xFChlschrank"
     6400002: "K\xFChlschrank_lower_Door"
     6400004: "K\xFChlschrank_Schublade"
@@ -35,8 +39,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: "K\xFChlschrank"
+    second: {fileID: 2100000, guid: f36e7ec0da2f0a8489b5aabafb1cd67c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "K\xFChlschrank_Schublade"
+    second: {fileID: 2100000, guid: 5e4ed38c58c34794a8e7ca81eae2325c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "K\xFChlschrank_lower_Door"
+    second: {fileID: 2100000, guid: 1c990ddf387cfec4f9f89c288d105113, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "K\xFChlschrank_upper_Door"
+    second: {fileID: 2100000, guid: 5c8184b7d8b23bb4f83aee5a2f972451, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -74,11 +93,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 765e001a61f9bde44be8cfdda4d01ce5
-timeCreated: 1518691845
+timeCreated: 1519305708
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -13,6 +13,9 @@ ModelImporter:
     400002: Teleskop
     400004: Teleskopgestell
     400006: //RootNode
+    2100000: linse.001
+    2100002: teleskopgestell.001
+    2100004: teleskop.001
     2300000: Linse
     2300002: Teleskop
     2300004: Teleskopgestell
@@ -29,8 +32,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: initialShadingGroup.001
-    second: {fileID: 2100000, guid: f9699a704ecb3444e8c7809382816a81, type: 2}
+      name: linse.001
+    second: {fileID: 2100000, guid: c0ea284d17ccb3344ba9fdebdca4350a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teleskop.001
+    second: {fileID: 2100000, guid: aa4d3ad46ce70d446bb6a6ba484d85f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: teleskopgestell.001
+    second: {fileID: 2100000, guid: 9c22138e6f448db41a5ec80dffc103bd, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -73,6 +86,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
