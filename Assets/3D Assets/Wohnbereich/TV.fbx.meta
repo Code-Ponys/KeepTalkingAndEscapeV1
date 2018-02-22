@@ -1,30 +1,43 @@
 fileFormatVersion: 2
 guid: bffd34e7efc3b194eba4eab5c0209773
-timeCreated: 1518687908
+timeCreated: 1519297702
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Scherben
-    100002: //RootNode
-    100004: TV
-    400000: Scherben
-    400002: //RootNode
-    400004: TV
-    2300000: Scherben
-    2300002: TV
-    3300000: Scherben
-    3300002: TV
-    4300000: TV
-    4300002: Scherben
-    6400000: Scherben
-    6400002: TV
+    100000: Innen
+    100002: Scherben
+    100004: //RootNode
+    100006: TV
+    400000: Innen
+    400002: Scherben
+    400004: //RootNode
+    400006: TV
+    2100000: Material.Innen
+    2100002: Scherben.001
+    2300000: Innen
+    2300002: Scherben
+    2300004: TV
+    3300000: Innen
+    3300002: Scherben
+    3300004: TV
+    4300000: Innen
+    4300002: TV
+    4300004: Scherben
+    6400000: Innen
+    6400002: Scherben
+    6400004: TV
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Material.Innen
+    second: {fileID: 2100000, guid: c64a819ee56798f43a9e61d0ff79060a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scherben.001
+    second: {fileID: 2100000, guid: 70709a1cade5deb458ec06131474f487, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -67,6 +80,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

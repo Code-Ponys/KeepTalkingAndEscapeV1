@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: ab0659d2afabd7042ba3578e24aeeda9
-timeCreated: 1518529183
+timeCreated: 1519288125
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,20 +11,27 @@ ModelImporter:
     400000: Schluesselhaelfte_1
     400002: Schluesselhaelfte_2
     400004: //RootNode
+    2100000: "h\xE4lfte 1"
+    2100002: "h\xE4lfte 2"
     2300000: Schluesselhaelfte_1
     2300002: Schluesselhaelfte_2
     3300000: Schluesselhaelfte_1
     3300002: Schluesselhaelfte_2
-    4300000: Schluesselhaelfte_1
-    4300002: Schluesselhaelfte_2
+    4300000: Schluesselhaelfte_2
+    4300002: Schluesselhaelfte_1
     6400000: Schluesselhaelfte_1
     6400002: Schluesselhaelfte_2
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert5
-    second: {fileID: 2100000, guid: 2ff2eb622736fcc4499d43d03f43099f, type: 2}
+      name: "h\xE4lfte 1"
+    second: {fileID: 2100000, guid: 414297b2536b90243a3342f07901ecfb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "h\xE4lfte 2"
+    second: {fileID: 2100000, guid: 9530f1ca0cd9f8e498abca1810b1a8ac, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -62,11 +69,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

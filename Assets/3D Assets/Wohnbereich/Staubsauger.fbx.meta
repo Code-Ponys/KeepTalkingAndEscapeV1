@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8f5c8462daca8444eace0d2cbc93f91b
-timeCreated: 1518108458
+timeCreated: 1519298310
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,6 +11,8 @@ ModelImporter:
     400000: //RootNode
     400002: Staubsauger
     400004: Staubsauger Hebel
+    2100000: Staubsauger Hebel
+    2100002: Staubsauger
     2300000: Staubsauger
     2300002: Staubsauger Hebel
     3300000: Staubsauger
@@ -23,8 +25,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Staubsauger
+    second: {fileID: 2100000, guid: 881859ebe9a5af64d99af28ffcd055cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Staubsauger Hebel
+    second: {fileID: 2100000, guid: d7a76ca7801e7594bb75c071f57a9170, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -67,6 +74,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
