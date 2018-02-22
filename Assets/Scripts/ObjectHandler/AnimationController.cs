@@ -58,6 +58,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_linkedMeshGameObject != null) linkedAnimation();
 
             ActivateChildOnHold();
+            if(_childAnimationActive && _childAnimationOpen) {
+                _objectInteractionListener.Source.clip = _objectInteractionListener.CloseSound;
+                _objectInteractionListener.Source.Play();
+            }
+            else
+            if(_childAnimationActive && !_childAnimationOpen && _objectInteractionListener.Source.clip != _objectInteractionListener.OpenSound) {
+                _objectInteractionListener.Source.clip = _objectInteractionListener.OpenSound;
+                _objectInteractionListener.Source.Play();
+            }
             if(!_animationActive) return;
             OpenAnimation();
             MoveOnKeySmash();
@@ -76,7 +85,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_frameCount == _animationDurationInFrames) {
                     SetObjectToPos(_positionBase, _rotationBase, _scaleBase);
                     _open = false;
-                    _objectInteractionListener.Source.PlayOneShot(_objectInteractionListener.CloseSound);
                     _animationActive = false;
                     _frameCount = 0;
                     Debug.Log("Door closed");
@@ -90,7 +98,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_frameCount == _animationDurationInFrames) {
                     SetObjectToPos(_positionAnimated, _rotationAnimated, _scaleAnimated);
                     _open = true;
-                    _objectInteractionListener.Source.PlayOneShot(_objectInteractionListener.OpenSound);
                     _animationActive = false;
                     _frameCount = 0;
                     Debug.Log("Door opened");
@@ -233,7 +240,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _open = false;
             }
 
-            TransformObject(_positionStepClose, _scaleStepClose);
+        TransformObject(_positionStepClose, _scaleStepClose);
         }
 //End of Animation Type
 
@@ -313,6 +320,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_keyType == KeyType.A && _animationType == AnimationType.GhostMoveOnKeySmash) throw new ArgumentException("Key Type can not be A for a GhostMoveOnSmash animation");
 
             _animationActive = true;
+            if(_open)
+            {
+                _objectInteractionListener.Source.clip = _objectInteractionListener.CloseSound;
+            }
+            else {
+                _objectInteractionListener.Source.clip = _objectInteractionListener.OpenSound;
+            }
+            _objectInteractionListener.Source.Play();
         }
 
         /// <summary>
@@ -353,6 +368,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <param name="linkedGameObject"></param>
         /// <param name="self"></param>
         public void StartNewAnimation(GameObject linkedGameObject, ObjectInteractionListener self) {
+            _objectInteractionListener = self;
             if(_childAnimationActive || _childAnimationOpen) return;
             _frameCount = 0;
             WriteData(self);
@@ -382,7 +398,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
 //End of new animation Methodes
-
 
 //Calculations
 
