@@ -65,6 +65,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private Vector3 _positionAnimated;
         [SerializeField] private Vector3 _rotationAnimated;
         [SerializeField] private Vector3 _scaleAnimated;
+        
+        //Sound implementation
+    	private AudioSource _audioSource;
+        [SerializeField] private AudioClip _openSound;
+        [SerializeField] private AudioClip _smashSound;
+        [SerializeField] private AudioClip _closeSound;
 
         private UIManager _uiManager;
         private GameManager _gameManager;
@@ -96,7 +102,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private bool _activateGravityAtEnd;
 
         //only a human can interact with this item
-        [SerializeField] private bool _onlyHuman;
+        [SerializeField] private bool _ghostCanOpen;
 
         //The item id which disables damage.
         [SerializeField] private string _disableDamageWithItem;
@@ -146,6 +152,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _itemHandler = ItemHandler.GetItemHandler();
+            _audioSource = GetComponent<AudioSource>();
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
             if(AnimationType != AnimationType.None) _animationController = _meshGameObject.AddComponent<AnimationController>();
@@ -273,7 +280,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         ///     KeyInteraction for Ghost aka Player 2
         /// </summary>
         private void KeyInteractionGhost() {
-            if(!_ghostReachable || _onlyHuman) return;
+            if(!_ghostReachable) return;
             if(_gameManager.GhostDrivenAnimationActive) return;
             if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
                 _uiManager.GhostFlavourText = _objectFlavourText;
@@ -285,6 +292,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(AnimationType == AnimationType.None) return;
                 if(_animationType == AnimationType.Open)
                     if(_objectMustUnlocked)
+                        if(!_ghostCanOpen) return;
                         foreach(var obj in _objectsToUnlock) {
                             if(obj.ObjectUnlocked == false)
                                 _uiManager.GhostFlavourText = "Blockiert";
@@ -383,8 +391,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
                         _numButtonHandler.OpenButtonField();
                         return;
-                    }
-
+                    }    
                     _animationController.StartNewAnimation(this);
                 }
 
@@ -524,6 +531,22 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         public string ItemName {
             get {return _itemName;}
+        }
+        
+        public AudioSource Source {
+            get {return _audioSource;}
+        }
+        
+        public AudioClip OpenSound {
+            get {return _openSound;}
+        }
+        
+        public AudioClip SmashSound {
+            get {return _smashSound;}
+        }
+        
+        public AudioClip CloseSound {
+            get {return _closeSound;}
         }
     }
 }
