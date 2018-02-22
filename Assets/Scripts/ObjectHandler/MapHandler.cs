@@ -108,5 +108,16 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     throw new ArgumentOutOfRangeException("direction", direction, null);
             }
         }
+        public void CloseButtonField() {
+            if(_codeSolved && !_visibilityObject.activeInHierarchy) return;
+            _humanMapActive = false;
+            _visibilityObject.SetActive(false);
+        }
+
+        public void OpenButtonField() {
+            if(_codeSolved) return;
+            _humanMapActive = true;
+            _visibilityObject.SetActive(true);
+        }
     }
 }
