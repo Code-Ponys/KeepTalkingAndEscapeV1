@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7b89a8c35bddd0e418dc328510238a18
-timeCreated: 1518513089
+timeCreated: 1519308027
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,20 +11,27 @@ ModelImporter:
     400000: "Geh\xE4use"
     400002: Tasten
     400004: //RootNode
+    2100000: Gehaeuse
+    2100002: Tasten1
     2300000: "Geh\xE4use"
     2300002: Tasten
     3300000: "Geh\xE4use"
     3300002: Tasten
-    4300000: Tasten
-    4300002: "Geh\xE4use"
+    4300000: "Geh\xE4use"
+    4300002: Tasten
     6400000: "Geh\xE4use"
     6400002: Tasten
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert4
-    second: {fileID: 2100000, guid: 4ba2c1a70ef865c42a28bc7b118660f1, type: 2}
+      name: Gehaeuse
+    second: {fileID: 2100000, guid: 357464902a4e56e45a516d7e2b9ca01d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tasten1
+    second: {fileID: 2100000, guid: f655d182dce0ce440ba0bd74c998b851, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -62,11 +69,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

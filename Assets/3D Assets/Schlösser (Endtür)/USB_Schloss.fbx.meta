@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 36632e4c91b6ff54fb1fb71143cfc2aa
-timeCreated: 1518451572
+timeCreated: 1519307458
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,20 +11,27 @@ ModelImporter:
     400000: Schloss
     400002: Schloss_Stange
     400004: //RootNode
+    2100000: Schloss
+    2100002: Schloss_Stange
     2300000: Schloss
     2300002: Schloss_Stange
     3300000: Schloss
     3300002: Schloss_Stange
-    4300000: Schloss_Stange
-    4300002: Schloss
+    4300000: Schloss
+    4300002: Schloss_Stange
     6400000: Schloss
     6400002: Schloss_Stange
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert2
-    second: {fileID: 2100000, guid: 7ce3e5a06134959469bb28c092c6c98c, type: 2}
+      name: Schloss
+    second: {fileID: 2100000, guid: 39b7302c8d3bb27438fb189fa3d94502, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Schloss_Stange
+    second: {fileID: 2100000, guid: eec36b7adade2ac4abbdaf767eb36a74, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -62,11 +69,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

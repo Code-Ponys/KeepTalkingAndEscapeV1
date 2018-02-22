@@ -1,22 +1,23 @@
 fileFormatVersion: 2
 guid: 508f57d53842f53498fb549a8b42ad87
-timeCreated: 1519030734
+timeCreated: 1519309652
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: "Material.Endt\xFCr"
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Klinke
+    4300000: "Endt\xFCr"
     6400000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: "Material.Endt\xFCr"
+    second: {fileID: 2100000, guid: a34b1d376485b2448b1ce82a85a5862b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
