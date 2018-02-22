@@ -17,7 +17,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private Sprite _clicked;
         [SerializeField] private Sprite _notClicked;
         [SerializeField] private float _closeTimeAfterCodeSolved = 5;
-        private bool _humanNumPadActive = false;
+        private bool _humanNumPadActive;
         private bool _codeSolved;
 
 
