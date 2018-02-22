@@ -283,7 +283,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// <exception cref="ArgumentException"></exception>
         public void StartNewAnimation(ObjectInteractionListener self) {
             _objectInteractionListener = self;
-            _meshGameObject = self.gameObject;
+            _meshGameObject = self.MeshGameObject;
             if(_animationType == AnimationType.Open && _dataRead != true) {
                 WriteData(self);
                 _dataRead = true;

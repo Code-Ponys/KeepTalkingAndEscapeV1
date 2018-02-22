@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
@@ -57,5 +58,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         public FirstPersonControllerHuman HumanController {
             get {return _humanController;}
         }
+
     }
 }

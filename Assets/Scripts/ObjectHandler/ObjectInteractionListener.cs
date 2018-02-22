@@ -617,5 +617,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         public AudioClip CloseSound {
             get {return _closeSound;}
         }
+
+        public GameObject MeshGameObject {
+            get {return _meshGameObject;}
+        }
     }
 }
