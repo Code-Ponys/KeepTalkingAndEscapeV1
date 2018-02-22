@@ -284,7 +284,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(!_ghostReachable) return;
             if(_gameManager.GhostDrivenAnimationActive) return;
             if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
-                _uiManager.GhostFlavourText = _objectFlavourText;
+                _uiManager.GhostFlavourText = _ghostFlavourText;
             }
 
             if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
@@ -326,7 +326,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(!_humanReachable) return;
 
             if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
-                _uiManager.HumanFlavourText = _objectFlavourText;
+                _uiManager.HumanFlavourText = _humanFlavourText;
             }
 
             if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
