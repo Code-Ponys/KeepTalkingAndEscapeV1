@@ -173,9 +173,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _itemHandler.CheckItem(this);
             _audioSource = _meshGameObject.AddComponent<AudioSource>();
 
-            if(_inactiveObject != null) _inactiveObject.SetActive(false);
-            if(_disableAnimationObject != null) _disableAnimationObject.SetActive(false);
-            if(_activeObject != null) _activeObject.SetActive(false);
+            if(_activeObject != null) _inactiveObject.SetActive(false);
+            if(_enableAnimationObject != null) _disableAnimationObject.SetActive(false);
+            if(_enabledObject != null) _activeObject.SetActive(false);
         }
 
         private void Update() {
