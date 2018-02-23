@@ -61,9 +61,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [Range(1, 1000)] [SerializeField] private int _animationStepsPerKlick = 10;
 
         private AnimationController _animationController;
-        private Vector3 _positionBase;
-        private Vector3 _rotationBase;
-        private Vector3 _scaleBase;
 
         //The goal coordinates.
         [SerializeField] private Vector3 _positionAnimated;
@@ -128,7 +125,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private bool _disableDamageByGhost;
 
         //Determines if its a Radio
-//        [SerializeField] private bool _isARadio;
+        //[SerializeField] private bool _isARadio;
 
         private bool _damageItemRecieved;
         private bool _damageObjectRecieved;
@@ -173,6 +170,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private GameObject _light;
         [SerializeField] private GameObject _secondLight;
         private bool _objectUnlocked;
+        private object _ghostReachableLast;
 
 
         private void Start() {
@@ -183,10 +181,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
             if(AnimationType != AnimationType.None) _animationController = gameObject.AddComponent<AnimationController>();
-
-            _positionBase = _meshGameObject.transform.localPosition;
-            _rotationBase = _meshGameObject.transform.localRotation.eulerAngles;
-            _scaleBase = _meshGameObject.transform.localScale;
 
             _itemHandler.CheckItem(this);
 
@@ -531,53 +525,60 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void UpdateGhostUi() {
-            if(_gameManager.GhostDrivenAnimationActive && _ghostDrivenAnimationActive != true) return;
+            //if(_gameManager.GhostDrivenAnimationActive && _ghostDrivenAnimationActive != true) return;
             if(_ghostDrivenAnimationActive) {
                 _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType, KeyType.A);
                 return;
             }
 
-            if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription) {
+            if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription && _ghostReachable) {
                 _uiManager.GhostHoverText = "";
+                Debug.Log("Test");
                 _uiManager.HideButtons(CharacterType.Ghost);
+                _ghostReachableLast = false;
                 return;
             }
 
-            if(_ghostReachable) {
-                if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
-                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
-                    return;
-                }
+            if(!_ghostReachable) {
+                _ghostReachableLast = false;
+                return;
+            }
 
-                if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
-                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
-                    return;
-                }
+            _ghostReachableLast = true;
+            if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
+                Debug.Log("1");
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                return;
+            }
 
-                _uiManager.GhostHoverText = _objectDescription;
-                if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
-                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
-                    return;
-                }
+            if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                return;
+            }
 
-                if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
-                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
-                    return;
-                }
+            _uiManager.GhostHoverText = _objectDescription;
+            if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                return;
+            }
 
-                if(_ghostFlavourText == "" && _ghostCanOpen) {
-                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
-                    return;
-                }
+            if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                return;
+            }
 
-                if(!_ghostCanOpen && _ghostFlavourText != "") {
-                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
-                    return;
-                }
+            if(_ghostFlavourText == "" && _ghostCanOpen) {
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                return;
+            }
 
-                if(_ghostCanOpen && _ghostFlavourText != "") {
-                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
-                }
+            if(!_ghostCanOpen && _ghostFlavourText != "") {
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
+                return;
+            }
+
+            if(_ghostCanOpen && _ghostFlavourText != "") {
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
             }
         }
 

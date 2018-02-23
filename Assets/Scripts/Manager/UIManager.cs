@@ -169,6 +169,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 case CharacterType.Unassigned:
                     break;
                 case CharacterType.Ghost:
+                    Debug.Log(firstButton + "" + secondButton);
                     _ghostFirstButton.sprite = GetSprite(firstButton);
                     switch(firstButton) {
                         case KeyType.A:
@@ -227,8 +228,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     throw new ArgumentOutOfRangeException("type", type, null);
             }
         }
-        
-        
+
 
         public void HideButtons(CharacterType type) {
             ShowButtons(type, KeyType.none, KeyType.none);
