@@ -29,7 +29,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Sprite _ghostSelectorOutline;
         [SerializeField] private Sprite _humanSelectorOutline;
         [SerializeField] private Sprite _transparentSprite;
-        private bool _inventoryActive;
+        private bool _inventoryActive = true;
         private bool _lastInventoryState;
 
         [SerializeField] private string _itemInHand;
@@ -44,6 +44,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void Start() {
             SearchInventoryObjects();
+            
             if(_secondInventory.CharacterType == _characterType) throw new Exception("Inventory must have different character types");
 
             _itemHandler = ItemHandler.GetItemHandler();
@@ -65,6 +66,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            ToggleInventoryVisibility();
         }
 
         // Update is called once per frame
@@ -103,29 +105,30 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             switch(_characterType) {
                 case CharacterType.Ghost:
                     if(Input.GetButtonDown(ButtonNames.GhostInventory)) {
-                        _inventoryActive = !_inventoryActive;
-                        if(_inventoryActive && !_secondInventory._inventoryActive) RearrangeItems();
-
-                        _itemCombineText.text = "";
-                        _x = 0;
-                        _y = 0;
+                        ToggleInventoryVisibility();
                     }
 
                     break;
                 case CharacterType.Human:
                     if(Input.GetButtonDown(ButtonNames.HumanInventory)) {
-                        _inventoryActive = !_inventoryActive;
-                        if(_inventoryActive && !_secondInventory._inventoryActive) RearrangeItems();
-
-                        _itemCombineText.text = "";
-                        _x = 0;
-                        _y = 0;
+                        ToggleInventoryVisibility();
                     }
 
                     break;
                 default:
                     throw new Exception("CharacterType must be ghost or human");
             }
+        }
+
+        private void ToggleInventoryVisibility() {
+            _inventoryActive = !_inventoryActive;
+            if(_inventoryActive && !_secondInventory._inventoryActive) RearrangeItems();
+            _itemCombineText.text = "";
+
+            _x = 0;
+            _y = 0;
+            combine[0].GetComponent<ItemCombineSlotHandler>().Item = null;
+            combine[1].GetComponent<ItemCombineSlotHandler>().Item = null;
 
             _inventoryVisibleObject.SetActive(_inventoryActive);
         }
@@ -325,12 +328,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
             if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonY)) {
                 _itemInHand = _slots[_y, _x].Item.ItemId;
-            
-
-            InventoryVisible();
+                ToggleInventoryVisibility();
+            }
         }
-
-    }
 
         /// <summary>
         /// Rearrange all items in both inventories

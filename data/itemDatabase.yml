@@ -54,5 +54,22 @@ ItemDatabaseList:
   Combineable: false
   CombineWith: Item
   CombineWithItem: none
-  NextItem: testitem 6
-  
+  NextItem: nemo
+- ItemId: nemo
+  Name: Plastik Fisch
+  SpritePath: itempics/schluessel
+  GhostDescription: Alle Abflüsse führen ins Meer.
+  HumanDescription: Alle Abflüsse führen ins Meer.
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: Eimer
+- ItemId: Tuerklinke
+  Name: Türklinke
+  SpritePath: itempics/schluessel
+  GhostDescription: Türklinke. Wo Gehört die hin?.
+  HumanDescription: Türklinke. Wer hat eine Türklinke ohne Tür?
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: Eimer

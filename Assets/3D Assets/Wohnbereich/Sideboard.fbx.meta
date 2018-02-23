@@ -1,60 +1,97 @@
 fileFormatVersion: 2
 guid: f24bbeeb4d83b8b4cb23b37027abdbf9
-timeCreated: 1518623942
+timeCreated: 1519313494
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: SB_Schublade oben
-    100002: SB_Schublade unten
-    100004: "SB_T\xFCr links"
-    100006: "SB_T\xFCr rechts"
-    100008: //RootNode
-    100010: Sideboard
-    100012: Sideboard.001
+    100000: Beine
+    100002: SB_Schublade oben
+    100004: SB_Schublade unten
+    100006: "SB_T\xFCr links"
+    100008: "SB_T\xFCr rechts"
+    100010: //RootNode
+    100012: Sideboard
     100014: "Steineinleseger\xE4t"
-    400000: SB_Schublade oben
-    400002: SB_Schublade unten
-    400004: "SB_T\xFCr links"
-    400006: "SB_T\xFCr rechts"
-    400008: //RootNode
-    400010: Sideboard
-    400012: Sideboard.001
+    400000: Beine
+    400002: SB_Schublade oben
+    400004: SB_Schublade unten
+    400006: "SB_T\xFCr links"
+    400008: "SB_T\xFCr rechts"
+    400010: //RootNode
+    400012: Sideboard
     400014: "Steineinleseger\xE4t"
-    2300000: SB_Schublade oben
-    2300002: SB_Schublade unten
-    2300004: "SB_T\xFCr links"
-    2300006: "SB_T\xFCr rechts"
-    2300008: Sideboard
-    2300010: Sideboard.001
+    2100000: Beine
+    2100002: Sideboard
+    2100004: "Leseger\xE4t"
+    2100006: "T\xFCr links"
+    2100008: "T\xFCr rechts"
+    2100010: Schublade oben
+    2100012: Schublade unten
+    2300000: Beine
+    2300002: SB_Schublade oben
+    2300004: SB_Schublade unten
+    2300006: "SB_T\xFCr links"
+    2300008: "SB_T\xFCr rechts"
+    2300010: Sideboard
     2300012: "Steineinleseger\xE4t"
-    3300000: SB_Schublade oben
-    3300002: SB_Schublade unten
-    3300004: "SB_T\xFCr links"
-    3300006: "SB_T\xFCr rechts"
-    3300008: Sideboard
-    3300010: Sideboard.001
+    3300000: Beine
+    3300002: SB_Schublade oben
+    3300004: SB_Schublade unten
+    3300006: "SB_T\xFCr links"
+    3300008: "SB_T\xFCr rechts"
+    3300010: Sideboard
     3300012: "Steineinleseger\xE4t"
-    4300000: SB_Schublade unten
-    4300002: SB_Schublade oben
-    4300004: "SB_T\xFCr rechts"
+    4300000: Beine
+    4300002: Sideboard
+    4300004: "Steineinleseger\xE4t"
     4300006: "SB_T\xFCr links"
-    4300008: "Steineinleseger\xE4t"
-    4300010: Sideboard
-    4300012: Sideboard.001
-    6400000: SB_Schublade oben
-    6400002: SB_Schublade unten
-    6400004: "SB_T\xFCr links"
-    6400006: "SB_T\xFCr rechts"
-    6400008: Sideboard
-    6400010: Sideboard.001
+    4300008: "SB_T\xFCr rechts"
+    4300010: SB_Schublade oben
+    4300012: SB_Schublade unten
+    6400000: Beine
+    6400002: SB_Schublade oben
+    6400004: SB_Schublade unten
+    6400006: "SB_T\xFCr links"
+    6400008: "SB_T\xFCr rechts"
+    6400010: Sideboard
     6400012: "Steineinleseger\xE4t"
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Beine
+    second: {fileID: 2100000, guid: 64c65a36917de634da89253a47a37669, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Leseger\xE4t"
+    second: {fileID: 2100000, guid: c8991d9ccb9769646ac832714cb8b2ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Schublade oben
+    second: {fileID: 2100000, guid: 34165155c1167314b971b45abcd88617, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Schublade unten
+    second: {fileID: 2100000, guid: a6356de857292234d94afac35af43995, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sideboard
+    second: {fileID: 2100000, guid: 8a69602cc3a4c1049bdf58402b27a764, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "T\xFCr links"
+    second: {fileID: 2100000, guid: f69edfb83a73b2c43bd50e728cdfd30b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "T\xFCr rechts"
+    second: {fileID: 2100000, guid: 1dd1d2d089357a040986f399a4aaf8ce, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -97,6 +134,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

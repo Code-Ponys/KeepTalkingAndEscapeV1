@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 82b3360574e3a5f419bf8f92e48deaf4
-timeCreated: 1518715319
+timeCreated: 1519310202
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -15,6 +15,10 @@ ModelImporter:
     400004: ST_Schublade1
     400006: ST_Schublade2
     400008: ST_Tisch
+    2100000: Material.STtisch
+    2100002: Material.STSchublade2
+    2100004: Material.STSchublade1
+    2100006: Material.Ablage
     2300000: ST_Ablage
     2300002: ST_Schublade1
     2300004: ST_Schublade2
@@ -23,10 +27,10 @@ ModelImporter:
     3300002: ST_Schublade1
     3300004: ST_Schublade2
     3300006: ST_Tisch
-    4300000: ST_Ablage
-    4300002: ST_Schublade1
-    4300004: ST_Schublade2
-    4300006: ST_Tisch
+    4300000: ST_Tisch
+    4300002: ST_Schublade2
+    4300004: ST_Schublade1
+    4300006: ST_Ablage
     6400000: ST_Ablage
     6400002: ST_Schublade1
     6400004: ST_Schublade2
@@ -35,8 +39,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.003
-    second: {fileID: 2100000, guid: ae1efaa5b59e59447a015ab4c81a5185, type: 2}
+      name: Material.Ablage
+    second: {fileID: 2100000, guid: 1bcf063f31d5ae04384a05c14365dcf2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.STSchublade1
+    second: {fileID: 2100000, guid: baa843ee4e7f5f64b8f99ea4be2f5ae7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.STSchublade2
+    second: {fileID: 2100000, guid: 10571e2724eb2e14db5114ddcba2c377, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.STtisch
+    second: {fileID: 2100000, guid: e3d2912fad526544397e5dff0263e323, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -74,11 +93,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

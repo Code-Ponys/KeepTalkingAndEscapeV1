@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: 163d421ffd55aa845bf326726bdbb889
-timeCreated: 1518514103
+timeCreated: 1519310936
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: schloss1_initialShadingGroup_002
     2300000: //RootNode
     3300000: //RootNode
     4300000: "schloss_halber schl\xFCssel"
@@ -16,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: schloss1_initialShadingGroup_002
-    second: {fileID: 2100000, guid: 283292d6609f9634ebf799a8c3e2e595, type: 2}
+    second: {fileID: 2100000, guid: 220919566a18ed043a83dec577ee759e, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
