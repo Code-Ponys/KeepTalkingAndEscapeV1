@@ -614,6 +614,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private void OnDisable() {
             if(_numButtonHandler != null) {
                 _numButtonHandler.CloseButtonField();
+                _gameManager.HumanNumPadActive = false;
             }
         }
 
