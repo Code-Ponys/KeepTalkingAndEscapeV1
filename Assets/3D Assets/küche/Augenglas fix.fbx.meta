@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 038e2d60220529c4eb165d77c092a2f5
-timeCreated: 1518547230
+timeCreated: 1519404783
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -15,6 +15,10 @@ ModelImporter:
     400004: //RootNode
     400006: deckel
     400008: Glas
+    2100000: Auge1
+    2100002: Glas
+    2100004: Auge2
+    2100006: Deckel
     2300000: Auge1
     2300002: Auge2
     2300004: deckel
@@ -23,10 +27,10 @@ ModelImporter:
     3300002: Auge2
     3300004: deckel
     3300006: Glas
-    4300000: deckel
-    4300002: Auge2
-    4300004: Glas
-    4300006: Auge1
+    4300000: Auge1
+    4300002: Glas
+    4300004: Auge2
+    4300006: deckel
     6400000: Auge1
     6400002: Auge2
     6400004: deckel
@@ -35,13 +39,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Auge1
+    second: {fileID: 2100000, guid: ff54120e93461d14c98a2599f3458ed7, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 3bd3751f9aab56044b01b153a0b9ecc0, type: 2}
+      name: Auge2
+    second: {fileID: 2100000, guid: cc5c15db872f46045bc7245d33331373, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Deckel
+    second: {fileID: 2100000, guid: a70a741c4cb97cb4fa93076053218265, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glas
+    second: {fileID: 2100000, guid: 0a0213a0b84721641b959e05a4a35c38, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -79,11 +93,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
