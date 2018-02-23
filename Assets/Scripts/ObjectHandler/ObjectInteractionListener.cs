@@ -316,6 +316,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         ///     KeyInteraction for Ghost aka Player 2
         /// </summary>
         private void KeyInteractionGhost() {
+            if(!_ghostReachable && _ghostActiveObject.activeSelf) {
+                _ghostInactiveObject.SetActive(true);
+                _ghostActiveObject.SetActive(false);
+            }
             if(!_ghostReachable) return;
             if(_gameManager.GhostDrivenAnimationActive) return;
             if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
@@ -526,7 +530,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void UpdateGhostUi() {
-            if(_gameManager.GhostDrivenAnimationActive == true && _ghostDrivenAnimationActive != true) return;
+            if(_gameManager.GhostDrivenAnimationActive && _ghostDrivenAnimationActive != true) return;
             if(_ghostDrivenAnimationActive) {
                 _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType, KeyType.A);
                 return;
@@ -540,10 +544,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             if(_ghostReachable) {
                 if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
-                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
-                }
-                else if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                    return;
+                }
+                if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                    return;
                 }
                 _uiManager.GhostHoverText = _objectDescription;
                 if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
