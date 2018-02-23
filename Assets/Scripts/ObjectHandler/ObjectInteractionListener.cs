@@ -227,8 +227,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
 
         private void UpdateMotherState() {
-            if(_getActivationFromMother)
+            if(_getActivationFromMother) {
+                if(_secondGameObject.GetComponent<AnimationController>() == null) throw new Exception(gameObject + "has no Animation Controller");
                 _motherObjectActive = _secondGameObject.GetComponent<AnimationController>().Open;
+            }
             else
                 return;
 
@@ -526,10 +528,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                 if(_ghostFlavourText == "" && _ghostCanOpen) {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                    return;
                 }
 
                 if(!_ghostCanOpen && _ghostFlavourText != "") {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
+                    return;
                 }
 
                 if(_ghostCanOpen && _ghostFlavourText != "") {
@@ -539,7 +543,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         /// <summary>
-        ///     Determines if the players are close enough to the object
+        /// Determines if the players are close enough to the object
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
