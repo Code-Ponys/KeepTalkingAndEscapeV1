@@ -123,10 +123,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //Damage can be disabled by Ghost
         [SerializeField] private bool _disableDamageByGhost;
-        
+
         //Determines if its a Radio
 //        [SerializeField] private bool _isARadio;
-        
+
         private bool _damageItemRecieved;
         private bool _damageObjectRecieved;
         private bool _damageGhostRecieved;
@@ -227,8 +227,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
 
         private void UpdateMotherState() {
-            if(_getActivationFromMother)
+            if(_getActivationFromMother) {
+                if(_secondGameObject.GetComponent<AnimationController>() == null) throw new Exception(gameObject + "has no Animation Controller");
                 _motherObjectActive = _secondGameObject.GetComponent<AnimationController>().Open;
+            }
             else
                 return;
 
@@ -514,12 +516,24 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             if(_ghostReachable) {
                 _uiManager.GhostHoverText = _objectDescription;
+                if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                    return;
+                }
+
+                if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                    return;
+                }
+
                 if(_ghostFlavourText == "" && _ghostCanOpen) {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                    return;
                 }
 
                 if(!_ghostCanOpen && _ghostFlavourText != "") {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
+                    return;
                 }
 
                 if(_ghostCanOpen && _ghostFlavourText != "") {
@@ -529,7 +543,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         /// <summary>
-        ///     Determines if the players are close enough to the object
+        /// Determines if the players are close enough to the object
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -643,14 +657,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             get {return _radioSound;}
         }
 
-        public bool IsARadio {
-            get {return _isARadio;}
-        }
+//        public bool IsARadio {
+//            get {return _isARadio;}
+//        }
 
         public GameObject MeshGameObject {
             get {return _meshGameObject;}
         }
-        
+
         public AudioSource Source {
             get {return _audioSource;}
             set {_audioSource = value;}

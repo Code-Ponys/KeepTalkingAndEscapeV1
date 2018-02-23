@@ -155,7 +155,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -171,7 +170,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -617,6 +615,35 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 82b3360574e3a5f419bf8f92e48deaf4, type: 3}
   m_PrefabInternal: {fileID: 1708947300}
+--- !u!1 &31882676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 31882677}
+  m_Layer: 0
+  m_Name: Items
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &31882677
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 31882676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 974457268}
+  m_Father: {fileID: 2013482418}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &38226361
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,7 +855,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -844,7 +870,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -1096,7 +1121,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -1112,7 +1136,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -1369,6 +1392,93 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &94161634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 94161635}
+  - component: {fileID: 94161638}
+  - component: {fileID: 94161637}
+  - component: {fileID: 94161636}
+  m_Layer: 8
+  m_Name: Schluesselhaelfte_2_H
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &94161635
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 94161634}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.000000027956862, z: -0.000000014189988,
+    w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1833893467}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &94161636
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 94161634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.15, y: 0.19, z: 0.11}
+  m_Center: {x: -0.02043102, y: -0.11, z: 0.06}
+--- !u!23 &94161637
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300002, guid: ab0659d2afabd7042ba3578e24aeeda9,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 94161634}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 414297b2536b90243a3342f07901ecfb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &94161638
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300002, guid: ab0659d2afabd7042ba3578e24aeeda9,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 94161634}
+  m_Mesh: {fileID: 4300000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
 --- !u!1 &102751936
 GameObject:
   m_ObjectHideFlags: 0
@@ -2914,7 +3024,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -2930,7 +3039,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -3119,7 +3227,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -3135,7 +3242,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -3738,7 +3844,7 @@ RectTransform:
   - {fileID: 1917833868}
   - {fileID: 1303784798}
   m_Father: {fileID: 1722529049}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3948,11 +4054,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14e523a4c0d289f46ab2025ec8bc2d52, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.819
+      value: -3.797
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14e523a4c0d289f46ab2025ec8bc2d52, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.605
+      value: 2.59
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14e523a4c0d289f46ab2025ec8bc2d52, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3976,15 +4082,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14e523a4c0d289f46ab2025ec8bc2d52, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7407406
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14e523a4c0d289f46ab2025ec8bc2d52, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7407406
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14e523a4c0d289f46ab2025ec8bc2d52, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.74074066
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400000, guid: 14e523a4c0d289f46ab2025ec8bc2d52, type: 3}
@@ -4219,7 +4325,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -4235,7 +4340,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -4277,66 +4381,57 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 768696776}
     m_Modifications:
-    - target: {fileID: 4963156553709218, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4216159994066718, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalPosition.x
       value: -5.200012
       objectReference: {fileID: 0}
-    - target: {fileID: 4963156553709218, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4216159994066718, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalPosition.y
       value: 196.4
       objectReference: {fileID: 0}
-    - target: {fileID: 4963156553709218, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4216159994066718, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalPosition.z
       value: -199.5
       objectReference: {fileID: 0}
-    - target: {fileID: 4963156553709218, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4216159994066718, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4963156553709218, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4216159994066718, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalRotation.y
       value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 4963156553709218, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4216159994066718, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4963156553709218, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4216159994066718, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 4963156553709218, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4216159994066718, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4244763252870308, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4676452593763484, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.7069834
+      value: -0.49991274
       objectReference: {fileID: 0}
-    - target: {fileID: 4244763252870308, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4676452593763484, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.50008726
       objectReference: {fileID: 0}
-    - target: {fileID: 4244763252870308, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4676452593763484, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.49991274
       objectReference: {fileID: 0}
-    - target: {fileID: 4244763252870308, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4676452593763484, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.7072302
+      value: 0.50008726
       objectReference: {fileID: 0}
-    - target: {fileID: 4244763252870308, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 4244763252870308, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+    - target: {fileID: 4676452593763484, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23925709778443262, guid: cd59a06ce6cc97647ac806a63a84c1fb,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
@@ -4927,7 +5022,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -4943,7 +5037,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -8586,7 +8679,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -174, y: -90, z: 90}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -8602,7 +8694,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -8695,7 +8786,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 36632e4c91b6ff54fb1fb71143cfc2aa, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 36632e4c91b6ff54fb1fb71143cfc2aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -9164,7 +9255,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -9180,7 +9270,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -9330,7 +9419,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -9346,7 +9434,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -9909,6 +9996,93 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8837dc632d1b51b46955f81e886e6e50, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &485748912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 485748913}
+  - component: {fileID: 485748916}
+  - component: {fileID: 485748915}
+  - component: {fileID: 485748914}
+  m_Layer: 9
+  m_Name: Schluesselhaelfte_2_G
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485748913
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485748912}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.000000049030284, z: -0.00000003526341,
+    w: 1}
+  m_LocalPosition: {x: -0.00000022292137, y: -0.000000028610229, z: 0.00000001907348}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999999}
+  m_Children: []
+  m_Father: {fileID: 1833893467}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &485748914
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485748912}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.15, y: 0.19, z: 0.11}
+  m_Center: {x: -0.02043102, y: -0.11, z: 0.06}
+--- !u!23 &485748915
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300002, guid: ab0659d2afabd7042ba3578e24aeeda9,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485748912}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 414297b2536b90243a3342f07901ecfb, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &485748916
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300002, guid: ab0659d2afabd7042ba3578e24aeeda9,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485748912}
+  m_Mesh: {fileID: 4300000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
 --- !u!1 &489277517
 GameObject:
   m_ObjectHideFlags: 0
@@ -10028,7 +10202,7 @@ RectTransform:
   - {fileID: 250086255}
   - {fileID: 1798713276}
   m_Father: {fileID: 1722529049}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -10201,7 +10375,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -10217,7 +10390,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -10732,7 +10904,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.7
+      value: 120.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10800,7 +10972,6 @@ Transform:
   m_Children:
   - {fileID: 519545013}
   - {fileID: 1787048536}
-  - {fileID: 974457268}
   - {fileID: 426150936}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -11644,7 +11815,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -11660,7 +11830,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -12707,7 +12876,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -12723,7 +12891,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -14199,7 +14366,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -14215,7 +14381,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -14422,7 +14587,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -14438,7 +14602,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -14659,7 +14822,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -14675,7 +14837,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -15233,7 +15394,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -105, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -15249,7 +15409,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -15863,7 +16022,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -15879,7 +16037,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -16114,7 +16271,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 774742114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -341, y: 145, z: -1024}
+  m_LocalPosition: {x: -341, y: 145, z: -873.5}
   m_LocalScale: {x: 330.89954, y: 90, z: 56.4681}
   m_Children:
   - {fileID: 566031092}
@@ -16471,7 +16628,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -16487,7 +16643,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -17425,6 +17580,79 @@ Transform:
   m_PrefabParentObject: {fileID: 4719641164958898, guid: 944d84c4fd54801449e898b395be404f,
     type: 2}
   m_PrefabInternal: {fileID: 2001622200}
+--- !u!1 &878669909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 878669910}
+  - component: {fileID: 878669911}
+  m_Layer: 0
+  m_Name: ghosttest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &878669910
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878669909}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 54.622437, y: 43.54207, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1722529049}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &878669911
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878669909}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 4db125b0beb3a57408a05249ebb38840, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.616}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 35.079998, y: 24.8}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1 &888069188
 GameObject:
   m_ObjectHideFlags: 0
@@ -17579,7 +17807,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -17595,7 +17822,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -17723,7 +17949,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 0, z: 180}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -17739,7 +17964,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -18128,7 +18352,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -18144,7 +18367,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -18857,7 +19079,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -140, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -18873,7 +19094,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -19209,7 +19429,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -19225,7 +19444,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -19272,7 +19490,7 @@ RectTransform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 1722529049}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19583,11 +19801,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 885.3
+      value: 873.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.3
+      value: 121.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19595,19 +19813,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000008146034
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_RootOrder
@@ -19620,6 +19838,14 @@ Prefab:
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalScale.z
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
@@ -20114,7 +20340,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -89.98, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -20130,7 +20355,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -21038,7 +21262,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -21054,7 +21277,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -21776,7 +21998,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -21792,7 +22013,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -22154,7 +22374,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -22170,7 +22389,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -22368,7 +22586,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -22384,7 +22601,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -27975,7 +28191,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -27991,7 +28206,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -28082,7 +28296,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -28098,7 +28311,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -28332,7 +28544,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -28348,7 +28559,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -29819,7 +30029,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 0, z: 180}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -29835,7 +30044,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -29858,9 +30066,96 @@ Transform:
   m_PrefabInternal: {fileID: 450132175}
 --- !u!4 &1485286593 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 4963156553709218, guid: cd59a06ce6cc97647ac806a63a84c1fb,
+  m_PrefabParentObject: {fileID: 4216159994066718, guid: cd59a06ce6cc97647ac806a63a84c1fb,
     type: 2}
   m_PrefabInternal: {fileID: 382535590}
+--- !u!1 &1490198841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1490198842}
+  - component: {fileID: 1490198845}
+  - component: {fileID: 1490198844}
+  - component: {fileID: 1490198843}
+  m_Layer: 9
+  m_Name: Schluesselhaelfte_1_G
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1490198842
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1490198841}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.000000049030284, z: -0.00000003526341,
+    w: 1}
+  m_LocalPosition: {x: 0.0000012207031, y: -0.0000006103515, z: -7.2759575e-14}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999999}
+  m_Children: []
+  m_Father: {fileID: 1615842210}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1490198843
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1490198841}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.27, z: 0.11}
+  m_Center: {x: -0.0000019022946, y: 0.056523874, z: 0.0000000139320555}
+--- !u!23 &1490198844
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: ab0659d2afabd7042ba3578e24aeeda9,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1490198841}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: e25bc512a06931a49b7838c2e923f191, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1490198845
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300000, guid: ab0659d2afabd7042ba3578e24aeeda9,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1490198841}
+  m_Mesh: {fileID: 4300002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
 --- !u!1 &1490734204
 GameObject:
   m_ObjectHideFlags: 0
@@ -30682,7 +30977,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -30698,7 +30992,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -30989,7 +31282,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -89.98, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -31005,7 +31297,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -31802,7 +32093,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -31818,7 +32108,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -31838,6 +32127,10 @@ MonoBehaviour:
 --- !u!1 &1615842209 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+  m_PrefabInternal: {fileID: 1753315769}
+--- !u!4 &1615842210 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
   m_PrefabInternal: {fileID: 1753315769}
 --- !u!114 &1615842211
 MonoBehaviour:
@@ -31872,7 +32165,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -31888,7 +32180,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -31917,6 +32208,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.27, z: 0.11}
   m_Center: {x: -0.0000019022946, y: 0.056523874, z: 0.0000000139320555}
+--- !u!114 &1615842215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1615842209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a427107eed8004b43b58be61430305cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
+  _material: {fileID: 2100000, guid: 8371c910b6db2463391a051e571e2558, type: 2}
+  _particleStartSpeed: 0.01
+  _particleStartLifeTime: 1
+  _particleStartSize: 0
+  _particleRadius: 0.05
+  _particlePositionX: 4
+  _particlePositionY: 2
+  _particlePositionZ: 6
+  _particleRotationX: 0
+  _particleRotationY: 0
+  _particleRotationZ: 0
+  _particleMaxParticles: 10
+  _particleNormalOffset: 0.1
+  _particleSizeMin: 0.1
+  _particleSizeMax: 0.2
+  _particleColor: {r: 0.10086207, g: 0.8602941, b: 0, a: 0.122}
 --- !u!1 &1620951538
 GameObject:
   m_ObjectHideFlags: 0
@@ -32041,7 +32360,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -32057,7 +32375,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -32204,6 +32521,93 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1623419046}
+--- !u!1 &1631283746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1631283747}
+  - component: {fileID: 1631283750}
+  - component: {fileID: 1631283749}
+  - component: {fileID: 1631283748}
+  m_Layer: 8
+  m_Name: Schluesselhaelfte_1_H
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1631283747
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1631283746}
+  m_LocalRotation: {x: -0.000000029802322, y: -0.000000027956862, z: -0.000000014189988,
+    w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1615842210}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1631283748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1631283746}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.18, y: 0.27, z: 0.11}
+  m_Center: {x: -0.0000019022946, y: 0.056523874, z: 0.0000000139320555}
+--- !u!23 &1631283749
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 2300000, guid: ab0659d2afabd7042ba3578e24aeeda9,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1631283746}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 9530f1ca0cd9f8e498abca1810b1a8ac, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1631283750
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3300000, guid: ab0659d2afabd7042ba3578e24aeeda9,
+    type: 3}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1631283746}
+  m_Mesh: {fileID: 4300002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
 --- !u!1 &1646759227 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100014, guid: a55008299abc5a24fb3a9e042fa52843, type: 3}
@@ -32241,7 +32645,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -32257,7 +32660,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -32397,13 +32799,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshGameObject: {fileID: 0}
+  _meshGameObject: {fileID: 1661585995}
   _secondGameObject: {fileID: 0}
   _objectDescription: Sekundenkleber
-  _ghostFlavourText: 
-  _humanFlavourText: 
-  _itemName: 
-  _animationType: 0
+  _ghostFlavourText: "Kleber! Der sollte noch n\xFCtzlich werden."
+  _humanFlavourText: Sekundenkleber, aber fast aufgebraucht.
+  _itemName: kleber
+  _animationType: 3
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _AnimationAllowWhenMapSolved: 0
@@ -32413,13 +32815,12 @@ MonoBehaviour:
   _activeObject: {fileID: 0}
   _inactiveObject: {fileID: 0}
   _keyType: 0
-  _animationDurationInFrames: 60
-  _animationStepsPerKlick: 10
-  _positionAnimated: {x: 0, y: 0, z: 0}
+  _animationDurationInFrames: 120
+  _animationStepsPerKlick: 30
+  _positionAnimated: {x: -2.785, y: -3.368, z: 2.605}
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -32427,15 +32828,14 @@ MonoBehaviour:
   _canBeTakenButStayInScene: 0
   _itemRequiredToRecieveItem: 0
   _itemNameRequiredToRecieveItem: 
-  _onedirectionAnimation: 0
-  _activateGravityAtEnd: 0
+  _onedirectionAnimation: 1
+  _activateGravityAtEnd: 1
   _ghostCanOpen: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -33033,7 +33433,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -33049,7 +33448,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -33625,7 +34023,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -33641,7 +34038,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -34058,6 +34454,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 878669910}
   - {fileID: 496771253}
   - {fileID: 1029866845}
   - {fileID: 330999461}
@@ -34096,15 +34493,15 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1723883778}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -161.5137, y: 133.8, z: 179.83698}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -966, y: 133.8, z: 34}
   m_LocalScale: {x: 330.89954, y: 90, z: 56.4681}
   m_Children:
   - {fileID: 539833503}
   - {fileID: 1282448881}
   m_Father: {fileID: 0}
   m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!82 &1723883780
 AudioSource:
   m_ObjectHideFlags: 0
@@ -34468,7 +34865,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -34484,7 +34880,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -34668,7 +35063,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -34684,7 +35078,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -34947,7 +35340,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -34963,7 +35355,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -35025,43 +35416,43 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 551030675}
+    m_TransformParent: {fileID: 31882677}
     m_Modifications:
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.037037
+      value: -274.99997
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.683711
+      value: 201.36194
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.4915721
+      value: -1172.2998
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.65328157
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.27059802
+      value: 0.3826834
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.27059805
+      value: -0.000000014901161
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.65328145
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_Name
-      value: "Schl\xFCsselh\xE4lften (1)"
+      value: "Schl\xFCsselh\xE4lften"
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -35069,27 +35460,55 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1652.3
+      value: -1638.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 744.6
+      value: 771.4
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.007407411
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.0074074143
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.007407411
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -80.3
+      value: -182.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 21.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b59ffe33d199c5408efa8d0662b739b, type: 2}
+    - target: {fileID: 2300002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b59ffe33d199c5408efa8d0662b739b, type: 2}
+    - target: {fileID: 400002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6400002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
@@ -35304,7 +35723,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -35320,7 +35738,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -36246,7 +36663,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -36262,7 +36678,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -36337,6 +36752,10 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
   m_PrefabInternal: {fileID: 1753315769}
+--- !u!4 &1833893467 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400002, guid: ab0659d2afabd7042ba3578e24aeeda9, type: 3}
+  m_PrefabInternal: {fileID: 1753315769}
 --- !u!114 &1833893468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36370,7 +36789,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -36386,7 +36804,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -36403,6 +36820,34 @@ MonoBehaviour:
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
+--- !u!114 &1833893469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1833893466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a427107eed8004b43b58be61430305cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
+  _material: {fileID: 2100000, guid: 8371c910b6db2463391a051e571e2558, type: 2}
+  _particleStartSpeed: 0.01
+  _particleStartLifeTime: 1
+  _particleStartSize: 0
+  _particleRadius: 0.05
+  _particlePositionX: 4
+  _particlePositionY: 2
+  _particlePositionZ: 6
+  _particleRotationX: 0
+  _particleRotationY: 0
+  _particleRotationZ: 0
+  _particleMaxParticles: 10
+  _particleNormalOffset: 0.1
+  _particleSizeMin: 0.1
+  _particleSizeMax: 0.2
+  _particleColor: {r: 0.10086207, g: 0.8602941, b: 0, a: 0.122}
 --- !u!65 &1833893471
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36636,7 +37081,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -36652,7 +37096,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -37162,7 +37605,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -37178,7 +37620,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -37317,7 +37758,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -37333,7 +37773,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -37487,7 +37926,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -37503,7 +37941,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -37712,7 +38149,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -37728,7 +38164,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -38047,7 +38482,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -38063,7 +38497,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -38337,7 +38770,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -38353,7 +38785,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -38719,7 +39150,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -38735,7 +39165,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -39098,7 +39527,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -39114,7 +39542,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -39181,7 +39608,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -39197,7 +39623,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -39293,7 +39718,6 @@ MonoBehaviour:
   _rotationAnimated: {x: -90, y: 90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -39309,7 +39733,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -39425,6 +39848,7 @@ Transform:
   m_Children:
   - {fileID: 768696776}
   - {fileID: 801377556}
+  - {fileID: 31882677}
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -39917,7 +40341,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: -90, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -39933,7 +40356,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -40752,7 +41174,6 @@ MonoBehaviour:
   _rotationAnimated: {x: 0, y: 0, z: 0}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
-  _pickupSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _radioSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
@@ -40768,7 +41189,6 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
-  _isARadio: 0
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
