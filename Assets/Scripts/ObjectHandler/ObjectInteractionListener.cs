@@ -531,9 +531,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 return;
             }
 
-            if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription && _ghostReachable) {
+            if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription && _objectDescription != "") {
                 _uiManager.GhostHoverText = "";
-                Debug.Log("Test");
                 _uiManager.HideButtons(CharacterType.Ghost);
                 _ghostReachableLast = false;
                 return;
@@ -545,6 +544,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             _ghostReachableLast = true;
+            _uiManager.GhostHoverText = _objectDescription;
             if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
                 Debug.Log("1");
                 _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
@@ -556,7 +556,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 return;
             }
 
-            _uiManager.GhostHoverText = _objectDescription;
             if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
                 _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
                 return;
