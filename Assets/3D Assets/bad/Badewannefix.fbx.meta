@@ -3,7 +3,7 @@ guid: c59a00561b5edf944b32892c508dec03
 timeCreated: 1519120826
 licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: badewanne
     100002: //RootNode
@@ -14,6 +14,7 @@ ModelImporter:
     100012: Vorhang_beweglich
     100014: Vorhang_unbeweglich
     100016: wasserhahn
+    100018: Wasserplane
     400000: badewanne
     400002: //RootNode
     400004: duschkopfFuerschlauch
@@ -23,6 +24,7 @@ ModelImporter:
     400012: Vorhang_beweglich
     400014: Vorhang_unbeweglich
     400016: wasserhahn
+    400018: Wasserplane
     2100000: Badewanne
     2100002: Hahn
     2100004: Knauf
@@ -39,6 +41,7 @@ ModelImporter:
     2300010: Vorhang_beweglich
     2300012: Vorhang_unbeweglich
     2300014: wasserhahn
+    2300016: Wasserplane
     3300000: badewanne
     3300002: duschkopfFuerschlauch
     3300004: haltestange
@@ -47,6 +50,7 @@ ModelImporter:
     3300010: Vorhang_beweglich
     3300012: Vorhang_unbeweglich
     3300014: wasserhahn
+    3300016: Wasserplane
     4300000: badewanne
     4300002: wasserhahn
     4300004: knaufe
@@ -55,6 +59,7 @@ ModelImporter:
     4300010: Vorhang_beweglich
     4300012: Vorhang_unbeweglich
     4300014: Stoepsel2
+    4300016: Wasserplane
     6400000: badewanne
     6400002: duschkopfFuerschlauch
     6400004: haltestange
@@ -63,10 +68,53 @@ ModelImporter:
     6400010: Vorhang_beweglich
     6400012: Vorhang_unbeweglich
     6400014: wasserhahn
+    6400016: Wasserplane
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Badewanne
+    second: {fileID: 2100000, guid: fd660b7ac751e0e419e3ed36cbfdeffa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Duschkopf_und_Schlauch
+    second: {fileID: 2100000, guid: db21303d789d8404795b91a236e219ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hahn
+    second: {fileID: 2100000, guid: 116983f3daaf8dc4d94bd712945a106a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Knauf
+    second: {fileID: 2100000, guid: 29b4f7cf52ec84d4c8b068525d1d7f78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stange
+    second: {fileID: 2100000, guid: 8d61068878004cc4187dcce558f2752e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stoepsel
+    second: {fileID: 2100000, guid: 79f9aeafe195e004cade15751c8e1eee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vorhang
+    second: {fileID: 2100000, guid: 56f9913735488f84c9a5f759d32c44ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vorhang_beweglich2
+    second: {fileID: 2100000, guid: ef8a556dd860c1941a508b1c11c9ac94, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -79,12 +127,14 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -92,7 +142,10 @@ ModelImporter:
     globalScale: 100
     meshCompression: 0
     addColliders: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
@@ -108,6 +161,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

@@ -2,54 +2,54 @@
 Language: de_DE
 ItemDatabaseList:
 - ItemId: schluessel1
-  Name: Schlüsselhälfte
+  Name: Schlüsselhälfte (vorne)
   SpritePath: itempics/linkers
   GhostDescription: eine vordere Schlüsselhälfte
   HumanDescription: eine vordere Schlüsselhälfte
   Combineable: true
   CombineWith: Item
-  CombineWithItem: schluessel2
-  NextItem: schluessel3
+  CombineWithItem: kleber
+  NextItem: kleberschlussel
 - ItemId: schluessel2
-  Name: Schlüsselhälfte
+  Name: Schlüsselhälfte (hinten)
   SpritePath: itempics/rechters
   GhostDescription: eine hintere Schlüsselhälfte
   HumanDescription: eine hintere Schlüsselhälfte
   Combineable: true
   CombineWith: Item
-  CombineWithItem: schluessel1
+  CombineWithItem: kleberschlussel
   NextItem: schluessel3
-- ItemId: schluessel3
-  Name: Schlüssel
-  SpritePath: itempics/schluessel
-  GhostDescription: ein vollständiger Schlüssel
-  HumanDescription: ein vollständiger Schlüssel
-  Combineable: false
+- ItemId: kleberschlussel
+  Name: Schlüssel mit Kleber
+  SpritePath: itempics/linkers
+  GhostDescription: Jetzt kann man etwas mit der Schlüsselhälfte verbinden.
+  HumanDescription: Jetzt kann man etwas mit der Schlüsselhälfte verbinden.
+  Combineable: true
   CombineWith: Item
-  CombineWithItem: none
-  NextItem: taschenmesser 
+  CombineWithItem: schluessel2
+  NextItem: schluessel3
 - ItemId: taschenmesser
   Name: Taschenmesser
-  SpritePath: itempics/schluessel
+  SpritePath: itempics/taschenmesser
   GhostDescription: Ein scharfes Messer.
   HumanDescription: Ein scharfes Messer.
   Combineable: true
   CombineWith: Item
   CombineWithItem: paket
-  NextItem: edelstein
+  NextItem: edelsteinblau
 - ItemId: paket
   Name: Paket
-  SpritePath: itempics/schluessel
-  GhostDescription: Ein zugeklebtes Paket.
-  HumanDescription: Ein zugeklebtes Paket.
+  SpritePath: itempics/paket
+  GhostDescription: Zugeklebt... man benötigt ein Hilfsmittel um es zu öffnen.
+  HumanDescription: Ein zugeklebtes Paket. So einfach kann man es nicht öffnen.
   Combineable: true
   CombineWith: Item
   CombineWithItem: taschenmesser
-  NextItem: edelstein
-- ItemId: edelstein
+  NextItem: edelsteinblau
+- ItemId: edelsteinblau
   Name: Blauer Edelstein
-  SpritePath: itempics/schluessel
-  GhostDescription: Funkelnder blauer Stein.
+  SpritePath: itempics/edelsteinblau
+  GhostDescription: Blauer Stein. Sieht nützlich aus.
   HumanDescription: Funkelnder blauer Stein.
   Combineable: false
   CombineWith: Item
@@ -63,7 +63,7 @@ ItemDatabaseList:
   Combineable: false
   CombineWith: Item
   CombineWithItem: none
-  NextItem: Eimer
+  NextItem: Tuerklinke
 - ItemId: Tuerklinke
   Name: Türklinke
   SpritePath: itempics/Tuerklinke
@@ -72,4 +72,40 @@ ItemDatabaseList:
   Combineable: false
   CombineWith: Item
   CombineWithItem: none
-  NextItem: Eimer
+  NextItem: kleber
+- ItemId: kleber
+  Name: Sekundenkleber
+  SpritePath: itempics/kleber
+  GhostDescription: Kleber, sollte nützlich sein!.
+  HumanDescription: Kleber, ist aber schon fast leer.
+  Combineable: true
+  CombineWith: Item
+  CombineWithItem: schluessel1
+  NextItem: kleberschlussel
+- ItemId: schluessel3
+  Name: Schlüssel
+  SpritePath: itempics/schluessel
+  GhostDescription: ein vollständiger Schlüssel
+  HumanDescription: ein vollständiger Schlüssel
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: duschvorhang 
+- ItemId: duschvorhang
+  Name: Duschvorhang
+  SpritePath: itempics/duschvorhang
+  GhostDescription: Ein blutverschmieter Vorhang. Unbrauchbar.
+  HumanDescription: Ich denke nicht das der noch nützlich wird.
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: schmutzigerfinger 
+- ItemId: schmutzigerfinger
+  Name: Abgetrennter Finger
+  SpritePath: itempics/fingerschmutz
+  GhostDescription: Ich frage mich wem der mal gehört hat...
+  HumanDescription: Kann ich den Finger irgendwo benutzen?
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: schmutzigerfinger 
