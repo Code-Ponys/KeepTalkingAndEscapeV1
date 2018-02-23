@@ -149,6 +149,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _objectDisabled;
         private bool _animationUnlocked;
 
+        [SerializeField] private bool _objectActiveToGetItem;
+        [SerializeField] private bool _activateObjectWithGhostInteraction;
+        [SerializeField] private GameObject _ghostActiveObject;
+        [SerializeField] private GameObject _ghostInactiveObject;
+        private bool _ghostObjectActive;
+
 
         //Must the Objects in object to unlock be unlocked to interact with the object
         [SerializeField] private bool _objectMustUnlocked;
@@ -312,9 +318,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _uiManager.GhostFlavourText = _ghostFlavourText;
             }
 
+            if(_activateObjectWithGhostInteraction) {
+                _ghostInactiveObject.SetActive(!Input.GetButton(ButtonNames.GhostInteract));
+                _ghostActiveObject.SetActive(Input.GetButton(ButtonNames.GhostInteract));
+                return;
+            }
+
             if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
                 //Disables damage for linked object
                 if(_disableDamageByGhost) _damageDisabledByGhost = true;
+                
+                
 
                 if(AnimationType == AnimationType.None) return;
                 if(_animationType == AnimationType.Open) {
@@ -416,6 +430,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _itemHandler.AddItemToInv(_itemName);
                     _uiManager.HumanHoverText = "";
                     _meshGameObject.SetActive(false);
+                }
+
+                if(_objectActiveToGetItem) {
+                    if(!_ghostActiveObject.activeSelf) return;
                 }
 
                 // Put gameobject only in inventory but disables further inventory adding

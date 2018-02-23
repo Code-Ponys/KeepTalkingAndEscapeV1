@@ -507,6 +507,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         public bool GhostDrivenAnimationActive {
             get {return _ghostDrivenAnimationActive;}
+            set {_ghostDrivenAnimationActive = value;}
         }
 
         public bool ParentAnimationDone {

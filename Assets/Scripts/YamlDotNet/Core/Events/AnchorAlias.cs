@@ -31,8 +31,7 @@ namespace YamlDotNet.Core.Events
         /// <summary>
         /// Gets the event type, which allows for simpler type comparisons.
         /// </summary>
-        internal override EventType Type
-        {
+        internal override EventType Type {
             get
             {
                 return EventType.Alias;
@@ -44,12 +43,12 @@ namespace YamlDotNet.Core.Events
         /// <summary>
         /// Gets the value of the alias.
         /// </summary>
-        public string Value
-        {
+        public string Value {
             get
             {
                 return value;
             }
+            set {throw new System.NotImplementedException();}
         }
 
         /// <summary>

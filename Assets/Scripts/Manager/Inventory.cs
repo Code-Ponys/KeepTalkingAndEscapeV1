@@ -327,7 +327,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     }
                 }
 
-            if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonY)) {
+            if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonX)) {
                 _itemInHand = _slots[_y, _x].Item.ItemId;
                 ToggleInventoryVisibility();
             }

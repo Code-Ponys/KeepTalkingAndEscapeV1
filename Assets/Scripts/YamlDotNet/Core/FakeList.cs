@@ -57,8 +57,7 @@ namespace YamlDotNet.Core
         /// If index is greater or equal than the last used index, this operation is O(index - lastIndex),
         /// else this operation is O(index).
         /// </remarks>
-        public T this[int index]
-        {
+        public T this[int index] {
             get
             {
                 if (index < currentIndex)

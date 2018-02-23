@@ -97,12 +97,12 @@ namespace YamlDotNet.Core
         /// Gets the current position inside the input stream.
         /// </summary>
         /// <value>The current position.</value>
-        public Mark CurrentPosition
-        {
+        public Mark CurrentPosition {
             get
             {
                 return cursor.Mark();
             }
+            set {throw new NotImplementedException();}
         }
 
         /// <summary>

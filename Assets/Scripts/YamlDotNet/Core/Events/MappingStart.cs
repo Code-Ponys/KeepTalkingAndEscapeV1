@@ -60,12 +60,12 @@ namespace YamlDotNet.Core.Events
         /// <value>
         ///     <c>true</c> if this instance is implicit; otherwise, <c>false</c>.
         /// </value>
-        public bool IsImplicit
-        {
+        public bool IsImplicit {
             get
             {
                 return isImplicit;
             }
+            set {throw new System.NotImplementedException();}
         }
 
         /// <summary>
@@ -85,12 +85,12 @@ namespace YamlDotNet.Core.Events
         /// <summary>
         /// Gets the style of the mapping.
         /// </summary>
-        public MappingStyle Style
-        {
+        public MappingStyle Style {
             get
             {
                 return style;
             }
+            set {throw new System.NotImplementedException();}
         }
 
         /// <summary>

@@ -64,19 +64,19 @@ namespace YamlDotNet.Helpers
             return new DictionaryEnumerator(genericDictionary, genericDictionaryType);
         }
 
-        public bool IsFixedSize
-        {
+        public bool IsFixedSize {
             get { throw new NotSupportedException(); }
+            set {throw new NotImplementedException();}
         }
 
-        public bool IsReadOnly
-        {
+        public bool IsReadOnly {
             get { throw new NotSupportedException(); }
+            set {throw new NotImplementedException();}
         }
 
-        public ICollection Keys
-        {
+        public ICollection Keys {
             get { throw new NotSupportedException(); }
+            set {throw new NotImplementedException();}
         }
 
         public void Remove(object key)
@@ -84,9 +84,9 @@ namespace YamlDotNet.Helpers
             throw new NotSupportedException();
         }
 
-        public ICollection Values
-        {
+        public ICollection Values {
             get { throw new NotSupportedException(); }
+            set {throw new NotImplementedException();}
         }
 
         public object this[object key]
@@ -106,19 +106,19 @@ namespace YamlDotNet.Helpers
             throw new NotSupportedException();
         }
 
-        public int Count
-        {
+        public int Count {
             get { throw new NotSupportedException(); }
+            set {throw new NotImplementedException();}
         }
 
-        public bool IsSynchronized
-        {
+        public bool IsSynchronized {
             get { throw new NotSupportedException(); }
+            set {throw new NotImplementedException();}
         }
 
-        public object SyncRoot
-        {
+        public object SyncRoot {
             get { throw new NotSupportedException(); }
+            set {throw new NotImplementedException();}
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -143,26 +143,25 @@ namespace YamlDotNet.Helpers
                 enumerator = ((IEnumerable)genericDictionary).GetEnumerator();
             }
 
-            public DictionaryEntry Entry
-            {
+            public DictionaryEntry Entry {
                 get
                 {
                     return new DictionaryEntry(Key, Value);
                 }
+                set {throw new NotImplementedException();}
             }
 
-            public object Key
-            {
+            public object Key {
                 get { return getKeyMethod.Invoke(enumerator.Current, null); }
+                set {throw new NotImplementedException();}
             }
 
-            public object Value
-            {
+            public object Value {
                 get { return getValueMethod.Invoke(enumerator.Current, null); }
+                set {throw new NotImplementedException();}
             }
 
-            public object Current
-            {
+            public object Current {
                 get { return Entry; }
             }
 

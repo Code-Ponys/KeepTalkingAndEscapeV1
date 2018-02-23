@@ -60,24 +60,24 @@ namespace YamlDotNet.Core.Events
         /// Gets the tags.
         /// </summary>
         /// <value>The tags.</value>
-        public TagDirectiveCollection Tags
-        {
+        public TagDirectiveCollection Tags {
             get
             {
                 return tags;
             }
+            set {throw new System.NotImplementedException();}
         }
 
         /// <summary>
         /// Gets the version.
         /// </summary>
         /// <value>The version.</value>
-        public VersionDirective Version
-        {
+        public VersionDirective Version {
             get
             {
                 return version;
             }
+            set {throw new System.NotImplementedException();}
         }
 
         private readonly bool isImplicit;
@@ -88,12 +88,12 @@ namespace YamlDotNet.Core.Events
         /// <value>
         ///     <c>true</c> if this instance is implicit; otherwise, <c>false</c>.
         /// </value>
-        public bool IsImplicit
-        {
+        public bool IsImplicit {
             get
             {
                 return isImplicit;
             }
+            set {throw new System.NotImplementedException();}
         }
 
         /// <summary>
