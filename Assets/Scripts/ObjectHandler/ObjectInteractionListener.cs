@@ -573,6 +573,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             return _animationType == AnimationType.OpenLinkedOnHold && Input.GetButton(ButtonNames.HumanInteract);
         }
 
+        private void OnDisable() {
+            if(_numButtonHandler != null) {
+                _numButtonHandler.CloseButtonField();
+            }
+        }
+
         public int AnimationDurationInFrames {
             get {return _animationDurationInFrames;}
             set {_animationDurationInFrames = value;}

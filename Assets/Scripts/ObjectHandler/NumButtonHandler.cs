@@ -164,7 +164,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _currentAxisDelay -= Time.deltaTime;
             }
 
-            if(!Input.GetButtonDown(ButtonNames.HumanInspect)) return;
+            if(Input.GetButtonDown(ButtonNames.HumanInspect) && _visibleObject.activeSelf) {
+                CloseButtonField();
+            }
+            
+            if(!Input.GetButtonDown(ButtonNames.HumanInteract)) return;
             _buttons[_y, _x].GetComponent<NumButton>().Active();
             switch(_buttons[_y, _x].GetComponent<NumButton>().NumButtonType) {
                 case NumButtonType.Number:
@@ -202,6 +206,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_codeSolved) return;
             _humanNumPadActive = true;
             _visibleObject.SetActive(true);
+        }
+
+        private void OnEnable() {
+            _displayText = "";
         }
 
         public Sprite Clicked {
