@@ -52,6 +52,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _childAnimationActive;
         private bool _childAnimationOpen;
         private bool _childAnimationDone;
+      
 
         //Update
         private void FixedUpdate() {
@@ -67,6 +68,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _objectInteractionListener.Source.clip = _objectInteractionListener.OpenSound;
                 _objectInteractionListener.Source.Play();
             }
+            //Sound for the Record player
+//            if(_animationType == AnimationType.GhostActivateOnKeyHold && _ghostDrivenAnimationActive && _objectInteractionListener.IsARadio) {
+//                _objectInteractionListener.Source.clip = _objectInteractionListener.RadioSound;
+//                _objectInteractionListener.Source.loop = true;
+//                _objectInteractionListener.Source.Play();
+//            }
+//            else if(!_ghostDrivenAnimationActive && _objectInteractionListener.IsARadio){
+//                _objectInteractionListener.Source.Pause();
+//            }
             if(!_animationActive) return;
             OpenAnimation();
             MoveOnKeySmash();

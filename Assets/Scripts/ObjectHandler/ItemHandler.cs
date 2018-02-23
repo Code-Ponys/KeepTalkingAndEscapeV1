@@ -8,6 +8,7 @@ using UnityEngine;
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class ItemHandler : MonoBehaviour {
         //All Items which can exist.
+        private ObjectInteractionListener _objectInteractionListener;
         private ItemDatabase _itemDatabase;
         private GameManager _gameManager;
         [SerializeField] private int _itemsInDatabase;
@@ -70,6 +71,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _inventory.Add(obj);
                 return;
             }
+            
 
             throw new ArgumentException("Item is not in Database. Please Check you database file.");
         }

@@ -16,6 +16,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private bool _ghostDrivenAnimationActive;
         [SerializeField] private bool _humanNumPadActive;
         [SerializeField] private bool _humanMapActive;
+        [SerializeField] private float _humanHeight = 330;
+        [SerializeField] private float _ghostHeight = 450;
 
         public static GameManager GetGameManager() {
             return GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -59,5 +61,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             get {return _humanController;}
         }
 
+        public float HumanHeight {
+            get {return _humanHeight;}
+        }
+
+        public float GhostHeight {
+            get {return _ghostHeight;}
+        }
     }
 }

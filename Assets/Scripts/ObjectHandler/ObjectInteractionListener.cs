@@ -70,12 +70,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Sound implementation
         private AudioSource _audioSource;
         [SerializeField] private AudioClip _openSound;
-        [SerializeField] private AudioClip _smashSound;
         [SerializeField] private AudioClip _closeSound;
+        [SerializeField] private AudioClip _radioSound;
 
         private UIManager _uiManager;
         private GameManager _gameManager;
         private ItemHandler _itemHandler;
+        private SoundManager _soundManager;
         private bool _humanMessageActive;
         private bool _ghostMessageActive;
         private bool _humanLookingAtMe;
@@ -123,6 +124,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Damage can be disabled by Ghost
         [SerializeField] private bool _disableDamageByGhost;
 
+        //Determines if its a Radio
+//        [SerializeField] private bool _isARadio;
+
         private bool _damageItemRecieved;
         private bool _damageObjectRecieved;
         private bool _damageGhostRecieved;
@@ -166,6 +170,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _itemHandler = ItemHandler.GetItemHandler();
+            _soundManager = SoundManager.GetSoundManager();
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
             if(AnimationType != AnimationType.None) _animationController = gameObject.AddComponent<AnimationController>();
@@ -175,11 +180,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _scaleBase = _meshGameObject.transform.localScale;
 
             _itemHandler.CheckItem(this);
-            _audioSource = _meshGameObject.AddComponent<AudioSource>();
 
             if(_activeObject != null) _inactiveObject.SetActive(false);
             if(_enableAnimationObject != null) _enableAnimationObject.SetActive(false);
             if(_enabledObject != null) _activeObject.SetActive(false);
+
+            _audioSource = _meshGameObject.AddComponent<AudioSource>();
         }
 
         private void Update() {
@@ -221,8 +227,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
 
         private void UpdateMotherState() {
-            if(_getActivationFromMother)
+            if(_getActivationFromMother) {
+                if(_secondGameObject.GetComponent<AnimationController>() == null) throw new Exception(gameObject + "has no Animation Controller");
                 _motherObjectActive = _secondGameObject.GetComponent<AnimationController>().Open;
+            }
             else
                 return;
 
@@ -402,7 +410,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
 
                 // Disable GameObject and Put the Gameobject in the Inventory
-                if(_canBeTakenToInventory && _canBePickedUpAfterGhostAction != true) {
+                if(_canBeTakenToInventory && !_canBePickedUpAfterGhostAction) {
+                    _soundManager.Source.clip = _soundManager.PickupSound;
+                    _soundManager.Source.Play();
                     _itemHandler.AddItemToInv(_itemName);
                     _uiManager.HumanHoverText = "";
                     _meshGameObject.SetActive(false);
@@ -493,6 +503,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void UpdateGhostUi() {
+            if(_gameManager.GhostDrivenAnimationActive == true && _ghostDrivenAnimationActive != true) return;
             if(_ghostDrivenAnimationActive) {
                 _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType, KeyType.A);
                 return;
@@ -506,12 +517,24 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             if(_ghostReachable) {
                 _uiManager.GhostHoverText = _objectDescription;
+                if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                    return;
+                }
+
+                if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                    return;
+                }
+
                 if(_ghostFlavourText == "" && _ghostCanOpen) {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                    return;
                 }
 
                 if(!_ghostCanOpen && _ghostFlavourText != "") {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
+                    return;
                 }
 
                 if(_ghostCanOpen && _ghostFlavourText != "") {
@@ -521,7 +544,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         /// <summary>
-        ///     Determines if the players are close enough to the object
+        /// Determines if the players are close enough to the object
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -530,10 +553,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             var closesPointToCharacter = _meshGameObject.GetComponent<Collider>().ClosestPointOnBounds(characterpos);
             characterpos.y = 0;
             if(obj == _gameManager.Ghost) {
-                if(closesPointToCharacter.y > 450) return false;
+                if(closesPointToCharacter.y > _gameManager.GhostHeight) return false;
             }
             else {
-                if(closesPointToCharacter.y > 350) return false;
+                if(closesPointToCharacter.y > _gameManager.HumanHeight) return false;
             }
 
             closesPointToCharacter.y = 0;
@@ -623,24 +646,29 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             get {return _itemName;}
         }
 
-        public AudioSource Source {
-            get {return _audioSource;}
-        }
-
         public AudioClip OpenSound {
             get {return _openSound;}
-        }
-
-        public AudioClip SmashSound {
-            get {return _smashSound;}
         }
 
         public AudioClip CloseSound {
             get {return _closeSound;}
         }
 
+        public AudioClip RadioSound {
+            get {return _radioSound;}
+        }
+
+//        public bool IsARadio {
+//            get {return _isARadio;}
+//        }
+
         public GameObject MeshGameObject {
             get {return _meshGameObject;}
+        }
+
+        public AudioSource Source {
+            get {return _audioSource;}
+            set {_audioSource = value;}
         }
     }
 }
