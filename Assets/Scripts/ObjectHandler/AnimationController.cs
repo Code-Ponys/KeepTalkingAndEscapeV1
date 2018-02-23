@@ -217,7 +217,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             //Abbrechen
 
             if(Input.GetButtonDown(ButtonNames.GetButtonName(KeyType.A))) {
-                Debug.Log("Leave Object");
                 _ghostDrivenAnimationActive = false;
             }
 

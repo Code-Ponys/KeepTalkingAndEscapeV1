@@ -404,7 +404,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         return;
                     }
                 }
-                
 
 
                 //Object Damage
@@ -506,14 +505,16 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_disableDamageWithItem != "" && !_damageItemRecieved)
                 if(!string.Equals(Inventory.GetInstance(CharacterType.Human).ItemInHand, _disableDamageWithItem,
                                   StringComparison.CurrentCultureIgnoreCase)) {
-                    _gameManager.HumanController.TakeHealth(1);
                     if(_OneTimeDamage) _damageItemRecieved = true;
+                    _gameManager.HumanController.TakeHealth(1);
                     if(_cancelPickupOnDamage) return true;
                 }
 
             //Ghost Damage
             if(!_damageDisabledByGhost && _disableDamageByGhost && !_damageGhostRecieved) {
+                Debug.Log("Ghost Damage Recieved");
                 if(_OneTimeDamage) _damageGhostRecieved = true;
+                _gameManager.HumanController.TakeHealth(1);
                 if(_cancelPickupOnDamage) return true;
             }
 
@@ -526,8 +527,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void UpdateHumanUi() {
-            if(!_humanReachable && _uiManager.HumanHoverText == _objectDescription) {
+            if(!_humanReachable && _uiManager.HumanHoverText == _objectDescription && _objectDescription != "") {
                 _uiManager.HumanHoverText = "";
+                Debug.Log(gameObject.name + "entfernt buttons");
+
                 _uiManager.HideButtons(CharacterType.Human);
                 return;
             }
@@ -552,26 +555,38 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription && _objectDescription != "") {
                 _uiManager.GhostHoverText = "";
+                Debug.Log(gameObject.name + "entfernt buttons");
                 _uiManager.HideButtons(CharacterType.Ghost);
-                _ghostReachableLast = false;
                 return;
             }
 
             if(!_ghostReachable) {
-                _ghostReachableLast = false;
                 return;
             }
 
-            _ghostReachableLast = true;
             _uiManager.GhostHoverText = _objectDescription;
             if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
-                Debug.Log("1");
                 _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
                 return;
             }
 
             if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
                 _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                return;
+            }
+
+            if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText == "") {
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                return;
+            }
+
+            if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText != "") {
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                return;
+            }
+
+            if(_disableDamageByGhost && _damageDisabledByGhost && _ghostFlavourText != "") {
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
                 return;
             }
 
