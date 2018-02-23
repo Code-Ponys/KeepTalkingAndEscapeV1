@@ -108,4 +108,13 @@ ItemDatabaseList:
   Combineable: false
   CombineWith: Item
   CombineWithItem: none
-  NextItem: schmutzigerfinger 
+  NextItem: saubererfinger
+- ItemId: saubererfinger
+  Name: Abgetrennter Finger (sauber)
+  SpritePath: itempics/fingersauber
+  GhostDescription: Ich frage mich wem der mal gehört hat...
+  HumanDescription: Kann ich den Finger irgendwo benutzen?
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: saubererfinger  
