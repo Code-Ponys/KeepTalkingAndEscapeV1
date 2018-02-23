@@ -457,7 +457,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
 
                 if(_animationBlockedCauseOfObject) {
-                    if(!_animationBlockObject._objectDisabled) return;
+                    if(!_animationBlockObject._objectDisabled) {
+                        _uiManager.HumanFlavourText = _blockedMessage;
+                        return;
+                    }
                 }
 
                 //Starts Animation, if it isnt disabled
