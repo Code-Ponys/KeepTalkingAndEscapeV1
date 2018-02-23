@@ -403,6 +403,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         return;
                     }
                 }
+                
 
 
                 //Object Damage
@@ -451,7 +452,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     if(_objectDisabled) return;
                     _objectDisabled = true;
                     _disableAnimationObject.SetActive(false);
-                    _disableAnimationObject.SetActive(true);
+                    _enableAnimationObject.SetActive(true);
                 }
 
                 if(_animationBlockedCauseOfObject) {
