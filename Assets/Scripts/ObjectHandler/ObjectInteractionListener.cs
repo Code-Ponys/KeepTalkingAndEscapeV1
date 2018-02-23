@@ -70,8 +70,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Sound implementation
         private AudioSource _audioSource;
         [SerializeField] private AudioClip _openSound;
-        [SerializeField] private AudioClip _smashSound;
+        [SerializeField] private AudioClip _pickupSound;
         [SerializeField] private AudioClip _closeSound;
+        [SerializeField] private AudioClip _radioSound;
 
         private UIManager _uiManager;
         private GameManager _gameManager;
@@ -123,7 +124,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //Damage can be disabled by Ghost
         [SerializeField] private bool _disableDamageByGhost;
-
+        
+        //Determines if its a Radio
+        [SerializeField] private bool _isARadio;
+        
         private bool _damageItemRecieved;
         private bool _damageObjectRecieved;
         private bool _damageGhostRecieved;
@@ -366,7 +370,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
 
                 // Disable GameObject and Put the Gameobject in the Inventory
-                if(_canBeTakenToInventory && _canBePickedUpAfterGhostAction != true) {
+                if(_canBeTakenToInventory && !_canBePickedUpAfterGhostAction) {
+                    float time = 5f;
+                    time -= Time.deltaTime;
+                    Source.clip = _pickupSound;
+                    Source.Play();
                     _itemHandler.AddItemToInv(_itemName);
                     _uiManager.HumanHoverText = "";
                     _meshGameObject.SetActive(false);
@@ -595,12 +603,20 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             get {return _openSound;}
         }
 
-        public AudioClip SmashSound {
-            get {return _smashSound;}
+        public AudioClip PickupSound {
+            get {return _pickupSound;}
         }
 
         public AudioClip CloseSound {
             get {return _closeSound;}
+        }
+
+        public AudioClip RadioSound {
+            get {return _radioSound;}
+        }
+
+        public bool IsARadio {
+        get {return _isARadio;}
         }
     }
 }
