@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5c7e369c4cd9b604594afc2bc7e851d2
-timeCreated: 1518518151
+timeCreated: 1519405783
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -15,6 +15,10 @@ ModelImporter:
     400004: DNA-Scanner Display
     400006: DNA-Scanner klappe
     400008: DNA-Scanner Touchpad
+    2100000: Gehaeuse dna
+    2100002: Klappe
+    2100004: Display_unten
+    2100006: Display_oben
     2300000: DNA-Scanner
     2300002: DNA-Scanner Display
     2300004: DNA-Scanner klappe
@@ -23,10 +27,10 @@ ModelImporter:
     3300002: DNA-Scanner Display
     3300004: DNA-Scanner klappe
     3300006: DNA-Scanner Touchpad
-    4300000: DNA-Scanner Display
-    4300002: DNA-Scanner Touchpad
-    4300004: DNA-Scanner klappe
-    4300006: DNA-Scanner
+    4300000: DNA-Scanner
+    4300002: DNA-Scanner klappe
+    4300004: DNA-Scanner Touchpad
+    4300006: DNA-Scanner Display
     6400000: DNA-Scanner
     6400002: DNA-Scanner Display
     6400004: DNA-Scanner klappe
@@ -35,8 +39,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: initialShadingGroup
-    second: {fileID: 2100000, guid: 6023fe1e1a529764e96c41cdff2ab9aa, type: 2}
+      name: Display_oben
+    second: {fileID: 2100000, guid: 4d967025ad56c4e43918f2df64443a4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Display_unten
+    second: {fileID: 2100000, guid: 364f91c1b5e523c49965e549d8667569, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gehaeuse dna
+    second: {fileID: 2100000, guid: 1822ca2592300414b8201c4672340e8d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Klappe
+    second: {fileID: 2100000, guid: 408cb9e9810d58e47b720ec6bbc5e454, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -74,11 +93,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

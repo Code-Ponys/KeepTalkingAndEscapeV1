@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 760cad1f3d9b72240b371f4545edac13
-timeCreated: 1519397926
+timeCreated: 1519405963
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -9,31 +9,45 @@ ModelImporter:
     100002: Karte
     100004: Klappe
     100006: Knoepfe1
+    100008: polySurface1
+    100010: polySurface2
     400000: //RootNode
     400002: Karte
     400004: Klappe
     400006: Knoepfe1
-    2100000: Knoepfe
-    2100002: Klappe1
-    2100004: Karte1
-    2300000: Karte
-    2300002: Klappe
-    2300004: Knoepfe1
-    3300000: Karte
-    3300002: Klappe
-    3300004: Knoepfe1
-    4300000: Knoepfe1
-    4300002: Klappe
-    4300004: Karte
-    6400000: Karte
-    6400002: Klappe
-    6400004: Knoepfe1
+    400008: polySurface1
+    400010: polySurface2
+    2100000: Karte1
+    2100002: Kasten
+    2100004: Klappe1
+    2100006: Knoepfe
+    2300000: Klappe
+    2300002: Knoepfe1
+    2300004: polySurface1
+    2300006: polySurface2
+    3300000: Klappe
+    3300002: Knoepfe1
+    3300004: polySurface1
+    3300006: polySurface2
+    4300000: polySurface2
+    4300002: polySurface1
+    4300004: Klappe
+    4300006: Knoepfe1
+    6400000: Klappe
+    6400002: Knoepfe1
+    6400004: polySurface1
+    6400006: polySurface2
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Karte1
-    second: {fileID: 2100000, guid: 1af812442dc78ab4187af84e777096ee, type: 2}
+    second: {fileID: 2100000, guid: 2089db1696ff38d40b08729a3b79ddea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kasten
+    second: {fileID: 2100000, guid: b67fa5d2f06939a4ca980001ee9a1c10, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
