@@ -146,6 +146,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         [SerializeField] private bool _objectCanBeDisabledToUnblockAnimation;
         [SerializeField] private bool _objectMustUnlockedWithItemForAnimation;
+        [SerializeField] private string _blockedMessage;
         [SerializeField] private string _itemIdToUnlock;
         [SerializeField] private GameObject _disableAnimationObject;
         [SerializeField] private GameObject _enableAnimationObject;
@@ -341,7 +342,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     if(_objectMustUnlocked) {
                         foreach(var obj in _objectsToUnlock) {
                             if(obj.ObjectUnlocked == false)
-                                _uiManager.GhostFlavourText = "Blockiert";
+                                _uiManager.GhostFlavourText = _blockedMessage;
                             return;
                         }
                     }
@@ -399,7 +400,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         _enableAnimationObject.SetActive(true);
                     }
                     else {
-                        _uiManager.HumanFlavourText = "Blockiert";
+                        _uiManager.HumanFlavourText = _blockedMessage;
                         return;
                     }
                 }
@@ -464,7 +465,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     if(_objectMustUnlocked)
                         foreach(var obj in _objectsToUnlock) {
                             if(obj.ObjectUnlocked == false) {
-                                _uiManager.HumanFlavourText = "Blockiert";
+                                _uiManager.HumanFlavourText = _blockedMessage;
                                 return;
                             }
                         }
