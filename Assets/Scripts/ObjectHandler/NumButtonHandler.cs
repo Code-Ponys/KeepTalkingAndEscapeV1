@@ -167,6 +167,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(Input.GetButtonDown(ButtonNames.HumanInspect) && _visibleObject.activeSelf) {
                 CloseButtonField();
             }
+
+            if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonA)) {
+                CloseButtonField();
+            }
             
             if(!Input.GetButtonDown(ButtonNames.HumanInteract)) return;
             _buttons[_y, _x].GetComponent<NumButton>().Active();
