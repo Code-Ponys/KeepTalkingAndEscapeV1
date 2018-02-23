@@ -176,7 +176,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
         private void SceneManagement() {
-            if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) SceneManager.LoadScene(_scene[0]);
+            if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) {
+                SceneManager.LoadScene(_scene[0]);
+            }
 
             if(_currentPressedButtonHuman == 4 && _currentPressedButtonGhost == 4) Application.Quit();
         }
