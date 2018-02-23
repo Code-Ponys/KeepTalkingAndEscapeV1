@@ -503,6 +503,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void UpdateGhostUi() {
+            if(_gameManager.GhostDrivenAnimationActive == true && _ghostDrivenAnimationActive != true) return;
             if(_ghostDrivenAnimationActive) {
                 _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType, KeyType.A);
                 return;
