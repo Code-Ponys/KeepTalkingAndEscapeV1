@@ -169,7 +169,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 case CharacterType.Unassigned:
                     break;
                 case CharacterType.Ghost:
-                    Debug.Log(firstButton + "" + secondButton);
                     _ghostFirstButton.sprite = GetSprite(firstButton);
                     switch(firstButton) {
                         case KeyType.A:
