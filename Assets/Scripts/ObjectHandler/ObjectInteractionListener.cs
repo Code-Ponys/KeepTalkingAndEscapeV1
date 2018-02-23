@@ -556,7 +556,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(closesPointToCharacter.y > 450) return false;
             }
             else {
-                if(closesPointToCharacter.y > 350) return false;
+                if(closesPointToCharacter.y > 330) return false;
             }
 
             closesPointToCharacter.y = 0;
