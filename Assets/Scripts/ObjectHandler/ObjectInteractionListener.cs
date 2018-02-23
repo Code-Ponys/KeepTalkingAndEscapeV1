@@ -316,10 +316,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         ///     KeyInteraction for Ghost aka Player 2
         /// </summary>
         private void KeyInteractionGhost() {
-            if(!_ghostReachable && _ghostActiveObject.activeSelf) {
+            if(!_ghostReachable && _ghostActiveObject != null && _ghostActiveObject.activeSelf) {
                 _ghostInactiveObject.SetActive(true);
                 _ghostActiveObject.SetActive(false);
             }
+
             if(!_ghostReachable) return;
             if(_gameManager.GhostDrivenAnimationActive) return;
             if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
@@ -335,8 +336,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
                 //Disables damage for linked object
                 if(_disableDamageByGhost) _damageDisabledByGhost = true;
-                
-                
+
 
                 if(AnimationType == AnimationType.None) return;
                 if(_animationType == AnimationType.Open) {
@@ -451,6 +451,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                     //Combine Item and Object in scene to get a new Item
                 }
+
                 if(_canBeTakenButStayInScene && _itemRequiredToRecieveItem) {
                     if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemNameRequiredToRecieveItem, StringComparison.CurrentCultureIgnoreCase)) {
                         _itemHandler.AddItemToInv(_itemName);
@@ -458,7 +459,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         _canBeTakenButStayInScene = false;
                     }
                 }
-                
+
 
                 if(_objectCanBeDisabledToAvoidDamage) {
                     if(_damageDisabled) return;
@@ -547,10 +548,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
                     return;
                 }
+
                 if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
                     return;
                 }
+
                 _uiManager.GhostHoverText = _objectDescription;
                 if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
