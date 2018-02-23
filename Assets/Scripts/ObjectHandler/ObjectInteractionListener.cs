@@ -34,7 +34,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //The num Button Object for the ui
         [SerializeField] private NumButtonHandler _numButtonHandler;
 
-        [SerializeField] private bool _AnimationAllowWhenMapSolved;
+        [SerializeField] private bool _animationAllowWhenMapSolved;
 
         [SerializeField] private MapHandler _mapHandler;
         private bool _humanMapActiveLast;
@@ -108,6 +108,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //only a human can interact with this item
         [SerializeField] private bool _ghostCanOpen;
+
+        [SerializeField] private bool _calculateDamageBeforePickup;
+        [SerializeField] private bool _calculateDamageBeforeAnimation;
 
         //The item id which disables damage.
         [SerializeField] private string _disableDamageWithItem;
@@ -344,7 +347,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     }
 
                     if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) return;
-                    if(_AnimationAllowWhenMapSolved && !_mapHandler.CodeSolved) return;
+                    if(_animationAllowWhenMapSolved && !_mapHandler.CodeSolved) return;
 
 
                     _animationController.StartNewAnimation(this);
@@ -403,27 +406,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
 
                 //Object Damage
-                if(_disableDamageWithObject != null && !_damageObjectRecieved)
-                    if(!_disableDamageWithObject._damageDisabled) {
-                        _gameManager.HumanController.TakeHealth(1);
-                        if(_OneTimeDamage) _damageObjectRecieved = true;
-                        if(_cancelPickupOnDamage) return;
-                    }
-
-                //Item Damage
-                if(_disableDamageWithItem != "" && !_damageItemRecieved)
-                    if(!string.Equals(Inventory.GetInstance(CharacterType.Human).ItemInHand, _disableDamageWithItem,
-                                      StringComparison.CurrentCultureIgnoreCase)) {
-                        _gameManager.HumanController.TakeHealth(1);
-                        if(_OneTimeDamage) _damageItemRecieved = true;
-                        if(_cancelPickupOnDamage) return;
-                    }
-
-                //Ghost Damage
-                if(!_damageDisabledByGhost && _disableDamageByGhost && !_damageGhostRecieved) {
-                    if(_OneTimeDamage) _damageGhostRecieved = true;
-                    if(_cancelPickupOnDamage) return;
-                }
+                if(_calculateDamageBeforePickup)
+                    if(CalculateDamage())
+                        return;
 
                 // Disable GameObject and Put the Gameobject in the Inventory
                 if(_canBeTakenToInventory && !_canBePickedUpAfterGhostAction) {
@@ -488,10 +473,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         return;
                     }
 
-                    if(_AnimationAllowWhenMapSolved && !_mapHandler.CodeSolved) {
+                    if(_animationAllowWhenMapSolved && !_mapHandler.CodeSolved) {
                         _mapHandler.OpenMap();
                         return;
                     }
+
+                    if(_calculateDamageBeforeAnimation)
+                        CalculateDamage();
 
                     _animationController.StartNewAnimation(this);
                 }
@@ -499,6 +487,32 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 //Used for Linked objects
                 if(_animationType == AnimationType.OpenLinkedOnHold) _secondGameObject.GetComponent<ObjectInteractionListener>().StartAnimation(_meshGameObject);
             }
+        }
+
+        private bool CalculateDamage() {
+            if(_disableDamageWithObject != null && !_damageObjectRecieved)
+                if(!_disableDamageWithObject._damageDisabled) {
+                    _gameManager.HumanController.TakeHealth(1);
+                    if(_OneTimeDamage) _damageObjectRecieved = true;
+                    if(_cancelPickupOnDamage) return true;
+                }
+
+            //Item Damage
+            if(_disableDamageWithItem != "" && !_damageItemRecieved)
+                if(!string.Equals(Inventory.GetInstance(CharacterType.Human).ItemInHand, _disableDamageWithItem,
+                                  StringComparison.CurrentCultureIgnoreCase)) {
+                    _gameManager.HumanController.TakeHealth(1);
+                    if(_OneTimeDamage) _damageItemRecieved = true;
+                    if(_cancelPickupOnDamage) return true;
+                }
+
+            //Ghost Damage
+            if(!_damageDisabledByGhost && _disableDamageByGhost && !_damageGhostRecieved) {
+                if(_OneTimeDamage) _damageGhostRecieved = true;
+                if(_cancelPickupOnDamage) return true;
+            }
+
+            return false;
         }
 
         private void UpdateUi() {
