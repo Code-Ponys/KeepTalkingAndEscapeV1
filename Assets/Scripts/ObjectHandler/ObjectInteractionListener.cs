@@ -534,6 +534,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(_ghostReachable) {
+                if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                }
+                else if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                }
                 _uiManager.GhostHoverText = _objectDescription;
                 if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
