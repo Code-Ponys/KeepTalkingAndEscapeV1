@@ -68,15 +68,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _objectInteractionListener.Source.clip = _objectInteractionListener.OpenSound;
                 _objectInteractionListener.Source.Play();
             }
-
-            if(_animationType == AnimationType.GhostActivateOnKeyHold && _ghostDrivenAnimationActive && _objectInteractionListener.IsARadio) {
-                _objectInteractionListener.Source.clip = _objectInteractionListener.RadioSound;
-                _objectInteractionListener.Source.loop = true;
-                _objectInteractionListener.Source.Play();
-            }
-            else if(!_ghostDrivenAnimationActive && _objectInteractionListener.IsARadio){
-                _objectInteractionListener.Source.Pause();
-            }
+            //Sound for the Record player
+//            if(_animationType == AnimationType.GhostActivateOnKeyHold && _ghostDrivenAnimationActive && _objectInteractionListener.IsARadio) {
+//                _objectInteractionListener.Source.clip = _objectInteractionListener.RadioSound;
+//                _objectInteractionListener.Source.loop = true;
+//                _objectInteractionListener.Source.Play();
+//            }
+//            else if(!_ghostDrivenAnimationActive && _objectInteractionListener.IsARadio){
+//                _objectInteractionListener.Source.Pause();
+//            }
             if(!_animationActive) return;
             OpenAnimation();
             MoveOnKeySmash();
@@ -219,7 +219,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(Input.GetButtonDown(ButtonNames.GetButtonName(KeyType.A))) {
                 Debug.Log("Leave Object");
                 _ghostDrivenAnimationActive = false;
-                _objectInteractionListener.Source.Pause();
             }
 
             if(_animationType != AnimationType.GhostActivateOnKeyHold) return;
