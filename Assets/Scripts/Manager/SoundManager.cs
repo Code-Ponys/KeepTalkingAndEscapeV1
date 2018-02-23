@@ -24,6 +24,6 @@ public class SoundManager : MonoBehaviour {
 	}
 	
 	public static SoundManager GetSoundManager() {
-		return GameObject.Find("SoundManager").GetComponent<SoundManager>();
+		return GameObject.Find("System").GetComponent<SoundManager>();
 	}
 }

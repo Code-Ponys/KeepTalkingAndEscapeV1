@@ -100,7 +100,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private ItemHandler _itemHandler;
 
         public static UIManager GetUiManager() {
-            return GameObject.Find("UIManager").GetComponent<UIManager>();
+            return GameObject.Find("System").GetComponent<UIManager>();
         }
 
         private void Start() {

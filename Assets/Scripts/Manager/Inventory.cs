@@ -44,7 +44,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void Start() {
             SearchInventoryObjects();
-            
+
             if(_secondInventory.CharacterType == _characterType) throw new Exception("Inventory must have different character types");
 
             _itemHandler = ItemHandler.GetItemHandler();
@@ -66,6 +66,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
             ToggleInventoryVisibility();
         }
 
@@ -142,14 +143,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 case CharacterType.Ghost:
                     for(var i = 0; i < 4; i++)
                     for(var j = 0; j < 5; j++) {
-                        _slots[i, j] = GameObject.Find(i + "," + j + "G").AddComponent<ItemSlotHandler>();
-                        _selectorHuman[i, j] = GameObject.Find(i + "," + j + "GSH").GetComponent<Image>();
-                        _selectorGhost[i, j] = GameObject.Find(i + "," + j + "GSG").GetComponent<Image>();
+                        _slots[i, j] = GameObject.Find("GhostInventory/VisibilityObject/Slots/InventoryItems/" + i + "," + j).AddComponent<ItemSlotHandler>();
+                        _selectorHuman[i, j] = GameObject.Find("GhostInventory/VisibilityObject/Slots/InventorySelectorHuman/" + i + "," + j).GetComponent<Image>();
+                        _selectorGhost[i, j] = GameObject.Find("GhostInventory/VisibilityObject/Slots/InventorySelectorGhost/" + i + "," + j).GetComponent<Image>();
                         _slots[i, j].CharacterType = CharacterType.Ghost;
                     }
 
-                    combine[0] = GameObject.Find("FirstG");
-                    combine[1] = GameObject.Find("SecondG");
+                    combine[0] = GameObject.Find("GhostInventory/VisibilityObject/Slots/Combine/First");
+                    combine[1] = GameObject.Find("GhostInventory/VisibilityObject/Slots/Combine/Second");
                     combine[0].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
                     combine[1].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
 
@@ -158,14 +159,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 case CharacterType.Human:
                     for(var i = 0; i < 4; i++)
                     for(var j = 0; j < 5; j++) {
-                        _slots[i, j] = GameObject.Find(i + "," + j + "H").AddComponent<ItemSlotHandler>();
-                        _selectorHuman[i, j] = GameObject.Find(i + "," + j + "HSH").GetComponent<Image>();
-                        _selectorGhost[i, j] = GameObject.Find(i + "," + j + "HSG").GetComponent<Image>();
+                        _slots[i, j] = GameObject.Find("HumanInventory/VisibilityObject/Slots/InventoryItems/" + i + "," + j).AddComponent<ItemSlotHandler>();
+                        _selectorHuman[i, j] = GameObject.Find("HumanInventory/VisibilityObject/Slots/InventorySelectorHuman/" + i + "," + j).GetComponent<Image>();
+                        _selectorGhost[i, j] = GameObject.Find("HumanInventory/VisibilityObject/Slots/InventorySelectorGhost/" + i + "," + j).GetComponent<Image>();
                         _slots[i, j].CharacterType = CharacterType.Human;
                     }
 
-                    combine[0] = GameObject.Find("FirstH");
-                    combine[1] = GameObject.Find("SecondH");
+                    combine[0] = GameObject.Find("HumanInventory/VisibilityObject/Slots/Combine/First");
+                    combine[1] = GameObject.Find("HumanInventory/VisibilityObject/Slots/Combine/Second");
                     combine[0].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
                     combine[1].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
 

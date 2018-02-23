@@ -22,7 +22,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private UIManager _uiManager;
 
         public static ItemHandler GetItemHandler() {
-            return GameObject.Find("ItemHandler").GetComponent<ItemHandler>();
+            return GameObject.Find("System").GetComponent<ItemHandler>();
         }
 
         private void Start() {
