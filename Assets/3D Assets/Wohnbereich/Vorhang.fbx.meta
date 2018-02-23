@@ -1,42 +1,85 @@
 fileFormatVersion: 2
 guid: eb9357dabb0a4bd4da0f86a89023b4a4
-timeCreated: 1518691950
+timeCreated: 1519398927
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Vorhang_Links
-    100004: Vorhang_Rechts
-    100006: Vorhang_Ringe
-    100008: Vorhang_Stange
-    400000: //RootNode
-    400002: Vorhang_Links
-    400004: Vorhang_Rechts
-    400006: Vorhang_Ringe
-    400008: Vorhang_Stange
-    2300000: Vorhang_Links
-    2300002: Vorhang_Rechts
-    2300004: Vorhang_Ringe
-    2300006: Vorhang_Stange
-    3300000: Vorhang_Links
-    3300002: Vorhang_Rechts
-    3300004: Vorhang_Ringe
-    3300006: Vorhang_Stange
-    4300000: Vorhang_Ringe
-    4300002: Vorhang_Rechts
-    4300004: Vorhang_Stange
-    4300006: Vorhang_Links
-    6400000: Vorhang_Links
-    6400002: Vorhang_Rechts
-    6400004: Vorhang_Ringe
-    6400006: Vorhang_Stange
+    100000: band
+    100002: band.001
+    100004: //RootNode
+    100006: Vorhang_Links
+    100008: Vorhang_Rechts
+    100010: Vorhang_Ringe
+    100012: Vorhang_Stange
+    400000: band
+    400002: band.001
+    400004: //RootNode
+    400006: Vorhang_Links
+    400008: Vorhang_Rechts
+    400010: Vorhang_Ringe
+    400012: Vorhang_Stange
+    2100000: band2
+    2100002: band
+    2100004: Vorhang_Ringe
+    2100006: Vorhang_Rechts
+    2100008: Vorhang_Stange
+    2100010: Vorhang_Links
+    2300000: band
+    2300002: band.001
+    2300004: Vorhang_Links
+    2300006: Vorhang_Rechts
+    2300008: Vorhang_Ringe
+    2300010: Vorhang_Stange
+    3300000: band
+    3300002: band.001
+    3300004: Vorhang_Links
+    3300006: Vorhang_Rechts
+    3300008: Vorhang_Ringe
+    3300010: Vorhang_Stange
+    4300000: band.001
+    4300002: band
+    4300004: Vorhang_Ringe
+    4300006: Vorhang_Rechts
+    4300008: Vorhang_Stange
+    4300010: Vorhang_Links
+    6400000: band
+    6400002: band.001
+    6400004: Vorhang_Links
+    6400006: Vorhang_Rechts
+    6400008: Vorhang_Ringe
+    6400010: Vorhang_Stange
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Vorhang_Links
+    second: {fileID: 2100000, guid: 7593653b41be33e4f85da398381a518d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vorhang_Rechts
+    second: {fileID: 2100000, guid: 9c25a0fb273721344b9f5f69c849e364, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vorhang_Ringe
+    second: {fileID: 2100000, guid: bcbcd53eee8bf754e8e1f53b03b5f86a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vorhang_Stange
+    second: {fileID: 2100000, guid: 30f9a30798f9b2645b21585b0d7cb3b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: band
+    second: {fileID: 2100000, guid: 947ced6ff78ee3d44912292157c06d93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: band2
+    second: {fileID: 2100000, guid: 3fb1660c1180e8a46b1a202c86fdb740, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -79,6 +122,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

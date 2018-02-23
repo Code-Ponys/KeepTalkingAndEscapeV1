@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 760cad1f3d9b72240b371f4545edac13
-timeCreated: 1518715387
+timeCreated: 1519397926
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -8,29 +8,42 @@ ModelImporter:
     100000: //RootNode
     100002: Karte
     100004: Klappe
-    100006: "Kn\xF6pfe"
+    100006: Knoepfe1
     400000: //RootNode
     400002: Karte
     400004: Klappe
-    400006: "Kn\xF6pfe"
+    400006: Knoepfe1
+    2100000: Knoepfe
+    2100002: Klappe1
+    2100004: Karte1
     2300000: Karte
     2300002: Klappe
-    2300004: "Kn\xF6pfe"
+    2300004: Knoepfe1
     3300000: Karte
     3300002: Klappe
-    3300004: "Kn\xF6pfe"
-    4300000: "Kn\xF6pfe"
+    3300004: Knoepfe1
+    4300000: Knoepfe1
     4300002: Klappe
     4300004: Karte
     6400000: Karte
     6400002: Klappe
-    6400004: "Kn\xF6pfe"
+    6400004: Knoepfe1
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: initialShadingGroup
-    second: {fileID: 2100000, guid: 6023fe1e1a529764e96c41cdff2ab9aa, type: 2}
+      name: Karte1
+    second: {fileID: 2100000, guid: 1af812442dc78ab4187af84e777096ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Klappe1
+    second: {fileID: 2100000, guid: fb5a36c89f4781946a06064473aa42bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Knoepfe
+    second: {fileID: 2100000, guid: db85a852a3461ac439a5c3ab737b1e83, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -68,11 +81,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
