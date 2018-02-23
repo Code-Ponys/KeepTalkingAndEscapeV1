@@ -447,13 +447,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                     //Combine Item and Object in scene to get a new Item
                 }
-                else if(_canBeTakenButStayInScene && _itemRequiredToRecieveItem) {
+                if(_canBeTakenButStayInScene && _itemRequiredToRecieveItem) {
                     if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemNameRequiredToRecieveItem, StringComparison.CurrentCultureIgnoreCase)) {
                         _itemHandler.AddItemToInv(_itemName);
                         _itemHandler.RemoveItemFromHandAndInventory();
                         _canBeTakenButStayInScene = false;
                     }
                 }
+                
 
                 if(_objectCanBeDisabledToAvoidDamage) {
                     if(_damageDisabled) return;
