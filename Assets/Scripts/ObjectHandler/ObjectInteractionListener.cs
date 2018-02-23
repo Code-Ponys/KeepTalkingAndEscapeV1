@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
+    /// <summary>
+    /// The ultimate Object listener to animate, pickup items, and more.
+    /// </summary>
     public class ObjectInteractionListener : MonoBehaviour {
         //The Gameobect which holds the script
         [SerializeField] private GameObject _meshGameObject;
@@ -189,7 +192,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             if(_activeObject != null) _inactiveObject.SetActive(false);
             if(_enableAnimationObject != null) _enableAnimationObject.SetActive(false);
-            if(_enabledObject != null) _activeObject.SetActive(false);
+            if(_enabledObject != null) _enabledObject.SetActive(false);
+            if(_ghostActiveObject != null) _ghostActiveObject.SetActive(false);
 
             _audioSource = _meshGameObject.AddComponent<AudioSource>();
         }
