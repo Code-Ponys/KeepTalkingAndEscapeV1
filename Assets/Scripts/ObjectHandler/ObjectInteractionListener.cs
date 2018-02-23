@@ -123,10 +123,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //Damage can be disabled by Ghost
         [SerializeField] private bool _disableDamageByGhost;
-        
+
         //Determines if its a Radio
         [SerializeField] private bool _isARadio;
-        
+
         private bool _damageItemRecieved;
         private bool _damageObjectRecieved;
         private bool _damageGhostRecieved;
@@ -407,8 +407,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                 // Disable GameObject and Put the Gameobject in the Inventory
                 if(_canBeTakenToInventory && !_canBePickedUpAfterGhostAction) {
-                    float time = 5f;
-                    time -= Time.deltaTime;
                     Source.clip = _pickupSound;
                     Source.Play();
                     _itemHandler.AddItemToInv(_itemName);
@@ -514,12 +512,23 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             if(_ghostReachable) {
                 _uiManager.GhostHoverText = _objectDescription;
+                if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                    return;
+                }
+                if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
+                    _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                    return;
+                }
+
                 if(_ghostFlavourText == "" && _ghostCanOpen) {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                    return;
                 }
 
                 if(!_ghostCanOpen && _ghostFlavourText != "") {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
+                    return;
                 }
 
                 if(_ghostCanOpen && _ghostFlavourText != "") {
