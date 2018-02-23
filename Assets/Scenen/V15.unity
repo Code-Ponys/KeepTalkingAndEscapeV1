@@ -176,6 +176,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -706,6 +708,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -834,6 +838,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -950,6 +956,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -1047,6 +1055,52 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &112022585
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 490.7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
+  m_IsPrefabParent: 0
 --- !u!4 &119871048 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 9ca7b4666fa41e54495bc641dd8f9d4f, type: 3}
@@ -1155,6 +1209,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -1478,6 +1534,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -1561,7 +1619,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 77f7c843f1324ff4e97fabf6e73e43e2, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2300004, guid: 77f7c843f1324ff4e97fabf6e73e43e2, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1578,11 +1636,11 @@ Prefab:
     - target: {fileID: 2300002, guid: 77f7c843f1324ff4e97fabf6e73e43e2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0bfa49c8c6480f340acd433ea12684ee, type: 2}
+      objectReference: {fileID: 2100000, guid: c67b3974e5ddeeb468b38b1e6b4d855a, type: 2}
     - target: {fileID: 2300004, guid: 77f7c843f1324ff4e97fabf6e73e43e2, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: e76ecd064d95acb4c82b81df37dfd148, type: 2}
+      objectReference: {fileID: 2100000, guid: b49397481e6ce3d4c9bdd63812524e88, type: 2}
     - target: {fileID: 2300000, guid: 77f7c843f1324ff4e97fabf6e73e43e2, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -1780,6 +1838,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -2334,6 +2394,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -2532,6 +2594,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -2852,6 +2916,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -2981,7 +3047,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4761630395972058, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92b8d177a4cd9134ea521f6d4cbcd9cc, type: 2}
@@ -3293,6 +3359,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -3371,6 +3439,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -4021,7 +4091,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 1d5ffb5113708b741b2e278568411cbe, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d5ffb5113708b741b2e278568411cbe, type: 3}
@@ -5527,56 +5597,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ed68072cd6e3fc141b6b8d55453e3882, type: 3}
   m_PrefabInternal: {fileID: 876226956}
---- !u!1001 &890868073
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 489.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
-  m_IsPrefabParent: 0
 --- !u!4 &898702452 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400006, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
@@ -5643,6 +5663,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -6124,6 +6146,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -6265,6 +6289,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -6343,6 +6369,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -6465,6 +6493,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -7292,6 +7322,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -7877,6 +7909,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -8223,6 +8257,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -8435,6 +8471,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -8617,6 +8655,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -8683,6 +8723,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -9068,6 +9110,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -9319,6 +9363,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -10860,6 +10906,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -11000,6 +11048,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -11262,6 +11312,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -11399,6 +11451,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -11465,6 +11519,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -11531,6 +11587,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -11701,6 +11759,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -12209,6 +12269,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -12341,6 +12403,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -12411,6 +12475,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -12781,6 +12847,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: bffd34e7efc3b194eba4eab5c0209773, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bffd34e7efc3b194eba4eab5c0209773, type: 3}
   m_IsPrefabParent: 0
@@ -13107,6 +13177,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -13317,6 +13389,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -13690,6 +13764,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -13756,6 +13832,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
@@ -13872,6 +13950,8 @@ MonoBehaviour:
   _animationBlockedCauseOfObject: 0
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
   _objectMustUnlocked: 0
