@@ -70,13 +70,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Sound implementation
         private AudioSource _audioSource;
         [SerializeField] private AudioClip _openSound;
-        [SerializeField] private AudioClip _pickupSound;
         [SerializeField] private AudioClip _closeSound;
         [SerializeField] private AudioClip _radioSound;
 
         private UIManager _uiManager;
         private GameManager _gameManager;
         private ItemHandler _itemHandler;
+        private SoundManager _soundManager;
         private bool _humanMessageActive;
         private bool _ghostMessageActive;
         private bool _humanLookingAtMe;
@@ -125,7 +125,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private bool _disableDamageByGhost;
 
         //Determines if its a Radio
-        [SerializeField] private bool _isARadio;
+//        [SerializeField] private bool _isARadio;
 
         private bool _damageItemRecieved;
         private bool _damageObjectRecieved;
@@ -170,6 +170,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _itemHandler = ItemHandler.GetItemHandler();
+            _soundManager = SoundManager.GetSoundManager();
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
             if(AnimationType != AnimationType.None) _animationController = gameObject.AddComponent<AnimationController>();
@@ -179,11 +180,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _scaleBase = _meshGameObject.transform.localScale;
 
             _itemHandler.CheckItem(this);
-            _audioSource = _meshGameObject.AddComponent<AudioSource>();
 
             if(_activeObject != null) _inactiveObject.SetActive(false);
             if(_enableAnimationObject != null) _enableAnimationObject.SetActive(false);
             if(_enabledObject != null) _activeObject.SetActive(false);
+
+            _audioSource = _meshGameObject.AddComponent<AudioSource>();
         }
 
         private void Update() {
@@ -407,8 +409,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                 // Disable GameObject and Put the Gameobject in the Inventory
                 if(_canBeTakenToInventory && !_canBePickedUpAfterGhostAction) {
-                    Source.clip = _pickupSound;
-                    Source.Play();
+                    _soundManager.Source.clip = _soundManager.PickupSound;
+                    _soundManager.Source.Play();
                     _itemHandler.AddItemToInv(_itemName);
                     _uiManager.HumanHoverText = "";
                     _meshGameObject.SetActive(false);
@@ -516,6 +518,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
                     return;
                 }
+
                 if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
                     return;
@@ -523,12 +526,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                 if(_ghostFlavourText == "" && _ghostCanOpen) {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
-                    return;
                 }
 
                 if(!_ghostCanOpen && _ghostFlavourText != "") {
                     _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
-                    return;
                 }
 
                 if(_ghostCanOpen && _ghostFlavourText != "") {
@@ -640,16 +641,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             get {return _itemName;}
         }
 
-        public AudioSource Source {
-            get {return _audioSource;}
-        }
-
         public AudioClip OpenSound {
             get {return _openSound;}
-        }
-
-        public AudioClip PickupSound {
-            get {return _pickupSound;}
         }
 
         public AudioClip CloseSound {
@@ -660,12 +653,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             get {return _radioSound;}
         }
 
-        public bool IsARadio {
-            get {return _isARadio;}
-        }
+//        public bool IsARadio {
+//            get {return _isARadio;}
+//        }
 
         public GameObject MeshGameObject {
             get {return _meshGameObject;}
+        }
+
+        public AudioSource Source {
+            get {return _audioSource;}
+            set {_audioSource = value;}
         }
     }
 }
