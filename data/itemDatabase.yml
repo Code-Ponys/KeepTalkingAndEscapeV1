@@ -54,6 +54,24 @@ ItemDatabaseList:
   Combineable: false
   CombineWith: Item
   CombineWithItem: none
+  NextItem: edelsteinrot
+- ItemId: edelsteinrot
+  Name: Roter Edelstein
+  SpritePath: itempics/edelsteinrot
+  GhostDescription: Roter Stein. Sieht nützlich aus.
+  HumanDescription: Funkelnder roter Stein.
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: edelsteingruen
+- ItemId: edelsteingruen
+  Name: Grüner Edelstein
+  SpritePath: itempics/edelsteingruen
+  GhostDescription: Grüner Stein. Sieht nützlich aus.
+  HumanDescription: Funkelnder grüner Stein.
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
   NextItem: nemo
 - ItemId: nemo
   Name: Plastik Fisch
@@ -126,4 +144,22 @@ ItemDatabaseList:
   Combineable: false
   CombineWith: Item
   CombineWithItem: none
-  NextItem: schluesselkarte 
+  NextItem: handtuch 
+- ItemId: handtuch
+  Name: Handtuch
+  SpritePath: itempics/handtuch
+  GhostDescription: Einigermaßen sauber...
+  HumanDescription: Nur teilweise verdreckt, vielleicht aknn ich es irgendwo benutzen.
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: coolesShirt
+- ItemId: coolesShirt
+  Name: Cooles Shirt
+  SpritePath: itempics/coolesShirt
+  GhostDescription: Der Mann darauf sieht gut aus!
+  HumanDescription: Ziemlich cooles Shirt, hoffe der Besitzer wird es nicht vermissen.
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: cooles Shirt
