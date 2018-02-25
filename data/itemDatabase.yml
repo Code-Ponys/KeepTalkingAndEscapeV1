@@ -171,4 +171,22 @@ ItemDatabaseList:
   Combineable: false
   CombineWith: Item
   CombineWithItem: none
-  NextItem: linse
+  NextItem: tagebuch
+- ItemId: tagebuch
+  Name: altes Tagebuch
+  SpritePath: itempics/sendnudes
+  GhostDescription: Die Einträge wurden an verschiedenen Orten geschrieben... Brahestraße, Blunkstraße, Pohlestraße... Ob sie wichtig sind?
+  HumanDescription: Es wirkt nicht so als wäre der Verfasser okay gewesen als er das geschrieben hat.
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: usb
+- ItemId: usb
+  Name: USB Stick
+  SpritePath: itempics/usb
+  GhostDescription: Ein USB Stick... wo könnten wir ihn einstecken?
+  HumanDescription: Seltsam... ich habe hier überhaupt keinen Computer gesehen..
+  Combineable: false
+  CombineWith: Item
+  CombineWithItem: none
+  NextItem: usb
