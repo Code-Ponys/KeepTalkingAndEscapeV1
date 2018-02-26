@@ -185,7 +185,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private GameObject _secondLight;
         private bool _objectUnlocked;
         private object _ghostReachableLast;
-        
 
 
         private void Start() {
@@ -402,14 +401,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     }
                 }
 
-                if(_itemIdToUnlock != "" && _objectUnlocked && _showImageOnInteraction) {
+                if(_itemIdToUnlock != "" && _animationUnlocked && _showImageOnInteraction) {
                     _uiManager.ShowImage(CharacterType.Human, _humanImage);
                 }
 
                 if(_itemIdToUnlock == "" && _showImageOnInteraction) {
                     _uiManager.ShowImage(CharacterType.Human, _humanImage);
                 }
-                    
+
 
                 if(_lightswitch) {
                     _light.SetActive(!_light.activeSelf);
@@ -667,6 +666,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             if(_ghostFlavourText == "" && _ghostCanOpen) {
                 _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
+                return;
+            }
+
+            if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction) {
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
                 return;
             }
 
