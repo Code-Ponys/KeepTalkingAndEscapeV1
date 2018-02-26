@@ -131,7 +131,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Damage can be disabled by Ghost
         [SerializeField] private bool _disableDamageByGhost;
 
-        [SerializeField] private GameObject _removeParticleOnNoDamage;
+        [SerializeField] private GhostParticleHandler _removeParticleOnNoDamage;
         
 
         //Determines if its a Radio
@@ -251,7 +251,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(damageDisabled) {
-                _removeParticleOnNoDamage.GetComponent<GhostParticleHandler>().enabled = false;
+                _removeParticleOnNoDamage.enabled = false;
             }
 
 
