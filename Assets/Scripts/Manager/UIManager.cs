@@ -176,7 +176,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
         public void ShowButtons(CharacterType type, KeyType firstButton, KeyType secondButton, int instanceId) {
-            Debug.Log(firstButton + " " + secondButton);
             switch(type) {
                 case CharacterType.Unassigned:
                     break;

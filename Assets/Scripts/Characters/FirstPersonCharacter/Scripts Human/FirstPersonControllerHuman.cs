@@ -160,7 +160,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void GetInput(out float speed)
         {
-            if(_gameManager.HumanNumPadActive || _inventory.InventoryActive) {
+            if(_gameManager.HumanNumPadActive || _inventory.InventoryActive || _gameManager.HumanMapActive) {
                 speed = 2;
                 return;
             }
