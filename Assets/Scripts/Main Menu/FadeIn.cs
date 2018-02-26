@@ -10,7 +10,7 @@ public class FadeIn : MonoBehaviour {
 	void Update () {
 		var temp = gameObject.GetComponent<Renderer>().material.color;
 		_timer -= Time.deltaTime;
-
+		//Begins Fade In
 		if(_timer >= 0) {
 			temp.a -= 0.38f * Time.deltaTime;
 			gameObject.GetComponent<Renderer>().material.color = temp;
