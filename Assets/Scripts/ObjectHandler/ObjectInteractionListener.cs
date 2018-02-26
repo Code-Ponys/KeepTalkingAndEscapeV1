@@ -237,6 +237,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             UpdateDamageParticle();
         }
 
+        /// <summary>
+        /// Destroys the particle Component, if all damage is disabled.
+        /// </summary>
         private void UpdateDamageParticle() {
             if(_removeParticleOnNoDamage == null) return;
             var damageDisabled = true;
