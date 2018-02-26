@@ -8,46 +8,6 @@ using UnityStandardAssets.Characters.FirstPerson;
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
     public class UIManager : MonoBehaviour {
 
-
-        public string GhostHoverText {
-            get {return _ghostHoverText.text;}
-            set {_ghostHoverText.text = value;}
-        }
-
-        public string HumanHoverText {
-            get {return _humanHoverText.text;}
-            set {_humanHoverText.text = value;}
-        }
-
-        public string GhostFlavourText {
-            get {return _ghostFlavourText.text;}
-            set {
-                _ghostFlavourText.text = value;
-                _timerGhost = 0;
-            }
-        }
-
-        public string HumanFlavourText {
-            get {return _humanFlavourText.text;}
-            set {
-                _humanFlavourText.text = value;
-                _timerHuman = 0;
-            }
-        }
-
-        public string HealthText {
-            get {return _healthText.text;}
-            set {_healthText.text = value;}
-        }
-
-        public Inventory InventoryGhost {
-            get {return _inventoryGhost;}
-        }
-
-        public Inventory InventoryHuman {
-            get {return _inventoryHuman;}
-        }
-
         [SerializeField] private Text _ghostHoverText;
         [SerializeField] private Text _humanHoverText;
         [SerializeField] private Text _ghostFlavourText;
@@ -89,6 +49,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Sprite _r;
 
         [SerializeField] private Sprite _transparent;
+
+        private int _instanceIdHuman;
+        private int _instanceIdGhost;
 
         private float _timerHuman;
 
@@ -164,7 +127,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             }
         }
 
-        public void ShowButtons(CharacterType type, KeyType firstButton, KeyType secondButton) {
+        public void ShowButtons(CharacterType type, KeyType firstButton, KeyType secondButton, int instanceId) {
             Debug.Log(firstButton + " " + secondButton);
             switch(type) {
                 case CharacterType.Unassigned:
@@ -231,7 +194,18 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
 
         public void HideButtons(CharacterType type) {
-            ShowButtons(type, KeyType.none, KeyType.none);
+            ShowButtons(type, KeyType.none, KeyType.none, 0);
+        }
+
+        public int GetLastInstanceID(CharacterType characterType) {
+            switch(characterType) {
+                case CharacterType.Ghost:
+                    return _instanceIdGhost;
+                case CharacterType.Human:
+                    return _instanceIdHuman;
+                default:
+                    throw new ArgumentOutOfRangeException("characterType", characterType, null);
+            }   
         }
 
         public Sprite A {
@@ -317,6 +291,45 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 default:
                     throw new ArgumentOutOfRangeException("key", key, null);
             }
+        }
+        
+        public string GhostHoverText {
+            get {return _ghostHoverText.text;}
+            set {_ghostHoverText.text = value;}
+        }
+
+        public string HumanHoverText {
+            get {return _humanHoverText.text;}
+            set {_humanHoverText.text = value;}
+        }
+
+        public string GhostFlavourText {
+            get {return _ghostFlavourText.text;}
+            set {
+                _ghostFlavourText.text = value;
+                _timerGhost = 0;
+            }
+        }
+
+        public string HumanFlavourText {
+            get {return _humanFlavourText.text;}
+            set {
+                _humanFlavourText.text = value;
+                _timerHuman = 0;
+            }
+        }
+
+        public string HealthText {
+            get {return _healthText.text;}
+            set {_healthText.text = value;}
+        }
+
+        public Inventory InventoryGhost {
+            get {return _inventoryGhost;}
+        }
+
+        public Inventory InventoryHuman {
+            get {return _inventoryHuman;}
         }
 
     }

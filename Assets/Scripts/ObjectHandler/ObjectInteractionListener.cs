@@ -1,4 +1,5 @@
 ﻿using System;
+using NUnit.Framework.Internal;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -530,7 +531,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void UpdateHumanUi() {
-            if(!_humanReachable && _uiManager.HumanHoverText == _objectDescription && _objectDescription != "") {
+            if(!_humanReachable && _uiManager.HumanHoverText == _objectDescription && _objectDescription != "" && ) {
                 _uiManager.HumanHoverText = "";
                 Debug.Log(gameObject.name + "entfernt buttons");
 
@@ -542,10 +543,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             _uiManager.HumanHoverText = _objectDescription;
             if(_humanFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none);
+                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none, this.GetInstanceID());
             }
             else {
-                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A);
+                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A, this.GetInstanceID());
             }
         }
 
@@ -569,52 +570,52 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             _uiManager.GhostHoverText = _objectDescription;
             if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, this.GetInstanceID());
                 return;
             }
 
             if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, this.GetInstanceID());
                 return;
             }
 
             if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, this.GetInstanceID());
                 return;
             }
 
             if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, this.GetInstanceID());
                 return;
             }
 
             if(_disableDamageByGhost && _damageDisabledByGhost && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, this.GetInstanceID());
                 return;
             }
 
             if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, this.GetInstanceID());
                 return;
             }
 
             if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, this.GetInstanceID());
                 return;
             }
 
             if(_ghostFlavourText == "" && _ghostCanOpen) {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, this.GetInstanceID());
                 return;
             }
 
             if(!_ghostCanOpen && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, this.GetInstanceID());
                 return;
             }
 
             if(_ghostCanOpen && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, this.GetInstanceID());
             }
         }
 
