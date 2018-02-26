@@ -245,13 +245,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(_disableDamageByGhost) {
-                if(damageDisabled != false) {
+                if(damageDisabled) {
                     damageDisabled = _damageDisabled;
                 }
             }
 
             if(damageDisabled) {
-                _removeParticleOnNoDamage.enabled = false;
+                Destroy(_removeParticleOnNoDamage);
             }
 
 
