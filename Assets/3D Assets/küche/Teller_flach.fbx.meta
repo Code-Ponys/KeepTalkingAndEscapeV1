@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: d65c35f65011e884aa40c7ca33418e5f
-timeCreated: 1518685506
+timeCreated: 1519636365
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Teller flach
     2300000: //RootNode
     3300000: //RootNode
     4300000: Teller_flach
@@ -15,8 +16,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1.001
-    second: {fileID: 2100000, guid: 4e961efaae5890443ac8333b6bddde2b, type: 2}
+      name: Teller flach
+    second: {fileID: 2100000, guid: 69a9f4763b4f26840adbe22998fa3f36, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

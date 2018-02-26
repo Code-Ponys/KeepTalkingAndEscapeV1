@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.104076564, g: 0.15299457, b: 0.25735295, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -33,12 +33,12 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 512
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 857212749}
-  m_IndirectSpecularColor: {r: 0.14682841, g: 0.12291818, b: 0.09629474, a: 1}
+  m_IndirectSpecularColor: {r: 0.0984251, g: 0.08671402, b: 0.07180435, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -64,7 +64,8 @@ LightmapSettings:
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
     m_Padding: 2
-    m_LightmapParameters: {fileID: 0}
+    m_LightmapParameters: {fileID: 15200, guid: 0000000000000000f000000000000000,
+      type: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
     m_FinalGather: 0
@@ -142,7 +143,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -165,6 +166,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -177,9 +180,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -223,27 +231,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &7814013
+--- !u!4 &7814013 stripped
 Transform:
-  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
   m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 1885703611}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 577.9, y: 61.1, z: 557.81354}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 366454465}
-  - {fileID: 109089737}
-  - {fileID: 284018307}
-  m_Father: {fileID: 2059491608}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &15224734
 Prefab:
   m_ObjectHideFlags: 0
@@ -327,11 +323,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 6d70dba7c37bb7b4e94c115ca5c311d5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6d70dba7c37bb7b4e94c115ca5c311d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -99.2
+      value: 899.4
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 6d70dba7c37bb7b4e94c115ca5c311d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -345,12 +341,20 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6d70dba7c37bb7b4e94c115ca5c311d5, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 6d70dba7c37bb7b4e94c115ca5c311d5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 522.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d70dba7c37bb7b4e94c115ca5c311d5, type: 3}
   m_IsPrefabParent: 0
 --- !u!4 &18322575 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 400010, guid: 6d70dba7c37bb7b4e94c115ca5c311d5, type: 3}
+  m_PrefabParentObject: {fileID: 400000, guid: 6d70dba7c37bb7b4e94c115ca5c311d5, type: 3}
   m_PrefabInternal: {fileID: 18322574}
 --- !u!1001 &21593131
 Prefab:
@@ -714,7 +718,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -737,6 +741,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -749,9 +755,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -844,7 +855,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -867,6 +878,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -879,9 +892,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -962,7 +980,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -985,6 +1003,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -997,9 +1017,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -1095,95 +1120,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &109089736
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100004, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 109089737}
-  - component: {fileID: 109089740}
-  - component: {fileID: 109089739}
-  - component: {fileID: 109089738}
-  m_Layer: 0
-  m_Name: Klappe
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &109089737
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400004, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 109089736}
-  m_LocalRotation: {x: -0.7066481, y: 0.025467664, z: -0.025467657, w: 0.706648}
-  m_LocalPosition: {x: -63.24342, y: 176.94148, z: -4.406766}
-  m_LocalScale: {x: 100.00001, y: 100, z: 100.00001}
-  m_Children: []
-  m_Father: {fileID: 7814013}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &109089738
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6400002, guid: 760cad1f3d9b72240b371f4545edac13,
-    type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 109089736}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300002, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
---- !u!23 &109089739
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300002, guid: 760cad1f3d9b72240b371f4545edac13,
-    type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 109089736}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: fb5a36c89f4781946a06064473aa42bc, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &109089740
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300002, guid: 760cad1f3d9b72240b371f4545edac13,
-    type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 109089736}
-  m_Mesh: {fileID: 4300002, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
 --- !u!1001 &112022585
 Prefab:
   m_ObjectHideFlags: 0
@@ -1221,7 +1157,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0946eb69d91acf34e8a2802ee15d1d55, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1243,40 +1179,76 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 992
+      value: 965.6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 204.4
+      value: 309.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 503.37265
+      value: 510
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.012192604
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.012192604
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.7070017
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7070017
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      objectReference: {fileID: 2100000, guid: ce7651b7c9ff17f41b4e3909aec2cd0e, type: 2}
+    - target: {fileID: 400000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -1.9760001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 54f6ebaff8e1dc44a88569d87d222a0a, type: 3}
   m_IsPrefabParent: 0
@@ -1304,7 +1276,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -1327,6 +1299,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -1339,9 +1313,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -1518,7 +1497,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0b9c9858679ef5c4582c3006c38daf8a, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0b9c9858679ef5c4582c3006c38daf8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1568,7 +1547,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 163d421ffd55aa845bf326726bdbb889, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 163d421ffd55aa845bf326726bdbb889, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1629,7 +1608,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -1652,6 +1631,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -1664,9 +1645,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -1748,12 +1734,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 77f7c843f1324ff4e97fabf6e73e43e2, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2300004, guid: 77f7c843f1324ff4e97fabf6e73e43e2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d92b1407f4ec4c34984c688ab323c011, type: 2}
+      objectReference: {fileID: 2100000, guid: 2679996a4a6d7ec489738e0c989fb5d9, type: 2}
     - target: {fileID: 2300002, guid: 77f7c843f1324ff4e97fabf6e73e43e2, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -1937,7 +1923,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -1960,6 +1946,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -1972,9 +1960,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -2018,7 +2011,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 13406322d506d244a9f5c422879f61ed, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 13406322d506d244a9f5c422879f61ed, type: 3}
       propertyPath: m_LocalScale.y
@@ -2031,7 +2024,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 13406322d506d244a9f5c422879f61ed, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 92708b6a9094b4b5ea1c08529f33934a, type: 2}
+      objectReference: {fileID: 2100000, guid: 3ec93124b8156b245b24b8156ec66014, type: 2}
     - target: {fileID: 100000, guid: 13406322d506d244a9f5c422879f61ed, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2043,95 +2036,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 13406322d506d244a9f5c422879f61ed, type: 3}
   m_PrefabInternal: {fileID: 263177146}
---- !u!1 &284018306
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100006, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 284018307}
-  - component: {fileID: 284018310}
-  - component: {fileID: 284018309}
-  - component: {fileID: 284018308}
-  m_Layer: 0
-  m_Name: Knoepfe1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &284018307
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400006, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 284018306}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 173.09189, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_Children: []
-  m_Father: {fileID: 7814013}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &284018308
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6400004, guid: 760cad1f3d9b72240b371f4545edac13,
-    type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 284018306}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
---- !u!23 &284018309
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300004, guid: 760cad1f3d9b72240b371f4545edac13,
-    type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 284018306}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: db85a852a3461ac439a5c3ab737b1e83, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &284018310
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300004, guid: 760cad1f3d9b72240b371f4545edac13,
-    type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 284018306}
-  m_Mesh: {fileID: 4300000, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
 --- !u!1001 &284078153
 Prefab:
   m_ObjectHideFlags: 0
@@ -2169,7 +2073,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2178,7 +2082,11 @@ Prefab:
     - target: {fileID: 2300002, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
+      objectReference: {fileID: 2100000, guid: 4e961efaae5890443ac8333b6bddde2b, type: 2}
+    - target: {fileID: 2300000, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
   m_IsPrefabParent: 0
@@ -2393,7 +2301,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d50ff5725fc1b92489762369cd8e26db, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d50ff5725fc1b92489762369cd8e26db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -2582,7 +2490,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -2605,6 +2513,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -2617,104 +2527,20 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
---- !u!1 &366454464
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100002, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 366454465}
-  - component: {fileID: 366454468}
-  - component: {fileID: 366454467}
-  - component: {fileID: 366454466}
-  m_Layer: 0
-  m_Name: Karte
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &366454465
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400002, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 366454464}
-  m_LocalRotation: {x: -0.7067398, y: 0.022779964, z: -0.02277996, w: 0.7067397}
-  m_LocalPosition: {x: -7.4454823, y: 173.09189, z: 0}
-  m_LocalScale: {x: 99.99999, y: 100, z: 99.99999}
-  m_Children: []
-  m_Father: {fileID: 7814013}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &366454466
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6400000, guid: 760cad1f3d9b72240b371f4545edac13,
-    type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 366454464}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300004, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
---- !u!23 &366454467
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: 760cad1f3d9b72240b371f4545edac13,
-    type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 366454464}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 1af812442dc78ab4187af84e777096ee, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &366454468
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: 760cad1f3d9b72240b371f4545edac13,
-    type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  m_GameObject: {fileID: 366454464}
-  m_Mesh: {fileID: 4300004, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
 --- !u!1001 &377889820
 Prefab:
   m_ObjectHideFlags: 0
@@ -2960,7 +2786,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -2983,6 +2809,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -2995,9 +2823,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -3017,7 +2850,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ed68072cd6e3fc141b6b8d55453e3882, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 138.2
+      value: 138.64
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ed68072cd6e3fc141b6b8d55453e3882, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3103,7 +2936,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6188792a7675c00499d803bd411d5fb4, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6188792a7675c00499d803bd411d5fb4, type: 3}
@@ -3215,7 +3048,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 7b89a8c35bddd0e418dc328510238a18, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 7b89a8c35bddd0e418dc328510238a18, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3256,7 +3089,7 @@ Transform:
   - {fileID: 715822401}
   - {fileID: 808883307}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450120084 stripped
 GameObject:
@@ -3282,7 +3115,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -3305,6 +3138,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -3317,9 +3152,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -3363,7 +3203,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c92340f6aac7e446b94b64b302805ca, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c92340f6aac7e446b94b64b302805ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3551,7 +3391,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8837dc632d1b51b46955f81e886e6e50, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8837dc632d1b51b46955f81e886e6e50, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3725,7 +3565,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -3748,6 +3588,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -3760,9 +3602,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -3805,7 +3652,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -3828,6 +3675,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -3840,9 +3689,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -4092,7 +3946,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 90776a91a26e0bb43bfdf4d52c8e5836, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 90776a91a26e0bb43bfdf4d52c8e5836, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -4209,7 +4063,7 @@ RectTransform:
   - {fileID: 1202846252}
   - {fileID: 1723182822}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4372,64 +4226,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
   m_PrefabInternal: {fileID: 2116566830}
---- !u!1001 &567673952
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1179462789}
-    m_Modifications:
-    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 388.2621
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 144.82751
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -87.7745
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 199.64345
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 199.64345
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-  m_IsPrefabParent: 0
---- !u!4 &567673953 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
-  m_PrefabInternal: {fileID: 567673952}
 --- !u!4 &583402149 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
@@ -4599,7 +4395,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: eb9357dabb0a4bd4da0f86a89023b4a4, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: eb9357dabb0a4bd4da0f86a89023b4a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -4703,7 +4499,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -4798,7 +4594,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0ed1eb2132185624dba5f47a7c4bd00d, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0ed1eb2132185624dba5f47a7c4bd00d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5178,7 +4974,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0b9c9858679ef5c4582c3006c38daf8a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 0b9c9858679ef5c4582c3006c38daf8a, type: 3}
       propertyPath: m_Name
@@ -5342,7 +5138,7 @@ Transform:
   m_Children:
   - {fileID: 35780869}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &684722327
 GameObject:
@@ -5603,6 +5399,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7e09dfd313ac8a4294ba166cf529403, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1001 &747606447
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400014, guid: 02932949a3b4a504fa24055a968b9419, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 684.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: 02932949a3b4a504fa24055a968b9419, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: 02932949a3b4a504fa24055a968b9419, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 555.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: 02932949a3b4a504fa24055a968b9419, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: 02932949a3b4a504fa24055a968b9419, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: 02932949a3b4a504fa24055a968b9419, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: 02932949a3b4a504fa24055a968b9419, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: 02932949a3b4a504fa24055a968b9419, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 02932949a3b4a504fa24055a968b9419, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &755095218
 GameObject:
@@ -5885,13 +5723,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 857212747}
-  m_LocalRotation: {x: -0.94381773, y: 0.051420555, z: 0.31841588, w: 0.07194018}
+  m_LocalRotation: {x: -0.8419987, y: 0.34184417, z: 0.41448468, w: -0.048818424}
   m_LocalPosition: {x: 1002, y: 0, z: -23.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 27
-  m_LocalEulerAnglesHint: {x: -9.703, y: 217.03299, z: 182.98}
+  m_LocalEulerAnglesHint: {x: -11.6050005, y: 228.299, z: 218.976}
 --- !u!108 &857212749
 Light:
   m_ObjectHideFlags: 0
@@ -5965,16 +5803,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 561b39f8ae5fbc84894a4bc3d8654ae1, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 561b39f8ae5fbc84894a4bc3d8654ae1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
+      objectReference: {fileID: 2100000, guid: 5cd4534f9525d984eba3b011bb8e40a8, type: 2}
     - target: {fileID: 2300002, guid: 561b39f8ae5fbc84894a4bc3d8654ae1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
+      objectReference: {fileID: 2100000, guid: 8d78626a1da651b4db17559f2306e4ed, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 561b39f8ae5fbc84894a4bc3d8654ae1, type: 3}
   m_IsPrefabParent: 0
@@ -6145,7 +5983,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -6168,6 +6006,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -6180,9 +6020,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -6444,7 +6289,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53df345aa5f26d84d80d33b33bfd5dbf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 141.95088
+      value: 142.4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53df345aa5f26d84d80d33b33bfd5dbf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6468,7 +6313,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53df345aa5f26d84d80d33b33bfd5dbf, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53df345aa5f26d84d80d33b33bfd5dbf, type: 3}
       propertyPath: m_LocalScale.y
@@ -6628,7 +6473,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -6651,6 +6496,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -6663,9 +6510,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -6771,7 +6623,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -6794,6 +6646,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -6806,9 +6660,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -6942,7 +6801,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -6965,6 +6824,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -6977,9 +6838,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -7066,7 +6932,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -7089,6 +6955,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -7101,9 +6969,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -7201,7 +7074,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 541f4a6ccf664b5408fc8a01961ecff2, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 541f4a6ccf664b5408fc8a01961ecff2, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7255,7 +7128,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0b9c9858679ef5c4582c3006c38daf8a, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 0b9c9858679ef5c4582c3006c38daf8a, type: 3}
       propertyPath: m_Name
@@ -7567,60 +7440,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
   m_IsPrefabParent: 0
---- !u!1001 &1106041670
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1555293539}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 697.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 35.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 99.99997
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 99.99997
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-  m_IsPrefabParent: 0
---- !u!4 &1106041671 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: 923df4c7e20c8924ebd0e445cf68401d, type: 3}
-  m_PrefabInternal: {fileID: 1106041670}
 --- !u!4 &1113493440 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: d50ff5725fc1b92489762369cd8e26db, type: 3}
@@ -7642,7 +7461,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d65c35f65011e884aa40c7ca33418e5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 142.62527
+      value: 143.9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d65c35f65011e884aa40c7ca33418e5f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7666,7 +7485,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d65c35f65011e884aa40c7ca33418e5f, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d65c35f65011e884aa40c7ca33418e5f, type: 3}
       propertyPath: m_LocalScale.y
@@ -7853,7 +7672,7 @@ MonoBehaviour:
   _animationType: 6
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -7876,6 +7695,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -7888,9 +7709,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -7960,6 +7786,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
+    - target: {fileID: 2300000, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
   m_IsPrefabParent: 0
@@ -8004,7 +7834,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2c92340f6aac7e446b94b64b302805ca, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2c92340f6aac7e446b94b64b302805ca, type: 3}
       propertyPath: m_Name
@@ -8107,7 +7937,6 @@ Transform:
   - {fileID: 931414611}
   - {fileID: 1155503340}
   - {fileID: 1938417589}
-  - {fileID: 567673953}
   - {fileID: 263177147}
   - {fileID: 867567646}
   - {fileID: 284078154}
@@ -8440,7 +8269,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -8463,6 +8292,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -8475,9 +8306,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -8788,7 +8624,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -8811,6 +8647,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -8823,9 +8661,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -9002,7 +8845,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -9025,6 +8868,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -9037,9 +8882,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -9141,7 +8991,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cbad97297675ee2448fa07fede47574d, type: 3}
       propertyPath: m_RootOrder
-      value: 32
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: cbad97297675ee2448fa07fede47574d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9186,7 +9036,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -9209,6 +9059,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -9221,9 +9073,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -9254,7 +9111,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -9277,6 +9134,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -9289,9 +9148,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -9596,7 +9460,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -9619,6 +9483,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -9631,9 +9497,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -9849,7 +9720,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -9872,6 +9743,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -9884,9 +9757,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -10196,7 +10074,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eb58b959d0801f444931cfe52cffcdfc, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eb58b959d0801f444931cfe52cffcdfc, type: 3}
       propertyPath: m_LocalScale.y
@@ -10364,7 +10242,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 997e2cfc841015345bfa045569103892, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b0dbc6a6a4af94b7abe141768b1d750e, type: 2}
+      objectReference: {fileID: 2100000, guid: ec4dc1a1246c37d429b3f347d279b361, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 997e2cfc841015345bfa045569103892, type: 3}
   m_IsPrefabParent: 0
@@ -10523,7 +10401,7 @@ RectTransform:
   - {fileID: 1662987295}
   - {fileID: 1060291886}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11148,7 +11026,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 491d9b0bd38482843b919ac7d13bf4eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -11226,7 +11104,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d50f708547b8172408ddd1088385c9f9, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d50f708547b8172408ddd1088385c9f9, type: 3}
       propertyPath: m_LocalScale.y
@@ -11415,7 +11293,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -11438,6 +11316,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -11450,9 +11330,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -11557,7 +11442,7 @@ MonoBehaviour:
   _animationType: 5
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 1
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -11580,6 +11465,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -11592,9 +11479,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -11641,7 +11533,6 @@ Transform:
   - {fileID: 1248996632}
   - {fileID: 1292573820}
   - {fileID: 1622381181}
-  - {fileID: 1106041671}
   - {fileID: 1429694368}
   - {fileID: 1536307996}
   - {fileID: 540938653}
@@ -11702,6 +11593,48 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 508f57d53842f53498fb549a8b42ad87, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1001 &1562608475
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 180.73856
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 141.41954
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -86.89832
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fec939c57132d444e931a8227e3f041c, type: 3}
   m_IsPrefabParent: 0
 --- !u!1 &1572158724
 GameObject:
@@ -11910,7 +11843,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -11933,6 +11866,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -11945,9 +11880,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -12049,7 +11989,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -12072,6 +12012,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -12084,9 +12026,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -12117,7 +12064,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -12140,6 +12087,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -12152,9 +12101,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -12185,7 +12139,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -12208,6 +12162,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -12220,9 +12176,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -12312,7 +12273,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c4a66f9ac3577ac4da9c040546db48ca, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c4a66f9ac3577ac4da9c040546db48ca, type: 3}
       propertyPath: m_LocalScale.x
@@ -12357,7 +12318,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -12380,6 +12341,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -12392,9 +12355,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -12672,7 +12640,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e01a0028a6f9c4747964a7c7673bef93, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e01a0028a6f9c4747964a7c7673bef93, type: 3}
@@ -12731,7 +12699,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5a48235e5905dc54099c6397a626a4d7, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5a48235e5905dc54099c6397a626a4d7, type: 3}
       propertyPath: m_LocalScale.y
@@ -12785,7 +12753,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 82b3360574e3a5f419bf8f92e48deaf4, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 82b3360574e3a5f419bf8f92e48deaf4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -12909,7 +12877,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -12932,6 +12900,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -12944,9 +12914,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13043,7 +13018,7 @@ MonoBehaviour:
   _animationType: 3
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13066,6 +13041,8 @@ MonoBehaviour:
   _onedirectionAnimation: 1
   _activateGravityAtEnd: 1
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13078,9 +13055,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13115,7 +13097,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13138,6 +13120,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13150,9 +13134,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -13347,7 +13336,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 668276159ae6e4543a1672f87de5f874, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 668276159ae6e4543a1672f87de5f874, type: 3}
       propertyPath: m_Name
@@ -13475,7 +13464,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77f40add9193788458563a324ca3e0bf, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77f40add9193788458563a324ca3e0bf, type: 3}
@@ -13688,7 +13677,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2e2653a686193a418f849f4816da694, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 144.4998
+      value: 146.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2e2653a686193a418f849f4816da694, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13712,7 +13701,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2e2653a686193a418f849f4816da694, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e2e2653a686193a418f849f4816da694, type: 3}
       propertyPath: m_LocalScale.y
@@ -13827,7 +13816,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -13850,6 +13839,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -13862,30 +13853,20 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
---- !u!1 &1885703611
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 760cad1f3d9b72240b371f4545edac13, type: 3}
-  m_PrefabInternal: {fileID: 7814012}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 7814013}
-  m_Layer: 0
-  m_Name: Berlin Karte
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1001 &1886392408
 Prefab:
   m_ObjectHideFlags: 0
@@ -14054,7 +14035,7 @@ MonoBehaviour:
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -14077,6 +14058,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -14089,9 +14072,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -14464,7 +14452,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -14487,6 +14475,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -14499,9 +14489,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -14532,7 +14527,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -14555,6 +14550,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -14567,9 +14564,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -14650,7 +14652,7 @@ MonoBehaviour:
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
-  _AnimationAllowWhenMapSolved: 0
+  _animationAllowWhenMapSolved: 0
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 0
@@ -14673,6 +14675,8 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
   _disableDamageWithItem: 
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
@@ -14685,9 +14689,14 @@ MonoBehaviour:
   _animationBlockObject: {fileID: 0}
   _objectCanBeDisabledToUnblockAnimation: 0
   _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
   _itemIdToUnlock: 
   _disableAnimationObject: {fileID: 0}
   _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
@@ -15374,7 +15383,7 @@ RectTransform:
   m_LocalScale: {x: 0.00038129615, y: 0.00038129615, z: 0.00038129615}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 34
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
