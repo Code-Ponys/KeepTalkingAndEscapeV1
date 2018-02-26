@@ -131,6 +131,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Damage can be disabled by Ghost
         [SerializeField] private bool _disableDamageByGhost;
 
+        [SerializeField] private string _damageGhostMessage;
+        [SerializeField] private string _damageObjectMessage;
+        [SerializeField] private string _damageItemMessage;
+
         [SerializeField] private GhostParticleHandler _removeParticleOnNoDamage;
 
 
@@ -588,6 +592,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _soundManager.Source.clip = _soundManager.DamageSound;
                     _soundManager.Source.Play();
                     _gameManager.HumanController.TakeHealth(1);
+                    _uiManager.HumanFlavourText = _damageObjectMessage;
+
                     if(_OneTimeDamage) _damageObjectRecieved = true;
                     if(_cancelPickupOnDamage) return true;
                 }
@@ -598,6 +604,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                                   StringComparison.CurrentCultureIgnoreCase)) {
                     if(_OneTimeDamage) _damageItemRecieved = true;
                     _gameManager.HumanController.TakeHealth(1);
+                    _uiManager.HumanFlavourText = _damageItemMessage;
                     if(_cancelPickupOnDamage) return true;
                 }
                 else {
@@ -608,6 +615,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(!_damageDisabledByGhost && _disableDamageByGhost && !_damageGhostRecieved) {
                 if(_OneTimeDamage) _damageGhostRecieved = true;
                 _gameManager.HumanController.TakeHealth(1);
+                _uiManager.HumanFlavourText = _damageGhostMessage;
                 if(_cancelPickupOnDamage) return true;
             }
 
