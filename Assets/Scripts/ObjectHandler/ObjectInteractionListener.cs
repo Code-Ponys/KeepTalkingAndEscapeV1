@@ -503,11 +503,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             //Item Damage
             if(_disableDamageWithItem != "" && !_damageItemRecieved)
-                if(!string.Equals(Inventory.GetInstance(CharacterType.Human).ItemInHand, _disableDamageWithItem,
+                if(!string.Equals(_uiManager.InventoryHuman.ItemInHand, _disableDamageWithItem,
                                   StringComparison.CurrentCultureIgnoreCase)) {
                     if(_OneTimeDamage) _damageItemRecieved = true;
                     _gameManager.HumanController.TakeHealth(1);
                     if(_cancelPickupOnDamage) return true;
+                }
+                else {
+                    _itemHandler.RemoveItemFromHandAndInventory();
                 }
 
             //Ghost Damage
