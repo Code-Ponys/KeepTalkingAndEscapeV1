@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 54f6ebaff8e1dc44a88569d87d222a0a
-timeCreated: 1518426819
+timeCreated: 1519635362
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,20 +11,27 @@ ModelImporter:
     400000: //RootNode
     400002: Tagebuch oben
     400004: tagebuch unten
+    2100000: Tagebuch oben
+    2100002: tagebuch unten
     2300000: Tagebuch oben
     2300002: tagebuch unten
     3300000: Tagebuch oben
     3300002: tagebuch unten
-    4300000: tagebuch unten
-    4300002: Tagebuch oben
+    4300000: Tagebuch oben
+    4300002: tagebuch unten
     6400000: Tagebuch oben
     6400002: tagebuch unten
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: initialShadingGroup
-    second: {fileID: 2100000, guid: 6023fe1e1a529764e96c41cdff2ab9aa, type: 2}
+      name: Tagebuch oben
+    second: {fileID: 2100000, guid: ce7651b7c9ff17f41b4e3909aec2cd0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tagebuch unten
+    second: {fileID: 2100000, guid: 28c1df1e08f0cd3429bfe519e5d7badb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -62,7 +69,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0

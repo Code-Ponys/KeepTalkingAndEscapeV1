@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: 5a48235e5905dc54099c6397a626a4d7
-timeCreated: 1518685462
+timeCreated: 1519636331
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Tasse
     2300000: //RootNode
     3300000: //RootNode
     4300000: Tasse
@@ -15,8 +16,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1.002
-    second: {fileID: 2100000, guid: d0f948b4a8e8e10469dd27f09e61ae0d, type: 2}
+      name: Tasse
+    second: {fileID: 2100000, guid: 4d95f42cb1e8dd543ac48e5564651cdb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

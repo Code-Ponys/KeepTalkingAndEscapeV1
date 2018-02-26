@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: e2e2653a686193a418f849f4816da694
-timeCreated: 1518685524
+timeCreated: 1519636404
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Teller tief
     2300000: //RootNode
     3300000: //RootNode
     4300000: Teller_tief
@@ -15,8 +16,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 3bd3751f9aab56044b01b153a0b9ecc0, type: 2}
+      name: Teller tief
+    second: {fileID: 2100000, guid: c26dd69547b9cc54880f35c87e96ddce, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 763cb3ad394d51d4cb3c7e63863f74ac
-timeCreated: 1518449606
+timeCreated: 1519636730
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,6 +11,8 @@ ModelImporter:
     400000: einfacher deckel
     400002: //RootNode
     400004: einfacher topf
+    2100000: Topf
+    2100002: Deckel
     2300000: einfacher deckel
     2300002: einfacher topf
     3300000: einfacher deckel
@@ -23,8 +25,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Deckel
+    second: {fileID: 2100000, guid: a70a741c4cb97cb4fa93076053218265, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Topf
+    second: {fileID: 2100000, guid: ca4e64ee7e6175f47aee306790fb0f27, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -62,11 +69,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

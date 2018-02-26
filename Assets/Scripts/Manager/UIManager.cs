@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Security;
+using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +23,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         [SerializeField] private Image _ItemInHand;
         [SerializeField] private Text _ItemInHandText;
+        [SerializeField] private Image _itemDisplayGhost;
+        [SerializeField] private Text _itemDisplayGhostText;
 
         [SerializeField] private Image _ghostFirstButton;
         [SerializeField] private Image _ghostSecondButton;
@@ -33,12 +36,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Image _humanSecondButton;
         [SerializeField] private Text _humanFirstButtonText;
         [SerializeField] private Text _humanSecondButtonText;
-        
+
         [SerializeField] private Text _humanGameOver;
         [SerializeField] private Button _humanMainMenuButton;
         [SerializeField] private Button _humanReplayButton;
         [SerializeField] private Button _humanQuitMenu;
-        
+
         [SerializeField] private Text _ghostGameOver;
         [SerializeField] private Button _ghostMainMenuButton;
         [SerializeField] private Button _ghostReplayButton;
@@ -64,10 +67,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private int _instanceIdGhost;
 
         private float _timerHuman;
-
         private float _timerGhost;
 
+        private float _pickUpTimerGhost;
+        private float _pickUpTimerHuman;
+
         [Range(1, 100)] [SerializeField] private float _flavourTextWaitTimer;
+        [Range(1, 100)] [SerializeField] private float _pickUpDisplayTimer;
 
         private GameManager _gameManager;
         private ItemManager _itemManager;
@@ -116,11 +122,35 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 var item = _itemManager.GetItemFromDatabase(_inventoryHuman.ItemInHand);
                 _ItemInHand.sprite = Resources.Load<Sprite>(item.SpritePath);
                 _ItemInHandText.text = item.Name;
+                return;
             }
-            else {
-                _ItemInHand.sprite = _transparent;
-                _ItemInHandText.text = "";
+
+            if(_pickUpTimerGhost > 0) {
+                _pickUpTimerGhost -= Time.deltaTime;
+                return;
             }
+
+            _itemDisplayGhost.sprite = _transparent;
+            _itemDisplayGhostText.text = "";
+
+
+            if(_pickUpTimerHuman > 0) {
+                _pickUpTimerHuman -= Time.deltaTime;
+                return;
+            }
+
+            _ItemInHand.sprite = _transparent;
+            _ItemInHandText.text = "";
+        }
+
+        public void DisplayLastPickedUpItem(Item item) {
+            var sprite = Resources.Load<Sprite>(item.SpritePath);
+            _ItemInHand.sprite = sprite;
+            _itemDisplayGhost.sprite = sprite;
+            _ItemInHandText.text = item.Name + " aufgehoben";
+            _itemDisplayGhostText.text = item.Name + " aufgehoben";
+            _pickUpTimerGhost = _pickUpDisplayTimer;
+            _pickUpTimerHuman = _pickUpDisplayTimer;
         }
 
         private void UpdateHealth() {
@@ -242,7 +272,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     return _instanceIdHuman;
                 default:
                     throw new ArgumentOutOfRangeException("characterType", characterType, null);
-            }   
+            }
         }
 
         public Sprite A {
@@ -329,7 +359,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     throw new ArgumentOutOfRangeException("key", key, null);
             }
         }
-        
+
         public string GhostHoverText {
             get {return _ghostHoverText.text;}
             set {_ghostHoverText.text = value;}

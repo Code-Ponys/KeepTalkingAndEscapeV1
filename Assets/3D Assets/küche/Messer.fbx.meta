@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: c740f9653d276ca4c9186bdd4012ba88
-timeCreated: 1518607567
+timeCreated: 1519635798
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Messer
     2300000: //RootNode
     3300000: //RootNode
     4300000: Messer
@@ -15,8 +16,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: fc827094fd229114a85a31b0ca4f58fa, type: 2}
+      name: Messer
+    second: {fileID: 2100000, guid: beb81d2529160a149866035e3d0213e5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
