@@ -133,6 +133,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 case CharacterType.Unassigned:
                     break;
                 case CharacterType.Ghost:
+                    _instanceIdGhost = instanceId;
                     _ghostFirstButton.sprite = GetSprite(firstButton);
                     switch(firstButton) {
                         case KeyType.A:
@@ -162,6 +163,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
                     break;
                 case CharacterType.Human:
+                    _instanceIdHuman = instanceId;
                     _humanFirstButton.sprite = GetSprite(firstButton);
                     switch(firstButton) {
                         case KeyType.B:
@@ -195,6 +197,18 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         public void HideButtons(CharacterType type) {
             ShowButtons(type, KeyType.none, KeyType.none, 0);
+            switch(type) {
+                case CharacterType.Unassigned:
+                    break;
+                case CharacterType.Ghost:
+                    _ghostHoverText.text = "";
+                    break;
+                case CharacterType.Human:
+                    _humanHoverText.text = "";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("type", type, null);
+            }
         }
 
         public int GetLastInstanceId(CharacterType characterType) {

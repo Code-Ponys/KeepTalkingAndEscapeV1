@@ -531,10 +531,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void UpdateHumanUi() {
-            if(!_humanReachable && _uiManager.HumanHoverText == _objectDescription && _objectDescription != "" && ) {
-                _uiManager.HumanHoverText = "";
-                Debug.Log(gameObject.name + "entfernt buttons");
-
+            if(!_humanReachable && _uiManager.HumanHoverText == _objectDescription && _objectDescription != "" && _uiManager.GetLastInstanceId(CharacterType.Human) == GetInstanceID()) {
                 _uiManager.HideButtons(CharacterType.Human);
                 return;
             }
@@ -543,10 +540,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             _uiManager.HumanHoverText = _objectDescription;
             if(_humanFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none, GetInstanceID());
             }
             else {
-                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A, GetInstanceID());
             }
         }
 
@@ -557,9 +554,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 return;
             }
 
-            if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription && _objectDescription != "") {
-                _uiManager.GhostHoverText = "";
-                Debug.Log(gameObject.name + "entfernt buttons");
+            if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription && _objectDescription != "" && _uiManager.GetLastInstanceId(CharacterType.Ghost) == GetInstanceID()) {
+                //TODO: Implement Clear Hover Text
                 _uiManager.HideButtons(CharacterType.Ghost);
                 return;
             }
