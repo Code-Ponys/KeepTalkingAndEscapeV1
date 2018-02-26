@@ -237,8 +237,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                 _humanMapActiveLast = _mapHandler.HumanMapActive;
             }
-
-            _objectUnlocked = _numButtonHandler.CodeSolved;
         }
 
 
@@ -279,6 +277,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             _humanNumPadActiveLast = _numButtonHandler.HumanNumPadActive;
+            if(_numButtonHandler != null)
+                _objectUnlocked = _numButtonHandler.CodeSolved;
         }
 
         /// <summary>
@@ -476,27 +476,27 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _numButtonHandler.OpenButtonField();
                 }
 
-                    //Starts Animation, if it isnt disabled
-                    if(AnimationType == AnimationType.Open) {
-                        var unlocked = IsObjectUnlocked();
+                //Starts Animation, if it isnt disabled
+                if(AnimationType == AnimationType.Open) {
+                    var unlocked = IsObjectUnlocked();
 
-                        if(!unlocked) return;
+                    if(!unlocked) return;
 
-                        if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
-                            _numButtonHandler.OpenButtonField();
-                            return;
-                        }
-
-                        if(_animationAllowWhenMapSolved && !_mapHandler.CodeSolved) {
-                            _mapHandler.OpenMap();
-                            return;
-                        }
-
-                        if(_calculateDamageBeforeAnimation)
-                            CalculateDamage();
-
-                        _animationController.StartNewAnimation(this);
+                    if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
+                        _numButtonHandler.OpenButtonField();
+                        return;
                     }
+
+                    if(_animationAllowWhenMapSolved && !_mapHandler.CodeSolved) {
+                        _mapHandler.OpenMap();
+                        return;
+                    }
+
+                    if(_calculateDamageBeforeAnimation)
+                        CalculateDamage();
+
+                    _animationController.StartNewAnimation(this);
+                }
 
                 //Used for Linked objects
                 if(_animationType == AnimationType.OpenLinkedOnHold) _secondGameObject.GetComponent<ObjectInteractionListener>().StartAnimation(_meshGameObject);
