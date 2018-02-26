@@ -251,9 +251,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(damageDisabled) {
-                _removeParticleOnNoDamage.SetActive(false);
+                _removeParticleOnNoDamage.GetComponent<GhostParticleHandler>().enabled = false;
             }
-            
+
 
         }
 
