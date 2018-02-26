@@ -669,6 +669,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _numButtonHandler.CloseButtonField();
                 _gameManager.HumanNumPadActive = false;
             }
+
+            if(_mapHandler != null) {
+                _mapHandler.CloseMap();
+                _gameManager.HumanMapActive = false;
+            }
         }
 
         public int AnimationDurationInFrames {

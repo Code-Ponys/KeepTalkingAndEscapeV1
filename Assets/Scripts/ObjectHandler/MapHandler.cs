@@ -21,6 +21,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         public void RegisterButton(MapButton button) {
             _buttons.Add(button);
             _gameManager = GameManager.GetGameManager();
+            CloseMap();
         }
 
 
@@ -123,6 +124,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _humanMapActive = true;
             _visibilityObject.SetActive(true);
         }
+        
 
         public bool HumanMapActive {
             get {return _humanMapActive;}
