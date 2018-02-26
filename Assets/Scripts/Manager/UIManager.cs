@@ -38,14 +38,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Text _humanSecondButtonText;
 
         [SerializeField] private Text _humanGameOver;
-        [SerializeField] private Button _humanMainMenuButton;
-        [SerializeField] private Button _humanReplayButton;
-        [SerializeField] private Button _humanQuitMenu;
+        [SerializeField] private Image _humanMainMenuButton;
+        [SerializeField] private Image _humanReplayButton;
+        [SerializeField] private Image _humanQuitMenu;
 
         [SerializeField] private Text _ghostGameOver;
-        [SerializeField] private Button _ghostMainMenuButton;
-        [SerializeField] private Button _ghostReplayButton;
-        [SerializeField] private Button _ghostQuitMenu;
+        [SerializeField] private Image _ghostMainMenuButton;
+        [SerializeField] private Image _ghostReplayButton;
+        [SerializeField] private Image _ghostQuitMenu;
 
         [SerializeField] private Sprite _a;
         [SerializeField] private Sprite _b;
@@ -102,13 +102,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             _humanFlavourText.text = "";
             _ghostFlavourText.text = "";
             _humanGameOver.GetComponent<Text>().enabled = false;
-            _humanMainMenuButton.GetComponent<Text>().enabled = false;
-            _humanReplayButton.GetComponent<Text>().enabled = false;
-            _humanQuitMenu.GetComponent<Text>().enabled = false;
+            _humanMainMenuButton.GetComponent<Image>().enabled = false;
+            _humanReplayButton.GetComponent<Image>().enabled = false;
+            _humanQuitMenu.GetComponent<Image>().enabled = false;
             _ghostGameOver.GetComponent<Text>().enabled = false;
-            _ghostMainMenuButton.GetComponent<Text>().enabled = false;
-            _ghostReplayButton.GetComponent<Text>().enabled = false;
-            _ghostQuitMenu.GetComponent<Text>().enabled = false;
+            _ghostMainMenuButton.GetComponent<Image>().enabled = false;
+            _ghostReplayButton.GetComponent<Image>().enabled = false;
+            _ghostQuitMenu.GetComponent<Image>().enabled = false;
         }
 
         private void FixedUpdate() {
@@ -404,17 +404,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             set {_humanGameOver = value;}
         }
 
-        public Button HumanMainMenuButton {
+        public Image HumanMainMenuButton {
             get {return _humanMainMenuButton;}
             set {_humanMainMenuButton = value;}
         }
 
-        public Button HumanReplayButton {
+        public Image HumanReplayButton {
             get {return _humanReplayButton;}
             set {_humanReplayButton = value;}
         }
 
-        public Button HumanQuitMenu {
+        public Image HumanQuitMenu {
             get {return _humanQuitMenu;}
             set {_humanQuitMenu = value;}
         }
@@ -424,17 +424,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             set {_ghostGameOver = value;}
         }
 
-        public Button GhostMainMenuButton {
+        public Image GhostMainMenuButton {
             get {return _ghostMainMenuButton;}
             set {_ghostMainMenuButton = value;}
         }
 
-        public Button GhostReplayButton {
+        public Image GhostReplayButton {
             get {return _ghostReplayButton;}
             set {_ghostReplayButton = value;}
         }
 
-        public Button GhostQuitMenu {
+        public Image GhostQuitMenu {
             get {return _ghostQuitMenu;}
             set {_ghostQuitMenu = value;}
         }

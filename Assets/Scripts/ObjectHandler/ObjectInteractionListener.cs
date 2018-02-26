@@ -195,7 +195,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_enabledObject != null) _enabledObject.SetActive(false);
             if(_ghostActiveObject != null) _ghostActiveObject.SetActive(false);
 
-            _isGameOver = false;
             _audioSource = _meshGameObject.AddComponent<AudioSource>();
         }
 

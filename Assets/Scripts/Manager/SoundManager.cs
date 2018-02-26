@@ -12,7 +12,6 @@ public class SoundManager : MonoBehaviour {
 	[SerializeField] private AudioClip _damageSound;
 	[SerializeField] private AudioClip _deathSound;
 	
-
 	void Start () {
 		_audioSource = gameObject.AddComponent<AudioSource>();
 	}
