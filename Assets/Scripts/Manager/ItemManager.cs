@@ -70,6 +70,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             foreach(var obj in _itemList) {
                 if(!string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) continue;
                 _inventory.Add(obj);
+                _uiManager.DisplayLastPickedUpItem(obj);
                 return;
             }
             

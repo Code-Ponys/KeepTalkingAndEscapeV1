@@ -422,6 +422,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _uiManager.HumanHoverText = "";
                     _meshGameObject.SetActive(false);
                 }
+                else if (_canBeTakenToInventory && _canBePickedUpAfterGhostAction){
+                    _uiManager.HumanFlavourText = _blockedMessage;
+                }
 
                 if(_objectActiveToGetItem) {
                     if(!_ghostActiveObject.activeSelf) return;
@@ -520,7 +523,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             //Ghost Damage
             if(!_damageDisabledByGhost && _disableDamageByGhost && !_damageGhostRecieved) {
-                Debug.Log("Ghost Damage Recieved");
                 if(_OneTimeDamage) _damageGhostRecieved = true;
                 _gameManager.HumanController.TakeHealth(1);
                 if(_cancelPickupOnDamage) return true;
@@ -551,10 +553,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager.HumanHoverText = _objectDescription;
             if(_humanFlavourText == "") {
                 _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none, GetInstanceID());
+                return;
             }
-            else {
+            if(_humanFlavourText != "")
                 _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A, GetInstanceID());
-            }
         }
 
         private void UpdateGhostUi() {
@@ -565,7 +567,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription && _objectDescription != "" && _uiManager.GetLastInstanceId(CharacterType.Ghost) == GetInstanceID()) {
-                //TODO: Implement Clear Hover Text
                 _uiManager.HideButtons(CharacterType.Ghost);
                 return;
             }
@@ -576,53 +577,61 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             _uiManager.GhostHoverText = _objectDescription;
             if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
                 return;
             }
 
             if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
                 return;
             }
 
             if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
                 return;
             }
 
             if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
                 return;
             }
 
             if(_disableDamageByGhost && _damageDisabledByGhost && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, GetInstanceID());
                 return;
             }
 
             if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
                 return;
             }
 
             if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
                 return;
             }
 
             if(_ghostFlavourText == "" && _ghostCanOpen) {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
                 return;
             }
 
             if(!_ghostCanOpen && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, GetInstanceID());
                 return;
             }
 
             if(_ghostCanOpen && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, this.GetInstanceID());
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
             }
+        }
+
+        private bool ObjectInteractable(CharacterType characterType) {
+            if(characterType == CharacterType.Ghost && _ghostCanOpen == false) return false;
+            if(_animationType != AnimationType.None) return true;
+            if(_itemName != "") return true;
+            if(_lightswitch) return true;
+            return false;
         }
 
         /// <summary>
