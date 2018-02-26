@@ -349,12 +349,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
                 //Disables damage for linked object
                 if(_disableDamageByGhost) _damageDisabledByGhost = true;
-                if(_itemIdToUnlock != "" && _objectUnlocked && _showImageOnInteraction) {
-                    _uiManager.ShowImage(CharacterType.Ghost, _humanImage);
+                if(_itemIdToUnlock != "" && _animationUnlocked && _showImageOnInteraction) {
+                    _uiManager.ShowImage(CharacterType.Ghost, _ghostImage);
                 }
 
                 if(_itemIdToUnlock == "" && _showImageOnInteraction) {
-                    _uiManager.ShowImage(CharacterType.Ghost, _humanImage);
+                    _uiManager.ShowImage(CharacterType.Ghost, _ghostImage);
                 }
 
                 if(AnimationType == AnimationType.None) return;
