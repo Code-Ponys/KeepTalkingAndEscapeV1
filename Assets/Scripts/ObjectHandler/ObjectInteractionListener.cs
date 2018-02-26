@@ -30,6 +30,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //Activates nummlock for the object. You have to type in a code
         [SerializeField] private bool _animationAllowWhenNumButtonActive;
+        [SerializeField] private bool _unlockObjectWhenNumButtonActive;
         private bool _humanNumPadActiveLast;
 
         //The num Button Object for the ui
@@ -236,6 +237,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                 _humanMapActiveLast = _mapHandler.HumanMapActive;
             }
+
+            _objectUnlocked = _numButtonHandler.CodeSolved;
         }
 
 
@@ -310,8 +313,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// </summary>
         private void KeyInteraction() {
             if(_gameManager.HumanController.Health <= 0) return;
-                KeyInteractionHuman();
-                
+            KeyInteractionHuman();
+
             //Mostly same like player 1 but for player 2
             KeyInteractionGhost();
         }
@@ -345,13 +348,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(AnimationType == AnimationType.None) return;
                 if(_animationType == AnimationType.Open) {
                     if(!_ghostCanOpen) return;
-                    if(_objectMustUnlocked) {
-                        foreach(var obj in _objectsToUnlock) {
-                            if(obj.ObjectUnlocked == false)
-                                _uiManager.GhostFlavourText = _blockedMessage;
-                            return;
-                        }
-                    }
+                    var unlocked = IsObjectUnlocked();
+
+                    if(!unlocked) return;
 
                     if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) return;
                     if(_animationAllowWhenMapSolved && !_mapHandler.CodeSolved) return;
@@ -471,51 +470,64 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     }
                 }
 
-                //Starts Animation, if it isnt disabled
-                if(AnimationType == AnimationType.Open) {
-                    var unlocked = true;
-
-                    if(_objectMustUnlocked) {
-                        foreach(var obj in _objectsToUnlock) {
-                            if(obj.ObjectUnlocked == false) {
-                                _uiManager.HumanFlavourText = _blockedMessage;
-                                unlocked = false;
-                                break;
-                            }
-                        }
-                    }
-
-                    if(_animationObjectMustUnlocked) {
-                        foreach(var obj in _objectsToUnlock) {
-                            if(obj._animationUnlocked == false) {
-                                _uiManager.HumanFlavourText = _blockedMessage;
-                                unlocked = false;
-                                break;
-                            }
-                        }
-                    }
-
-                    if(!unlocked) return;
-
-                    if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
-                        _numButtonHandler.OpenButtonField();
-                        return;
-                    }
-
-                    if(_animationAllowWhenMapSolved && !_mapHandler.CodeSolved) {
-                        _mapHandler.OpenMap();
-                        return;
-                    }
-
-                    if(_calculateDamageBeforeAnimation)
-                        CalculateDamage();
-
-                    _animationController.StartNewAnimation(this);
+                if(_animationType == AnimationType.None
+                   && _unlockObjectWhenNumButtonActive
+                   && !_numButtonHandler.CodeSolved) {
+                    _numButtonHandler.OpenButtonField();
                 }
+
+                    //Starts Animation, if it isnt disabled
+                    if(AnimationType == AnimationType.Open) {
+                        var unlocked = IsObjectUnlocked();
+
+                        if(!unlocked) return;
+
+                        if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
+                            _numButtonHandler.OpenButtonField();
+                            return;
+                        }
+
+                        if(_animationAllowWhenMapSolved && !_mapHandler.CodeSolved) {
+                            _mapHandler.OpenMap();
+                            return;
+                        }
+
+                        if(_calculateDamageBeforeAnimation)
+                            CalculateDamage();
+
+                        _animationController.StartNewAnimation(this);
+                    }
 
                 //Used for Linked objects
                 if(_animationType == AnimationType.OpenLinkedOnHold) _secondGameObject.GetComponent<ObjectInteractionListener>().StartAnimation(_meshGameObject);
             }
+        }
+
+        private bool IsObjectUnlocked() {
+            var unlocked = true;
+
+            if(_objectMustUnlocked) {
+                foreach(var obj in _objectsToUnlock) {
+                    if(obj.ObjectUnlocked == false) {
+                        _uiManager.HumanFlavourText = _blockedMessage;
+                        unlocked = false;
+                        break;
+                    }
+                }
+            }
+
+            if(_animationObjectMustUnlocked) {
+                foreach(var obj in _objectsToUnlock) {
+                    if(obj._animationUnlocked == false) {
+                        _uiManager.HumanFlavourText = _blockedMessage;
+                        unlocked = false;
+                        break;
+                    }
+                }
+            }
+
+            if(!unlocked) return unlocked;
+            return unlocked;
         }
 
         private bool CalculateDamage() {
