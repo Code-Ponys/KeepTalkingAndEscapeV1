@@ -1,37 +1,22 @@
 fileFormatVersion: 2
-guid: 54f6ebaff8e1dc44a88569d87d222a0a
-timeCreated: 1519635362
+guid: 92f7ce154f230934796d69091ff05b2b
+timeCreated: 1519641118
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Tagebuch oben
-    100004: tagebuch unten
     400000: //RootNode
-    400002: Tagebuch oben
-    400004: tagebuch unten
-    2100000: Tagebuch oben
-    2100002: tagebuch unten
-    2300000: Tagebuch oben
-    2300002: tagebuch unten
-    3300000: Tagebuch oben
-    3300002: tagebuch unten
-    4300000: Tagebuch oben
-    4300002: tagebuch unten
-    6400000: Tagebuch oben
-    6400002: tagebuch unten
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube
+    6400000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Tagebuch oben
-    second: {fileID: 2100000, guid: ce7651b7c9ff17f41b4e3909aec2cd0e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tagebuch unten
-    second: {fileID: 2100000, guid: 28c1df1e08f0cd3429bfe519e5d7badb, type: 2}
+      name: Human_Test
+    second: {fileID: 2100000, guid: 302a0e621dd432a4699128470b11e5e3, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -61,7 +46,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
+    globalScale: 43
     meshCompression: 0
     addColliders: 1
     importVisibility: 1
@@ -69,7 +54,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
