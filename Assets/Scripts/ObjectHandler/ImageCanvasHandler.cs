@@ -19,7 +19,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _gameManager = GameManager.GetGameManager();
             _image = GameObject.Find(gameObject.name + "/Image").GetComponent<Image>();
             _image.sprite = _uiManager.Transparent;
-            _buttonDisplay = GameObject.Find(gameObject.name + "/Buttondisplay");
+            _buttonDisplay = GameObject.Find(gameObject.name + "/Buttonsdisplay");
             _buttonDisplay.SetActive(false);
         }
 
