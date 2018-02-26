@@ -53,28 +53,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         public bool ItemsCombineable(Item item1, Item item2) {
             if(!item1.Combineable || !item2.Combineable) return false;
             if(item1.CombineWith != CombineWith.Item || item2.CombineWith != CombineWith.Item) return false;
-            if(item1.CombineableWithSecondItem) {
-                if(item1.CombineWithItem2 != item2.ItemId && item1.CombineWithItem != item2.ItemId) {
-                    return false;
-                }
-            }
-            else if(item2.CombineWithItem != item1.ItemId && item1.CombineWithItem != item2.ItemId) {
-                return false;
-            }
-
-            if(item2.CombineableWithSecondItem) {
-                if(item2.CombineWithItem2 != item1.ItemId && item2.CombineWithItem != item1.ItemId) {
-                    return false;
-                }
-            }
-            else if(item2.CombineWithItem != item1.ItemId && item1.CombineWithItem != item2.ItemId) {
-                return false;
-            }
-
+            if(item1.CombineWithItem != item2.ItemId || item2.CombineWithItem != item1.ItemId) return false;
             AddItemToInv(item1.NextItem);
             RemoveItemFromInventory(item1.ItemId);
             RemoveItemFromInventory(item2.ItemId);
-            _uiManager.InventoryHuman.ItemInHand = "";
+            Debug.Log("Items combined");
             return true;
         }
 
