@@ -131,6 +131,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Damage can be disabled by Ghost
         [SerializeField] private bool _disableDamageByGhost;
 
+        [SerializeField] private GameObject _removeParticleOnNoDamage;
+        
+
         //Determines if its a Radio
         //[SerializeField] private bool _isARadio;
 
@@ -231,6 +234,27 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             UpdateHumanMap();
             KeyInteraction();
             UpdateMotherState();
+            UpdateDamageParticle();
+        }
+
+        private void UpdateDamageParticle() {
+            if(_removeParticleOnNoDamage == null) return;
+            var damageDisabled = true;
+            if(_disableDamageWithObject != null) {
+                damageDisabled = _disableDamageWithObject._damageDisabled;
+            }
+
+            if(_disableDamageByGhost) {
+                if(damageDisabled != false) {
+                    damageDisabled = _damageDisabled;
+                }
+            }
+
+            if(damageDisabled) {
+                _removeParticleOnNoDamage.SetActive(false);
+            }
+            
+
         }
 
         private void UpdateHumanMap() {
