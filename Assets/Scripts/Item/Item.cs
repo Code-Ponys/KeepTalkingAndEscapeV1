@@ -19,6 +19,10 @@
         //With which item is the Item combineable. If not write 'none'
         private string _combineWithItem;
 
+        private bool _combineableWithSecondItem = false;
+
+        private string _combineWithItem2;
+
         //which item should you get, if you combine the items.
         private string _nextItem;
 
@@ -71,6 +75,16 @@
         public string NextItem {
             get {return _nextItem;}
             set {_nextItem = value;}
+        }
+
+        public bool CombineableWithSecondItem {
+            get {return _combineableWithSecondItem;}
+            set {_combineableWithSecondItem = value;}
+        }
+
+        public string CombineWithItem2 {
+            get {return _combineWithItem2;}
+            set {_combineWithItem2 = value;}
         }
     }
 }

@@ -41,7 +41,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 if(!IsItemInDatabase(obj.ItemName)) {
                     throw new Exception("The item " + obj.ItemName + " is not in Database. It's assigned to Object Listener of " + obj.gameObject.name + ". Please Check the ID in Inspector and Database");
                 }
-                
             }
         }
 
@@ -54,7 +53,24 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         public bool ItemsCombineable(Item item1, Item item2) {
             if(!item1.Combineable || !item2.Combineable) return false;
             if(item1.CombineWith != CombineWith.Item || item2.CombineWith != CombineWith.Item) return false;
-            if(item1.CombineWithItem != item2.ItemId || item2.CombineWithItem != item1.ItemId) return false;
+            if(item1.CombineableWithSecondItem) {
+                if(item1.CombineWithItem2 != item2.ItemId && item1.CombineWithItem != item2.ItemId) {
+                    return false;
+                }
+            }
+            else if(item2.CombineWithItem != item1.ItemId && item1.CombineWithItem != item2.ItemId) {
+                return false;
+            }
+
+            if(item2.CombineableWithSecondItem) {
+                if(item2.CombineWithItem2 != item1.ItemId && item2.CombineWithItem != item1.ItemId) {
+                    return false;
+                }
+            }
+            else if(item2.CombineWithItem != item1.ItemId && item1.CombineWithItem != item2.ItemId) {
+                return false;
+            }
+
             AddItemToInv(item1.NextItem);
             RemoveItemFromInventory(item1.ItemId);
             RemoveItemFromInventory(item2.ItemId);
@@ -74,7 +90,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 _uiManager.DisplayLastPickedUpItem(obj);
                 return;
             }
-            
+
 
             throw new ArgumentException("Item is not in Database. Please Check you database file.");
         }
@@ -101,7 +117,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         /// <exception cref="ArgumentException"></exception>
         public Item GetItemFromDatabase(string itemId) {
             foreach(var obj in _itemList)
-                if(string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) return obj;
+                if(string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase))
+                    return obj;
 
             throw new ArgumentException("Item is not in Database. Please check the database file.");
         }
