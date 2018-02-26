@@ -9,13 +9,28 @@ public class SoundManager : MonoBehaviour {
 	private AudioSource _audioSource;
 	
 	[SerializeField] private AudioClip _pickupSound;
+	[SerializeField] private AudioClip _damageSound;
+	[SerializeField] private AudioClip _deathSound;
+	
 
 	void Start () {
 		_audioSource = gameObject.AddComponent<AudioSource>();
 	}
 	
+	public static SoundManager GetSoundManager() {
+		return GameObject.Find("System").GetComponent<SoundManager>();
+	}
+	
 	public AudioClip PickupSound {
 		get {return _pickupSound;}
+	}
+	
+	public AudioClip DamageSound {
+		get {return _damageSound;}
+	}
+
+	public AudioClip DeathSound {
+		get {return _deathSound;}
 	}
 	
 	public AudioSource Source {
@@ -23,7 +38,4 @@ public class SoundManager : MonoBehaviour {
 		set {_audioSource = value;}
 	}
 	
-	public static SoundManager GetSoundManager() {
-		return GameObject.Find("System").GetComponent<SoundManager>();
-	}
 }

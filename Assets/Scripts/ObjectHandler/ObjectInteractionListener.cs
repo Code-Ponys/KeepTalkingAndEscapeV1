@@ -736,9 +736,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             get {return _closeSound;}
         }
 
-        public AudioClip RadioSound {
-            get {return _radioSound;}
-        }
+//        public AudioClip RadioSound {
+//            get {return _radioSound;}
+//        }
 
 //        public bool IsARadio {
 //            get {return _isARadio;}
