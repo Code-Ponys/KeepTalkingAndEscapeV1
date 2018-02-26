@@ -197,7 +197,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             ShowButtons(type, KeyType.none, KeyType.none, 0);
         }
 
-        public int GetLastInstanceID(CharacterType characterType) {
+        public int GetLastInstanceId(CharacterType characterType) {
             switch(characterType) {
                 case CharacterType.Ghost:
                     return _instanceIdGhost;
