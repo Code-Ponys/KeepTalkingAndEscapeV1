@@ -47,7 +47,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
             if(_secondInventory.CharacterType == _characterType) throw new Exception("Inventory must have different character types");
 
-            _itemManager = ItemManager.GetItemHandler();
+            _itemManager = ItemManager.GetItemManager();
             _gameManager = GameManager.GetGameManager();
 
             var canvas = gameObject.GetComponent<Canvas>();

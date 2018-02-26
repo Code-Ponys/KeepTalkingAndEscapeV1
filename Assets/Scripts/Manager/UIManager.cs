@@ -33,6 +33,16 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Image _humanSecondButton;
         [SerializeField] private Text _humanFirstButtonText;
         [SerializeField] private Text _humanSecondButtonText;
+        
+        [SerializeField] private Text _humanGameOver;
+        [SerializeField] private Button _humanMainMenuButton;
+        [SerializeField] private Button _humanReplayButton;
+        [SerializeField] private Button _humanQuitMenu;
+        
+        [SerializeField] private Text _ghostGameOver;
+        [SerializeField] private Button _ghostMainMenuButton;
+        [SerializeField] private Button _ghostReplayButton;
+        [SerializeField] private Button _ghostQuitMenu;
 
         [SerializeField] private Sprite _a;
         [SerializeField] private Sprite _b;
@@ -68,7 +78,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void Start() {
             _gameManager = GameManager.GetGameManager();
-            _itemManager = ItemManager.GetItemHandler();
+            _itemManager = ItemManager.GetItemManager();
             _userInterfaceGhost.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceHuman.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceGhost.worldCamera = _gameManager.GhostCamera;
@@ -85,6 +95,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             _ghostHoverText.text = "";
             _humanFlavourText.text = "";
             _ghostFlavourText.text = "";
+            _humanGameOver.GetComponent<Text>().enabled = false;
+            _humanMainMenuButton.GetComponent<Text>().enabled = false;
+            _humanReplayButton.GetComponent<Text>().enabled = false;
+            _humanQuitMenu.GetComponent<Text>().enabled = false;
+            _ghostGameOver.GetComponent<Text>().enabled = false;
+            _ghostMainMenuButton.GetComponent<Text>().enabled = false;
+            _ghostReplayButton.GetComponent<Text>().enabled = false;
+            _ghostQuitMenu.GetComponent<Text>().enabled = false;
         }
 
         private void FixedUpdate() {
@@ -195,6 +213,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
 
+        /// <summary>
+        /// Hides Buttons and Hover Text
+        /// </summary>
+        /// <param name="type"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void HideButtons(CharacterType type) {
             ShowButtons(type, KeyType.none, KeyType.none, 0);
             switch(type) {
@@ -346,5 +369,44 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             get {return _inventoryHuman;}
         }
 
+        public Text HumanGameOver {
+            get {return _humanGameOver;}
+            set {_humanGameOver = value;}
+        }
+
+        public Button HumanMainMenuButton {
+            get {return _humanMainMenuButton;}
+            set {_humanMainMenuButton = value;}
+        }
+
+        public Button HumanReplayButton {
+            get {return _humanReplayButton;}
+            set {_humanReplayButton = value;}
+        }
+
+        public Button HumanQuitMenu {
+            get {return _humanQuitMenu;}
+            set {_humanQuitMenu = value;}
+        }
+
+        public Text GhostGameOver {
+            get {return _ghostGameOver;}
+            set {_ghostGameOver = value;}
+        }
+
+        public Button GhostMainMenuButton {
+            get {return _ghostMainMenuButton;}
+            set {_ghostMainMenuButton = value;}
+        }
+
+        public Button GhostReplayButton {
+            get {return _ghostReplayButton;}
+            set {_ghostReplayButton = value;}
+        }
+
+        public Button GhostQuitMenu {
+            get {return _ghostQuitMenu;}
+            set {_ghostQuitMenu = value;}
+        }
     }
 }

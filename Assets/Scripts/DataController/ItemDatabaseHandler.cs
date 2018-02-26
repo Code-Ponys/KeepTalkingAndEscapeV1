@@ -71,7 +71,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.DataController {
         public static void WriteDatabase() {
             using(var writer = new StreamWriter(DataPath.ItemDatabase)) {
                 var serializer = new SerializerBuilder().Build();
-                var yaml = serializer.Serialize(ItemManager.GetItemHandler().ItemDatabase);
+                var yaml = serializer.Serialize(ItemManager.GetItemManager().ItemDatabase);
                 writer.WriteLine(yaml);
                 Debug.Log(yaml);
             }

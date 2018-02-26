@@ -135,6 +135,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _damageObjectRecieved;
         private bool _damageGhostRecieved;
         private bool _damageDisabledByGhost;
+        private bool _isGameOver;
 
         //Object damage disable
         [SerializeField] private bool _objectCanBeDisabledToAvoidDamage;
@@ -181,7 +182,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private void Start() {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
-            _itemManager = ItemManager.GetItemHandler();
+            _itemManager = ItemManager.GetItemManager();
             _soundManager = SoundManager.GetSoundManager();
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
@@ -194,6 +195,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_enabledObject != null) _enabledObject.SetActive(false);
             if(_ghostActiveObject != null) _ghostActiveObject.SetActive(false);
 
+            _isGameOver = false;
             _audioSource = _meshGameObject.AddComponent<AudioSource>();
         }
 
@@ -497,6 +499,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool CalculateDamage() {
             if(_disableDamageWithObject != null && !_damageObjectRecieved)
                 if(!_disableDamageWithObject._damageDisabled) {
+                    _soundManager.Source.clip = _soundManager.DamageSound;
+                    _soundManager.Source.Play();
                     _gameManager.HumanController.TakeHealth(1);
                     if(_OneTimeDamage) _damageObjectRecieved = true;
                     if(_cancelPickupOnDamage) return true;
@@ -520,6 +524,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_OneTimeDamage) _damageGhostRecieved = true;
                 _gameManager.HumanController.TakeHealth(1);
                 if(_cancelPickupOnDamage) return true;
+            }
+            
+            if(_gameManager.HumanController.Health <= 0) {
+                _soundManager.Source.clip = _soundManager.DeathSound;
+                _soundManager.Source.Play();
+                _isGameOver = true;
             }
 
             return false;
@@ -748,6 +758,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         public AudioSource Source {
             get {return _audioSource;}
             set {_audioSource = value;}
+        }
+
+        public bool IsGameOver {
+            get {return _isGameOver;}
         }
     }
 }

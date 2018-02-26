@@ -22,7 +22,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private List<Item> _inventory = new List<Item>();
         private UIManager _uiManager;
 
-        public static ItemManager GetItemHandler() {
+        public static ItemManager GetItemManager() {
             return GameObject.Find("System").GetComponent<ItemManager>();
         }
 
