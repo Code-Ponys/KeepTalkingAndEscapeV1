@@ -146,7 +146,10 @@ namespace UnityStandardAssets.Characters.FirstPerson {
 
 
         private void GetInput(out float speed) {
-            if(_gameManager.GhostDrivenAnimationActive || _inventory.InventoryActive || _gameManager.HumanController.Health <= 0) {
+            if(_gameManager.GhostDrivenAnimationActive
+               || _inventory.InventoryActive ||
+               _gameManager.HumanController.Health <= 0
+               || _gameManager.GhostImageCanvasActive) {
                 speed = 2;
                 return;
             }

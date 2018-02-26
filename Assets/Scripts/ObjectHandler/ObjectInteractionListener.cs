@@ -2,6 +2,7 @@
 using NUnit.Framework.Internal;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
@@ -174,12 +175,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //All object which must be unlocked to interact with the object.
         [SerializeField] private ObjectInteractionListener[] _objectsToUnlock;
 
+        [SerializeField] private bool _showImageOnInteraction;
+        [SerializeField] private Sprite _ghostImage;
+        [SerializeField] private Sprite _humanImage;
+
         //Makes the object to a lightswitch
         [SerializeField] private bool _lightswitch;
         [SerializeField] private GameObject _light;
         [SerializeField] private GameObject _secondLight;
         private bool _objectUnlocked;
         private object _ghostReachableLast;
+        
 
 
         private void Start() {
@@ -370,6 +376,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
         }
 
+
         /// <summary>
         ///     KeyInteraction for Human aka Player 1
         /// </summary>
@@ -387,6 +394,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         _objectUnlocked = true;
                         _itemManager.RemoveItemFromHandAndInventory();
                     }
+                }
+
+                if(_itemIdToUnlock != "" && _objectUnlocked && _showImageOnInteraction) {
+                    
                 }
 
                 if(_lightswitch) {

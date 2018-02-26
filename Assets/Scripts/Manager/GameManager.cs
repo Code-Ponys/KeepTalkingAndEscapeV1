@@ -13,9 +13,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Camera _humanCamera;
         [SerializeField] private CharacterController _human;
         [SerializeField] private FirstPersonControllerHuman _humanController;
-        [SerializeField] private bool _ghostDrivenAnimationActive;
-        [SerializeField] private bool _humanNumPadActive;
-        [SerializeField] private bool _humanMapActive;
+        private bool _ghostDrivenAnimationActive;
+        private bool _humanNumPadActive;
+        private bool _humanMapActive;
+        private bool _humanImageCanvasActive;
+        private bool _ghostImageCanvasActive;
         [SerializeField] private float _humanHeight = 330;
         [SerializeField] private float _ghostHeight = 450;
 
@@ -67,6 +69,16 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         public float GhostHeight {
             get {return _ghostHeight;}
+        }
+
+        public bool HumanImageCanvasActive {
+            get {return _humanImageCanvasActive;}
+            set {_humanImageCanvasActive = value;}
+        }
+
+        public bool GhostImageCanvasActive {
+            get {return _ghostImageCanvasActive;}
+            set {_ghostImageCanvasActive = value;}
         }
     }
 }

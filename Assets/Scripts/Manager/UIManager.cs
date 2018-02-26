@@ -63,6 +63,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         [SerializeField] private Sprite _transparent;
 
+        [SerializeField] private ImageCanvasHandler _canvasHandlerHuman;
+        [SerializeField] private ImageCanvasHandler _canvasHandleGhost;
+
         private int _instanceIdHuman;
         private int _instanceIdGhost;
 
@@ -334,6 +337,22 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             _ghostSecondButton.sprite = GetSprite(secondButton);
         }
 
+        public void ShowImage(CharacterType characterType, Sprite sprite) {
+            switch(characterType) {
+                case CharacterType.Unassigned:
+                    break;
+                case CharacterType.Ghost:
+                    _canvasHandleGhost.ShowImage(sprite);
+                    break;
+                case CharacterType.Human:
+                    _canvasHandlerHuman.ShowImage(sprite);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("characterType", characterType, null);
+            }
+        }
+        
+
         private Sprite GetSprite(KeyType key) {
             switch(key) {
                 case KeyType.X:
@@ -436,6 +455,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         public Image GhostQuitMenu {
             get {return _ghostQuitMenu;}
             set {_ghostQuitMenu = value;}
+        }
+
+        public Sprite Transparent {
+            get {return _transparent;}
         }
     }
 }

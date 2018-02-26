@@ -160,7 +160,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void GetInput(out float speed)
         {
-            if(_gameManager.HumanNumPadActive || _inventory.InventoryActive || _gameManager.HumanMapActive || _gameManager.HumanController.Health <= 0) {
+            if(_gameManager.HumanNumPadActive
+               || _inventory.InventoryActive ||
+               _gameManager.HumanMapActive ||
+               _gameManager.HumanController.Health <= 0
+               || _gameManager.HumanImageCanvasActive) {
                 speed = 2;
                 return;
             }
