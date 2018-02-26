@@ -5,7 +5,7 @@ using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
-    public class MapHandler {
+    public class MapHandler : MonoBehaviour {
         private List<MapButton> _buttons = new List<MapButton>();
         private float _currentAxisDelay;
         [SerializeField] private string _password;
