@@ -307,8 +307,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         ///     Controls the Inputs made by the players
         /// </summary>
         private void KeyInteraction() {
-            KeyInteractionHuman();
-
+            if(_gameManager.HumanController.Health <= 0) return;
+                KeyInteractionHuman();
+                
             //Mostly same like player 1 but for player 2
             KeyInteractionGhost();
         }

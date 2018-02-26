@@ -64,7 +64,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 						_uiManager.GhostQuitMenu.GetComponent<Image>().enabled = true;
 						break;
 			}
-			Time.timeScale = 0;
+//			Time.timeScale = 0;
 		}
 		
 		private void UpdateSelection() {
