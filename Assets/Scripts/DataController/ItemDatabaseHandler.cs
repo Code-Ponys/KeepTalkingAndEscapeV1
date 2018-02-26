@@ -2,6 +2,7 @@
 using System.IO;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using TrustfallGames.KeepTalkingAndEscape.Listener;
+using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
@@ -70,7 +71,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.DataController {
         public static void WriteDatabase() {
             using(var writer = new StreamWriter(DataPath.ItemDatabase)) {
                 var serializer = new SerializerBuilder().Build();
-                var yaml = serializer.Serialize(ItemHandler.GetItemHandler().ItemDatabase);
+                var yaml = serializer.Serialize(ItemManager.GetItemHandler().ItemDatabase);
                 writer.WriteLine(yaml);
                 Debug.Log(yaml);
             }

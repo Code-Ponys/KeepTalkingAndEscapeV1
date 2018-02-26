@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using TrustfallGames.KeepTalkingAndEscape.DataController;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
+using TrustfallGames.KeepTalkingAndEscape.Listener;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 
-namespace TrustfallGames.KeepTalkingAndEscape.Listener {
-    public class ItemHandler : MonoBehaviour {
+namespace TrustfallGames.KeepTalkingAndEscape.Manager {
+    public class ItemManager : MonoBehaviour {
         //All Items which can exist.
         private ObjectInteractionListener _objectInteractionListener;
         private ItemDatabase _itemDatabase;
@@ -21,8 +22,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private List<Item> _inventory = new List<Item>();
         private UIManager _uiManager;
 
-        public static ItemHandler GetItemHandler() {
-            return GameObject.Find("System").GetComponent<ItemHandler>();
+        public static ItemManager GetItemHandler() {
+            return GameObject.Find("System").GetComponent<ItemManager>();
         }
 
         private void Start() {

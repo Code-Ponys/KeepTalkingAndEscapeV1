@@ -75,7 +75,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         private UIManager _uiManager;
         private GameManager _gameManager;
-        private ItemHandler _itemHandler;
+        private ItemManager _itemManager;
         private SoundManager _soundManager;
         private bool _humanMessageActive;
         private bool _ghostMessageActive;
@@ -180,13 +180,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private void Start() {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
-            _itemHandler = ItemHandler.GetItemHandler();
+            _itemManager = ItemManager.GetItemHandler();
             _soundManager = SoundManager.GetSoundManager();
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
             if(AnimationType != AnimationType.None) _animationController = gameObject.AddComponent<AnimationController>();
 
-            _itemHandler.CheckItem(this);
+            _itemManager.CheckItem(this);
 
             if(_activeObject != null) _inactiveObject.SetActive(false);
             if(_enableAnimationObject != null) _enableAnimationObject.SetActive(false);
@@ -380,7 +380,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_itemToUnlock != "") {
                     if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemToUnlock, StringComparison.CurrentCultureIgnoreCase)) {
                         _objectUnlocked = true;
-                        _itemHandler.RemoveItemFromHandAndInventory();
+                        _itemManager.RemoveItemFromHandAndInventory();
                     }
                 }
 
@@ -395,7 +395,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemIdToUnlock,
                                      StringComparison.CurrentCultureIgnoreCase)) {
                         _animationUnlocked = true;
-                        _itemHandler.RemoveItemFromHandAndInventory();
+                        _itemManager.RemoveItemFromHandAndInventory();
                         _disableAnimationObject.SetActive(false);
                         _enableAnimationObject.SetActive(true);
                     }
@@ -415,7 +415,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_canBeTakenToInventory && !_canBePickedUpAfterGhostAction) {
                     _soundManager.Source.clip = _soundManager.PickupSound;
                     _soundManager.Source.Play();
-                    _itemHandler.AddItemToInv(_itemName);
+                    _itemManager.AddItemToInv(_itemName);
                     _uiManager.HumanHoverText = "";
                     _meshGameObject.SetActive(false);
                 }
@@ -427,15 +427,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 // Put gameobject only in inventory but disables further inventory adding
                 else if(_canBeTakenButStayInScene && !_itemRequiredToRecieveItem) {
                     _canBeTakenButStayInScene = false;
-                    _itemHandler.AddItemToInv(_itemName);
+                    _itemManager.AddItemToInv(_itemName);
 
                     //Combine Item and Object in scene to get a new Item
                 }
 
                 if(_canBeTakenButStayInScene && _itemRequiredToRecieveItem) {
                     if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemNameRequiredToRecieveItem, StringComparison.CurrentCultureIgnoreCase)) {
-                        _itemHandler.AddItemToInv(_itemName);
-                        _itemHandler.RemoveItemFromHandAndInventory();
+                        _itemManager.AddItemToInv(_itemName);
+                        _itemManager.RemoveItemFromHandAndInventory();
                         _canBeTakenButStayInScene = false;
                     }
                 }
@@ -510,7 +510,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     if(_cancelPickupOnDamage) return true;
                 }
                 else {
-                    _itemHandler.RemoveItemFromHandAndInventory();
+                    _itemManager.RemoveItemFromHandAndInventory();
                 }
 
             //Ghost Damage

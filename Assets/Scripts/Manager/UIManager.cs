@@ -97,7 +97,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [Range(1, 100)] [SerializeField] private float _flavourTextWaitTimer;
 
         private GameManager _gameManager;
-        private ItemHandler _itemHandler;
+        private ItemManager _itemManager;
 
         public static UIManager GetUiManager() {
             return GameObject.Find("System").GetComponent<UIManager>();
@@ -105,7 +105,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void Start() {
             _gameManager = GameManager.GetGameManager();
-            _itemHandler = ItemHandler.GetItemHandler();
+            _itemManager = ItemManager.GetItemHandler();
             _userInterfaceGhost.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceHuman.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceGhost.worldCamera = _gameManager.GhostCamera;
@@ -132,7 +132,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void UpdateItemInHand() {
             if(_inventoryHuman.ItemInHand != "") {
-                var item = _itemHandler.GetItemFromDatabase(_inventoryHuman.ItemInHand);
+                var item = _itemManager.GetItemFromDatabase(_inventoryHuman.ItemInHand);
                 _ItemInHand.sprite = Resources.Load<Sprite>(item.SpritePath);
                 _ItemInHandText.text = item.Name;
             }

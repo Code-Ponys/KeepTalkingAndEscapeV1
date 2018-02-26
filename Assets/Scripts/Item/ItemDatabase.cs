@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TrustfallGames.KeepTalkingAndEscape.DataController;
 using TrustfallGames.KeepTalkingAndEscape.Listener;
+using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Datatypes {
@@ -48,7 +49,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Datatypes {
         }
 
         public static ItemDatabase GetInstance() {
-            return GameObject.Find("ItemHandler").GetComponent<ItemHandler>().ItemDatabase;
+            return GameObject.Find("ItemHandler").GetComponent<ItemManager>().ItemDatabase;
         }
         
         public List<Item> ItemDatabaseList {

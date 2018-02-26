@@ -22,7 +22,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Text _itemCombineText;
 
 
-        private ItemHandler _itemHandler;
+        private ItemManager _itemManager;
 
         private float _currentAxisDelay;
         [SerializeField] private Sprite _emptyItemSlot;
@@ -47,7 +47,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
             if(_secondInventory.CharacterType == _characterType) throw new Exception("Inventory must have different character types");
 
-            _itemHandler = ItemHandler.GetItemHandler();
+            _itemManager = ItemManager.GetItemHandler();
             _gameManager = GameManager.GetGameManager();
 
             var canvas = gameObject.GetComponent<Canvas>();
@@ -308,8 +308,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
                     if(combine[0].GetComponent<ItemCombineSlotHandler>().Item != null && combine[1].GetComponent<ItemCombineSlotHandler>().Item != null) {
                         Debug.Log("Trying to combine");
-                        if(_itemHandler.ItemsCombineable(combine[0].GetComponent<ItemCombineSlotHandler>().Item, combine[1].GetComponent<ItemCombineSlotHandler>().Item)) {
-                            var item = _itemHandler.GetItemFromDatabase(combine[0].GetComponent<ItemCombineSlotHandler>().Item.NextItem);
+                        if(_itemManager.ItemsCombineable(combine[0].GetComponent<ItemCombineSlotHandler>().Item, combine[1].GetComponent<ItemCombineSlotHandler>().Item)) {
+                            var item = _itemManager.GetItemFromDatabase(combine[0].GetComponent<ItemCombineSlotHandler>().Item.NextItem);
                             _itemCombineText.text = "Kombinieren erfolgreich. " + item.Name + " erhalten";
                             _secondInventory._itemCombineText.text = "Kombinieren erfolgreich. " + item.Name + " erhalten";
                             RearrangeItems();
@@ -337,7 +337,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         /// Rearrange all items in both inventories
         /// </summary>
         private void RearrangeItems() {
-            var list = _itemHandler.Inventory;
+            var list = _itemManager.Inventory;
             var listcount = 0;
             foreach(var obj in _slots) {
                 obj.GetComponent<ItemSlotHandler>().Item = listcount > list.Count - 1 ? null : list[listcount];
