@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: d50f708547b8172408ddd1088385c9f9
-timeCreated: 1518685430
+timeCreated: 1519636241
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Glas
     2300000: //RootNode
     3300000: //RootNode
     4300000: Glas
@@ -15,8 +16,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1.004
-    second: {fileID: 2100000, guid: 2f3f5120e4d0e1c469d72b2ce04ed46e, type: 2}
+      name: Glas
+    second: {fileID: 2100000, guid: 0a0213a0b84721641b959e05a4a35c38, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
