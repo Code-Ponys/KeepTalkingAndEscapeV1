@@ -127,20 +127,20 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
             if(_pickUpTimerGhost > 0) {
                 _pickUpTimerGhost -= Time.deltaTime;
-                return;
             }
-
-            _itemDisplayGhost.sprite = _transparent;
-            _itemDisplayGhostText.text = "";
+            else {
+                _itemDisplayGhost.sprite = _transparent;
+                _itemDisplayGhostText.text = "";
+            }
 
 
             if(_pickUpTimerHuman > 0) {
                 _pickUpTimerHuman -= Time.deltaTime;
-                return;
             }
-
-            _ItemInHand.sprite = _transparent;
-            _ItemInHandText.text = "";
+            else {
+                _ItemInHandText.text = "";
+                _ItemInHand.sprite = _transparent;
+            }
         }
 
         public void DisplayLastPickedUpItem(Item item) {
