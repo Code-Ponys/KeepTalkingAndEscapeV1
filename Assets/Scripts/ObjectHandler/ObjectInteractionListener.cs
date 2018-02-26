@@ -694,6 +694,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _mapHandler.CloseMap();
                 _gameManager.HumanMapActive = false;
             }
+
+            if(_canBeTakenToInventory) {
+                _uiManager.HideButtons(CharacterType.Human);
+            }
         }
 
         public int AnimationDurationInFrames {
