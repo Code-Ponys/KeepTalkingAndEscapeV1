@@ -58,7 +58,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             AddItemToInv(item1.NextItem);
             RemoveItemFromInventory(item1.ItemId);
             RemoveItemFromInventory(item2.ItemId);
-            Debug.Log("Items combined");
+            _uiManager.InventoryHuman.ItemInHand = "";
             return true;
         }
 
@@ -70,6 +70,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             foreach(var obj in _itemList) {
                 if(!string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) continue;
                 _inventory.Add(obj);
+                _uiManager.InventoryHuman.ItemInHand = "";
                 _uiManager.DisplayLastPickedUpItem(obj);
                 return;
             }
