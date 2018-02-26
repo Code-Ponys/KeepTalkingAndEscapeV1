@@ -132,7 +132,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private bool _disableDamageByGhost;
 
         [SerializeField] private GhostParticleHandler _removeParticleOnNoDamage;
-        
+
 
         //Determines if its a Radio
         //[SerializeField] private bool _isARadio;
@@ -242,22 +242,26 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// </summary>
         private void UpdateDamageParticle() {
             if(_removeParticleOnNoDamage == null) return;
+            Debug.Log("object Damage disabled");
             var damageDisabled = true;
             if(_disableDamageWithObject != null) {
+                Debug.Log("0");
+
                 damageDisabled = _disableDamageWithObject._damageDisabled;
             }
 
             if(_disableDamageByGhost) {
                 if(damageDisabled) {
-                    damageDisabled = _damageDisabled;
+                    Debug.Log("ghost damage : " + _disableDamageByGhost);
+
+                    damageDisabled = _damageDisabledByGhost;
                 }
             }
 
             if(damageDisabled) {
                 Destroy(_removeParticleOnNoDamage);
+                Destroy(GameObject.Find(gameObject.name + "/Particle"));
             }
-
-
         }
 
         private void UpdateHumanMap() {
@@ -700,7 +704,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
                 return;
             }
-            if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction&& _animationUnlocked) {
+
+            if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction && _animationUnlocked) {
                 _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
                 return;
             }
