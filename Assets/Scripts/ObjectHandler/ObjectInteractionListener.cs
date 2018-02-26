@@ -197,7 +197,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_enabledObject != null) _enabledObject.SetActive(false);
             if(_ghostActiveObject != null) _ghostActiveObject.SetActive(false);
 
-            _isGameOver = false;
             _audioSource = _meshGameObject.AddComponent<AudioSource>();
         }
 
@@ -310,8 +309,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         ///     Controls the Inputs made by the players
         /// </summary>
         private void KeyInteraction() {
-            KeyInteractionHuman();
-
+            if(_gameManager.HumanController.Health <= 0) return;
+                KeyInteractionHuman();
+                
             //Mostly same like player 1 but for player 2
             KeyInteractionGhost();
         }

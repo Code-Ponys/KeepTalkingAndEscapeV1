@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f0e6eb7b447123147ac795b263062f03
-timeCreated: 1518444231
+timeCreated: 1519660244
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -35,6 +35,20 @@ ModelImporter:
     400024: 'small_mappe '
     400026: small_ordner
     400028: small_paper
+    2100000: Small Ordner 1
+    2100002: Small paper 1
+    2100004: Stift
+    2100006: Small Mappe 1
+    2100008: Ordner 4
+    2100010: Papier einzeln 5
+    2100012: Papier einzeln 4
+    2100014: mappe 2
+    2100016: Papier einzeln 1
+    2100018: Papier 0
+    2100020: Papier einzeln 2
+    2100022: Notiz
+    2100024: Ordner 3
+    2100026: ordner 1
     2300000: note
     2300002: ordner.001
     2300004: ordner.003
@@ -63,20 +77,20 @@ ModelImporter:
     3300022: 'small_mappe '
     3300024: small_ordner
     3300026: small_paper
-    4300000: ordner.001
-    4300002: ordner.003
-    4300004: note
-    4300006: paper einzeln.002
-    4300008: paper.000
-    4300010: paper einzeln.001
-    4300012: paper.003
-    4300014: paper einzeln.004
-    4300016: paper einzeln.005
-    4300018: ordner.004
-    4300020: 'small_mappe '
-    4300022: pen
-    4300024: small_paper
-    4300026: small_ordner
+    4300000: small_ordner
+    4300002: small_paper
+    4300004: pen
+    4300006: 'small_mappe '
+    4300008: ordner.004
+    4300010: paper einzeln.005
+    4300012: paper einzeln.004
+    4300014: paper.003
+    4300016: paper einzeln.001
+    4300018: paper.000
+    4300020: paper einzeln.002
+    4300022: note
+    4300024: ordner.003
+    4300026: ordner.001
     6400000: note
     6400002: ordner.001
     6400004: ordner.003
@@ -95,8 +109,73 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a77f80c596e87494fbbccd1f2d86e1dc, type: 2}
+      name: Notiz
+    second: {fileID: 2100000, guid: d0fd8fc4809f68b478d2495df09d11ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ordner 3
+    second: {fileID: 2100000, guid: f66cc78cbb2b18a4691c4d69f28e2493, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ordner 4
+    second: {fileID: 2100000, guid: 13321db492034bc45b7d012a1ff607de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Papier 0
+    second: {fileID: 2100000, guid: e5fed62f263f78f4dbf0469ce95780a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Papier einzeln 1
+    second: {fileID: 2100000, guid: 91be96607761a8043951b4e2f1ecbffe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Papier einzeln 2
+    second: {fileID: 2100000, guid: 43b4dc386c2c2d247acd6ca43c7ea52b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Papier einzeln 4
+    second: {fileID: 2100000, guid: 0efc681554e422a4cb8e32ab23fa8e7c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Papier einzeln 5
+    second: {fileID: 2100000, guid: 15109a153c0a8c142ab471099f21d9a2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small Mappe 1
+    second: {fileID: 2100000, guid: 5dcfa6736752b874e9561b451e5a775f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small Ordner 1
+    second: {fileID: 2100000, guid: d59a632e9b4db53419dccb4ff4fe9143, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small paper 1
+    second: {fileID: 2100000, guid: 2bb1c9951e867934abe407d880b2adbb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stift
+    second: {fileID: 2100000, guid: 85fff920b16909d4685a6419336a06f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mappe 2
+    second: {fileID: 2100000, guid: fa93a97c1374cb146b6a8ccaf452fef5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ordner 1
+    second: {fileID: 2100000, guid: 978ae69ecba123649a397018706fe190, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -134,11 +213,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
