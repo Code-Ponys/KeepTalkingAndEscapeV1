@@ -71,7 +71,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private AudioSource _audioSource;
         [SerializeField] private AudioClip _openSound;
         [SerializeField] private AudioClip _closeSound;
-        [SerializeField] private AudioClip _radioSound;
+//        [SerializeField] private AudioClip _radioSound;
 
         private UIManager _uiManager;
         private GameManager _gameManager;
