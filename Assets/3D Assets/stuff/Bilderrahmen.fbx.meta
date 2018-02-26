@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: 8345b40a524a383468d3ea6488935969
-timeCreated: 1518708920
+timeCreated: 1519650600
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Bilderrahmen
     2300000: //RootNode
     3300000: //RootNode
     4300000: Bilderrahmen1:Mesh
@@ -15,8 +16,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Bilderrahmen1_initialShadingGroup1
-    second: {fileID: 2100000, guid: f7825d1de6523ab41943d30630a3cd5d, type: 2}
+      name: Bilderrahmen
+    second: {fileID: 2100000, guid: 3ed1cdf9d9779b741909f3506351c0ef, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

@@ -226,13 +226,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void UpdateHumanMap() {
-            if(_mapHandler == null) return;
-            if(_mapHandler.HumanMapActive != _humanMapActiveLast) {
-                _humanMapActiveLast = _mapHandler.HumanMapActive;
-                _gameManager.HumanMapActive = _mapHandler.HumanMapActive;
-            }
+            if(_mapHandler != null) {
+                if(_mapHandler.HumanMapActive != _humanMapActiveLast) {
+                    _humanMapActiveLast = _mapHandler.HumanMapActive;
+                    _gameManager.HumanMapActive = _mapHandler.HumanMapActive;
+                }
 
-            _humanMapActiveLast = _mapHandler.HumanMapActive;
+                _humanMapActiveLast = _mapHandler.HumanMapActive;
+            }
         }
 
 
@@ -667,6 +668,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_numButtonHandler != null) {
                 _numButtonHandler.CloseButtonField();
                 _gameManager.HumanNumPadActive = false;
+            }
+
+            if(_mapHandler != null) {
+                _mapHandler.CloseMap();
+                _gameManager.HumanMapActive = false;
             }
         }
 

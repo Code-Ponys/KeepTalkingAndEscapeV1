@@ -1,22 +1,23 @@
 fileFormatVersion: 2
 guid: aaef0e69fa837f94f912674544663dae
-timeCreated: 1518709179
+timeCreated: 1519650766
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Holzfigur
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Holzfigur2:Mesh
+    4300000: Holzfigur
     6400000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Holzfigur2_initialShadingGroup1
-    second: {fileID: 2100000, guid: c127a87ac83ce8148af12f81736e72a8, type: 2}
+      name: Holzfigur
+    second: {fileID: 2100000, guid: ed426e4f664ebb743942c35f91dae3dd, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
