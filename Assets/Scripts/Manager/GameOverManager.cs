@@ -27,32 +27,44 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
 		// Use this for initialization
 		void Start() {
-			var gameOverManager = GetComponent<GameOverManager>();
-			gameOverManager.enabled = false;
+			_gameManager = GameManager.GetGameManager();
+			_uiManager = UIManager.GetUiManager();
 			_currentPressedButtonHuman = 5;
-			_currentPressedButtonGhost = 5;   
+			_currentPressedButtonGhost = 5;
 		}
 
 		// Update is called once per frame
 		void Update() {
-			if(_objectInteractionListener.IsGameOver)
-			GameOverEnabler();
+			if(_gameManager.HumanController.Health <= 0) {
+				GameOverEnabler();
+			}
 
-			
+			if(_gameManager.HumanController.Health <= 0) {
+				UpdateSelection();
+				GameOverInput();
+				Clicked();
+				GameOverMenu();
+			}
 		}
 
 		private void GameOverEnabler() {
-			_uiManager.HumanGameOver.GetComponent<Text>().enabled = true;
-			_uiManager.HumanMainMenuButton.GetComponent<Text>().enabled = true;
-			_uiManager.HumanReplayButton.GetComponent<Text>().enabled = true;
-			_uiManager.HumanQuitMenu.GetComponent<Text>().enabled = true;
-			_uiManager.GhostGameOver.GetComponent<Text>().enabled = true;
-			_uiManager.GhostMainMenuButton.GetComponent<Text>().enabled = true;
-			_uiManager.GhostReplayButton.GetComponent<Text>().enabled = true;
-			_uiManager.GhostQuitMenu.GetComponent<Text>().enabled = true;
-			Time.timeScale = 0;
-			var gameOverManager = GetComponent<GameOverManager>();
-			gameOverManager.enabled = true;	
+			switch(_characterType) {
+					case CharacterType.Human:
+						_uiManager.HumanGameOver.GetComponent<Text>().enabled = true;
+						_uiManager.HumanGameOver.text = "Game Over";
+						_uiManager.HumanMainMenuButton.GetComponent<Image>().enabled = true;
+						_uiManager.HumanReplayButton.GetComponent<Image>().enabled = true;
+						_uiManager.HumanQuitMenu.GetComponent<Image>().enabled = true;
+						break;
+					case CharacterType.Ghost:
+						_uiManager.GhostGameOver.GetComponent<Text>().enabled = true;
+						_uiManager.GhostGameOver.text = "Game Over";
+						_uiManager.GhostMainMenuButton.GetComponent<Image>().enabled = true;
+						_uiManager.GhostReplayButton.GetComponent<Image>().enabled = true;
+						_uiManager.GhostQuitMenu.GetComponent<Image>().enabled = true;
+						break;
+			}
+//			Time.timeScale = 0;
 		}
 		
 		private void UpdateSelection() {
@@ -74,10 +86,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 			switch(_characterType) {
 				case CharacterType.Human:
 					//Change current button
-					if(_currentAxisDelay < 0) {
+					if(_currentAxisDelay <= 0) {
 						if(Input.GetAxis(ButtonNames.MoveHumanY) < 0) {
 							//Up
-							if(_y == 3) return;
+							if(_y == 2) return;
 							_y++;
 							_currentAxisDelay = _axisDelay;
 						}
@@ -94,11 +106,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 					break;
 				case CharacterType.Ghost:
 					//Change current button
-					if(_currentAxisDelay < 0) {
+					if(_currentAxisDelay <= 0) {
 						if(Input.GetAxis(ButtonNames.MoveGhostY) < 0) {
 							//Up
 							Debug.Log("Pressed Down");
-							if(_y == 3) return;
+							if(_y == 2) return;
 							_y++;
 							_currentAxisDelay = _axisDelay;
 						}
@@ -173,7 +185,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
 		private void GameOverMenu() {
-			
+			if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) {
+				SceneManager.LoadScene(_scene[0]);
+			}
+			if(_currentPressedButtonHuman == 1 && _currentPressedButtonGhost == 1) {
+				SceneManager.LoadScene(_scene[1]);
+			}
+			if(_currentPressedButtonHuman == 2 && _currentPressedButtonGhost == 2) {
+				Application.Quit();
+			}
 		}
 	}
 }
