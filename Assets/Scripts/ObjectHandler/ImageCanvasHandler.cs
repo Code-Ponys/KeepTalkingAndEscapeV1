@@ -9,6 +9,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private GameManager _gameManager;
         private UIManager _uiManager;
         private Image _image;
+        private GameObject _buttonDisplay;
         [SerializeField] private CharacterType _characterType;
         private bool _canvasActive;
 
@@ -18,6 +19,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _gameManager = GameManager.GetGameManager();
             _image = GameObject.Find(gameObject.name + "/Image").GetComponent<Image>();
             _image.sprite = _uiManager.Transparent;
+            _buttonDisplay = GameObject.Find(gameObject.name + "/Buttondisplay");
+            _buttonDisplay.SetActive(false);
         }
 
         private void Update() {
@@ -47,11 +50,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         private void HideCanvas() {
             _image.sprite = _uiManager.Transparent;
+            _buttonDisplay.SetActive(false);
             _canvasActive = false;
         }
 
         public void ShowImage(Sprite sprite) {
             _image.sprite = sprite;
+            _buttonDisplay.SetActive(true);
             _canvasActive = true;
         }
     }
