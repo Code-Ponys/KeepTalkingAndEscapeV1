@@ -1,22 +1,37 @@
 fileFormatVersion: 2
 guid: ef4c9527af1dc1c44870268aa4b5c6f9
-timeCreated: 1518709053
+timeCreated: 1519650643
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: glasses:Mesh
-    6400000: //RootNode
+    100000: Cube
+    100002: //RootNode
+    100004: glasses:Mesh
+    400000: Cube
+    400002: //RootNode
+    400004: glasses:Mesh
+    2100000: GLASS
+    2100002: glasses
+    2300000: Cube
+    2300002: glasses:Mesh
+    3300000: Cube
+    3300002: glasses:Mesh
+    4300000: Cube
+    4300002: glasses:Mesh
+    6400000: Cube
+    6400002: glasses:Mesh
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 3bd3751f9aab56044b01b153a0b9ecc0, type: 2}
+      name: GLASS
+    second: {fileID: 2100000, guid: cc13b6d31deb7674c9c173bfd878c070, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glasses
+    second: {fileID: 2100000, guid: 1afb95452f0aa3d4daef7df2c6cf3c96, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +69,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

@@ -1,22 +1,23 @@
 fileFormatVersion: 2
 guid: 01598b0b55aa4094e98dcb09cccb4e18
-timeCreated: 1518709368
+timeCreated: 1519650839
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: kerze
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Kerze1:Mesh
+    4300000: kerze
     6400000: //RootNode
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Kerze1_initialShadingGroup1
-    second: {fileID: 2100000, guid: 5f4888ebd902d8943b93ac70f352efcb, type: 2}
+      name: kerze
+    second: {fileID: 2100000, guid: 4e86cbe468e79154689e8fba40036e55, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +55,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

@@ -1,22 +1,27 @@
 fileFormatVersion: 2
 guid: 92ef930fa9dbff04f9f105d56e109596
-timeCreated: 1518709512
+timeCreated: 1519650896
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Wandbilderrahmen2:Mesh
-    6400000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wandbilderrahmen2_initialShadingGroup1
-    second: {fileID: 2100000, guid: 470786c90da449341bdc02983fd500f8, type: 2}
+    100000: bild
+    100002: //RootNode
+    100004: wandbilderrahmen
+    400000: bild
+    400002: //RootNode
+    400004: wandbilderrahmen
+    2100000: bild
+    2100002: Wandbilderrahmen
+    2300000: bild
+    2300002: wandbilderrahmen
+    3300000: bild
+    3300002: wandbilderrahmen
+    4300000: bild
+    4300002: wandbilderrahmen
+    6400000: bild
+    6400002: wandbilderrahmen
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -54,11 +59,13 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
