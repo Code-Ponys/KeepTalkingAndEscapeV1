@@ -669,7 +669,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 return;
             }
 
-            if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction) {
+            if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction && !_animationUnlocked) {
+                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
+                return;
+            }
+            if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction&& _animationUnlocked) {
                 _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
                 return;
             }
