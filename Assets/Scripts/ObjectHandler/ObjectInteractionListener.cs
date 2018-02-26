@@ -71,6 +71,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Sound implementation
         private AudioSource _audioSource;
         [SerializeField] private AudioClip _openSound;
+
         [SerializeField] private AudioClip _closeSound;
 //        [SerializeField] private AudioClip _radioSound;
 
@@ -164,6 +165,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //Must the Objects in object to unlock be unlocked to interact with the object
         [SerializeField] private bool _objectMustUnlocked;
+        [SerializeField] private bool _animationObjectMustUnlocked;
 
         //which item is needed to unlock the object
         [SerializeField] private string _itemToUnlock;
@@ -423,7 +425,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _uiManager.HumanHoverText = "";
                     _meshGameObject.SetActive(false);
                 }
-                else if (_canBeTakenToInventory && _canBePickedUpAfterGhostAction){
+                else if(_canBeTakenToInventory && _canBePickedUpAfterGhostAction) {
                     _uiManager.HumanFlavourText = _blockedMessage;
                 }
 
@@ -471,13 +473,29 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                 //Starts Animation, if it isnt disabled
                 if(AnimationType == AnimationType.Open) {
-                    if(_objectMustUnlocked)
+                    var unlocked = true;
+
+                    if(_objectMustUnlocked) {
                         foreach(var obj in _objectsToUnlock) {
                             if(obj.ObjectUnlocked == false) {
                                 _uiManager.HumanFlavourText = _blockedMessage;
-                                return;
+                                unlocked = false;
+                                break;
                             }
                         }
+                    }
+
+                    if(_animationObjectMustUnlocked) {
+                        foreach(var obj in _objectsToUnlock) {
+                            if(obj._animationUnlocked == false) {
+                                _uiManager.HumanFlavourText = _blockedMessage;
+                                unlocked = false;
+                                break;
+                            }
+                        }
+                    }
+
+                    if(!unlocked) return;
 
                     if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) {
                         _numButtonHandler.OpenButtonField();
@@ -528,7 +546,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _gameManager.HumanController.TakeHealth(1);
                 if(_cancelPickupOnDamage) return true;
             }
-            
+
             if(_gameManager.HumanController.Health <= 0) {
                 _soundManager.Source.clip = _soundManager.DeathSound;
                 _soundManager.Source.Play();
@@ -556,6 +574,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none, GetInstanceID());
                 return;
             }
+
             if(_humanFlavourText != "")
                 _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A, GetInstanceID());
         }
