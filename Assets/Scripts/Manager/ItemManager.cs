@@ -12,6 +12,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private ObjectInteractionListener _objectInteractionListener;
         private ItemDatabase _itemDatabase;
         private GameManager _gameManager;
+        private SoundManager _soundManager;
         [SerializeField] private int _itemsInDatabase;
         private Queue<ObjectInteractionListener> _itemcheck = new Queue<ObjectInteractionListener>();
 
@@ -27,6 +28,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
         private void Start() {
+            _soundManager = SoundManager.GetSoundManager();
             _itemDatabase = new ItemDatabase();
             _itemDatabase = ItemDatabaseHandler.LoadDataBase();
             _itemList = _itemDatabase.ItemDatabaseList;
@@ -52,8 +54,18 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         /// <returns>Returns true, if the combination was valid.</returns>
         public bool ItemsCombineable(Item item1, Item item2) {
             if(!item1.Combineable || !item2.Combineable) return false;
-            if(item1.CombineWith != CombineWith.Item || item2.CombineWith != CombineWith.Item) return false;
-            if(item1.CombineWithItem != item2.ItemId || item2.CombineWithItem != item1.ItemId) return false;
+            if(item1.CombineWith != CombineWith.Item || item2.CombineWith != CombineWith.Item) {
+                _soundManager.Source.clip = _soundManager.FailComboSound;
+                _soundManager.Source.Play();
+                return false;
+            }
+            if(item1.CombineWithItem != item2.ItemId || item2.CombineWithItem != item1.ItemId) {
+                _soundManager.Source.clip = _soundManager.FailComboSound;
+                _soundManager.Source.Play();
+                return false;
+            }
+            _soundManager.Source.clip = _soundManager.SuccessComboSound;
+            _soundManager.Source.Play();
             AddItemToInv(item1.NextItem);
             RemoveItemFromInventory(item1.ItemId);
             RemoveItemFromInventory(item2.ItemId);
