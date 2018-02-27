@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 857212749}
-  m_IndirectSpecularColor: {r: 0.23009771, g: 0.20601055, b: 0.15227297, a: 1}
+  m_IndirectSpecularColor: {r: 0.22534671, g: 0.20090926, b: 0.14794287, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000002, guid: 88424d7a76f0ecd419ed51489ac52911,
+  m_LightingDataAsset: {fileID: 112000002, guid: 93daaa32ad599724f8cc278bbe85b458,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -481,6 +481,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -727,6 +730,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -1330,35 +1336,35 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 554201342}
+    m_TransformParent: {fileID: 1658977967}
     m_Modifications:
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.9670007
       objectReference: {fileID: 0}
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.428
       objectReference: {fileID: 0}
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.046
       objectReference: {fileID: 0}
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.186841
       objectReference: {fileID: 0}
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.000000029802315
+      value: -0.56657636
       objectReference: {fileID: 0}
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.78285486
       objectReference: {fileID: 0}
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.1766917
       objectReference: {fileID: 0}
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_RootOrder
@@ -1379,7 +1385,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 1826007675121590, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_Layer
@@ -1392,19 +1398,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1826007675121590, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_Name
-      value: Lightning TV AN
+      value: Funken
       objectReference: {fileID: 0}
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -108.55401
+      value: -120.319
       objectReference: {fileID: 0}
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -16.748001
+      value: -124.808
       objectReference: {fileID: 0}
     - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 5.532
+      value: -58.819
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
@@ -1732,6 +1738,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 1
   _disableDamageByGhost: 1
+  _damageGhostMessage: Au! Etwas hat mich verletzt!
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 60826397}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -1895,6 +1904,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -2242,6 +2254,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -2375,6 +2390,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -2888,55 +2906,55 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1182730927}
+    m_TransformParent: {fileID: 1844732862}
     m_Modifications:
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -622.88885
+      value: 0.323
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 68.876
+      value: -0.5339
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 543.2825
+      value: -0.1359
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.0000001192093
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_LocalScale.y
-      value: 99.99994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99994
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &129571664 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
-  m_PrefabInternal: {fileID: 129571663}
 --- !u!1 &135589702
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,6 +3025,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &141976466 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114683102714574802, guid: 973cf014af324b34e8ecba7210dc38e9,
+    type: 2}
+  m_PrefabInternal: {fileID: 462093203}
+  m_Script: {fileID: 11500000, guid: a427107eed8004b43b58be61430305cb, type: 3}
 --- !u!1 &148603123
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,7 +3048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &148603124
 Transform:
   m_ObjectHideFlags: 0
@@ -3241,41 +3265,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 161042544}
---- !u!1 &165347934
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1795413162609600, guid: 62621d8b996c5f143a63ec8bc05b42d3,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 165347935}
-  m_Layer: 5
-  m_Name: Game Setup (Unpack!!!)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &165347935
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 224617112655431302, guid: 62621d8b996c5f143a63ec8bc05b42d3,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 165347934}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -171.1}
-  m_LocalScale: {x: 0.0030682506, y: 0.0030682487, z: 0.0030682506}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.009544116, y: 80743.13}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &167825622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3920,6 +3909,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -4180,55 +4172,55 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1182730927}
+    m_TransformParent: {fileID: 1844732861}
     m_Modifications:
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -535.1572
+      value: 0.3070843
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.179474
+      value: 0.44716552
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 531.4812
+      value: -0.13571979
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.0000001192093
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_LocalScale.y
-      value: 99.99994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99994
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &238082136 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: bd6e5cab138dc5e4eb80dadc082f8fae, type: 3}
-  m_PrefabInternal: {fileID: 238082135}
 --- !u!1 &239585467
 GameObject:
   m_ObjectHideFlags: 0
@@ -4386,7 +4378,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &241884505
 GameObject:
@@ -4746,6 +4738,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -4871,7 +4866,7 @@ RectTransform:
   - {fileID: 1218622284}
   - {fileID: 2073064240}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5100,7 +5095,7 @@ RectTransform:
   m_Children:
   - {fileID: 71803023}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5258,16 +5253,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 763cb3ad394d51d4cb3c7e63863f74ac, type: 3}
   m_PrefabInternal: {fileID: 284078153}
---- !u!1 &286639073 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1826007675121590, guid: d07e846d2d7e2bb44b0389c690683432,
-    type: 2}
-  m_PrefabInternal: {fileID: 36247077}
---- !u!4 &286639074 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432,
-    type: 2}
-  m_PrefabInternal: {fileID: 36247077}
 --- !u!1 &292368364
 GameObject:
   m_ObjectHideFlags: 0
@@ -5477,6 +5462,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -5920,6 +5908,90 @@ RectTransform:
   m_AnchoredPosition: {x: 660.0156, y: -400.90002}
   m_SizeDelta: {x: 570.08, y: 203.1}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &328271642 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+  m_PrefabInternal: {fileID: 391926719}
+--- !u!114 &328271643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 328271642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
+  _objectDescription: Obere Schublade
+  _ghostFlavourText: 
+  _humanFlavourText: 
+  _itemName: 
+  _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
+  _animationAllowWhenMapSolved: 0
+  _mapHandler: {fileID: 0}
+  _activateChildWhen: 0
+  _getActivationFromMother: 0
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
+  _keyType: 0
+  _animationDurationInFrames: 60
+  _animationStepsPerKlick: 10
+  _positionAnimated: {x: -1.708317, y: 89.48746, z: 80.51}
+  _rotationAnimated: {x: -90, y: 0, z: 0}
+  _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _closeSound: {fileID: 0}
+  _canBePickedUpAfterGhostAction: 0
+  _canBeTakenToInventory: 0
+  _canBeTakenButStayInScene: 0
+  _itemRequiredToRecieveItem: 0
+  _itemNameRequiredToRecieveItem: 
+  _onedirectionAnimation: 0
+  _activateGravityAtEnd: 0
+  _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
+  _itemIdToUnlock: 
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
+  _lightswitch: 0
+  _light: {fileID: 0}
+  _secondLight: {fileID: 0}
 --- !u!1001 &329589783
 Prefab:
   m_ObjectHideFlags: 0
@@ -5978,6 +6050,90 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: d50ff5725fc1b92489762369cd8e26db, type: 3}
   m_PrefabInternal: {fileID: 329589783}
+--- !u!1 &329589785 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: d50ff5725fc1b92489762369cd8e26db, type: 3}
+  m_PrefabInternal: {fileID: 329589783}
+--- !u!114 &329589786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 329589785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
+  _objectDescription: "M\xFClleimer"
+  _ghostFlavourText: 
+  _humanFlavourText: 
+  _itemName: 
+  _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
+  _animationAllowWhenMapSolved: 0
+  _mapHandler: {fileID: 0}
+  _activateChildWhen: 0
+  _getActivationFromMother: 0
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
+  _keyType: 0
+  _animationDurationInFrames: 60
+  _animationStepsPerKlick: 10
+  _positionAnimated: {x: 0, y: 0, z: 0}
+  _rotationAnimated: {x: 11.697, y: 90.00001, z: -90.00001}
+  _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _closeSound: {fileID: 0}
+  _canBePickedUpAfterGhostAction: 0
+  _canBeTakenToInventory: 0
+  _canBeTakenButStayInScene: 0
+  _itemRequiredToRecieveItem: 0
+  _itemNameRequiredToRecieveItem: 
+  _onedirectionAnimation: 0
+  _activateGravityAtEnd: 0
+  _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
+  _itemIdToUnlock: 
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
+  _lightswitch: 0
+  _light: {fileID: 0}
+  _secondLight: {fileID: 0}
 --- !u!1 &332441532
 GameObject:
   m_ObjectHideFlags: 0
@@ -6361,6 +6517,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -6508,6 +6667,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -6621,7 +6783,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1701828878659064, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803511046532574, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
@@ -6950,6 +7116,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -7208,10 +7377,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -7228,13 +7393,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 400014, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 96.9
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 400014, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 96.9
+    - target: {fileID: 400004, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7069834
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7072302
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 400008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
@@ -7762,6 +7955,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -8165,6 +8361,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -8449,6 +8648,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -8732,6 +8934,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -9062,7 +9267,12 @@ Prefab:
         type: 2}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2098283085}
+    - target: {fileID: 114099100987800156, guid: 973cf014af324b34e8ecba7210dc38e9,
+        type: 2}
+      propertyPath: _removeParticleOnNoDamage
+      value: 
+      objectReference: {fileID: 141976466}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
   m_IsPrefabParent: 0
@@ -9168,7 +9378,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a44b120c1468cde489c63913d42f2ac2, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a44b120c1468cde489c63913d42f2ac2, type: 3}
       propertyPath: m_LocalScale.x
@@ -9262,55 +9472,55 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1182730927}
+    m_TransformParent: {fileID: 1844732862}
     m_Modifications:
     - target: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -585.81024
+      value: 0.30870873
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 68.89877
+      value: -0.21996209
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 541.85205
+      value: -0.1357197
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.0000001192093
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 99.99994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99994
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &479967053 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: 697b40cada12978448e81e36b6754cd3, type: 3}
-  m_PrefabInternal: {fileID: 479967052}
 --- !u!1001 &483562861
 Prefab:
   m_ObjectHideFlags: 0
@@ -9836,6 +10046,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -10387,36 +10600,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 98188646}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &554201341
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 554201342}
-  m_Layer: 0
-  m_Name: Funken_TV
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &554201342
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 554201341}
-  m_LocalRotation: {x: -0.1236949, y: -0.79815346, z: -0.09021822, w: 0.58267605}
-  m_LocalPosition: {x: -13.799929, y: 19.299995, z: 5.5999775}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 286639074}
-  - {fileID: 1853493130}
-  m_Father: {fileID: 873813962}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &561938967
 GameObject:
@@ -11508,7 +11691,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ecd81940eb729cf47b32f69710eb8ab9, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ecd81940eb729cf47b32f69710eb8ab9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -12098,6 +12281,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -12308,6 +12494,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -13824,6 +14013,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -14120,7 +14312,7 @@ Prefab:
         type: 2}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2098283085}
     - target: {fileID: 1295093919563080, guid: 2b6481aef193eb74fbb8a8e38ff4452f, type: 2}
       propertyPath: m_Name
       value: Tastenfeld Tresor
@@ -14372,13 +14564,16 @@ MonoBehaviour:
   _onedirectionAnimation: 0
   _activateGravityAtEnd: 0
   _ghostCanOpen: 1
-  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforePickup: 1
   _calculateDamageBeforeAnimation: 0
-  _disableDamageWithItem: 
+  _disableDamageWithItem: test
   _disableDamageWithObject: {fileID: 0}
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: Auch! Ich habe einen Schlag bekommen!
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -15181,6 +15376,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -15454,6 +15652,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -15812,6 +16013,8 @@ Transform:
   - {fileID: 2016933491}
   - {fileID: 2054649375}
   - {fileID: 602641057}
+  - {fileID: 1384394873}
+  - {fileID: 1180296480}
   m_Father: {fileID: 489026058}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -90.00001, y: 180, z: -90.00001}
@@ -15867,6 +16070,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -15964,6 +16170,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -17398,7 +17607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &849975580
 Transform:
   m_ObjectHideFlags: 0
@@ -17505,13 +17714,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 857212747}
-  m_LocalRotation: {x: -0.3646231, y: -0.27080786, z: 0.6294796, w: 0.6304511}
+  m_LocalRotation: {x: -0.39704466, y: -0.23411204, z: 0.6888927, w: 0.55944073}
   m_LocalPosition: {x: 1002, y: 0, z: -23.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1324507251}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: -6.8240004, y: -53.728004, z: 453.371}
+  m_LocalEulerAnglesHint: {x: -6.9900002, y: -54.592003, z: 465.451}
 --- !u!108 &857212749
 Light:
   m_ObjectHideFlags: 0
@@ -17991,6 +18200,90 @@ Transform:
   m_PrefabParentObject: {fileID: 4719641164958898, guid: 944d84c4fd54801449e898b395be404f,
     type: 2}
   m_PrefabInternal: {fileID: 2001622200}
+--- !u!1001 &878552625
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1658977967}
+    m_Modifications:
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.9670007
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.42800093
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.0062498
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.11616664
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.5851715
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.76845217
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.23143259
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 199959038197672346, guid: d07e846d2d7e2bb44b0389c690683432,
+        type: 2}
+      propertyPath: m_SelectedEditorRenderState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.0000017
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.0000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826007675121590, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198309747125120430, guid: d07e846d2d7e2bb44b0389c690683432,
+        type: 2}
+      propertyPath: randomSeed
+      value: 302383380
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826007675121590, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_Name
+      value: Funken (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -237.331
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -122.266
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 67.065994
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &879301741 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 04223f8bd25e3e44aa3e977dd92798d2, type: 3}
@@ -18139,6 +18432,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -18224,6 +18520,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -18443,55 +18742,55 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1182730927}
+    m_TransformParent: {fileID: 1844732861}
     m_Modifications:
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -613.51276
+      value: 0.27981937
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.623777
+      value: -0.3363897
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 528.7547
+      value: -0.14127682
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.0000001192093
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalScale.y
-      value: 99.99994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99994
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &900531235 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: 7b133a402b4fb314da6b495230d75e82, type: 3}
-  m_PrefabInternal: {fileID: 900531234}
 --- !u!4 &901249231 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: c7e09dfd313ac8a4294ba166cf529403, type: 3}
@@ -18652,6 +18951,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -18835,6 +19137,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -18988,6 +19293,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -19289,9 +19597,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
-  _objectDescription: Portrait eines unbekannten Mannes.
-  _ghostFlavourText: 
-  _humanFlavourText: 
+  _objectDescription: Portrait eines Mannes.
+  _ghostFlavourText: "Es wirkt als w\xFCrde er einen beobachten..."
+  _humanFlavourText: Dieser gutaussehende Mann kommt mir bekannt vor...
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
@@ -19327,6 +19635,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -19383,7 +19694,7 @@ Transform:
   - {fileID: 1436251987}
   - {fileID: 1658977967}
   m_Father: {fileID: 873813962}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &945625832
 MonoBehaviour:
@@ -19436,6 +19747,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 1
   _enabledObject: {fileID: 1436251986}
@@ -19750,6 +20064,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -19887,8 +20204,8 @@ MonoBehaviour:
   _activateChildWhen: 0
   _getActivationFromMother: 0
   _toggleActiveGameobjectByMother: 1
-  _activeObject: {fileID: 286639073}
-  _inactiveObject: {fileID: 1853493129}
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
   _keyType: 0
   _animationDurationInFrames: 60
   _animationStepsPerKlick: 10
@@ -19912,6 +20229,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: Ouch, Ich habe mich geschnitten!
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -20115,7 +20435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
-  _objectDescription: Sideboard
+  _objectDescription: "Sideboardt\xFCr"
   _ghostFlavourText: Ich frage mich was dahinter steckt...
   _humanFlavourText: 
   _itemName: 
@@ -20153,6 +20473,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -21148,6 +21471,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -21260,6 +21586,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -21661,6 +21990,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -22432,7 +22764,7 @@ RectTransform:
   m_Children:
   - {fileID: 1598430494}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -23028,6 +23360,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -23109,6 +23444,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -23416,6 +23754,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -23640,6 +23981,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -24056,23 +24400,23 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1182730927}
+    m_TransformParent: {fileID: 785591381}
     m_Modifications:
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -602.6
+      value: -0.2629995
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 225.51678
+      value: -0.04099995
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 549.5
+      value: 0.85446715
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.000000074505806
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalRotation.y
@@ -24084,11 +24428,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_Name
@@ -24096,11 +24440,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalScale.y
-      value: 99.99994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99994
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 354164e8414ba854480876b194b8d414, type: 3}
@@ -24144,12 +24492,6 @@ Transform:
   - {fileID: 2035855629}
   - {fileID: 2107159008}
   - {fileID: 821396191}
-  - {fileID: 129571664}
-  - {fileID: 1180296480}
-  - {fileID: 900531235}
-  - {fileID: 238082136}
-  - {fileID: 479967053}
-  - {fileID: 1384394873}
   m_Father: {fileID: 2013482418}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24885,6 +25227,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -24966,6 +25311,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -25121,6 +25469,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -25387,6 +25738,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -25667,6 +26021,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -25857,7 +26214,7 @@ Transform:
   - {fileID: 900222596}
   - {fileID: 963279475}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1275300369
 MonoBehaviour:
@@ -26144,6 +26501,16 @@ Prefab:
         type: 2}
       propertyPath: _rotationAnimated.y
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 114821596360622192, guid: e2a41072032c6e4478520c65c6a8a921,
+        type: 2}
+      propertyPath: _animationType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114231474164064406, guid: e2a41072032c6e4478520c65c6a8a921,
+        type: 2}
+      propertyPath: _animationType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2a41072032c6e4478520c65c6a8a921, type: 2}
@@ -26580,7 +26947,7 @@ Prefab:
         type: 2}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2098283085}
     - target: {fileID: 1295093919563080, guid: 2b6481aef193eb74fbb8a8e38ff4452f, type: 2}
       propertyPath: m_Name
       value: "Tastenfeld T\xFCr"
@@ -27577,92 +27944,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1341184931}
---- !u!1001 &1342648868
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 554201342}
-    m_Modifications:
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.000000029802315
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199959038197672346, guid: d07e846d2d7e2bb44b0389c690683432,
-        type: 2}
-      propertyPath: m_SelectedEditorRenderState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1826007675121590, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198309747125120430, guid: d07e846d2d7e2bb44b0389c690683432,
-        type: 2}
-      propertyPath: randomSeed
-      value: 1426523482
-      objectReference: {fileID: 0}
-    - target: {fileID: 1826007675121590, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_Name
-      value: Lightning TV AUS
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -108.55401
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -16.748001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 5.532
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 199959038197672346, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-    - {fileID: 198309747125120430, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &1342848337 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
@@ -27902,6 +28183,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -28020,6 +28304,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -28151,6 +28438,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -28781,6 +29071,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -28884,23 +29177,23 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1182730927}
+    m_TransformParent: {fileID: 785591381}
     m_Modifications:
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -498.2
+      value: 0.7809989
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 113.3
+      value: 0.08600022
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 536.8
+      value: -0.26770052
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.000000074505806
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalRotation.y
@@ -28912,19 +29205,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalScale.y
-      value: 99.99994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
       propertyPath: m_LocalScale.z
-      value: 99.99994
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 354164e8414ba854480876b194b8d414, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 354164e8414ba854480876b194b8d414, type: 3}
@@ -30869,6 +31166,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -30938,7 +31238,7 @@ Transform:
   - {fileID: 2098283088}
   - {fileID: 1952193802}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1492142199
 MonoBehaviour:
@@ -31147,6 +31447,90 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1503257177 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100004, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+  m_PrefabInternal: {fileID: 391926719}
+--- !u!114 &1503257178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1503257177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
+  _objectDescription: Untere Schublade
+  _ghostFlavourText: 
+  _humanFlavourText: 
+  _itemName: 
+  _animationType: 1
+  _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
+  _animationAllowWhenMapSolved: 0
+  _mapHandler: {fileID: 0}
+  _activateChildWhen: 0
+  _getActivationFromMother: 0
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
+  _keyType: 0
+  _animationDurationInFrames: 60
+  _animationStepsPerKlick: 10
+  _positionAnimated: {x: -1.708317, y: 59.27925, z: 84.9}
+  _rotationAnimated: {x: -90, y: 0, z: 0}
+  _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _closeSound: {fileID: 0}
+  _canBePickedUpAfterGhostAction: 0
+  _canBeTakenToInventory: 0
+  _canBeTakenButStayInScene: 0
+  _itemRequiredToRecieveItem: 0
+  _itemNameRequiredToRecieveItem: 
+  _onedirectionAnimation: 0
+  _activateGravityAtEnd: 0
+  _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
+  _itemIdToUnlock: 
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
+  _lightswitch: 0
+  _light: {fileID: 0}
+  _secondLight: {fileID: 0}
 --- !u!1001 &1508817877
 Prefab:
   m_ObjectHideFlags: 0
@@ -31494,6 +31878,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -31783,6 +32170,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -31907,6 +32297,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -32191,6 +32584,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -32772,7 +33168,7 @@ RectTransform:
   - {fileID: 897476429}
   - {fileID: 568230444}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -32834,6 +33230,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -33223,6 +33622,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -33312,7 +33714,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1006.5735
+      value: -1003.6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33324,19 +33726,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.6929885
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.14059494
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.14059494
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071067
+      value: 0.6929885
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
       propertyPath: m_RootOrder
@@ -33354,7 +33756,16 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 100
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -22.937
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
   m_IsPrefabParent: 0
 --- !u!4 &1622381181 stripped
@@ -33521,6 +33932,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -33830,6 +34244,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -33960,7 +34377,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1665025204
 GameObject:
@@ -34523,6 +34940,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -34646,6 +35066,90 @@ MeshFilter:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: f39ca76ba27b61c4ca182fcab65e1c29, type: 3}
   m_PrefabInternal: {fileID: 76222699}
+--- !u!1 &1686538073 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+  m_PrefabInternal: {fileID: 391926719}
+--- !u!114 &1686538074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1686538073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a625fe43412724da3dc15dac7d0b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
+  _secondGameObject: {fileID: 0}
+  _objectDescription: "Sideboardt\xFCr"
+  _ghostFlavourText: 
+  _humanFlavourText: 
+  _itemName: 
+  _animationType: 0
+  _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
+  _numButtonHandler: {fileID: 0}
+  _animationAllowWhenMapSolved: 0
+  _mapHandler: {fileID: 0}
+  _activateChildWhen: 0
+  _getActivationFromMother: 0
+  _toggleActiveGameobjectByMother: 0
+  _activeObject: {fileID: 0}
+  _inactiveObject: {fileID: 0}
+  _keyType: 0
+  _animationDurationInFrames: 60
+  _animationStepsPerKlick: 10
+  _positionAnimated: {x: 0, y: 0, z: 0}
+  _rotationAnimated: {x: -90, y: -90, z: 0}
+  _scaleAnimated: {x: 0, y: 0, z: 0}
+  _openSound: {fileID: 0}
+  _closeSound: {fileID: 0}
+  _canBePickedUpAfterGhostAction: 0
+  _canBeTakenToInventory: 0
+  _canBeTakenButStayInScene: 0
+  _itemRequiredToRecieveItem: 0
+  _itemNameRequiredToRecieveItem: 
+  _onedirectionAnimation: 0
+  _activateGravityAtEnd: 0
+  _ghostCanOpen: 0
+  _calculateDamageBeforePickup: 0
+  _calculateDamageBeforeAnimation: 0
+  _disableDamageWithItem: 
+  _disableDamageWithObject: {fileID: 0}
+  _cancelPickupOnDamage: 0
+  _OneTimeDamage: 0
+  _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
+  _objectCanBeDisabledToAvoidDamage: 0
+  _enabledObject: {fileID: 0}
+  _disabledObject: {fileID: 0}
+  _animationBlockedCauseOfObject: 0
+  _animationBlockObject: {fileID: 0}
+  _objectCanBeDisabledToUnblockAnimation: 0
+  _objectMustUnlockedWithItemForAnimation: 0
+  _blockedMessage: 
+  _itemIdToUnlock: 
+  _disableAnimationObject: {fileID: 0}
+  _enableAnimationObject: {fileID: 0}
+  _objectActiveToGetItem: 0
+  _activateObjectWithGhostInteraction: 0
+  _ghostActiveObject: {fileID: 0}
+  _ghostInactiveObject: {fileID: 0}
+  _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
+  _itemToUnlock: 
+  _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
+  _lightswitch: 0
+  _light: {fileID: 0}
+  _secondLight: {fileID: 0}
 --- !u!1 &1694777133
 GameObject:
   m_ObjectHideFlags: 0
@@ -35167,6 +35671,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -35779,6 +36286,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -36079,6 +36589,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -36278,6 +36791,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -36367,6 +36883,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -36480,6 +36999,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -36931,6 +37453,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -37695,6 +38220,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -38127,6 +38655,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -38488,6 +39019,14 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d52d77984f6dac24da00507119473e50, type: 3}
   m_IsPrefabParent: 0
+--- !u!4 &1844732861 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400014, guid: d52d77984f6dac24da00507119473e50, type: 3}
+  m_PrefabInternal: {fileID: 1844732860}
+--- !u!4 &1844732862 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400012, guid: d52d77984f6dac24da00507119473e50, type: 3}
+  m_PrefabInternal: {fileID: 1844732860}
 --- !u!1 &1847449857
 GameObject:
   m_ObjectHideFlags: 0
@@ -38870,16 +39409,6 @@ Transform:
   m_Father: {fileID: 2013482418}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1853493129 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1826007675121590, guid: d07e846d2d7e2bb44b0389c690683432,
-    type: 2}
-  m_PrefabInternal: {fileID: 1342648868}
---- !u!4 &1853493130 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4496662346185730, guid: d07e846d2d7e2bb44b0389c690683432,
-    type: 2}
-  m_PrefabInternal: {fileID: 1342648868}
 --- !u!1 &1860697570
 GameObject:
   m_ObjectHideFlags: 0
@@ -39117,6 +39646,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -39355,6 +39887,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -39488,7 +40023,7 @@ RectTransform:
   - {fileID: 585615318}
   - {fileID: 295902436}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -39578,6 +40113,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -40014,11 +40552,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1900176714}
   m_LocalRotation: {x: -0, y: -0.000000022351744, z: 0.11708604, w: 0.9931218}
-  m_LocalPosition: {x: -0.46075743, y: 0.10712955, z: -0.1722703}
-  m_LocalScale: {x: 0.80000013, y: 0.8000003, z: 0.8000001}
+  m_LocalPosition: {x: -0.4607574, y: 0.107129514, z: -0.17227016}
+  m_LocalScale: {x: 0.80000013, y: 0.79999995, z: 0.7999996}
   m_Children: []
-  m_Father: {fileID: 1929316285}
-  m_RootOrder: 0
+  m_Father: {fileID: 1056010606}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1900176716
 MeshCollider:
@@ -40432,8 +40970,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.000000038146972, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.99999964, z: 0.99999964}
-  m_Children:
-  - {fileID: 1900176715}
+  m_Children: []
   m_Father: {fileID: 1056010606}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -40591,7 +41128,7 @@ RectTransform:
   - {fileID: 410928631}
   - {fileID: 801854489}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -40653,6 +41190,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -40890,6 +41430,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -41343,6 +41886,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -41437,6 +41983,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -41609,6 +42158,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -41678,6 +42230,61 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: 0.695
       objectReference: {fileID: 0}
+    - target: {fileID: 114274452158935300, guid: 944d84c4fd54801449e898b395be404f,
+        type: 2}
+      propertyPath: _cancelPickupOnDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274452158935300, guid: 944d84c4fd54801449e898b395be404f,
+        type: 2}
+      propertyPath: _canBeTakenToInventory
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274452158935300, guid: 944d84c4fd54801449e898b395be404f,
+        type: 2}
+      propertyPath: _calculateDamageBeforePickup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274452158935300, guid: 944d84c4fd54801449e898b395be404f,
+        type: 2}
+      propertyPath: _disableDamageWithItem
+      value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 114055648014338312, guid: 944d84c4fd54801449e898b395be404f,
+        type: 2}
+      propertyPath: _calculateDamageBeforePickup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114055648014338312, guid: 944d84c4fd54801449e898b395be404f,
+        type: 2}
+      propertyPath: _disableDamageWithItem
+      value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 114055648014338312, guid: 944d84c4fd54801449e898b395be404f,
+        type: 2}
+      propertyPath: _damageItemMessage
+      value: "Ich f\xFChle mich schlecht... ich h\xE4tte das nicht einnehmen sollen."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114274452158935300, guid: 944d84c4fd54801449e898b395be404f,
+        type: 2}
+      propertyPath: _damageItemMessage
+      value: Uhhhrg... Mir wird schlecht.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114495638824058772, guid: 944d84c4fd54801449e898b395be404f,
+        type: 2}
+      propertyPath: _calculateDamageBeforePickup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114495638824058772, guid: 944d84c4fd54801449e898b395be404f,
+        type: 2}
+      propertyPath: _disableDamageWithItem
+      value: test
+      objectReference: {fileID: 0}
+    - target: {fileID: 114495638824058772, guid: 944d84c4fd54801449e898b395be404f,
+        type: 2}
+      propertyPath: _damageObjectMessage
+      value: "Absolut wiederlich. Ich f\xFChle mich nicht gut..."
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 944d84c4fd54801449e898b395be404f, type: 2}
   m_IsPrefabParent: 0
@@ -41736,6 +42343,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -42497,6 +43107,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -43314,6 +43927,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
@@ -44361,6 +44977,18 @@ CanvasRenderer:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
   m_PrefabInternal: {fileID: 1622381180}
+--- !u!65 &2132808746
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2132808745}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.22, y: 0.36, z: 0.17}
+  m_Center: {x: 0.01, y: -0.006750977, z: 0.009305661}
 --- !u!114 &2132808749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44412,6 +45040,9 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
   _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
