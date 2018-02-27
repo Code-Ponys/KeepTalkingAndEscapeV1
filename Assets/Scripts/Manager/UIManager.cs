@@ -32,21 +32,30 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Text _ghostFirstButtonText;
         [SerializeField] private Text _ghostSecondButtonText;
 
-
         [SerializeField] private Image _humanFirstButton;
         [SerializeField] private Image _humanSecondButton;
         [SerializeField] private Text _humanFirstButtonText;
         [SerializeField] private Text _humanSecondButtonText;
+        
+        [SerializeField] private Text _ghostGameOver;
+        [SerializeField] private Image _ghostMainMenuButton;
+        [SerializeField] private Image _ghostReplayButton;
+        [SerializeField] private Image _ghostQuitMenu;
 
         [SerializeField] private Text _humanGameOver;
         [SerializeField] private Image _humanMainMenuButton;
         [SerializeField] private Image _humanReplayButton;
         [SerializeField] private Image _humanQuitMenu;
 
-        [SerializeField] private Text _ghostGameOver;
-        [SerializeField] private Image _ghostMainMenuButton;
-        [SerializeField] private Image _ghostReplayButton;
-        [SerializeField] private Image _ghostQuitMenu;
+        [SerializeField] private StartMenu _menuGhost;
+        [SerializeField] private Image _ghostContinueButton;
+        [SerializeField] private Image _ghostReplay;
+        [SerializeField] private Image _ghostQuitButton;
+        
+        [SerializeField] private StartMenu _menuHuman;
+        [SerializeField] private Image _humanContinueButton;
+        [SerializeField] private Image _humanReplay;
+        [SerializeField] private Image _humanQuitButton;
 
         [SerializeField] private Sprite _a;
         [SerializeField] private Sprite _b;
@@ -89,14 +98,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private void Start() {
             _gameManager = GameManager.GetGameManager();
             _itemManager = ItemManager.GetItemManager();
+            
             _userInterfaceGhost.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceHuman.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceGhost.worldCamera = _gameManager.GhostCamera;
             _userInterfaceHuman.worldCamera = _gameManager.HumanCamera;
+            
             _ghostFirstButton.sprite = GetSprite(KeyType.none);
             _ghostSecondButton.sprite = GetSprite(KeyType.none);
             _humanFirstButton.sprite = GetSprite(KeyType.none);
             _humanSecondButton.sprite = GetSprite(KeyType.none);
+            
             _ghostFirstButtonText.text = "";
             _ghostSecondButtonText.text = "";
             _humanFirstButtonText.text = "";
@@ -105,6 +117,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             _ghostHoverText.text = "";
             _humanFlavourText.text = "";
             _ghostFlavourText.text = "";
+            
             _humanGameOver.GetComponent<Text>().enabled = false;
             _humanMainMenuButton.GetComponent<Image>().enabled = false;
             _humanReplayButton.GetComponent<Image>().enabled = false;
@@ -113,6 +126,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             _ghostMainMenuButton.GetComponent<Image>().enabled = false;
             _ghostReplayButton.GetComponent<Image>().enabled = false;
             _ghostQuitMenu.GetComponent<Image>().enabled = false;
+            
+            _ghostContinueButton.GetComponent<Image>().enabled = false;
+            _ghostReplay.GetComponent<Image>().enabled = false;
+            _ghostQuitButton.GetComponent<Image>().enabled = false;
+            _humanContinueButton.GetComponent<Image>().enabled = false;
+            _humanReplay.GetComponent<Image>().enabled = false;
+            _humanQuitButton.GetComponent<Image>().enabled = false;
         }
 
         private void FixedUpdate() {
@@ -471,6 +491,46 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         public Sprite Transparent {
             get {return _transparent;}
+        }
+        
+        public StartMenu MenuGhost {
+            get {return _menuGhost;}
+            set {_menuGhost = value;}
+        }
+
+        public Image GhostContinueButton {
+            get {return _ghostContinueButton;}
+            set {_ghostContinueButton = value;}
+        }
+
+        public Image GhostReplay {
+            get {return _ghostReplay;}
+            set {_ghostReplay = value;}
+        }
+
+        public Image GhostQuitButton {
+            get {return _ghostQuitButton;}
+            set {_ghostQuitButton = value;}
+        }
+
+        public StartMenu MenuHuman {
+            get {return _menuHuman;}
+            set {_menuHuman = value;}
+        }
+
+        public Image HumanContinueButton {
+            get {return _humanContinueButton;}
+            set {_humanContinueButton = value;}
+        }
+
+        public Image HumanReplay {
+            get {return _humanReplay;}
+            set {_humanReplay = value;}
+        }
+
+        public Image HumanQuitButton {
+            get {return _humanQuitButton;}
+            set {_humanQuitButton = value;}
         }
     }
 }

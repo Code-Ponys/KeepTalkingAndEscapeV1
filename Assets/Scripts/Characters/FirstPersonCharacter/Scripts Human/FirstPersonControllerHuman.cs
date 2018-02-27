@@ -45,12 +45,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
         
         private AudioSource m_AudioSource;
         private GameManager _gameManager;
+        private StartMenu _startMenu;
 
         // Use this for initialization
         private void Start()
         {
             _gameManager = GameManager.GetGameManager();
             _inventory = Inventory.GetInstance(CharacterType.Human);
+            _startMenu = StartMenu.GetInstance(CharacterType.Human);
             
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = GameObject.Find("FirstPersonCharacterHuman").GetComponent<Camera>();
@@ -161,10 +163,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void GetInput(out float speed)
         {
             if(_gameManager.HumanNumPadActive
-               || _inventory.InventoryActive ||
-               _gameManager.HumanMapActive ||
-               _gameManager.HumanController.Health <= 0
-               || _gameManager.HumanImageCanvasActive) {
+               || _inventory.InventoryActive 
+               || _gameManager.HumanMapActive 
+               || _gameManager.HumanController.Health <= 0
+               || _gameManager.HumanImageCanvasActive 
+               || _startMenu.MenuActive) {
                 speed = 2;
                 return;
             }

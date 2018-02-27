@@ -40,11 +40,13 @@ namespace UnityStandardAssets.Characters.FirstPerson {
         private AudioSource m_AudioSource;
         private GameManager _gameManager;
         private Inventory _inventory;
+        private StartMenu _startMenu;
 
         // Use this for initialization
         private void Start() {
             _gameManager = GameManager.GetGameManager();
             _inventory = Inventory.GetInstance(CharacterType.Ghost);
+            _startMenu = StartMenu.GetInstance(CharacterType.Ghost);
             
             m_CharacterController = GetComponent<CharacterController>();
             m_Camera = Camera.main;
@@ -147,9 +149,10 @@ namespace UnityStandardAssets.Characters.FirstPerson {
 
         private void GetInput(out float speed) {
             if(_gameManager.GhostDrivenAnimationActive
-               || _inventory.InventoryActive ||
-               _gameManager.HumanController.Health <= 0
-               || _gameManager.GhostImageCanvasActive) {
+               || _inventory.InventoryActive 
+               || _gameManager.HumanController.Health <= 0
+               || _gameManager.GhostImageCanvasActive
+               || _startMenu.MenuActive) {
                 speed = 2;
                 return;
             }

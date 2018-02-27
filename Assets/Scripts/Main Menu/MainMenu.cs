@@ -20,10 +20,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         
         [SerializeField] private Sprite _outline;
         [SerializeField] private Sprite _defaultSprite;
-        
+
+        private SoundManager _soundManager;
         private int _y = 0;
 
         private void Start() {
+            _soundManager = SoundManager.GetSoundManager();
+            _soundManager.Source.loop = false;
             _currentPressedButtonHuman = 5;
             _currentPressedButtonGhost = 5;    
         }
@@ -179,8 +182,16 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void SceneManagement() {
             if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) {
-                _fadeIn = FadeIn.GetFadeIn();
+//                _fadeIn = FadeIn.GetFadeIn();
+//                DontDestroyOnLoad(_soundManager);
+//                _soundManager.Source.clip = _soundManager.EnvironmentalSounds;
+//                _soundManager.Source.Play();
+//                _soundManager.Source.loop = true;
                 SceneManager.LoadScene(_scene[0]);
+            }
+            if(_currentPressedButtonHuman == 3 && _currentPressedButtonGhost == 3) {
+//                _fadeIn = FadeIn.GetFadeIn();
+                SceneManager.LoadScene(_scene[3]);
             }
 
             if(_currentPressedButtonHuman == 4 && _currentPressedButtonGhost == 4) Application.Quit();

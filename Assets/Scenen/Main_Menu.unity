@@ -2760,7 +2760,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f4e583ee3dfeab744ac95f66491e37e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2bb30712595d6748af06d8b4b9c3218, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3778,7 +3778,7 @@ Transform:
   - {fileID: 944679012}
   - {fileID: 1384740845}
   - {fileID: 1688226155}
-  - {fileID: 2108081006}
+  - {fileID: 726598653}
   - {fileID: 149706807}
   - {fileID: 1951411700}
   - {fileID: 668919567}
@@ -3937,7 +3937,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -484.3, y: 310, z: -72}
   m_LocalScale: {x: 80, y: 90, z: 80}
-  m_Children: []
+  m_Children:
+  - {fileID: 672328485}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6582,6 +6583,59 @@ CanvasRenderer:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 561b39f8ae5fbc84894a4bc3d8654ae1, type: 3}
   m_PrefabInternal: {fileID: 1259140571}
+--- !u!1 &672328484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 672328485}
+  - component: {fileID: 672328487}
+  - component: {fileID: 672328486}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &672328485
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 672328484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 392523756}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &672328486
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 672328484}
+  m_Enabled: 1
+--- !u!114 &672328487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 672328484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195dbefcfe045394f835850d5b06b60e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pickupSound: {fileID: 0}
+  _damageSound: {fileID: 0}
+  _deathSound: {fileID: 0}
+  _environmentalSounds: {fileID: 8300000, guid: 7f6a589d870addd4d98eebd1d8306a65,
+    type: 3}
 --- !u!1001 &682076492
 Prefab:
   m_ObjectHideFlags: 0
@@ -7409,6 +7463,10 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!4 &726598653 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400004, guid: ff0157b689de0d649b560e1a6c7ef927, type: 3}
+  m_PrefabInternal: {fileID: 766598114}
 --- !u!1 &732709680
 GameObject:
   m_ObjectHideFlags: 0
@@ -12435,14 +12493,14 @@ MonoBehaviour:
   - {fileID: 1146277349}
   - {fileID: 992255264}
   _scene:
-  - V16_Licht
+  - "V19_k\xFChlschrank"
   - 
   - 
   - 
   _axisDelay: 0.5
   _characterType: 1
-  _outline: {fileID: 21300000, guid: 5f309e704f8fa8649853cc1e1fcf3fb1, type: 3}
-  _defaultSprite: {fileID: 21300000, guid: f4e583ee3dfeab744ac95f66491e37e8, type: 3}
+  _outline: {fileID: 21300000, guid: 032b5fcc56df84046ab999567d8489d1, type: 3}
+  _defaultSprite: {fileID: 21300000, guid: df68b51e1fb23484e895b4aeb5805f10, type: 3}
 --- !u!114 &1185561879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17313,6 +17371,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -17328,6 +17387,7 @@ MonoBehaviour:
   _rotationAnimated: {x: -174, y: -90, z: 90}
   _scaleAnimated: {x: 0, y: 0, z: 0}
   _openSound: {fileID: 0}
+  _blockSound: {fileID: 0}
   _closeSound: {fileID: 0}
   _canBePickedUpAfterGhostAction: 0
   _canBeTakenToInventory: 0
@@ -17344,6 +17404,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -17360,8 +17424,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -18217,14 +18285,14 @@ MonoBehaviour:
   - {fileID: 1326328905}
   - {fileID: 1416628476}
   _scene:
-  - V16_Licht
+  - "V19_k\xFChlschrank"
   - 
   - 
   - 
   _axisDelay: 0.5
   _characterType: 2
-  _outline: {fileID: 21300000, guid: 5f309e704f8fa8649853cc1e1fcf3fb1, type: 3}
-  _defaultSprite: {fileID: 21300000, guid: f4e583ee3dfeab744ac95f66491e37e8, type: 3}
+  _outline: {fileID: 21300000, guid: 25fd622164a73f7438a3c833a418bc9a, type: 3}
+  _defaultSprite: {fileID: 21300000, guid: e2bb30712595d6748af06d8b4b9c3218, type: 3}
 --- !u!114 &1861110870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20648,10 +20716,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a619bb92090f0ad4c8f4155d8467361e, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &2108081006 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 400000, guid: ff0157b689de0d649b560e1a6c7ef927, type: 3}
-  m_PrefabInternal: {fileID: 766598114}
 --- !u!1001 &2108713045
 Prefab:
   m_ObjectHideFlags: 0
