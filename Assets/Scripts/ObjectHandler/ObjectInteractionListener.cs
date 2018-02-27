@@ -74,6 +74,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private AudioSource _audioSource;
         [SerializeField] private AudioClip _openSound;
         [SerializeField] private AudioClip _blockSound;
+
         [SerializeField] private AudioClip _closeSound;
 //        [SerializeField] private AudioClip _radioSound;
 
@@ -247,18 +248,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         /// </summary>
         private void UpdateDamageParticle() {
             if(_removeParticleOnNoDamage == null) return;
-            Debug.Log("object Damage disabled");
             var damageDisabled = true;
             if(_disableDamageWithObject != null) {
-                Debug.Log("0");
-
                 damageDisabled = _disableDamageWithObject._damageDisabled;
             }
 
             if(_disableDamageByGhost) {
                 if(damageDisabled) {
-                    Debug.Log("ghost damage : " + _disableDamageByGhost);
-
                     damageDisabled = _damageDisabledByGhost;
                 }
             }
@@ -744,7 +740,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_lightswitch) return true;
             return false;
         }
-        
+
         /// <summary>
         /// Determines if the players are close enough to the object
         /// </summary>
@@ -787,7 +783,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(_canBeTakenToInventory) {
-                _uiManager.HideButtons(CharacterType.Human);
+                UIManager.GetUiManager().HideButtons(CharacterType.Human);
             }
         }
 
