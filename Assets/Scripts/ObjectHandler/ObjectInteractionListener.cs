@@ -372,8 +372,23 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(_activateObjectWithGhostInteraction) {
-                _ghostInactiveObject.SetActive(!Input.GetButton(ButtonNames.GhostInteract));
-                _ghostActiveObject.SetActive(Input.GetButton(ButtonNames.GhostInteract));
+                if(Input.GetButton(ButtonNames.GhostInteract)) {
+                    if(!_audioSource.isPlaying) {
+                        _audioSource.clip = _soundManager.WaterSound;
+                        _audioSource.Play();
+                        _audioSource.loop = true;
+                        _ghostActiveObject.SetActive(true);
+                        _ghostInactiveObject.SetActive(false);
+                    }
+                }
+                else {
+                    if(_audioSource.clip == _soundManager.WaterSound && _audioSource.isPlaying) {
+                        _audioSource.Stop();
+                        _ghostInactiveObject.SetActive(true);
+                        _ghostActiveObject.SetActive(false);
+                    }
+                }
+
                 return;
             }
 
@@ -381,7 +396,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 //Disables damage for linked object
                 if(_disableDamageByGhost) _damageDisabledByGhost = true;
                 if(_itemIdToUnlock != "" && _animationUnlocked && _showImageOnInteraction) {
-                    _audioSource.clip = _soundManager.WaterSound;
                     _uiManager.ShowImage(CharacterType.Ghost, _ghostImage);
                 }
 
@@ -392,7 +406,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(AnimationType == AnimationType.None) return;
                 if(_animationType == AnimationType.Open) {
                     if(!_ghostCanOpen) {
-                        _uiManager.GhostFlavourText = _blockedMessage;
                         return;
                     }
 
