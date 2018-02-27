@@ -365,68 +365,74 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _ghostActiveObject.SetActive(false);
             }
 
-            if(!_ghostReachable) return;
-            if(_gameManager.GhostDrivenAnimationActive) return;
-            if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
-                _uiManager.GhostFlavourText = _ghostFlavourText;
-            }
+            if(!_ghostReachable && _audioSource.clip == _soundManager.WaterSound && _audioSource.isPlaying) {
+                _audioSource.Stop();
+                _ghostInactiveObject.SetActive(true);
+                _ghostActiveObject.SetActive(false);
 
-            if(_activateObjectWithGhostInteraction) {
-                if(Input.GetButton(ButtonNames.GhostInteract)) {
-                    if(!_audioSource.isPlaying) {
-                        _audioSource.clip = _soundManager.WaterSound;
-                        _audioSource.Play();
-                        _audioSource.loop = true;
-                        _ghostActiveObject.SetActive(true);
-                        _ghostInactiveObject.SetActive(false);
+                if(!_ghostReachable) return;
+                if(_gameManager.GhostDrivenAnimationActive) return;
+                if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
+                    _uiManager.GhostFlavourText = _ghostFlavourText;
+                }
+
+                if(_activateObjectWithGhostInteraction) {
+                    if(Input.GetButton(ButtonNames.GhostInteract)) {
+                        if(!_audioSource.isPlaying) {
+                            _audioSource.clip = _soundManager.WaterSound;
+                            _audioSource.Play();
+                            _audioSource.loop = true;
+                            _ghostActiveObject.SetActive(true);
+                            _ghostInactiveObject.SetActive(false);
+                        }
                     }
-                }
-                else {
-                    if(_audioSource.clip == _soundManager.WaterSound && _audioSource.isPlaying) {
-                        _audioSource.Stop();
-                        _ghostInactiveObject.SetActive(true);
-                        _ghostActiveObject.SetActive(false);
-                    }
-                }
-
-                return;
-            }
-
-            if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
-                //Disables damage for linked object
-                if(_disableDamageByGhost) _damageDisabledByGhost = true;
-                if(_itemIdToUnlock != "" && _animationUnlocked && _showImageOnInteraction) {
-                    _uiManager.ShowImage(CharacterType.Ghost, _ghostImage);
-                }
-
-                if(_itemIdToUnlock == "" && _showImageOnInteraction) {
-                    _uiManager.ShowImage(CharacterType.Ghost, _ghostImage);
-                }
-
-                if(AnimationType == AnimationType.None) return;
-                if(_animationType == AnimationType.Open) {
-                    if(!_ghostCanOpen) {
-                        return;
+                    else {
+                        if(_audioSource.clip == _soundManager.WaterSound && _audioSource.isPlaying) {
+                            _audioSource.Stop();
+                            _ghostInactiveObject.SetActive(true);
+                            _ghostActiveObject.SetActive(false);
+                        }
                     }
 
-                    var unlocked = IsObjectUnlocked();
-
-                    if(!unlocked) return;
-
-                    if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) return;
-                    if(_animationAllowWhenMapSolved && !_mapHandler.CodeSolved) return;
-
-
-                    _animationController.StartNewAnimation(this);
+                    return;
                 }
 
-                switch(_animationType) {
-                    case AnimationType.GhostMoveOnKeySmash:
+                if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
+                    //Disables damage for linked object
+                    if(_disableDamageByGhost) _damageDisabledByGhost = true;
+                    if(_itemIdToUnlock != "" && _animationUnlocked && _showImageOnInteraction) {
+                        _uiManager.ShowImage(CharacterType.Ghost, _ghostImage);
+                    }
+
+                    if(_itemIdToUnlock == "" && _showImageOnInteraction) {
+                        _uiManager.ShowImage(CharacterType.Ghost, _ghostImage);
+                    }
+
+                    if(AnimationType == AnimationType.None) return;
+                    if(_animationType == AnimationType.Open) {
+                        if(!_ghostCanOpen) {
+                            return;
+                        }
+
+                        var unlocked = IsObjectUnlocked();
+
+                        if(!unlocked) return;
+
+                        if(_animationAllowWhenNumButtonActive && !_numButtonHandler.CodeSolved) return;
+                        if(_animationAllowWhenMapSolved && !_mapHandler.CodeSolved) return;
+
+
                         _animationController.StartNewAnimation(this);
-                        break;
-                    case AnimationType.GhostActivateOnKeyHold:
-                        _animationController.StartNewAnimation(this);
-                        break;
+                    }
+
+                    switch(_animationType) {
+                        case AnimationType.GhostMoveOnKeySmash:
+                            _animationController.StartNewAnimation(this);
+                            break;
+                        case AnimationType.GhostActivateOnKeyHold:
+                            _animationController.StartNewAnimation(this);
+                            break;
+                    }
                 }
             }
         }
