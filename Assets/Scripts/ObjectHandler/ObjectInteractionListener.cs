@@ -179,6 +179,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         //which item is needed to unlock the object
         [SerializeField] private string _itemToUnlock;
+        [SerializeField] private string _lockedFlavourTextGhost;
+        [SerializeField] private string _unlockedFlavourTextGhost;
+        [SerializeField] private string _lockedFlavourTextHuman;
+        [SerializeField] private string _unlockedFlavourTextHuman;
 
         //All object which must be unlocked to interact with the object.
         [SerializeField] private ObjectInteractionListener[] _objectsToUnlock;
@@ -375,6 +379,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_gameManager.GhostDrivenAnimationActive) return;
             if(Input.GetButtonDown(ButtonNames.GhostInspect)) {
                 _uiManager.GhostFlavourText = _ghostFlavourText;
+                if(_itemToUnlock != "" && _objectUnlocked)
+                    _uiManager.GhostFlavourText = _unlockedFlavourTextGhost;
+                if(_itemToUnlock != "" && !_objectUnlocked) {
+                    _uiManager.GhostFlavourText = _lockedFlavourTextGhost;
+                }
             }
 
             if(_activateObjectWithGhostInteraction) {
@@ -448,12 +457,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(!_humanReachable) return;
 
             if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
-                if(_gameManager.HumanImageCanvasActive || _gameManager.HumanMapActive || _uiManager.InventoryHuman.InventoryActive || _gameManager.HumanNumPadActive) return;
 
                 _uiManager.HumanFlavourText = _humanFlavourText;
+                if(_itemToUnlock != "" && _objectUnlocked)
+                    _uiManager.HumanFlavourText = _unlockedFlavourTextHuman;
+                if(_itemToUnlock != "" && !_objectUnlocked) {
+                    _uiManager.HumanFlavourText = _lockedFlavourTextHuman;
+                }
             }
 
             if(Input.GetButtonDown(ButtonNames.HumanInteract)) {
+                if(_gameManager.HumanImageCanvasActive || _gameManager.HumanMapActive || _uiManager.InventoryHuman.InventoryActive || _gameManager.HumanNumPadActive) return;
                 if(_itemToUnlock != "") {
                     if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemToUnlock, StringComparison.CurrentCultureIgnoreCase)) {
                         _objectUnlocked = true;
