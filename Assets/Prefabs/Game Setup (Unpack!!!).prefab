@@ -1694,6 +1694,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1261172815197596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4583189451327372}
+  - component: {fileID: 114078284647485926}
+  m_Layer: 0
+  m_Name: BackgroundSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1261265741846804
 GameObject:
   m_ObjectHideFlags: 0
@@ -5524,6 +5540,19 @@ Transform:
   m_Father: {fileID: 4390547621041926}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4583189451327372
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261172815197596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4906793108836422}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4678631134571932
 Transform:
   m_ObjectHideFlags: 1
@@ -5588,6 +5617,7 @@ Transform:
   - {fileID: 4802386078056220}
   - {fileID: 224677492599419782}
   - {fileID: 224838545253756590}
+  - {fileID: 4583189451327372}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6811,6 +6841,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114078284647485926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261172815197596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ffaa6a6dd92bfc429f7a1bdec84d0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _backgroundSounds: {fileID: 0}
 --- !u!114 &114082333069231432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9109,7 +9151,14 @@ MonoBehaviour:
   _pickupSound: {fileID: 0}
   _damageSound: {fileID: 0}
   _deathSound: {fileID: 0}
-  _environmentalSounds: {fileID: 0}
+  _environmentalSounds:
+  - {fileID: 0}
+  _waterSound: {fileID: 0}
+  _markerSound: {fileID: 0}
+  _failComboSound: {fileID: 0}
+  _successComboSound: {fileID: 0}
+  _minRange: 0
+  _maxRange: 0
 --- !u!114 &114388655942749140
 MonoBehaviour:
   m_ObjectHideFlags: 1
