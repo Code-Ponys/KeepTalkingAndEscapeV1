@@ -10,6 +10,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 		
 		private ObjectInteractionListener _objectInteractionListener;
 		private GameManager _gameManager;
+		private SoundManager _soundManager;
 		
 		private float _currentAxisDelay;
 		[SerializeField] private float _axisDelay = 0.5f;
@@ -20,6 +21,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
 		private void Start() {
 			_gameManager = GameManager.GetGameManager();
+			_soundManager = SoundManager.GetSoundManager();
 		}
 
 		private void Update() {
@@ -46,6 +48,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 						foreach(var ghostHighlights in _ghostList) Destroy(ghostHighlights);
 						//Adds instantiated highlight into a list, to prevent multiple Highlight inclusion. Adds highlight into scene at the camera point
 						_ghostList.Add(Instantiate(_ghostHighlight, cameraCenter + ghostCamera.transform.forward * distance, hit.transform.rotation));
+						_soundManager.Source.clip = _soundManager.MarkerSound;
+						_soundManager.Source.Play();
 						_currentAxisDelay = _axisDelay;
 					}
 				}
@@ -71,6 +75,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 					if(Input.GetButton(ButtonNames.HumanHighlighting)) {
 						foreach(var humanHighlights in _humanList) Destroy(humanHighlights);
 						_humanList.Add(Instantiate(_humanHighlight, cameraCenter + humanCamera.transform.forward * distance, hit.transform.rotation));
+						_soundManager.Source.clip = _soundManager.MarkerSound;
+						_soundManager.Source.Play();
 						_currentAxisDelay = _axisDelay;
 					}
 				}
