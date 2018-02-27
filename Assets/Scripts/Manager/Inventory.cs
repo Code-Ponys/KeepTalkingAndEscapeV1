@@ -336,7 +336,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         /// <summary>
         /// Rearrange all items in both inventories
         /// </summary>
-        private void RearrangeItems() {
+        public void RearrangeItems() {
             var list = _itemManager.Inventory;
             var listcount = 0;
             foreach(var obj in _slots) {

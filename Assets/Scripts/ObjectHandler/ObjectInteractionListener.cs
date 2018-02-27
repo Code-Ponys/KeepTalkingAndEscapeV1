@@ -385,6 +385,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 //Disables damage for linked object
                 if(_disableDamageByGhost) _damageDisabledByGhost = true;
                 if(_itemIdToUnlock != "" && _animationUnlocked && _showImageOnInteraction) {
+                    _audioSource.clip = _soundManager.WaterSound;
                     _uiManager.ShowImage(CharacterType.Ghost, _ghostImage);
                 }
 
@@ -493,6 +494,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 else if(_canBeTakenButStayInScene && !_itemRequiredToRecieveItem) {
                     _canBeTakenButStayInScene = false;
                     _itemManager.AddItemToInv(_itemName);
+                    _itemManager.RemoveItemFromHandAndInventory();
 
                     //Combine Item and Object in scene to get a new Item
                 }
