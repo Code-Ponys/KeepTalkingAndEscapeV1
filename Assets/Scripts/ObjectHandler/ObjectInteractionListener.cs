@@ -73,7 +73,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         //Sound implementation
         private AudioSource _audioSource;
         [SerializeField] private AudioClip _openSound;
-
+        [SerializeField] private AudioClip _blockSound;
         [SerializeField] private AudioClip _closeSound;
 //        [SerializeField] private AudioClip _radioSound;
 
@@ -237,6 +237,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             UpdateHumanNumPad();
             UpdateHumanMap();
             KeyInteraction();
+            BlockSoundAttacher();
             UpdateMotherState();
             UpdateDamageParticle();
         }
@@ -550,7 +551,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                     if(_calculateDamageBeforeAnimation)
                         CalculateDamage();
-
                     _animationController.StartNewAnimation(this);
                 }
 
@@ -626,6 +626,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             return false;
+        }
+
+        private void BlockSoundAttacher() {
+            if(_blockSound != null && _uiManager.HumanFlavourText == _blockedMessage) {
+                _audioSource.clip = _blockSound;
+                _audioSource.Play();
+            }
         }
 
         private void UpdateUi() {
@@ -735,7 +742,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(_lightswitch) return true;
             return false;
         }
-
+        
         /// <summary>
         /// Determines if the players are close enough to the object
         /// </summary>
