@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
     public class MainMenu : MonoBehaviour {
 
-        private FadeIn _fadeIn;
+        private FadeOut _fadeOut;
 
         [SerializeField] private GameObject[] _menu;
         [SerializeField] private String[] _scene;
@@ -182,8 +182,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void SceneManagement() {
             if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) {
-//                _fadeIn = FadeIn.GetFadeIn();
-                SceneManager.LoadScene(_scene[0]);
+                _fadeOut = GameObject.Find("Panel").AddComponent<FadeOut>();
+                _currentPressedButtonHuman = 5;
+                _currentPressedButtonGhost = 5;  
+//                SceneManager.LoadScene(_scene[0]);
             }
             if(_currentPressedButtonHuman == 3 && _currentPressedButtonGhost == 3) {
 //                _fadeIn = FadeIn.GetFadeIn();
