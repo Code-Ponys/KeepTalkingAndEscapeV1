@@ -399,6 +399,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(Input.GetButtonDown(ButtonNames.GhostInteract)) {
+                if(_gameManager.GhostImageCanvasActive || _uiManager.InventoryGhost.InventoryActive) return;
                 //Disables damage for linked object
                 if(_disableDamageByGhost) _damageDisabledByGhost = true;
                 if(_itemIdToUnlock != "" && _animationUnlocked && _showImageOnInteraction) {
@@ -408,6 +409,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_itemIdToUnlock == "" && _showImageOnInteraction) {
                     _uiManager.ShowImage(CharacterType.Ghost, _ghostImage);
                 }
+
 
                 if(AnimationType == AnimationType.None) return;
                 if(_animationType == AnimationType.Open) {
@@ -446,6 +448,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(!_humanReachable) return;
 
             if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
+                if(_gameManager.HumanImageCanvasActive || _gameManager.HumanMapActive || _uiManager.InventoryHuman.InventoryActive || _gameManager.HumanNumPadActive) return;
+
                 _uiManager.HumanFlavourText = _humanFlavourText;
             }
 
