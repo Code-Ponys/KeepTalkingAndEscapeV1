@@ -48,43 +48,43 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         switch(num) {
                             case 1:
                                 _buttons[0, 0] = button;
-                                _highlights[0, 0] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                                _highlights[0, 0] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                                 break;
                             case 2:
                                 _buttons[0, 1] = button;
-                                _highlights[0, 1] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                                _highlights[0, 1] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                                 break;
                             case 3:
                                 _buttons[0, 2] = button;
-                                _highlights[0, 2] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                                _highlights[0, 2] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                                 break;
                             case 4:
                                 _buttons[1, 0] = button;
-                                _highlights[1, 0] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                                _highlights[1, 0] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                                 break;
                             case 5:
                                 _buttons[1, 1] = button;
-                                _highlights[1, 1] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                                _highlights[1, 1] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                                 break;
                             case 6:
                                 _buttons[1, 2] = button;
-                                _highlights[1, 2] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                                _highlights[1, 2] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                                 break;
                             case 7:
                                 _buttons[2, 0] = button;
-                                _highlights[2, 0] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                                _highlights[2, 0] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                                 break;
                             case 8:
                                 _buttons[2, 1] = button;
-                                _highlights[2, 1] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                                _highlights[2, 1] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                                 break;
                             case 9:
                                 _buttons[2, 2] = button;
-                                _highlights[2, 2] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                                _highlights[2, 2] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                                 break;
                             case 0:
                                 _buttons[3, 1] = button;
-                                _highlights[3, 1] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                                _highlights[3, 1] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                                 break;
                         }
 
