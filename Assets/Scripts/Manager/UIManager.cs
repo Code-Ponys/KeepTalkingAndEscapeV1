@@ -5,6 +5,7 @@ using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
+using YamlDotNet.Serialization;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
     public class UIManager : MonoBehaviour {
@@ -118,6 +119,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             UpdateFlavourText();
             UpdateHealth();
             UpdateItemInHand();
+            UpdateHoverText();
+        }
+
+        private void UpdateHoverText() {
+            if(_instanceIdGhost == 0 && _ghostHoverText.text != "") {
+                _ghostHoverText.text = "";
+            }
+
+            if(_instanceIdHuman == 0 && _humanHoverText.text != "") {
+                _humanHoverText.text = "";
+            }
         }
 
         private void UpdateItemInHand() {
