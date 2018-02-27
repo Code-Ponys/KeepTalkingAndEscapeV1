@@ -384,6 +384,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_itemToUnlock != "" && !_objectUnlocked) {
                     _uiManager.GhostFlavourText = _lockedFlavourTextGhost;
                 }
+                if(_numButtonHandler != null && _objectUnlocked)
+                    _uiManager.GhostFlavourText = _unlockedFlavourTextGhost;
+                if(_numButtonHandler != null && !_objectUnlocked) {
+                    _uiManager.GhostFlavourText = _unlockedFlavourTextGhost;
+                }
             }
 
             if(_activateObjectWithGhostInteraction) {
@@ -462,6 +467,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_itemToUnlock != "" && _objectUnlocked)
                     _uiManager.HumanFlavourText = _unlockedFlavourTextHuman;
                 if(_itemToUnlock != "" && !_objectUnlocked) {
+                    _uiManager.HumanFlavourText = _lockedFlavourTextHuman;
+                }
+                if(_numButtonHandler != null && _objectUnlocked)
+                    _uiManager.HumanFlavourText = _unlockedFlavourTextHuman;
+                if(_numButtonHandler != null && !_objectUnlocked) {
                     _uiManager.HumanFlavourText = _lockedFlavourTextHuman;
                 }
             }
