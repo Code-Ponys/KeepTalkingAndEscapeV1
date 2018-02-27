@@ -91,11 +91,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         break;
                     case NumButtonType.Reset:
                         _buttons[3, 0] = button;
-                        _highlights[3, 0] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                        _highlights[3, 0] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                         break;
                     case NumButtonType.Confirm:
                         _buttons[3, 2] = button;
-                        _highlights[3, 2] = GameObject.Find(button.name + "H").GetComponent<Image>();
+                        _highlights[3, 2] = GameObject.Find(gameObject.name + "/VisibilityObject/Background/" + button.name + "/Image").GetComponent<Image>();
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
