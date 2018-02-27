@@ -391,7 +391,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                 if(AnimationType == AnimationType.None) return;
                 if(_animationType == AnimationType.Open) {
-                    if(!_ghostCanOpen) return;
+                    if(!_ghostCanOpen) {
+                        _uiManager.GhostFlavourText = _blockedMessage;
+                        return;
+                    }
                     var unlocked = IsObjectUnlocked();
 
                     if(!unlocked) return;
