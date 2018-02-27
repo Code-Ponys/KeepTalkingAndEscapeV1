@@ -25,7 +25,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private int _y = 0;
 
         private void Start() {
-            _soundManager = SoundManager.GetSoundManager();
+            _soundManager = GameObject.Find("SoundManagerMenu").GetComponent<SoundManager>();
             _soundManager.Source.loop = false;
             _currentPressedButtonHuman = 5;
             _currentPressedButtonGhost = 5;    

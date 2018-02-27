@@ -25,6 +25,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             return GameObject.Find("System").GetComponent<GameManager>();
         }
 
+        private void Start() {
+            if(GameObject.Find("SoundManagerMenu") != null) {
+                Destroy(GameObject.Find("SoundManagerMenu"));
+            }
+        }
+
         public bool HumanMapActive {
             get {return _humanMapActive;}
             set {_humanMapActive = value;}

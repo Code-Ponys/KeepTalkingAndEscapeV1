@@ -9,7 +9,8 @@ public class SoundManager : MonoBehaviour {
 
 	private ObjectInteractionListener _objectInteractionListener;
 	private AudioSource _audioSource;
-	
+
+	[SerializeField] private new bool _dontDestroyOnLoad;
 	[SerializeField] private AudioClip _pickupSound;
 	[SerializeField] private AudioClip _damageSound;
 	[SerializeField] private AudioClip _deathSound;
@@ -28,6 +29,10 @@ public class SoundManager : MonoBehaviour {
 
 
 	void Start () {
+
+		if(_dontDestroyOnLoad) {
+			DontDestroyOnLoad(gameObject);
+		}
 		_audioSource = gameObject.AddComponent<AudioSource>();
 
 		if(_backgroundSound != null) {
