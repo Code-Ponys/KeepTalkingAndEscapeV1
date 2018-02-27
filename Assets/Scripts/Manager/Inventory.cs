@@ -354,7 +354,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
         public static Inventory GetInstance() {
-            return GameObject.Find("Ghost Inventory").GetComponent<Inventory>();
+            return GameObject.Find("GhostInventory").GetComponent<Inventory>();
         }
 
         private CharacterType CharacterType {
