@@ -13,6 +13,7 @@ public class BackgroundSound : MonoBehaviour {
 		if(_backgroundSounds != null) {
 			_audioSource.clip = _backgroundSounds;
 			_audioSource.maxDistance = 5000;
+			_audioSource.minDistance = 4999;
 			_audioSource.Play();
 		}
 	}
