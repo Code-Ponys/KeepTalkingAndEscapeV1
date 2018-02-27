@@ -4,7 +4,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class MessageBox : MonoBehaviour {
         [SerializeField] private float _playMessageAfterSeconds;
         [SerializeField] private AudioClip _message;
-        [SerializeField] private SoundManager _soundManager;
         private AudioSource _source;
         private bool _played;
 
