@@ -34,32 +34,42 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Image _humanSecondButton;
         [SerializeField] private Text _humanFirstButtonText;
         [SerializeField] private Text _humanSecondButtonText;
-        
+
+        //GhostGameOver
         [SerializeField] private Image _ghostGameOver;
         [SerializeField] private Image _ghostMainMenuButton;
-        [SerializeField] private Text _ghostMainMenuText;
+        [SerializeField] private Text _ghostMainMenuButtonText;
         [SerializeField] private Image _ghostReplayButton;
-        [SerializeField] private Text _ghostReplayText;
-        [SerializeField] private Image _ghostQuitMenu;
-        [SerializeField] private Text _ghostQuitMenuText;
+        [SerializeField] private Text _ghostReplayButtonText;
+        [SerializeField] private Image _ghostQuitMenuButton;
+        [SerializeField] private Text _ghostQuitMenuButtonText;
 
+        //HumanGameOver
         [SerializeField] private Image _humanGameOver;
         [SerializeField] private Image _humanMainMenuButton;
         [SerializeField] private Text _humanMainMenuButtonText;
         [SerializeField] private Image _humanReplayButton;
         [SerializeField] private Text _humanReplayButtonText;
-        [SerializeField] private Image _humanQuitMenu;
+        [SerializeField] private Image _humanQuitButtonMenu;
         [SerializeField] private Text _humanQuitButtonText;
 
+        //MenuGhost
         [SerializeField] private StartMenu _menuGhost;
-        [SerializeField] private Image _ghostContinueButton;
+        [SerializeField] private Image _ghostContinue;
+        [SerializeField] private Text _ghostContinueText;
         [SerializeField] private Image _ghostReplay;
-        [SerializeField] private Image _ghostQuitButton;
-        
+        [SerializeField] private Text _ghostReplayText;
+        [SerializeField] private Image _ghostQuit;
+        [SerializeField] private Text _ghostQuitText;
+
+        //MenuHuman
         [SerializeField] private StartMenu _menuHuman;
-        [SerializeField] private Image _humanContinueButton;
+        [SerializeField] private Image _humanContinue;
+        [SerializeField] private Text _humanContinueText;
         [SerializeField] private Image _humanReplay;
-        [SerializeField] private Image _humanQuitButton;
+        [SerializeField] private Text _humanReplayText;
+        [SerializeField] private Image _humanQuit;
+        [SerializeField] private Text _humanQuitText;
 
         [SerializeField] private Sprite _a;
         [SerializeField] private Sprite _b;
@@ -102,17 +112,26 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private void Start() {
             _gameManager = GameManager.GetGameManager();
             _itemManager = ItemManager.GetItemManager();
-            
+
             _userInterfaceGhost.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceHuman.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceGhost.worldCamera = _gameManager.GhostCamera;
             _userInterfaceHuman.worldCamera = _gameManager.HumanCamera;
+
+            ClearUI();
+
+            TriggerMenu(false,CharacterType.Ghost);
+            TriggerMenu(false,CharacterType.Human);
             
+            TriggerGameOverScreen(false);
+        }
+
+        private void ClearUI() {
             _ghostFirstButton.sprite = GetSprite(KeyType.none);
             _ghostSecondButton.sprite = GetSprite(KeyType.none);
             _humanFirstButton.sprite = GetSprite(KeyType.none);
             _humanSecondButton.sprite = GetSprite(KeyType.none);
-            
+
             _ghostFirstButtonText.text = "";
             _ghostSecondButtonText.text = "";
             _humanFirstButtonText.text = "";
@@ -121,28 +140,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             _ghostHoverText.text = "";
             _humanFlavourText.text = "";
             _ghostFlavourText.text = "";
-            
-            _humanGameOver.enabled = false;
-            _humanMainMenuButton.enabled = false;
-            _humanMainMenuButtonText.enabled = false;
-            _humanReplayButton.enabled = false;
-            _humanReplayButtonText.enabled = false;
-            _humanQuitMenu.enabled = false;
-            _humanQuitButtonText.enabled = false;
-            _ghostGameOver.enabled = false;
-            _ghostMainMenuButton.enabled = false;
-            _ghostMainMenuText.enabled = false;
-            _ghostReplayButton.enabled = false;
-            _ghostReplayText.enabled = false;
-            _ghostQuitMenu.enabled = false;
-            _ghostQuitMenuText.enabled = false;
-            
-            _ghostContinueButton.enabled = false;
-            _ghostReplay.enabled = false;
-            _ghostQuitButton.enabled = false;
-            _humanContinueButton.enabled = false;
-            _humanReplay.enabled = false;
-            _humanQuitButton.enabled = false;
         }
 
         private void FixedUpdate() {
@@ -393,7 +390,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     throw new ArgumentOutOfRangeException("characterType", characterType, null);
             }
         }
-        
+
 
         private Sprite GetSprite(KeyType key) {
             switch(key) {
@@ -419,6 +416,52 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     throw new ArgumentOutOfRangeException("key", key, null);
             }
         }
+
+        public void TriggerMenu(bool state, CharacterType characterType) {
+            switch(characterType) {
+                case CharacterType.Unassigned:
+                    break;
+                case CharacterType.Ghost:
+                    _ghostContinue.enabled = state;
+                    _ghostContinueText.enabled = state;
+                    _ghostReplay.enabled = state;
+                    _ghostReplayText.enabled = state;
+                    _ghostQuit.enabled = state;
+                    _ghostQuitText.enabled = state;
+                    break;
+                case CharacterType.Human:
+                    _humanContinue.enabled = state;
+                    _humanContinueText.enabled = state;
+                    _humanReplay.enabled = state;
+                    _humanReplayText.enabled = state;
+                    _humanQuit.enabled = state;
+                    _humanQuitText.enabled = state;
+
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("characterType", characterType, null);
+            }
+        }
+
+        public void TriggerGameOverScreen(bool state) {
+            _ghostGameOver.enabled = state;
+            _ghostMainMenuButton.enabled = state;
+            _ghostMainMenuButtonText.enabled = state;
+            _ghostReplayButton.enabled = state;
+            _ghostReplayButtonText.enabled = state;
+            _ghostQuitMenuButton.enabled = state;
+            _ghostQuitMenuButtonText.enabled = state;
+
+            _humanGameOver.enabled = state;
+            _humanMainMenuButton.enabled = state;
+            _humanMainMenuButtonText.enabled = state;
+            _humanReplayButton.enabled = state;
+            _humanReplayButtonText.enabled = state;
+            _humanQuitButtonMenu.enabled = state;
+            _humanQuitButtonText.enabled = state;
+
+        }
+        
 
         public string GhostHoverText {
             get {return _ghostHoverText.text;}
@@ -459,112 +502,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             get {return _inventoryHuman;}
         }
 
-        public Image HumanGameOver {
-            get {return _humanGameOver;}
-            set {_humanGameOver = value;}
-        }
-
-        public Image HumanMainMenuButton {
-            get {return _humanMainMenuButton;}
-            set {_humanMainMenuButton = value;}
-        }
-
-        public Image HumanReplayButton {
-            get {return _humanReplayButton;}
-            set {_humanReplayButton = value;}
-        }
-
-        public Image HumanQuitMenu {
-            get {return _humanQuitMenu;}
-            set {_humanQuitMenu = value;}
-        }
-
-        public Image GhostGameOver {
-            get {return _ghostGameOver;}
-            set {_ghostGameOver = value;}
-        }
-
-        public Image GhostMainMenuButton {
-            get {return _ghostMainMenuButton;}
-            set {_ghostMainMenuButton = value;}
-        }
-
-        public Image GhostReplayButton {
-            get {return _ghostReplayButton;}
-            set {_ghostReplayButton = value;}
-        }
-
-        public Image GhostQuitMenu {
-            get {return _ghostQuitMenu;}
-            set {_ghostQuitMenu = value;}
-        }
-
         public Sprite Transparent {
             get {return _transparent;}
         }
-        
-        public StartMenu MenuGhost {
-            get {return _menuGhost;}
-            set {_menuGhost = value;}
-        }
 
-        public Image GhostContinueButton {
-            get {return _ghostContinueButton;}
-            set {_ghostContinueButton = value;}
-        }
 
-        public Image GhostReplay {
-            get {return _ghostReplay;}
-            set {_ghostReplay = value;}
-        }
-
-        public Image GhostQuitButton {
-            get {return _ghostQuitButton;}
-            set {_ghostQuitButton = value;}
-        }
-
-        public StartMenu MenuHuman {
-            get {return _menuHuman;}
-            set {_menuHuman = value;}
-        }
-
-        public Image HumanContinueButton {
-            get {return _humanContinueButton;}
-            set {_humanContinueButton = value;}
-        }
-
-        public Image HumanReplay {
-            get {return _humanReplay;}
-            set {_humanReplay = value;}
-        }
-
-        public Image HumanQuitButton {
-            get {return _humanQuitButton;}
-            set {_humanQuitButton = value;}
-        }
-
-        public Text GhostMainMenuText {
-            get {return _ghostMainMenuText;}
-        }
-
-        public Text GhostReplayText {
-            get {return _ghostReplayText;}
-        }
-
-        public Text GhostQuitMenuText {
-            get {return _ghostQuitMenuText;}
-        }
-
-        public Text HumanMainMenuButtonText {
-            get {return _humanMainMenuButtonText;}
-        }
-
-        public Text HumanReplayButtonText {
-            get {return _humanReplayButtonText;}
-        }
-
-        public Text HumanQuitButtonText {
-            get {return _humanQuitButtonText;}
-        }
     }
 }

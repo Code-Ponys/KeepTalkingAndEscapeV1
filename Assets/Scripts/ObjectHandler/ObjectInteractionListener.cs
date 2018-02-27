@@ -391,7 +391,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                 if(AnimationType == AnimationType.None) return;
                 if(_animationType == AnimationType.Open) {
-                    if(!_ghostCanOpen) return;
+                    if(!_ghostCanOpen) {
+                        _uiManager.GhostFlavourText = _blockedMessage;
+                        return;
+                    }
+
                     var unlocked = IsObjectUnlocked();
 
                     if(!unlocked) return;
@@ -491,8 +495,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     _canBeTakenButStayInScene = false;
                     _soundManager.Source.clip = _soundManager.PickupSound;
                     _soundManager.Source.Play();
-                    _itemManager.AddItemToInv(_itemName);
                     _itemManager.RemoveItemFromHandAndInventory();
+                    _itemManager.AddItemToInv(_itemName);
 
                     //Combine Item and Object in scene to get a new Item
                 }
@@ -501,8 +505,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemNameRequiredToRecieveItem, StringComparison.CurrentCultureIgnoreCase)) {
                         _soundManager.Source.clip = _soundManager.PickupSound;
                         _soundManager.Source.Play();
-                        _itemManager.AddItemToInv(_itemName);
                         _itemManager.RemoveItemFromHandAndInventory();
+                        _itemManager.AddItemToInv(_itemName);
                         _canBeTakenButStayInScene = false;
                     }
                 }
