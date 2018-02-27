@@ -11,6 +11,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void Start() {
             _fadeRenderer = gameObject.GetComponent<Image>();
+//            var temp = _fadeRenderer.material.color;
+//            temp.a = 255f;
+//            _fadeRenderer.material.color = temp;
         }
 
         // Update is called once per frame
