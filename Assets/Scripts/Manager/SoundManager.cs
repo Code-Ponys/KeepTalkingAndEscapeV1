@@ -7,7 +7,6 @@ using Random = UnityEngine.Random;
 
 public class SoundManager : MonoBehaviour {
 
-	private ObjectInteractionListener _objectInteractionListener;
 	private AudioSource _audioSource;
 
 	[SerializeField] private new bool _dontDestroyOnLoad;

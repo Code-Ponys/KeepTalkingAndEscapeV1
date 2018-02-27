@@ -489,6 +489,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 // Put gameobject only in inventory but disables further inventory adding
                 else if(_canBeTakenButStayInScene && !_itemRequiredToRecieveItem) {
                     _canBeTakenButStayInScene = false;
+                    _soundManager.Source.clip = _soundManager.PickupSound;
+                    _soundManager.Source.Play();
                     _itemManager.AddItemToInv(_itemName);
                     _itemManager.RemoveItemFromHandAndInventory();
 
@@ -497,6 +499,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
                 if(_canBeTakenButStayInScene && _itemRequiredToRecieveItem) {
                     if(string.Equals(_uiManager.InventoryHuman.ItemInHand, _itemNameRequiredToRecieveItem, StringComparison.CurrentCultureIgnoreCase)) {
+                        _soundManager.Source.clip = _soundManager.PickupSound;
+                        _soundManager.Source.Play();
                         _itemManager.AddItemToInv(_itemName);
                         _itemManager.RemoveItemFromHandAndInventory();
                         _canBeTakenButStayInScene = false;
