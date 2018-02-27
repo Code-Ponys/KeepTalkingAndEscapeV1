@@ -15,7 +15,6 @@ public class SoundManager : MonoBehaviour {
 	[SerializeField] private AudioClip _damageSound;
 	[SerializeField] private AudioClip _deathSound;
 	[SerializeField] private AudioClip[] _environmentalSounds;
-	[SerializeField] private AudioClip _backgroundSound;
 	[SerializeField] private AudioClip _waterSound;
 	[SerializeField] private AudioClip _markerSound;
 	[SerializeField] private AudioClip _failComboSound;
@@ -34,17 +33,9 @@ public class SoundManager : MonoBehaviour {
 			DontDestroyOnLoad(gameObject);
 		}
 		_audioSource = gameObject.AddComponent<AudioSource>();
-
-		if(_backgroundSound != null) {
-			_audioSource.clip = _backgroundSound;
-			_audioSource.Play();
-		}
 	}
 
 	private void Update() {
-		if(_backgroundSound != null) {
-			_audioSource.loop = true;
-		}
 		if(_environmentalSounds.Length == 0) return;
 		RandomSounds();
 	}
@@ -68,7 +59,6 @@ public class SoundManager : MonoBehaviour {
 		
 	}
 
-
 	public static SoundManager GetSoundManager() {
 		return GameObject.Find("SoundManager").GetComponent<SoundManager>();
 	}
@@ -88,11 +78,7 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip[] EnvironmentalSounds {
 		get {return _environmentalSounds;}
 	}
-	
-	public AudioClip BackgroundSound {
-		get {return _backgroundSound;}
-	}
-	
+
 	public AudioClip WaterSound {
 		get {return _waterSound;}
 	}
