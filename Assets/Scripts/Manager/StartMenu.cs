@@ -42,11 +42,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 					canvas.renderMode = RenderMode.ScreenSpaceCamera;
 					canvas.worldCamera = _gameManager.HumanCamera;
 					break;
-				default:
-					break;
 			}
-			
-			ToggleMenuVisible();
 		}
 
 		// Update is called once per frame
@@ -64,23 +60,22 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 		/// Toggles Inventory visibility. Rearranges the items, if the other inventory is closed
 		/// </summary>
 		private void ToggleMenuVisible() {
+			Debug.Log("Test");
 			switch(_characterType) {
 				case CharacterType.Ghost:
 					if(Input.GetButtonDown(ButtonNames.GhostMenu)) {
+						Debug.Log("Open Menu");
 						_menuActive = true;
-						_uiManager.GhostContinueButton.GetComponent<Image>().enabled = true;
-						_uiManager.GhostReplay.GetComponent<Image>().enabled = true;
-						_uiManager.GhostQuitButton.GetComponent<Image>().enabled = true;
+						_uiManager.TriggerMenu(true,CharacterType.Ghost);
 						_y = 0;
 					}
 
 					break;
 				case CharacterType.Human:
 					if(Input.GetButtonDown(ButtonNames.HumanMenu)) {
+						Debug.Log("Open Menu");
 						_menuActive = true;
-						_uiManager.HumanContinueButton.GetComponent<Image>().enabled = true;
-						_uiManager.HumanReplay.GetComponent<Image>().enabled = true;
-						_uiManager.HumanQuitButton.GetComponent<Image>().enabled = true;
+						_uiManager.TriggerMenu(true,CharacterType.Human);
 						_y = 0;
 					}
 
@@ -214,16 +209,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 				switch(_characterType) {
 						case CharacterType.Ghost:
 							_menuActive = false;
-							_uiManager.GhostContinueButton.GetComponent<Image>().enabled = false;
-							_uiManager.GhostReplay.GetComponent<Image>().enabled = false;
-							_uiManager.GhostQuitButton.GetComponent<Image>().enabled = false;
+							_uiManager.TriggerMenu(false, CharacterType.Ghost);
+
 							_currentPressedButtonGhost = 5;
 							break;
 						case CharacterType.Human:
 							_menuActive = false;
-							_uiManager.HumanContinueButton.GetComponent<Image>().enabled = false;
-							_uiManager.HumanReplay.GetComponent<Image>().enabled = false;
-							_uiManager.HumanQuitButton.GetComponent<Image>().enabled = false;
+							_uiManager.TriggerMenu(false, CharacterType.Human);
 							_currentPressedButtonHuman = 5;
 							break;
 				}

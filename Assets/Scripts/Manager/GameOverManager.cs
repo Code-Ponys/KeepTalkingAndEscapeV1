@@ -48,26 +48,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 		}
 
 		private void GameOverEnabler() {
-			switch(_characterType) {
-					case CharacterType.Human:
-						_uiManager.HumanGameOver.enabled = true;
-						_uiManager.HumanMainMenuButton.enabled = true;
-						_uiManager.HumanMainMenuButtonText.enabled = true;
-						_uiManager.HumanReplayButton.enabled = true;
-						_uiManager.HumanReplayButtonText.enabled = true;
-						_uiManager.HumanQuitMenu.enabled = true;
-						_uiManager.HumanQuitButtonText.enabled = true;
-						break;
-					case CharacterType.Ghost:
-						_uiManager.GhostGameOver.enabled = true;
-						_uiManager.GhostMainMenuButton.enabled = true;
-						_uiManager.GhostMainMenuText.enabled = true;
-						_uiManager.GhostReplayButton.enabled = true;
-						_uiManager.GhostReplayText.enabled = true;
-						_uiManager.GhostQuitMenu.enabled = true;
-						_uiManager.GhostQuitMenuText.enabled = true;
-						break;
-			}
+			_uiManager.TriggerGameOverScreen(true);
 //			Time.timeScale = 0;
 		}
 		
