@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Security;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
-using YamlDotNet.Serialization;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
     public class UIManager : MonoBehaviour {
