@@ -213,6 +213,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -244,6 +245,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -260,8 +265,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -391,6 +400,7 @@ MonoBehaviour:
   _itemName: schluesselkarte
   _animationType: 3
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -422,6 +432,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -438,8 +452,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -1285,6 +1303,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -1316,6 +1335,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 1
   _disableDamageByGhost: 1
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -1332,8 +1355,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -1442,6 +1469,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -1473,6 +1501,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -1489,8 +1521,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -1616,6 +1652,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f39ca76ba27b61c4ca182fcab65e1c29, type: 3}
   m_IsPrefabParent: 0
+--- !u!1001 &78203762
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4500582877352334, guid: 86ba309985d6c1443948cd802def7e9c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500582877352334, guid: 86ba309985d6c1443948cd802def7e9c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500582877352334, guid: 86ba309985d6c1443948cd802def7e9c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500582877352334, guid: 86ba309985d6c1443948cd802def7e9c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500582877352334, guid: 86ba309985d6c1443948cd802def7e9c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500582877352334, guid: 86ba309985d6c1443948cd802def7e9c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500582877352334, guid: 86ba309985d6c1443948cd802def7e9c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500582877352334, guid: 86ba309985d6c1443948cd802def7e9c, type: 2}
+      propertyPath: m_RootOrder
+      value: 34
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 86ba309985d6c1443948cd802def7e9c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &80916133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,9 +1807,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: db55d61900631534da1e9be0765b391e, type: 3}
 --- !u!23 &82358762
@@ -1849,6 +1927,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 85569454}
+--- !u!1001 &86774366
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4296016296760030, guid: 626c81c97351aec488c30916d73c6e50, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296016296760030, guid: 626c81c97351aec488c30916d73c6e50, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296016296760030, guid: 626c81c97351aec488c30916d73c6e50, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296016296760030, guid: 626c81c97351aec488c30916d73c6e50, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296016296760030, guid: 626c81c97351aec488c30916d73c6e50, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296016296760030, guid: 626c81c97351aec488c30916d73c6e50, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296016296760030, guid: 626c81c97351aec488c30916d73c6e50, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296016296760030, guid: 626c81c97351aec488c30916d73c6e50, type: 2}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 626c81c97351aec488c30916d73c6e50, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &91972222
 Transform:
   m_ObjectHideFlags: 0
@@ -1886,6 +2006,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -1917,6 +2038,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -1933,8 +2058,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -2135,9 +2264,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &128686664
@@ -2239,9 +2368,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300016, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &148603126
@@ -2702,9 +2831,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 86791190608e03746b43b5e5dd4dfd59, type: 3}
 --- !u!23 &180304736
@@ -3337,9 +3466,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &238009941
@@ -3532,7 +3661,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4427759067497818, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
@@ -3766,6 +3895,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -3797,6 +3927,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -3813,8 +3947,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -3894,9 +4032,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &281003409
@@ -4280,6 +4418,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -4311,6 +4450,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -4327,8 +4470,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -4578,9 +4725,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &326152488
@@ -4869,9 +5016,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300024, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &332441535
@@ -4917,6 +5064,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 332441532}
   m_Mesh: {fileID: 4300024, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
+--- !u!1001 &334674776
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4409548566512506, guid: 695c5328716e84247b959c0ab5d6a829, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409548566512506, guid: 695c5328716e84247b959c0ab5d6a829, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409548566512506, guid: 695c5328716e84247b959c0ab5d6a829, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409548566512506, guid: 695c5328716e84247b959c0ab5d6a829, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409548566512506, guid: 695c5328716e84247b959c0ab5d6a829, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409548566512506, guid: 695c5328716e84247b959c0ab5d6a829, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409548566512506, guid: 695c5328716e84247b959c0ab5d6a829, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4409548566512506, guid: 695c5328716e84247b959c0ab5d6a829, type: 2}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 695c5328716e84247b959c0ab5d6a829, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &338283009
 Prefab:
   m_ObjectHideFlags: 0
@@ -5011,6 +5200,7 @@ MonoBehaviour:
   _itemName: schmutzigerfinger
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -5042,6 +5232,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -5058,8 +5252,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -5207,6 +5405,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 345759342}
+--- !u!1001 &349980519
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400002, guid: 92ef930fa9dbff04f9f105d56e109596, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -356.10257
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 92ef930fa9dbff04f9f105d56e109596, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 249.53448
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 92ef930fa9dbff04f9f105d56e109596, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -697.2638
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 92ef930fa9dbff04f9f105d56e109596, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 92ef930fa9dbff04f9f105d56e109596, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 92ef930fa9dbff04f9f105d56e109596, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 92ef930fa9dbff04f9f105d56e109596, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 92ef930fa9dbff04f9f105d56e109596, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 92ef930fa9dbff04f9f105d56e109596, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1 &361267686 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100008, guid: d52d77984f6dac24da00507119473e50, type: 3}
@@ -5230,6 +5470,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -5261,6 +5502,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -5277,8 +5522,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -5354,6 +5603,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 365547158}
+--- !u!1001 &365723328
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4511978849267876, guid: 180e2009be971cb47be061fca4fb081a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511978849267876, guid: 180e2009be971cb47be061fca4fb081a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511978849267876, guid: 180e2009be971cb47be061fca4fb081a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511978849267876, guid: 180e2009be971cb47be061fca4fb081a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511978849267876, guid: 180e2009be971cb47be061fca4fb081a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511978849267876, guid: 180e2009be971cb47be061fca4fb081a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511978849267876, guid: 180e2009be971cb47be061fca4fb081a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511978849267876, guid: 180e2009be971cb47be061fca4fb081a, type: 2}
+      propertyPath: m_RootOrder
+      value: 36
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 180e2009be971cb47be061fca4fb081a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &369438197
 GameObject:
   m_ObjectHideFlags: 0
@@ -5575,9 +5866,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &383939942
@@ -5666,9 +5957,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &385117607
@@ -5737,6 +6028,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -5768,6 +6060,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -5784,8 +6080,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -6052,6 +6352,48 @@ CharacterController:
   m_PrefabParentObject: {fileID: 143159024217358558, guid: f82f099ffb830e841b63676d0ace7c16,
     type: 2}
   m_PrefabInternal: {fileID: 1093013403}
+--- !u!1001 &397107180
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4462517411205524, guid: 990e66b379b0a3b44bb355f8c7a22349, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462517411205524, guid: 990e66b379b0a3b44bb355f8c7a22349, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462517411205524, guid: 990e66b379b0a3b44bb355f8c7a22349, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462517411205524, guid: 990e66b379b0a3b44bb355f8c7a22349, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462517411205524, guid: 990e66b379b0a3b44bb355f8c7a22349, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462517411205524, guid: 990e66b379b0a3b44bb355f8c7a22349, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462517411205524, guid: 990e66b379b0a3b44bb355f8c7a22349, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462517411205524, guid: 990e66b379b0a3b44bb355f8c7a22349, type: 2}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 990e66b379b0a3b44bb355f8c7a22349, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &400313081
 GameObject:
   m_ObjectHideFlags: 0
@@ -6318,9 +6660,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b02c82ffc587f8946a50f2cdc83d14d6, type: 3}
 --- !u!23 &410176344
@@ -6385,6 +6727,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -6416,6 +6759,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -6432,8 +6779,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -6542,9 +6893,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &416023143
@@ -6638,6 +6989,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -6669,6 +7021,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -6685,11 +7041,57 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
+--- !u!1001 &428408503
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4157778015230140, guid: e108eef1018d8d84c904fbc9b2f40473, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157778015230140, guid: e108eef1018d8d84c904fbc9b2f40473, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157778015230140, guid: e108eef1018d8d84c904fbc9b2f40473, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157778015230140, guid: e108eef1018d8d84c904fbc9b2f40473, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157778015230140, guid: e108eef1018d8d84c904fbc9b2f40473, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157778015230140, guid: e108eef1018d8d84c904fbc9b2f40473, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157778015230140, guid: e108eef1018d8d84c904fbc9b2f40473, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157778015230140, guid: e108eef1018d8d84c904fbc9b2f40473, type: 2}
+      propertyPath: m_RootOrder
+      value: 32
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e108eef1018d8d84c904fbc9b2f40473, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &430619353
 GameObject:
   m_ObjectHideFlags: 0
@@ -6737,9 +7139,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 5c7e369c4cd9b604594afc2bc7e851d2, type: 3}
 --- !u!23 &430619356
@@ -6805,6 +7207,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -6836,6 +7239,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -6853,8 +7260,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: saubererfinger
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -7018,6 +7429,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 6
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -7049,6 +7461,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -7065,8 +7481,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -7803,9 +8223,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &502030654
@@ -7874,6 +8294,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -7905,6 +8326,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -7921,8 +8346,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -8370,7 +8799,7 @@ RectTransform:
   - {fileID: 1465173998}
   - {fileID: 107352794}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8553,6 +8982,48 @@ Transform:
   m_Father: {fileID: 246628437}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &566046292
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4778074070942582, guid: fa29c53cf3b2af5468c2b3ac3793268d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778074070942582, guid: fa29c53cf3b2af5468c2b3ac3793268d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778074070942582, guid: fa29c53cf3b2af5468c2b3ac3793268d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778074070942582, guid: fa29c53cf3b2af5468c2b3ac3793268d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778074070942582, guid: fa29c53cf3b2af5468c2b3ac3793268d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778074070942582, guid: fa29c53cf3b2af5468c2b3ac3793268d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778074070942582, guid: fa29c53cf3b2af5468c2b3ac3793268d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778074070942582, guid: fa29c53cf3b2af5468c2b3ac3793268d, type: 2}
+      propertyPath: m_RootOrder
+      value: 31
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fa29c53cf3b2af5468c2b3ac3793268d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &567673952
 Prefab:
   m_ObjectHideFlags: 0
@@ -8724,9 +9195,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300016, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &571675502
@@ -8772,6 +9243,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 571675499}
   m_Mesh: {fileID: 4300016, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
+--- !u!1001 &575915964
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4335456600291656, guid: c38f5adbea52b0241916e301e5e83a6f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335456600291656, guid: c38f5adbea52b0241916e301e5e83a6f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335456600291656, guid: c38f5adbea52b0241916e301e5e83a6f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335456600291656, guid: c38f5adbea52b0241916e301e5e83a6f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335456600291656, guid: c38f5adbea52b0241916e301e5e83a6f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335456600291656, guid: c38f5adbea52b0241916e301e5e83a6f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335456600291656, guid: c38f5adbea52b0241916e301e5e83a6f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335456600291656, guid: c38f5adbea52b0241916e301e5e83a6f, type: 2}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c38f5adbea52b0241916e301e5e83a6f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &579470122
 GameObject:
   m_ObjectHideFlags: 0
@@ -8813,9 +9326,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300012, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &579470125
@@ -9098,6 +9611,48 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ecd81940eb729cf47b32f69710eb8ab9, type: 3}
   m_PrefabInternal: {fileID: 602641056}
+--- !u!1001 &612204757
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4461801760933500, guid: 9b079caaab9a6cb419aa40551461e669, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461801760933500, guid: 9b079caaab9a6cb419aa40551461e669, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461801760933500, guid: 9b079caaab9a6cb419aa40551461e669, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461801760933500, guid: 9b079caaab9a6cb419aa40551461e669, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461801760933500, guid: 9b079caaab9a6cb419aa40551461e669, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461801760933500, guid: 9b079caaab9a6cb419aa40551461e669, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461801760933500, guid: 9b079caaab9a6cb419aa40551461e669, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461801760933500, guid: 9b079caaab9a6cb419aa40551461e669, type: 2}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9b079caaab9a6cb419aa40551461e669, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &615588408
 GameObject:
   m_ObjectHideFlags: 0
@@ -9141,9 +9696,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &615588411
@@ -9495,9 +10050,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: db55d61900631534da1e9be0765b391e, type: 3}
 --- !u!23 &628839869
@@ -9726,6 +10281,7 @@ MonoBehaviour:
   _itemName: nemo
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -9757,6 +10313,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -9773,8 +10333,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -9819,9 +10383,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &631371878
@@ -9867,6 +10431,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 631371875}
   m_Mesh: {fileID: 4300000, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
+--- !u!1001 &632347236
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4009448164987628, guid: b693bfae512fa0543b179408052ac5bd, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009448164987628, guid: b693bfae512fa0543b179408052ac5bd, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009448164987628, guid: b693bfae512fa0543b179408052ac5bd, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009448164987628, guid: b693bfae512fa0543b179408052ac5bd, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009448164987628, guid: b693bfae512fa0543b179408052ac5bd, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009448164987628, guid: b693bfae512fa0543b179408052ac5bd, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009448164987628, guid: b693bfae512fa0543b179408052ac5bd, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009448164987628, guid: b693bfae512fa0543b179408052ac5bd, type: 2}
+      propertyPath: m_RootOrder
+      value: 29
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b693bfae512fa0543b179408052ac5bd, type: 2}
+  m_IsPrefabParent: 0
 --- !u!20 &634160601 stripped
 Camera:
   m_PrefabParentObject: {fileID: 20502372332933412, guid: f82f099ffb830e841b63676d0ace7c16,
@@ -10026,6 +10632,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -10057,6 +10664,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -10073,8 +10684,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -10185,9 +10800,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300026, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &640976660
@@ -10454,9 +11069,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &645162117
@@ -10915,9 +11530,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300012, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &668939050
@@ -11080,9 +11695,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &674472066
@@ -11216,9 +11831,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300014, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &682956965
@@ -11477,9 +12092,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 5c7e369c4cd9b604594afc2bc7e851d2, type: 3}
 --- !u!23 &692200273
@@ -11712,9 +12327,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 9a17f8c6efb68f94494374aeb856d202, type: 3}
 --- !u!23 &692429206
@@ -11824,7 +12439,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &693587772 stripped
 GameObject:
@@ -11853,6 +12468,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -11884,6 +12500,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -11900,8 +12520,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -12625,6 +13249,8 @@ MonoBehaviour:
   _l: {fileID: 21300000, guid: 41753c059e7d6244f98a3f1d3f5b5422, type: 3}
   _r: {fileID: 21300000, guid: 7dfbd87bf19351b4286dc58143a462bb, type: 3}
   _transparent: {fileID: 21300000, guid: afd8261571ca2f7478c0dd945f56caf6, type: 3}
+  _canvasHandlerHuman: {fileID: 0}
+  _canvasHandleGhost: {fileID: 0}
   _flavourTextWaitTimer: 3
   _pickUpDisplayTimer: 5
 --- !u!114 &712149220
@@ -12660,9 +13286,6 @@ MonoBehaviour:
   _humanCamera: {fileID: 634160601}
   _human: {fileID: 395446449}
   _humanController: {fileID: 395446448}
-  _ghostDrivenAnimationActive: 0
-  _humanNumPadActive: 0
-  _humanMapActive: 0
   _humanHeight: 330
   _ghostHeight: 450
 --- !u!114 &712149222
@@ -12690,7 +13313,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &716850687
 GameObject:
@@ -12847,6 +13470,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 2
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -12878,6 +13502,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -12894,8 +13522,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -12954,6 +13586,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 723231948}
   m_Mesh: {fileID: 4300000, guid: db55d61900631534da1e9be0765b391e, type: 3}
+--- !u!1001 &737739906
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4993124960507676, guid: ff8bf2cd2350b5d4caf0c744911b8e5a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993124960507676, guid: ff8bf2cd2350b5d4caf0c744911b8e5a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993124960507676, guid: ff8bf2cd2350b5d4caf0c744911b8e5a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993124960507676, guid: ff8bf2cd2350b5d4caf0c744911b8e5a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993124960507676, guid: ff8bf2cd2350b5d4caf0c744911b8e5a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993124960507676, guid: ff8bf2cd2350b5d4caf0c744911b8e5a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993124960507676, guid: ff8bf2cd2350b5d4caf0c744911b8e5a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993124960507676, guid: ff8bf2cd2350b5d4caf0c744911b8e5a, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ff8bf2cd2350b5d4caf0c744911b8e5a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &738079870
 Prefab:
   m_ObjectHideFlags: 0
@@ -13303,9 +13977,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
 --- !u!23 &758850174
@@ -13609,9 +14283,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: a0b140723614a6d45944d83506fa875f, type: 3}
 --- !u!23 &766637610
@@ -13677,6 +14351,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -13708,6 +14383,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -13724,8 +14403,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -13845,9 +14528,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &767652528
@@ -13944,6 +14627,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -13975,6 +14659,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -13991,8 +14679,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -14006,9 +14698,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
 --- !u!23 &768524893
@@ -14327,6 +15019,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -14358,6 +15051,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -14374,8 +15071,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -14491,6 +15192,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -14522,6 +15224,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -14538,8 +15244,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -14743,6 +15453,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 1
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 1166503865}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -14774,6 +15485,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -14790,8 +15505,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -15002,9 +15721,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
 --- !u!23 &814607887
@@ -15307,9 +16026,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &825418013
@@ -15470,9 +16189,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 9a17f8c6efb68f94494374aeb856d202, type: 3}
 --- !u!23 &834890836
@@ -15590,6 +16309,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 835929356}
+--- !u!1001 &847021290
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4462798280685454, guid: 1c7aee3781c11d241beceb90efb6aa20, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462798280685454, guid: 1c7aee3781c11d241beceb90efb6aa20, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462798280685454, guid: 1c7aee3781c11d241beceb90efb6aa20, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462798280685454, guid: 1c7aee3781c11d241beceb90efb6aa20, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462798280685454, guid: 1c7aee3781c11d241beceb90efb6aa20, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462798280685454, guid: 1c7aee3781c11d241beceb90efb6aa20, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462798280685454, guid: 1c7aee3781c11d241beceb90efb6aa20, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462798280685454, guid: 1c7aee3781c11d241beceb90efb6aa20, type: 2}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 1c7aee3781c11d241beceb90efb6aa20, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &849975579
 GameObject:
   m_ObjectHideFlags: 0
@@ -15631,9 +16392,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &849975582
@@ -15764,6 +16525,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 852635172}
+--- !u!1001 &856992651
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4922264999807190, guid: 91ea4fc4cb5b96641b0766c678983312, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922264999807190, guid: 91ea4fc4cb5b96641b0766c678983312, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922264999807190, guid: 91ea4fc4cb5b96641b0766c678983312, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922264999807190, guid: 91ea4fc4cb5b96641b0766c678983312, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922264999807190, guid: 91ea4fc4cb5b96641b0766c678983312, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922264999807190, guid: 91ea4fc4cb5b96641b0766c678983312, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922264999807190, guid: 91ea4fc4cb5b96641b0766c678983312, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922264999807190, guid: 91ea4fc4cb5b96641b0766c678983312, type: 2}
+      propertyPath: m_RootOrder
+      value: 27
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 91ea4fc4cb5b96641b0766c678983312, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &857212747
 GameObject:
   m_ObjectHideFlags: 0
@@ -15870,9 +16673,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &862775423
@@ -16085,9 +16888,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &870197998
@@ -16300,9 +17103,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &887405044
@@ -16371,6 +17174,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -16402,6 +17206,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -16418,8 +17226,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -16450,6 +17262,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -16481,6 +17294,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -16497,8 +17314,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 1
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: edelsteinblau
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -16560,6 +17381,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 5
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -16591,6 +17413,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -16607,8 +17433,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -16737,6 +17567,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -16768,6 +17599,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -16784,8 +17619,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -16913,6 +17752,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -16944,6 +17784,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -16960,8 +17804,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -17353,6 +18201,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -17384,6 +18233,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -17400,8 +18253,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -17456,6 +18313,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -17487,6 +18345,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 1
   _enabledObject: {fileID: 1436251986}
   _disabledObject: {fileID: 673436345}
@@ -17503,8 +18365,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -17624,6 +18490,7 @@ MonoBehaviour:
   _itemName: edelsteinrot
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -17655,6 +18522,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -17671,8 +18542,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -17715,6 +18590,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -17746,6 +18622,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -17762,9 +18642,13 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 1
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock:
   - {fileID: 895602604}
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -17811,9 +18695,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 4e242739a5b61f847929e3ed5159f2dc, type: 3}
 --- !u!23 &990449574
@@ -17902,9 +18786,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 2df3198f67919d742a65709e13d0a379, type: 3}
 --- !u!23 &995314055
@@ -17993,9 +18877,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &997801379
@@ -18164,9 +19048,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300012, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1002262025
@@ -18392,6 +19276,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -18423,6 +19308,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -18439,8 +19328,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -18647,6 +19540,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -18678,6 +19572,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -18694,8 +19592,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -18709,9 +19611,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2df3198f67919d742a65709e13d0a379, type: 3}
 --- !u!23 &1010922187
@@ -18876,7 +19778,7 @@ RectTransform:
   m_Children:
   - {fileID: 2052066154}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -18921,6 +19823,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -18952,6 +19855,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -18968,8 +19875,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -19335,7 +20246,7 @@ Transform:
   - {fileID: 1591092471}
   - {fileID: 1974765164}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1049011332
 MonoBehaviour:
@@ -19584,9 +20495,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300014, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1049261663
@@ -19963,9 +20874,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1073437032
@@ -20289,6 +21200,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1094606022}
+--- !u!1001 &1101449446
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4215001020344902, guid: db63c5be7f1681946861b5a822572e4f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215001020344902, guid: db63c5be7f1681946861b5a822572e4f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215001020344902, guid: db63c5be7f1681946861b5a822572e4f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215001020344902, guid: db63c5be7f1681946861b5a822572e4f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215001020344902, guid: db63c5be7f1681946861b5a822572e4f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215001020344902, guid: db63c5be7f1681946861b5a822572e4f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215001020344902, guid: db63c5be7f1681946861b5a822572e4f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215001020344902, guid: db63c5be7f1681946861b5a822572e4f, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: db63c5be7f1681946861b5a822572e4f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1106631419
 GameObject:
   m_ObjectHideFlags: 0
@@ -20332,9 +21285,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: 5c7e369c4cd9b604594afc2bc7e851d2, type: 3}
 --- !u!23 &1106631422
@@ -20525,6 +21478,7 @@ MonoBehaviour:
   _itemName: coolesShirt
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -20556,6 +21510,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -20572,8 +21530,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -20872,6 +21834,7 @@ MonoBehaviour:
   _itemName: linse
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -20903,6 +21866,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -20919,8 +21886,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -20934,9 +21905,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
 --- !u!23 &1146174113
@@ -21162,6 +22133,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -21193,6 +22165,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -21209,8 +22185,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -22241,6 +23221,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -22272,6 +23253,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -22288,8 +23273,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -22378,6 +23367,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -22409,6 +23399,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -22425,8 +23419,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: schluesselkarte
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -22645,6 +23643,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -22676,6 +23675,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -22692,8 +23695,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -22932,6 +23939,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -22963,6 +23971,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -22979,8 +23991,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -23087,9 +24103,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1278217843
@@ -24094,9 +25110,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &1349649288
@@ -24188,9 +25204,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &1352715003
@@ -24256,6 +25272,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -24287,6 +25304,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -24303,8 +25324,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -24368,6 +25393,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -24399,6 +25425,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -24415,8 +25445,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -24594,6 +25628,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -24625,6 +25660,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -24641,8 +25680,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -24871,6 +25914,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -24902,6 +25946,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -24918,8 +25966,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -24951,9 +26003,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
 --- !u!23 &1397695913
@@ -25053,9 +26105,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &1398728424
@@ -25438,6 +26490,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1416393056
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4492270030215600, guid: 761ad081b1c61b243a40698fd1b90e90, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492270030215600, guid: 761ad081b1c61b243a40698fd1b90e90, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492270030215600, guid: 761ad081b1c61b243a40698fd1b90e90, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492270030215600, guid: 761ad081b1c61b243a40698fd1b90e90, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492270030215600, guid: 761ad081b1c61b243a40698fd1b90e90, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492270030215600, guid: 761ad081b1c61b243a40698fd1b90e90, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492270030215600, guid: 761ad081b1c61b243a40698fd1b90e90, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492270030215600, guid: 761ad081b1c61b243a40698fd1b90e90, type: 2}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 761ad081b1c61b243a40698fd1b90e90, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1420678059
 GameObject:
   m_ObjectHideFlags: 0
@@ -25534,7 +26628,7 @@ RectTransform:
   - {fileID: 1875021245}
   - {fileID: 787621646}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -26261,9 +27355,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1452212689
@@ -26468,7 +27562,7 @@ RectTransform:
   - {fileID: 1324507251}
   - {fileID: 801377556}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26983,6 +28077,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -27014,6 +28109,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -27030,8 +28129,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -27044,6 +28147,52 @@ Transform:
   m_PrefabParentObject: {fileID: 4216159994066718, guid: cd59a06ce6cc97647ac806a63a84c1fb,
     type: 2}
   m_PrefabInternal: {fileID: 382535590}
+--- !u!1001 &1497706031
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400002, guid: ef4c9527af1dc1c44870268aa4b5c6f9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -514.25977
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: ef4c9527af1dc1c44870268aa4b5c6f9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 117.359375
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: ef4c9527af1dc1c44870268aa4b5c6f9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -623.41504
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: ef4c9527af1dc1c44870268aa4b5c6f9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: ef4c9527af1dc1c44870268aa4b5c6f9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: ef4c9527af1dc1c44870268aa4b5c6f9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: ef4c9527af1dc1c44870268aa4b5c6f9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: ef4c9527af1dc1c44870268aa4b5c6f9, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: ef4c9527af1dc1c44870268aa4b5c6f9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac18307d13608cb45bbfbaf90714c239, type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ef4c9527af1dc1c44870268aa4b5c6f9, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1001 &1508817877
 Prefab:
   m_ObjectHideFlags: 0
@@ -27312,9 +28461,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: db55d61900631534da1e9be0765b391e, type: 3}
 --- !u!23 &1524306580
@@ -27406,9 +28555,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: b02c82ffc587f8946a50f2cdc83d14d6, type: 3}
 --- !u!23 &1528973136
@@ -27473,6 +28622,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -27504,6 +28654,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -27520,8 +28674,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -27755,6 +28913,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 3
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -27786,6 +28945,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -27802,8 +28965,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -27988,6 +29155,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -28019,6 +29187,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -28035,8 +29207,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -28749,6 +29925,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
@@ -28972,6 +30149,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -29003,6 +30181,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -29019,8 +30201,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -29067,9 +30253,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &1620951541
@@ -29134,6 +30320,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -29165,6 +30352,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -29181,8 +30372,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -29539,7 +30734,7 @@ RectTransform:
   m_Children:
   - {fileID: 1415592110}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -29850,6 +31045,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -29881,6 +31077,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -29897,8 +31097,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -30226,6 +31430,7 @@ MonoBehaviour:
   _itemName: kleber
   _animationType: 3
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -30257,6 +31462,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -30273,8 +31482,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -30406,7 +31619,7 @@ RectTransform:
   m_Children:
   - {fileID: 1753310443}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -30543,9 +31756,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1668940128
@@ -30636,9 +31849,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1670014363
@@ -30725,9 +31938,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1673859878
@@ -30773,6 +31986,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1673859875}
   m_Mesh: {fileID: 4300010, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
+--- !u!1001 &1674199552
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4591426446354338, guid: b6a1399410c480146a067f414cb92919, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591426446354338, guid: b6a1399410c480146a067f414cb92919, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591426446354338, guid: b6a1399410c480146a067f414cb92919, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591426446354338, guid: b6a1399410c480146a067f414cb92919, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591426446354338, guid: b6a1399410c480146a067f414cb92919, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591426446354338, guid: b6a1399410c480146a067f414cb92919, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591426446354338, guid: b6a1399410c480146a067f414cb92919, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591426446354338, guid: b6a1399410c480146a067f414cb92919, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b6a1399410c480146a067f414cb92919, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1674337493
 GameObject:
   m_ObjectHideFlags: 0
@@ -30819,9 +32074,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &1674337496
@@ -30887,6 +32142,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -30918,6 +32174,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -30934,8 +32194,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -30984,9 +32248,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: db55d61900631534da1e9be0765b391e, type: 3}
 --- !u!23 &1683861374
@@ -31195,9 +32459,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: dddb12457d377654ea98b9d992eac877, type: 3}
 --- !u!23 &1694777136
@@ -31515,9 +32779,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: db55d61900631534da1e9be0765b391e, type: 3}
 --- !u!23 &1712350974
@@ -31689,6 +32953,7 @@ MonoBehaviour:
   _itemName: saubererfinger
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -31720,6 +32985,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -31736,8 +33005,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 1212939709}
   _ghostInactiveObject: {fileID: 1052392452}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -31838,9 +33111,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &1721982891
@@ -31929,9 +33202,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 9a17f8c6efb68f94494374aeb856d202, type: 3}
 --- !u!23 &1725048440
@@ -32028,6 +33301,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 1
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 1325725947}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -32059,6 +33333,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -32075,8 +33353,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -32090,9 +33372,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b02c82ffc587f8946a50f2cdc83d14d6, type: 3}
 --- !u!23 &1725796091
@@ -32161,6 +33443,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -32192,6 +33475,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -32208,6 +33495,7 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 1
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock:
   - {fileID: 1972527275}
@@ -32215,6 +33503,9 @@ MonoBehaviour:
   - {fileID: 1231887294}
   - {fileID: 2094442139}
   - {fileID: 801752732}
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -32427,6 +33718,7 @@ MonoBehaviour:
   _itemName: edelsteingruen
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -32458,6 +33750,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -32474,8 +33770,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -32510,6 +33810,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -32541,6 +33842,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -32557,8 +33862,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -32617,6 +33926,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 3
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -32648,6 +33958,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -32664,8 +33978,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -33032,6 +34350,7 @@ MonoBehaviour:
   _itemName: paket
   _animationType: 3
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -33063,6 +34382,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -33079,8 +34402,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -33301,9 +34628,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1776106355
@@ -33464,9 +34791,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &1784029532
@@ -33655,9 +34982,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
 --- !u!23 &1806431547
@@ -33726,6 +35053,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -33757,6 +35085,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -33773,8 +35105,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -34068,9 +35404,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 70a00c52e45bb4741a1d7b522325bf38, type: 3}
 --- !u!23 &1842795329
@@ -34313,9 +35649,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1852144748
@@ -34518,9 +35854,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1860697573
@@ -34638,6 +35974,90 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1861489673}
+--- !u!1001 &1862341578
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4003135086364766, guid: 6ef3fb36d1d7e7245b4f4dc8165a22a7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003135086364766, guid: 6ef3fb36d1d7e7245b4f4dc8165a22a7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003135086364766, guid: 6ef3fb36d1d7e7245b4f4dc8165a22a7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003135086364766, guid: 6ef3fb36d1d7e7245b4f4dc8165a22a7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003135086364766, guid: 6ef3fb36d1d7e7245b4f4dc8165a22a7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003135086364766, guid: 6ef3fb36d1d7e7245b4f4dc8165a22a7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003135086364766, guid: 6ef3fb36d1d7e7245b4f4dc8165a22a7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4003135086364766, guid: 6ef3fb36d1d7e7245b4f4dc8165a22a7, type: 2}
+      propertyPath: m_RootOrder
+      value: 30
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6ef3fb36d1d7e7245b4f4dc8165a22a7, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1866770401
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4335766541503732, guid: b89df21912469b448a7f10463b418b87, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335766541503732, guid: b89df21912469b448a7f10463b418b87, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335766541503732, guid: b89df21912469b448a7f10463b418b87, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335766541503732, guid: b89df21912469b448a7f10463b418b87, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335766541503732, guid: b89df21912469b448a7f10463b418b87, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335766541503732, guid: b89df21912469b448a7f10463b418b87, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335766541503732, guid: b89df21912469b448a7f10463b418b87, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335766541503732, guid: b89df21912469b448a7f10463b418b87, type: 2}
+      propertyPath: m_RootOrder
+      value: 33
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b89df21912469b448a7f10463b418b87, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1866888346
 GameObject:
   m_ObjectHideFlags: 0
@@ -34679,9 +36099,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300012, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1866888349
@@ -34855,6 +36275,7 @@ MonoBehaviour:
   _itemName: handtuch
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -34886,6 +36307,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -34902,8 +36327,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -35087,6 +36516,7 @@ MonoBehaviour:
   _itemName: Tuerklinke
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -35118,6 +36548,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -35134,8 +36568,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -35190,6 +36628,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -35221,6 +36660,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -35237,8 +36680,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -35392,9 +36839,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1898382731
@@ -35444,6 +36891,48 @@ MeshFilter:
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
   m_PrefabInternal: {fileID: 627604850}
+--- !u!1001 &1903771276
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4544462392932154, guid: 94ca4d2f18c0a9548884ea2a207cb170, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544462392932154, guid: 94ca4d2f18c0a9548884ea2a207cb170, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544462392932154, guid: 94ca4d2f18c0a9548884ea2a207cb170, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544462392932154, guid: 94ca4d2f18c0a9548884ea2a207cb170, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544462392932154, guid: 94ca4d2f18c0a9548884ea2a207cb170, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544462392932154, guid: 94ca4d2f18c0a9548884ea2a207cb170, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544462392932154, guid: 94ca4d2f18c0a9548884ea2a207cb170, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544462392932154, guid: 94ca4d2f18c0a9548884ea2a207cb170, type: 2}
+      propertyPath: m_RootOrder
+      value: 35
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 94ca4d2f18c0a9548884ea2a207cb170, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1908314396 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400010, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
@@ -35888,9 +37377,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1929316287
@@ -35959,6 +37448,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -35990,6 +37480,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -36006,8 +37500,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -36115,9 +37613,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &1943879665
@@ -36182,6 +37680,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -36213,6 +37712,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -36229,8 +37732,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -36768,9 +38275,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ff0157b689de0d649b560e1a6c7ef927, type: 3}
 --- !u!23 &1971077629
@@ -36852,6 +38359,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -36883,6 +38391,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -36899,8 +38411,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: schluessel3
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -37505,11 +39021,11 @@ ParticleSystem:
     m_Rotation: {x: 90, y: 90, z: 90}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -38231,6 +39747,47 @@ ParticleSystem:
         - serializedVersion: 2
           time: 1
           value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -39628,6 +41185,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -39672,12 +41230,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -40356,9 +41916,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1979896723
@@ -40470,6 +42030,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -40501,6 +42062,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -40517,8 +42082,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 1
   _light: {fileID: 1530345257}
   _secondLight: {fileID: 471257443}
@@ -40558,6 +42127,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -40589,6 +42159,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -40605,8 +42179,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -40653,9 +42231,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 5c7e369c4cd9b604594afc2bc7e851d2, type: 3}
 --- !u!23 &1995615114
@@ -40724,6 +42302,7 @@ MonoBehaviour:
   _itemName: duschvorhang
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -40755,6 +42334,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -40771,8 +42354,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -40841,6 +42428,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -40872,6 +42460,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -40888,11 +42480,57 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
+--- !u!1001 &2007822963
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4638475845916962, guid: c5183f2b2331e084e8e3bcac93eb7bbe, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638475845916962, guid: c5183f2b2331e084e8e3bcac93eb7bbe, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638475845916962, guid: c5183f2b2331e084e8e3bcac93eb7bbe, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638475845916962, guid: c5183f2b2331e084e8e3bcac93eb7bbe, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638475845916962, guid: c5183f2b2331e084e8e3bcac93eb7bbe, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638475845916962, guid: c5183f2b2331e084e8e3bcac93eb7bbe, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638475845916962, guid: c5183f2b2331e084e8e3bcac93eb7bbe, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4638475845916962, guid: c5183f2b2331e084e8e3bcac93eb7bbe, type: 2}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c5183f2b2331e084e8e3bcac93eb7bbe, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2013482417
 GameObject:
   m_ObjectHideFlags: 0
@@ -40926,7 +42564,7 @@ Transform:
   - {fileID: 1909022915}
   - {fileID: 1802396772}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2014209124
 GameObject:
@@ -41017,9 +42655,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 6188792a7675c00499d803bd411d5fb4, type: 3}
 --- !u!23 &2016933493
@@ -41155,9 +42793,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 9a17f8c6efb68f94494374aeb856d202, type: 3}
 --- !u!23 &2022041714
@@ -41290,9 +42928,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300020, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &2033119526
@@ -41430,6 +43068,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 1
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -41461,6 +43100,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -41477,8 +43120,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -42265,6 +43912,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0533f99e2853da4458653b66749474ea, type: 3}
   m_IsPrefabParent: 0
+--- !u!1001 &2073290019
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4932549945662322, guid: 23f86ed29171d72468dd3d8da0d5baa0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932549945662322, guid: 23f86ed29171d72468dd3d8da0d5baa0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932549945662322, guid: 23f86ed29171d72468dd3d8da0d5baa0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932549945662322, guid: 23f86ed29171d72468dd3d8da0d5baa0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932549945662322, guid: 23f86ed29171d72468dd3d8da0d5baa0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932549945662322, guid: 23f86ed29171d72468dd3d8da0d5baa0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932549945662322, guid: 23f86ed29171d72468dd3d8da0d5baa0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4932549945662322, guid: 23f86ed29171d72468dd3d8da0d5baa0, type: 2}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 23f86ed29171d72468dd3d8da0d5baa0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2076869207
 GameObject:
   m_ObjectHideFlags: 0
@@ -42505,6 +44194,7 @@ MonoBehaviour:
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -42536,6 +44226,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -42552,8 +44246,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: usb
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
@@ -43059,6 +44757,7 @@ MonoBehaviour:
   _itemName: Taschenmesser
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
+  _unlockObjectWhenNumButtonActive: 0
   _numButtonHandler: {fileID: 0}
   _animationAllowWhenMapSolved: 0
   _mapHandler: {fileID: 0}
@@ -43090,6 +44789,10 @@ MonoBehaviour:
   _cancelPickupOnDamage: 0
   _OneTimeDamage: 0
   _disableDamageByGhost: 0
+  _damageGhostMessage: 
+  _damageObjectMessage: 
+  _damageItemMessage: 
+  _removeParticleOnNoDamage: {fileID: 0}
   _objectCanBeDisabledToAvoidDamage: 0
   _enabledObject: {fileID: 0}
   _disabledObject: {fileID: 0}
@@ -43106,8 +44809,12 @@ MonoBehaviour:
   _ghostActiveObject: {fileID: 0}
   _ghostInactiveObject: {fileID: 0}
   _objectMustUnlocked: 0
+  _animationObjectMustUnlocked: 0
   _itemToUnlock: 
   _objectsToUnlock: []
+  _showImageOnInteraction: 0
+  _ghostImage: {fileID: 0}
+  _humanImage: {fileID: 0}
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
