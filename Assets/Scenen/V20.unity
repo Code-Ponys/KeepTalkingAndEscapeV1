@@ -431,6 +431,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -681,6 +685,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -801,71 +809,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36632e4c91b6ff54fb1fb71143cfc2aa, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &18303246
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 18303247}
-  - component: {fileID: 18303248}
-  m_Layer: 0
-  m_Name: Point light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &18303247
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 18303246}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.94, y: 0.935, z: 1.31}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1765940893}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &18303248
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 18303246}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 500
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!1001 &18316244
 Prefab:
   m_ObjectHideFlags: 0
@@ -1269,7 +1212,7 @@ RectTransform:
   - {fileID: 705123015}
   - {fileID: 1015768805}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1301,6 +1244,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 304803806}
   - {fileID: 1170037272}
   - {fileID: 538942275}
   - {fileID: 524164217}
@@ -1310,6 +1254,7 @@ Transform:
   - {fileID: 767394703}
   - {fileID: 596147578}
   - {fileID: 1622381181}
+  - {fileID: 406955558}
   - {fileID: 1617858467}
   - {fileID: 816794401}
   m_Father: {fileID: 2013482418}
@@ -2042,6 +1987,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -2490,6 +2439,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -2895,6 +2848,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -3103,6 +3060,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -4080,12 +4041,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 137018348}
---- !u!114 &141976466 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114683102714574802, guid: 973cf014af324b34e8ecba7210dc38e9,
-    type: 2}
-  m_PrefabInternal: {fileID: 462093203}
-  m_Script: {fileID: 11500000, guid: a427107eed8004b43b58be61430305cb, type: 3}
 --- !u!1 &143323236
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,7 +5021,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &186801188
 GameObject:
@@ -5219,6 +5174,36 @@ Prefab:
     - target: {fileID: 4135202446736166, guid: f7f02d29bd4bcc548bf78e65aeb2b923, type: 2}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945379687176508, guid: f7f02d29bd4bcc548bf78e65aeb2b923,
+        type: 2}
+      propertyPath: _ghostFlavourText
+      value: "Ein normales T\xFCrschloss... verschlossen."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945379687176508, guid: f7f02d29bd4bcc548bf78e65aeb2b923,
+        type: 2}
+      propertyPath: _humanFlavourText
+      value: "Abgesperrt. Ob ich einen Schl\xFCssel finde?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945379687176508, guid: f7f02d29bd4bcc548bf78e65aeb2b923,
+        type: 2}
+      propertyPath: _lockedFlavourTextGhost
+      value: "Ein normales T\xFCrschloss... verschlossen."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945379687176508, guid: f7f02d29bd4bcc548bf78e65aeb2b923,
+        type: 2}
+      propertyPath: _unlockedFlavourTextGhost
+      value: "Ein wunder das dieser Schl\xFCssel das Schloss ge\xF6ffnet hat!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945379687176508, guid: f7f02d29bd4bcc548bf78e65aeb2b923,
+        type: 2}
+      propertyPath: _lockedFlavourTextHuman
+      value: "Abgesperrt. Ob ich einen Schl\xFCssel finde?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114945379687176508, guid: f7f02d29bd4bcc548bf78e65aeb2b923,
+        type: 2}
+      propertyPath: _unlockedFlavourTextHuman
+      value: Offen! Kleber hilft immer.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f7f02d29bd4bcc548bf78e65aeb2b923, type: 2}
@@ -5488,7 +5473,7 @@ Transform:
   - {fileID: 532174679}
   - {fileID: 1673545851}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &199181115
 MonoBehaviour:
@@ -5947,6 +5932,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -6812,7 +6801,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ff0157b689de0d649b560e1a6c7ef927, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff0157b689de0d649b560e1a6c7ef927, type: 3}
@@ -7029,6 +7018,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -7330,6 +7323,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -8187,7 +8184,7 @@ RectTransform:
   m_Children:
   - {fileID: 1082219450}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8289,6 +8286,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -8573,6 +8574,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d07e846d2d7e2bb44b0389c690683432, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &304803806 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4997984305710850, guid: 73d9fe3e1c000854482f2a14eba63e89,
+    type: 2}
+  m_PrefabInternal: {fileID: 462093203}
 --- !u!1 &312516838
 GameObject:
   m_ObjectHideFlags: 0
@@ -8889,6 +8895,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -9063,6 +9073,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -9302,6 +9316,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -9435,7 +9453,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14e523a4c0d289f46ab2025ec8bc2d52, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14e523a4c0d289f46ab2025ec8bc2d52, type: 3}
       propertyPath: m_LocalScale.y
@@ -9547,6 +9565,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -9908,6 +9930,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -10059,6 +10085,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -11085,12 +11115,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 406955557}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -21.86, y: 0.25, z: 0.26}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: -96.34, y: 210.85, z: 592.58026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1896572334}
-  m_RootOrder: 2
+  m_Father: {fileID: 31882677}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!23 &406955559
 MeshRenderer:
@@ -11449,6 +11479,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -11712,6 +11746,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -11863,7 +11901,8 @@ MonoBehaviour:
   _objectDescription: DNA Scanner Schloss
   _ghostFlavourText: "Hier k\xF6nnte ich meine Finger ran halten... wenn ich welche
     h\xE4tte."
-  _humanFlavourText: Ein DNA Scanner! Wie aus den Filmen...
+  _humanFlavourText: Ein DNA Scanner! Wie aus den Filmen... aber leider kann ich ihn
+    nicht entsperren.
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
@@ -11923,6 +11962,12 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: saubererfinger
+  _lockedFlavourTextGhost: "Hier k\xF6nnte ich meine Finger ran halten... wenn ich
+    welche h\xE4tte."
+  _unlockedFlavourTextGhost: "Ist jetzt ge\xF6ffnet..."
+  _lockedFlavourTextHuman: Ein DNA Scanner! Wie aus den Filmen... aber leider kann
+    ich ihn nicht entsperren.
+  _unlockedFlavourTextHuman: "Ge\xF6ffnet! Aber das war schon eklig."
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -12404,7 +12449,7 @@ RectTransform:
   m_Children:
   - {fileID: 573269154}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12549,6 +12594,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -12988,6 +13037,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -13054,61 +13107,51 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 31882677}
     m_Modifications:
-    - target: {fileID: 4427759067497818, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
+    - target: {fileID: 4997984305710850, guid: 73d9fe3e1c000854482f2a14eba63e89, type: 2}
       propertyPath: m_LocalPosition.x
       value: 358
       objectReference: {fileID: 0}
-    - target: {fileID: 4427759067497818, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
+    - target: {fileID: 4997984305710850, guid: 73d9fe3e1c000854482f2a14eba63e89, type: 2}
       propertyPath: m_LocalPosition.y
       value: 55.8
       objectReference: {fileID: 0}
-    - target: {fileID: 4427759067497818, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
+    - target: {fileID: 4997984305710850, guid: 73d9fe3e1c000854482f2a14eba63e89, type: 2}
       propertyPath: m_LocalPosition.z
       value: 593.4573
       objectReference: {fileID: 0}
-    - target: {fileID: 4427759067497818, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
+    - target: {fileID: 4997984305710850, guid: 73d9fe3e1c000854482f2a14eba63e89, type: 2}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4427759067497818, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
+    - target: {fileID: 4997984305710850, guid: 73d9fe3e1c000854482f2a14eba63e89, type: 2}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4427759067497818, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
+    - target: {fileID: 4997984305710850, guid: 73d9fe3e1c000854482f2a14eba63e89, type: 2}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4427759067497818, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
+    - target: {fileID: 4997984305710850, guid: 73d9fe3e1c000854482f2a14eba63e89, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4427759067497818, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
+    - target: {fileID: 4997984305710850, guid: 73d9fe3e1c000854482f2a14eba63e89, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 223636261960191972, guid: 973cf014af324b34e8ecba7210dc38e9,
-        type: 2}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202497721477774, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -6.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 223636261960191972, guid: 973cf014af324b34e8ecba7210dc38e9,
+    - target: {fileID: 223239658334157060, guid: 73d9fe3e1c000854482f2a14eba63e89,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 931779582}
-    - target: {fileID: 114099100987800156, guid: 973cf014af324b34e8ecba7210dc38e9,
-        type: 2}
-      propertyPath: _removeParticleOnNoDamage
-      value: 
-      objectReference: {fileID: 141976466}
+    - target: {fileID: 1095188192874944, guid: 73d9fe3e1c000854482f2a14eba63e89, type: 2}
+      propertyPath: m_Name
+      value: Berlin Karte
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 73d9fe3e1c000854482f2a14eba63e89, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &467825630
 GameObject:
@@ -13916,6 +13959,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -14728,7 +14775,7 @@ RectTransform:
   m_Children:
   - {fileID: 2110157142}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -15657,7 +15704,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &593822790
 GameObject:
@@ -15740,7 +15787,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400004, guid: 1d5ffb5113708b741b2e278568411cbe, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 1d5ffb5113708b741b2e278568411cbe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16474,6 +16521,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -16760,6 +16811,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -18261,6 +18316,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -19372,6 +19431,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -20420,6 +20483,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -20464,7 +20531,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ec5b2b938127b164c89e5c4884bdb780, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ec5b2b938127b164c89e5c4884bdb780, type: 3}
       propertyPath: m_LocalScale.x
@@ -20697,6 +20764,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 1
   _ghostImage: {fileID: 21300000, guid: d702463abc0885d4685cd7d9df180b9b, type: 3}
@@ -21376,6 +21447,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -21477,6 +21552,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -22055,7 +22134,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 31882677}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: -279.154, y: -90.00001, z: 90.00001}
 --- !u!23 &816794402
 MeshRenderer:
@@ -22389,7 +22468,7 @@ Prefab:
     - target: {fileID: 224282122351991146, guid: 37c4e48be2555724eb63f516f79515c4,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224282122351991146, guid: 37c4e48be2555724eb63f516f79515c4,
         type: 2}
@@ -24053,6 +24132,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -24142,6 +24225,10 @@ MonoBehaviour:
   _objectMustUnlocked: 1
   _animationObjectMustUnlocked: 0
   _itemToUnlock: edelsteinblau
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -24388,6 +24475,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -24575,6 +24666,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -24953,6 +25048,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -25412,6 +25511,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -25815,6 +25918,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -26151,6 +26258,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 1
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock:
   - {fileID: 13591983}
   - {fileID: 1831392159}
@@ -27056,6 +27167,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -27316,6 +27431,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -27759,6 +27878,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -29070,6 +29193,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -29155,6 +29282,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -29322,6 +29453,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -29547,6 +29682,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -29786,7 +29925,7 @@ Transform:
   - {fileID: 17100878}
   - {fileID: 1005668482}
   m_Father: {fileID: 31882677}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
 --- !u!1001 &1171397153
 Prefab:
@@ -30402,7 +30541,7 @@ Prefab:
     - target: {fileID: 224215606785178614, guid: 34c39e56d17ba704cabe2f53b2950adf,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224215606785178614, guid: 34c39e56d17ba704cabe2f53b2950adf,
         type: 2}
@@ -30521,8 +30660,8 @@ MonoBehaviour:
   _markerSound: {fileID: 8300000, guid: d883a29b24b4e4849ba05dacc179a6b0, type: 3}
   _failComboSound: {fileID: 8300000, guid: 7d7fe5ca998f90d42bc7e268279dc850, type: 3}
   _successComboSound: {fileID: 8300000, guid: 029e8f3747c05bc40bf1b0d31940a220, type: 3}
-  _minRange: 10
-  _maxRange: 11
+  _minRange: 180
+  _maxRange: 400
 --- !u!4 &1203518734
 Transform:
   m_ObjectHideFlags: 0
@@ -30535,7 +30674,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1207424535
 GameObject:
@@ -31206,6 +31345,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -31231,8 +31374,8 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: Zahlencode Schloss
-  _ghostFlavourText: 
-  _humanFlavourText: 
+  _ghostFlavourText: Hier muss ein 7 stelliger Code eingegeben werden.
+  _humanFlavourText: Ob der passende Zahlencode irgendwo notiert ist?
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
@@ -31291,6 +31434,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: Hier muss ein 7 stelliger Code eingegeben werden.
+  _unlockedFlavourTextGhost: "Ge\xF6ffnet."
+  _lockedFlavourTextHuman: Ob der passende Zahlencode irgendwo notiert ist?
+  _unlockedFlavourTextHuman: Offen. Ich frage mich wo der Geist den Code gesehen hat?
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -31427,8 +31574,9 @@ MonoBehaviour:
   _meshGameObject: {fileID: 0}
   _secondGameObject: {fileID: 0}
   _objectDescription: "Kartenleseger\xE4t"
-  _ghostFlavourText: 
-  _humanFlavourText: 
+  _ghostFlavourText: "Wenn mann die pasende Karte h\xE4tte, k\xF6nnte man das Schloss
+    \xF6ffnen."
+  _humanFlavourText: "Ich bef\xFCrchte meine Karten werden hier nicht funktionieren."
   _itemName: 
   _animationType: 0
   _animationAllowWhenNumButtonActive: 0
@@ -31487,6 +31635,11 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: schluesselkarte
+  _lockedFlavourTextGhost: "Wenn mann die pasende Karte h\xE4tte, k\xF6nnte man das
+    Schloss \xF6ffnen."
+  _unlockedFlavourTextGhost: "Schloss ist ge\xF6ffnet!"
+  _lockedFlavourTextHuman: "Ich bef\xFCrchte meine Karten werden hier nicht funktionieren."
+  _unlockedFlavourTextHuman: Ich bin froh, dass der Geist die Karte gefunden hat.
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -31528,7 +31681,7 @@ Transform:
   - {fileID: 931779585}
   - {fileID: 116766719}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1239780802
 MonoBehaviour:
@@ -31993,6 +32146,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -32094,6 +32251,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -32549,6 +32710,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -33880,6 +34045,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -34719,6 +34888,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -34841,6 +35014,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -35048,6 +35225,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -35255,6 +35436,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -35740,7 +35925,7 @@ RectTransform:
   m_Children:
   - {fileID: 176182928}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -36212,7 +36397,7 @@ RectTransform:
   m_Children:
   - {fileID: 1052303520}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -36366,7 +36551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playMessageAfterSeconds: 60
-  _message: {fileID: 0}
+  _message: {fileID: 8300000, guid: 03312c1b1f5906a4eaaa5c3a589d64e9, type: 3}
 --- !u!1001 &1440050593
 Prefab:
   m_ObjectHideFlags: 0
@@ -36896,7 +37081,7 @@ RectTransform:
   - {fileID: 1324507251}
   - {fileID: 801377556}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -37158,6 +37343,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114534726613881624, guid: 386a3c3bab938d345abb5f09143aa4a8,
+        type: 2}
+      propertyPath: _ghostCanOpen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114847109428735074, guid: 386a3c3bab938d345abb5f09143aa4a8, type: 2}
     - {fileID: 114419203480203554, guid: 386a3c3bab938d345abb5f09143aa4a8, type: 2}
@@ -37339,6 +37529,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -37678,7 +37872,7 @@ RectTransform:
   - {fileID: 1524239781}
   - {fileID: 216738734}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -37835,6 +38029,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -38518,6 +38716,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -38824,6 +39026,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -39096,6 +39302,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -39360,6 +39570,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -40574,6 +40788,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -40711,7 +40929,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 31882677}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: -268.107, y: -90, z: 89.99999}
 --- !u!23 &1617858468
 MeshRenderer:
@@ -41077,6 +41295,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -41175,7 +41397,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c881356e7a26fd148b49218ebcc921aa, type: 3}
       propertyPath: m_LocalScale.y
@@ -41401,7 +41623,7 @@ RectTransform:
   m_Children:
   - {fileID: 1984050374}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -41743,6 +41965,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -41828,6 +42054,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -42083,6 +42313,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -42883,7 +43117,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.283737, g: 0.37839752, b: 0.60294116, a: 1}
+      maxColor: {r: 0.17647058, g: 0.26369166, b: 0.4705882, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -46320,6 +46554,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -46502,6 +46740,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -46509,36 +46751,6 @@ MonoBehaviour:
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
---- !u!1 &1691012192
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1496351012027672, guid: 62621d8b996c5f143a63ec8bc05b42d3,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1691012193}
-  m_Layer: 0
-  m_Name: Game Setup (Unpack!!!)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1691012193
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4742805764454948, guid: 62621d8b996c5f143a63ec8bc05b42d3,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1691012192}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -341.00012, y: 145, z: -970.1002}
-  m_LocalScale: {x: 330.89987, y: 90, z: 56.46815}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1693169353
 GameObject:
   m_ObjectHideFlags: 0
@@ -47304,6 +47516,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -48117,6 +48333,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -48566,6 +48786,10 @@ MonoBehaviour:
   _objectMustUnlocked: 1
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock:
   - {fileID: 1972527275}
   - {fileID: 430619358}
@@ -48769,6 +48993,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -48862,6 +49090,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -49051,6 +49283,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -49095,7 +49331,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4319602198494008, guid: 5974721e662a48c4e9881c662e282934, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114664460662294176, guid: 5974721e662a48c4e9881c662e282934,
         type: 2}
@@ -49220,7 +49456,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: e01a0028a6f9c4747964a7c7673bef93, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6400000, guid: e01a0028a6f9c4747964a7c7673bef93, type: 3}
       propertyPath: m_Enabled
@@ -49438,6 +49674,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -49632,7 +49872,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 668276159ae6e4543a1672f87de5f874, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 573
+      value: 613.5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 668276159ae6e4543a1672f87de5f874, type: 3}
       propertyPath: m_LocalPosition.y
@@ -49640,7 +49880,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 668276159ae6e4543a1672f87de5f874, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 409
+      value: 448.4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 668276159ae6e4543a1672f87de5f874, type: 3}
       propertyPath: m_LocalRotation.x
@@ -51000,6 +51240,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -51365,6 +51609,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -52101,7 +52349,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ff0157b689de0d649b560e1a6c7ef927, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: ff0157b689de0d649b560e1a6c7ef927, type: 3}
       propertyPath: m_Name
@@ -52776,6 +53024,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -52815,7 +53067,7 @@ Transform:
   m_LocalScale: {x: 100.000015, y: 100.00018, z: 100.00009}
   m_Children: []
   m_Father: {fileID: 31882677}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -89.98, y: 45, z: 0}
 --- !u!65 &1878180359
 BoxCollider:
@@ -52946,6 +53198,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -53059,6 +53315,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -54064,6 +54324,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -54545,6 +54809,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -54648,7 +54916,7 @@ RectTransform:
   - {fileID: 644055702}
   - {fileID: 958739910}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -55336,6 +55604,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -55425,6 +55697,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -55523,6 +55799,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -55699,6 +55979,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -55885,6 +56169,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -56075,7 +56363,7 @@ Transform:
   - {fileID: 1802396772}
   - {fileID: 1263775204}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2016933490
 GameObject:
@@ -56530,6 +56818,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -56986,7 +57278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2040843464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57062,6 +57354,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -57970,7 +58266,7 @@ RectTransform:
   - {fileID: 1589702481}
   - {fileID: 1024392213}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -58293,6 +58589,11 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: usb
+  _lockedFlavourTextGhost: "Man wird wohl einen USB Stick ben\xF6tigen um das zu \xF6ffnen."
+  _unlockedFlavourTextGhost: Ist jetzt offen! Ich frage mich wie diese Technologie
+    funktioniert...
+  _lockedFlavourTextHuman: "Hat einen USB Anschluss... Kann man es damit \xF6ffnen?"
+  _unlockedFlavourTextHuman: "Mit dem USB Stick ge\xF6ffnet!"
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -59285,6 +59586,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
