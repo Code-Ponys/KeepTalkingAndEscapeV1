@@ -50,18 +50,22 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 		private void GameOverEnabler() {
 			switch(_characterType) {
 					case CharacterType.Human:
-						_uiManager.HumanGameOver.GetComponent<Text>().enabled = true;
-						_uiManager.HumanGameOver.text = "Game Over";
-						_uiManager.HumanMainMenuButton.GetComponent<Image>().enabled = true;
-						_uiManager.HumanReplayButton.GetComponent<Image>().enabled = true;
-						_uiManager.HumanQuitMenu.GetComponent<Image>().enabled = true;
+						_uiManager.HumanGameOver.enabled = true;
+						_uiManager.HumanMainMenuButton.enabled = true;
+						_uiManager.HumanMainMenuButtonText.enabled = true;
+						_uiManager.HumanReplayButton.enabled = true;
+						_uiManager.HumanReplayButtonText.enabled = true;
+						_uiManager.HumanQuitMenu.enabled = true;
+						_uiManager.HumanQuitButtonText.enabled = true;
 						break;
 					case CharacterType.Ghost:
-						_uiManager.GhostGameOver.GetComponent<Text>().enabled = true;
-						_uiManager.GhostGameOver.text = "Game Over";
-						_uiManager.GhostMainMenuButton.GetComponent<Image>().enabled = true;
-						_uiManager.GhostReplayButton.GetComponent<Image>().enabled = true;
-						_uiManager.GhostQuitMenu.GetComponent<Image>().enabled = true;
+						_uiManager.GhostGameOver.enabled = true;
+						_uiManager.GhostMainMenuButton.enabled = true;
+						_uiManager.GhostMainMenuText.enabled = true;
+						_uiManager.GhostReplayButton.enabled = true;
+						_uiManager.GhostReplayText.enabled = true;
+						_uiManager.GhostQuitMenu.enabled = true;
+						_uiManager.GhostQuitMenuText.enabled = true;
 						break;
 			}
 //			Time.timeScale = 0;

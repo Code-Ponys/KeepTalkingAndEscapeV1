@@ -12,6 +12,7 @@ public class BackgroundSound : MonoBehaviour {
 		_audioSource = gameObject.AddComponent<AudioSource>();
 		if(_backgroundSounds != null) {
 			_audioSource.clip = _backgroundSounds;
+			_audioSource.maxDistance = 5000;
 			_audioSource.Play();
 		}
 	}
