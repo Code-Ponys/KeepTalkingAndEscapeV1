@@ -385,6 +385,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 //Disables damage for linked object
                 if(_disableDamageByGhost) _damageDisabledByGhost = true;
                 if(_itemIdToUnlock != "" && _animationUnlocked && _showImageOnInteraction) {
+                    _audioSource.clip = _soundManager.WaterSound;
                     _uiManager.ShowImage(CharacterType.Ghost, _ghostImage);
                 }
 

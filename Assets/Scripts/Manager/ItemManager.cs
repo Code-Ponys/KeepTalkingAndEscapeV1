@@ -71,6 +71,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 _inventory.Add(obj);
                 _uiManager.InventoryHuman.ItemInHand = "";
                 _uiManager.DisplayLastPickedUpItem(obj);
+                _uiManager.InventoryGhost.RearrangeItems();
+                _uiManager.InventoryHuman.RearrangeItems();
                 return;
             }
 

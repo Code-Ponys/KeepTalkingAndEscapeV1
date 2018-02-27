@@ -183,10 +183,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private void SceneManagement() {
             if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) {
 //                _fadeIn = FadeIn.GetFadeIn();
-//                DontDestroyOnLoad(_soundManager);
-//                _soundManager.Source.clip = _soundManager.EnvironmentalSounds;
-//                _soundManager.Source.Play();
-//                _soundManager.Source.loop = true;
                 SceneManager.LoadScene(_scene[0]);
             }
             if(_currentPressedButtonHuman == 3 && _currentPressedButtonGhost == 3) {
