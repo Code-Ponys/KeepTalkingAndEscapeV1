@@ -5,18 +5,21 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         [SerializeField] private float _playMessageAfterSeconds;
         [SerializeField] private AudioClip _message;
         [SerializeField] private SoundManager _soundManager;
+        private AudioSource _source;
         private bool _played;
 
 
         private void Start() {
-            _soundManager = SoundManager.GetSoundManager();
+            _source = gameObject.AddComponent<AudioSource>();
+            _source.maxDistance = 5000;
         }
 
         private void Update() {
             if(_played) return;
             if(_playMessageAfterSeconds < 0) {
                 _played = true;
-                _soundManager.Source.clip = _message;
+                _source.clip = _message;
+                _source.Play();
             }
             else {
                 _playMessageAfterSeconds -= Time.deltaTime;
