@@ -19,6 +19,7 @@ public enum KeyType {
     R2,
     L1,
     L2,
+    Start,
     none
 }
 
@@ -63,6 +64,7 @@ public enum Direction {
 }
 
 public static class ButtonNames {
+
     /// <summary>
     /// Get the button name of the pressed key depends on Key Type
     /// </summary>
@@ -86,6 +88,8 @@ public static class ButtonNames {
                 return null;
             case KeyType.L2:
                 return null;
+            case KeyType.Start:
+                return GhostMenu;
             default:
                 return null;
         }
@@ -203,6 +207,13 @@ public static class ButtonNames {
         get {return _humanHighlighting;}
     }
 
+    public static string GhostMenu {
+        get {return _ghostMenu;}
+    }
+
+    public static string HumanMenu {
+        get {return _humanMenu;}
+    }
     private static string _moveGhostX = "Move Ghost Left Joystick X-Axis";
     private static string _moveGhostY = "Move Ghost Left Joystick Y-Axis";
     private static string _moveHumanX = "Move Human Left Joystick X-Axis";
@@ -231,6 +242,8 @@ public static class ButtonNames {
     private static string _humanHorizontalPad = "Human Horizontal Pad";
     private static string _ghostHighighting = "Ghost Highlighting";
     private static string _humanHighlighting = "Human Highlighting";
+    private static string _ghostMenu = "Ghost Menu";
+    private static string _humanMenu = "Human Menu";
 }
 
 public static class DataPath {
