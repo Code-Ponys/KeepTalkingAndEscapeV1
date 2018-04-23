@@ -77,15 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 112000002, guid: 93daaa32ad599724f8cc278bbe85b458,
     type: 2}
   m_UseShadowmask: 1
@@ -108,6 +111,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &222760
 Prefab:
@@ -471,6 +476,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -721,6 +730,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -750,6 +763,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -765,6 +779,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -900,20 +915,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -2102,6 +2103,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -2343,20 +2348,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -2493,6 +2484,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -2735,9 +2730,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: db55d61900631534da1e9be0765b391e, type: 3}
 --- !u!23 &82358762
@@ -2750,6 +2745,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2765,6 +2761,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -3022,6 +3019,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -3159,6 +3160,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -3454,9 +3459,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &110158270
@@ -3469,6 +3474,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -3484,6 +3490,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -4018,9 +4025,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &128686664
@@ -4033,6 +4040,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4048,6 +4056,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -4398,9 +4407,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300016, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &148603126
@@ -4413,6 +4422,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4428,6 +4438,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -4797,9 +4808,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &167825625
@@ -4812,6 +4823,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -4827,6 +4839,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -5681,6 +5694,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -5866,9 +5883,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &238009941
@@ -5881,6 +5898,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -5896,6 +5914,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -6109,9 +6128,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300016, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &248843365
@@ -6124,6 +6143,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -6139,6 +6159,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -6182,8 +6203,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 250481869}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -341.00012, y: 145, z: -970.1002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -229, y: 145, z: -990}
   m_LocalScale: {x: 330.89987, y: 90, z: 56.46815}
   m_Children:
   - {fileID: 1528339901}
@@ -6731,6 +6752,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -6816,6 +6841,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -6971,9 +7000,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &281003409
@@ -6986,6 +7015,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -7001,6 +7031,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -7275,6 +7306,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -7744,9 +7779,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &326152488
@@ -7759,6 +7794,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -7774,6 +7810,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -7868,6 +7905,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -8011,6 +8052,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -8059,9 +8104,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300024, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &332441535
@@ -8074,6 +8119,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -8089,6 +8135,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -8254,6 +8301,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -8261,6 +8312,34 @@ MonoBehaviour:
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
+--- !u!114 &340306579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 340306574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a427107eed8004b43b58be61430305cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
+  _material: {fileID: 2100000, guid: 8371c910b6db2463391a051e571e2558, type: 2}
+  _particleStartSpeed: 0.1
+  _particleStartLifeTime: 1
+  _particleStartSize: 1
+  _particleRadius: 20
+  _particlePositionX: 4
+  _particlePositionY: 10
+  _particlePositionZ: 6
+  _particleRotationX: 0
+  _particleRotationY: 0
+  _particleRotationZ: 0
+  _particleMaxParticles: 10
+  _particleNormalOffset: 0.1
+  _particleSizeMin: 5
+  _particleSizeMax: 50
+  _particleColor: {r: 0, g: 0.8602941, b: 0.0771298, a: 0.122}
 --- !u!1 &354351824
 GameObject:
   m_ObjectHideFlags: 0
@@ -8322,20 +8401,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -8772,6 +8837,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -9328,6 +9397,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1035218747660448, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cd59a06ce6cc97647ac806a63a84c1fb, type: 2}
   m_IsPrefabParent: 0
@@ -9372,9 +9445,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300020, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &382543334
@@ -9387,6 +9460,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -9402,6 +9476,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -9459,9 +9534,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &383939942
@@ -9474,6 +9549,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -9489,6 +9565,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -9548,9 +9625,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &385117607
@@ -9563,6 +9640,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -9578,6 +9656,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -10270,9 +10349,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b02c82ffc587f8946a50f2cdc83d14d6, type: 3}
 --- !u!23 &410176344
@@ -10285,6 +10364,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -10300,6 +10380,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -10390,6 +10471,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -10502,9 +10587,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &416023143
@@ -10517,6 +10602,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -10532,6 +10618,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -10651,6 +10738,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -10883,9 +10974,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 5c7e369c4cd9b604594afc2bc7e851d2, type: 3}
 --- !u!23 &430619356
@@ -10898,6 +10989,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -10913,6 +11005,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -11005,6 +11098,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: saubererfinger
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -11480,6 +11577,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -11590,9 +11691,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300024, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &452316605
@@ -11605,6 +11706,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -11620,6 +11722,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -11917,6 +12020,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -11933,6 +12040,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -11948,6 +12056,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -12106,6 +12215,21 @@ Prefab:
       propertyPath: _removeParticleOnNoDamage
       value: 
       objectReference: {fileID: 141976466}
+    - target: {fileID: 114683102714574802, guid: 973cf014af324b34e8ecba7210dc38e9,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114683102714574802, guid: 973cf014af324b34e8ecba7210dc38e9,
+        type: 2}
+      propertyPath: _particleSizeMax
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114683102714574802, guid: 973cf014af324b34e8ecba7210dc38e9,
+        type: 2}
+      propertyPath: _particleSizeMin
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 973cf014af324b34e8ecba7210dc38e9, type: 2}
   m_IsPrefabParent: 0
@@ -12314,20 +12438,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -12781,9 +12891,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &502030654
@@ -12796,6 +12906,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -12811,6 +12922,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -12905,6 +13017,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -13423,6 +13539,7 @@ ParticleSystemRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -13439,6 +13556,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -13475,6 +13593,7 @@ ParticleSystem:
   serializedVersion: 5
   lengthInSec: 5
   simulationSpeed: 1
+  stopAction: 0
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -13525,7 +13644,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -465479141
+  randomSeed: 1903203533
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13978,11 +14097,11 @@ ParticleSystem:
     m_Rotation: {x: 0, y: 0, z: 90}
     m_Scale: {x: 1, y: 70, z: 1}
     placementMode: 0
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
     m_Mesh: {fileID: 0}
     m_MeshRenderer: {fileID: 0}
     m_SkinnedMeshRenderer: {fileID: 0}
-    m_MeshMaterialIndex: 0
-    m_MeshNormalOffset: 0
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
@@ -14716,6 +14835,47 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+    speedModifier:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 1
+      minScalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
     inWorldSpace: 0
   InheritVelocityModule:
     enabled: 0
@@ -15059,7 +15219,50 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxis: 0
     inWorldSpace: 0
+    multiplyDragByParticleSize: 1
+    multiplyDragByParticleVelocity: 1
     dampen: 0
+    drag:
+      serializedVersion: 2
+      minMaxState: 0
+      scalar: 0
+      minScalar: 0
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 2
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - serializedVersion: 2
+          time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
   NoiseModule:
     enabled: 0
     strength:
@@ -15967,7 +16170,8 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 0
     subEmitters:
-    - emitter: {fileID: 0}
+    - serializedVersion: 2
+      emitter: {fileID: 0}
       type: 0
       properties: 0
   LightsModule:
@@ -16063,6 +16267,7 @@ ParticleSystem:
     maxLights: 20
   TrailModule:
     enabled: 0
+    mode: 0
     ratio: 1
     lifetime:
       serializedVersion: 2
@@ -16107,12 +16312,14 @@ ParticleSystem:
         m_RotationOrder: 4
     minVertexDistance: 0.2
     textureMode: 0
+    ribbonCount: 1
     worldSpace: 0
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
     inheritParticleColor: 1
     generateLightingData: 0
+    splitSubEmitterRibbons: 0
     colorOverLifetime:
       serializedVersion: 2
       minMaxState: 0
@@ -16347,6 +16554,7 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
+    colorLabel0: Color
     vector0_0:
       serializedVersion: 2
       minMaxState: 0
@@ -16388,6 +16596,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+    vectorLabel0_0: X
     vector0_1:
       serializedVersion: 2
       minMaxState: 0
@@ -16429,6 +16638,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+    vectorLabel0_1: Y
     vector0_2:
       serializedVersion: 2
       minMaxState: 0
@@ -16470,6 +16680,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+    vectorLabel0_2: Z
     vector0_3:
       serializedVersion: 2
       minMaxState: 0
@@ -16511,6 +16722,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+    vectorLabel0_3: W
     mode1: 0
     vectorComponentCount1: 4
     color1:
@@ -16576,6 +16788,7 @@ ParticleSystem:
         m_Mode: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
+    colorLabel1: Color
     vector1_0:
       serializedVersion: 2
       minMaxState: 0
@@ -16617,6 +16830,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+    vectorLabel1_0: X
     vector1_1:
       serializedVersion: 2
       minMaxState: 0
@@ -16658,6 +16872,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+    vectorLabel1_1: Y
     vector1_2:
       serializedVersion: 2
       minMaxState: 0
@@ -16699,6 +16914,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+    vectorLabel1_2: Z
     vector1_3:
       serializedVersion: 2
       minMaxState: 0
@@ -16740,6 +16956,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+    vectorLabel1_3: W
 --- !u!1 &531876874
 GameObject:
   m_ObjectHideFlags: 0
@@ -17547,9 +17764,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300016, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &571675502
@@ -17562,6 +17779,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -17577,6 +17795,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -17706,9 +17925,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300012, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &579470125
@@ -17721,6 +17940,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -17736,6 +17956,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -18529,9 +18750,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &615588411
@@ -18544,6 +18765,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -18559,6 +18781,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -18644,9 +18867,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: db55d61900631534da1e9be0765b391e, type: 3}
 --- !u!23 &628839869
@@ -18659,6 +18882,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -18674,6 +18898,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -18754,6 +18979,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -18769,6 +18995,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -18859,6 +19086,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -18907,9 +19138,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &631371878
@@ -18922,6 +19153,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -18937,6 +19169,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -19281,6 +19514,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -19471,9 +19708,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300026, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &640976660
@@ -19486,6 +19723,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -19501,6 +19739,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -19666,9 +19905,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &645162117
@@ -19681,6 +19920,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -19696,6 +19936,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -19945,9 +20186,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300012, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &668939050
@@ -19960,6 +20201,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -19975,6 +20217,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -20104,9 +20347,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &674472066
@@ -20119,6 +20362,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -20134,6 +20378,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -20197,6 +20442,39 @@ Transform:
   m_PrefabParentObject: {fileID: 4547114271689432, guid: 8296f3c251027ea4e9eb65e517337076,
     type: 2}
   m_PrefabInternal: {fileID: 679982589}
+--- !u!1 &681277773 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1538441236992868, guid: 973cf014af324b34e8ecba7210dc38e9,
+    type: 2}
+  m_PrefabInternal: {fileID: 462093203}
+--- !u!114 &681277775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 681277773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a427107eed8004b43b58be61430305cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
+  _material: {fileID: 2100000, guid: 8371c910b6db2463391a051e571e2558, type: 2}
+  _particleStartSpeed: 0.5
+  _particleStartLifeTime: 1
+  _particleStartSize: 1
+  _particleRadius: 0.2
+  _particlePositionX: 0
+  _particlePositionY: 50
+  _particlePositionZ: -30
+  _particleRotationX: 0
+  _particleRotationY: 0
+  _particleRotationZ: 0
+  _particleMaxParticles: 30
+  _particleNormalOffset: 1
+  _particleSizeMin: 0.1
+  _particleSizeMax: 1
+  _particleColor: {r: 1, g: 0, b: 0, a: 0.122}
 --- !u!1 &681996622
 GameObject:
   m_ObjectHideFlags: 0
@@ -20279,9 +20557,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300014, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &682956965
@@ -20294,6 +20572,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -20309,6 +20588,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -20588,9 +20868,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 5c7e369c4cd9b604594afc2bc7e851d2, type: 3}
 --- !u!23 &692200273
@@ -20603,6 +20883,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -20618,6 +20899,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -20677,9 +20959,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 9a17f8c6efb68f94494374aeb856d202, type: 3}
 --- !u!23 &692429206
@@ -20692,6 +20974,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -20707,6 +20990,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -20805,6 +21089,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -21627,6 +21915,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -21656,6 +21948,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -21671,6 +21964,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -22314,9 +22608,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
 --- !u!23 &758850174
@@ -22329,6 +22623,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -22344,6 +22639,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -22668,9 +22964,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: a0b140723614a6d45944d83506fa875f, type: 3}
 --- !u!23 &766637610
@@ -22683,6 +22979,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -22698,6 +22995,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -22789,6 +23087,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -22805,15 +23107,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: ec5b2b938127b164c89e5c4884bdb780, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.01
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ec5b2b938127b164c89e5c4884bdb780, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.69
+      value: 16.9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ec5b2b938127b164c89e5c4884bdb780, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1031.46
+      value: -1031.7
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ec5b2b938127b164c89e5c4884bdb780, type: 3}
       propertyPath: m_LocalRotation.x
@@ -22912,9 +23214,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &767652528
@@ -22927,6 +23229,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -22942,6 +23245,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -23064,6 +23368,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 1
   _ghostImage: {fileID: 21300000, guid: d702463abc0885d4685cd7d9df180b9b, type: 3}
@@ -23081,9 +23389,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
 --- !u!23 &768524893
@@ -23096,6 +23404,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -23111,6 +23420,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -23677,6 +23987,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -23778,6 +24092,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -23913,6 +24231,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -23928,6 +24247,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -24115,9 +24435,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
 --- !u!23 &814607887
@@ -24130,6 +24450,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -24145,6 +24466,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -24219,9 +24541,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300018, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &817274085
@@ -24234,6 +24556,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -24249,6 +24572,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -24306,9 +24630,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300026, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &819825033
@@ -24321,6 +24645,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -24336,6 +24661,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -24557,9 +24883,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &825418013
@@ -24572,6 +24898,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -24587,6 +24914,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -24740,9 +25068,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 9a17f8c6efb68f94494374aeb856d202, type: 3}
 --- !u!23 &834890836
@@ -24755,6 +25083,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -24770,6 +25099,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -25112,9 +25442,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &849975582
@@ -25127,6 +25457,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -25142,6 +25473,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -25376,20 +25708,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -25435,9 +25753,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &862775423
@@ -25450,6 +25768,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -25465,6 +25784,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -25677,9 +25997,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &870197998
@@ -25692,6 +26012,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -25707,6 +26028,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -25908,9 +26230,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &887405044
@@ -25923,6 +26245,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -25938,6 +26261,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -26032,6 +26356,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -26121,6 +26449,10 @@ MonoBehaviour:
   _objectMustUnlocked: 1
   _animationObjectMustUnlocked: 0
   _itemToUnlock: edelsteinblau
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -26371,6 +26703,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -26630,6 +26966,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -26813,6 +27153,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -27156,6 +27500,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -27313,6 +27661,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -27411,6 +27763,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 1
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock:
   - {fileID: 13591983}
   - {fileID: 1831392159}
@@ -27526,6 +27882,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -27541,6 +27898,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -27671,9 +28029,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 4e242739a5b61f847929e3ed5159f2dc, type: 3}
 --- !u!23 &990449574
@@ -27686,6 +28044,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -27701,6 +28060,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -27832,9 +28192,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 2df3198f67919d742a65709e13d0a379, type: 3}
 --- !u!23 &995314055
@@ -27847,6 +28207,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -27862,6 +28223,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -27993,9 +28355,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &997801379
@@ -28008,6 +28370,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -28023,6 +28386,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -28234,9 +28598,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300012, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1002262025
@@ -28249,6 +28613,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -28264,6 +28629,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -28336,6 +28702,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -28351,6 +28718,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -28441,6 +28809,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -28629,6 +29001,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -28646,9 +29022,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2df3198f67919d742a65709e13d0a379, type: 3}
 --- !u!23 &1010922187
@@ -28661,6 +29037,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -28676,6 +29053,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -29168,6 +29546,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -29360,9 +29742,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300014, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1049261663
@@ -29375,6 +29757,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -29390,6 +29773,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -29517,6 +29901,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -29532,6 +29917,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -29815,9 +30201,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1073437032
@@ -29830,6 +30216,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -29845,6 +30232,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -30219,9 +30607,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: 5c7e369c4cd9b604594afc2bc7e851d2, type: 3}
 --- !u!23 &1106631422
@@ -30234,6 +30622,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -30249,6 +30638,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -30653,6 +31043,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -30738,6 +31132,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -31527,6 +31925,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -31544,9 +31946,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
 --- !u!23 &1146174113
@@ -31559,6 +31961,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -31574,6 +31977,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -31646,6 +32050,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -31661,6 +32066,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -31751,6 +32157,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -32827,6 +33237,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -32842,6 +33253,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -33102,6 +33514,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -33117,6 +33530,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -33309,6 +33723,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -33394,6 +33812,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -33625,6 +34047,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: schluesselkarte
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -34286,6 +34712,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -34453,6 +34883,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -34906,9 +35340,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1278217843
@@ -34921,6 +35355,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -34936,6 +35371,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -36141,9 +36577,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &1349649288
@@ -36156,6 +36592,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -36171,6 +36608,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -36305,9 +36743,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &1352715003
@@ -36320,6 +36758,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -36335,6 +36774,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -36426,6 +36866,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -36692,6 +37136,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -36827,6 +37275,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -37479,6 +37931,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -37698,9 +38154,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 765e001a61f9bde44be8cfdda4d01ce5, type: 3}
 --- !u!23 &1397695913
@@ -37713,6 +38169,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -37728,6 +38185,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -37798,9 +38256,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &1398728424
@@ -37813,6 +38271,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -37828,6 +38287,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -38373,20 +38833,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -38754,9 +39200,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1452212689
@@ -38769,6 +39215,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -38784,6 +39231,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -39181,26 +39629,32 @@ MonoBehaviour:
   _humanSecondButtonText: {fileID: 1110728304}
   _ghostGameOver: {fileID: 1050390948}
   _ghostMainMenuButton: {fileID: 168410677}
-  _ghostMainMenuText: {fileID: 2067508245}
+  _ghostMainMenuButtonText: {fileID: 0}
   _ghostReplayButton: {fileID: 1769735201}
-  _ghostReplayText: {fileID: 155704457}
-  _ghostQuitMenu: {fileID: 602711197}
-  _ghostQuitMenuText: {fileID: 1333885636}
+  _ghostReplayButtonText: {fileID: 0}
+  _ghostQuitMenuButton: {fileID: 0}
+  _ghostQuitMenuButtonText: {fileID: 0}
   _humanGameOver: {fileID: 1793196064}
   _humanMainMenuButton: {fileID: 448027638}
   _humanMainMenuButtonText: {fileID: 207193145}
   _humanReplayButton: {fileID: 1621906705}
   _humanReplayButtonText: {fileID: 1317762680}
-  _humanQuitMenu: {fileID: 1373756582}
+  _humanQuitButtonMenu: {fileID: 0}
   _humanQuitButtonText: {fileID: 538189074}
   _menuGhost: {fileID: 1993116579}
-  _ghostContinueButton: {fileID: 1211041676}
+  _ghostContinue: {fileID: 0}
+  _ghostContinueText: {fileID: 0}
   _ghostReplay: {fileID: 1492573317}
-  _ghostQuitButton: {fileID: 445703639}
+  _ghostReplayText: {fileID: 155704457}
+  _ghostQuit: {fileID: 0}
+  _ghostQuitText: {fileID: 0}
   _menuHuman: {fileID: 1659198599}
-  _humanContinueButton: {fileID: 1048959369}
+  _humanContinue: {fileID: 0}
+  _humanContinueText: {fileID: 0}
   _humanReplay: {fileID: 1162935951}
-  _humanQuitButton: {fileID: 1513537745}
+  _humanReplayText: {fileID: 0}
+  _humanQuit: {fileID: 0}
+  _humanQuitText: {fileID: 0}
   _a: {fileID: 21300000, guid: fa308bf891e4c3544b48fff1156e9e6d, type: 3}
   _b: {fileID: 21300000, guid: bc03a25e301d91b45909fe1633e443f0, type: 3}
   _x: {fileID: 21300000, guid: a0b6eec8b2dce24459ea309201a92ffd, type: 3}
@@ -39322,6 +39776,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -39337,6 +39792,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -39435,6 +39891,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -39674,6 +40134,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -40131,9 +40595,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: db55d61900631534da1e9be0765b391e, type: 3}
 --- !u!23 &1524306580
@@ -40146,6 +40610,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -40161,6 +40626,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -40304,11 +40770,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!124 &1528339899
 Behaviour:
   m_ObjectHideFlags: 0
@@ -40381,9 +40847,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: b02c82ffc587f8946a50f2cdc83d14d6, type: 3}
 --- !u!23 &1528973136
@@ -40396,6 +40862,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -40411,6 +40878,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -40501,6 +40969,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -40569,20 +41041,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -40735,6 +41193,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -40742,6 +41204,34 @@ MonoBehaviour:
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
+--- !u!114 &1537208463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537208457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a427107eed8004b43b58be61430305cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
+  _material: {fileID: 2100000, guid: 8371c910b6db2463391a051e571e2558, type: 2}
+  _particleStartSpeed: 0.01
+  _particleStartLifeTime: 1
+  _particleStartSize: 0.2
+  _particleRadius: 0.5
+  _particlePositionX: 4
+  _particlePositionY: 2
+  _particlePositionZ: 6
+  _particleRotationX: 0
+  _particleRotationY: 50
+  _particleRotationZ: 90
+  _particleMaxParticles: 10
+  _particleNormalOffset: 0.1
+  _particleSizeMin: 0.1
+  _particleSizeMax: 0.5
+  _particleColor: {r: 0.11764705, g: 0.92697763, b: 1, a: 0.122}
 --- !u!1 &1537668076
 GameObject:
   m_ObjectHideFlags: 0
@@ -41250,6 +41740,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -41514,6 +42008,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -42141,9 +42639,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &1585483884
@@ -42156,6 +42654,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -42171,6 +42670,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -42619,6 +43119,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -42677,11 +43181,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!124 &1612709062
 Behaviour:
   m_ObjectHideFlags: 0
@@ -42754,6 +43258,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -42769,6 +43274,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -42828,9 +43334,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &1620951541
@@ -42843,6 +43349,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -42858,6 +43365,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -42948,6 +43456,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -43469,6 +43981,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -43656,6 +44172,10 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: c59a00561b5edf944b32892c508dec03, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: c59a00561b5edf944b32892c508dec03, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -43913,6 +44433,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -43935,8 +44459,8 @@ MonoBehaviour:
   _material: {fileID: 2100000, guid: 8371c910b6db2463391a051e571e2558, type: 2}
   _particleStartSpeed: 0.01
   _particleStartLifeTime: 1
-  _particleStartSize: 0
-  _particleRadius: 0.4
+  _particleStartSize: 0.2
+  _particleRadius: 0.5
   _particlePositionX: 4
   _particlePositionY: 2
   _particlePositionZ: 6
@@ -43946,7 +44470,7 @@ MonoBehaviour:
   _particleMaxParticles: 10
   _particleNormalOffset: 0.1
   _particleSizeMin: 0.1
-  _particleSizeMax: 0.2
+  _particleSizeMax: 0.5
   _particleColor: {r: 0, g: 0.8602941, b: 0.8602941, a: 0.122}
 --- !u!65 &1661586000
 BoxCollider:
@@ -44001,9 +44525,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1668940128
@@ -44016,6 +44540,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -44031,6 +44556,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -44092,9 +44618,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1670014363
@@ -44107,6 +44633,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -44122,6 +44649,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -44251,9 +44779,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1673859878
@@ -44266,6 +44794,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -44281,6 +44810,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -44343,9 +44873,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &1674337496
@@ -44358,6 +44888,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -44373,6 +44904,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -44464,6 +44996,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -44682,9 +45218,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: db55d61900631534da1e9be0765b391e, type: 3}
 --- !u!23 &1683861374
@@ -44697,6 +45233,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -44712,6 +45249,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -44810,6 +45348,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -44858,9 +45400,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: dddb12457d377654ea98b9d992eac877, type: 3}
 --- !u!23 &1694777136
@@ -44873,6 +45415,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -44888,6 +45431,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -45114,9 +45658,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: db55d61900631534da1e9be0765b391e, type: 3}
 --- !u!23 &1712350974
@@ -45129,6 +45673,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -45144,6 +45689,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -45201,9 +45747,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &1714826401
@@ -45216,6 +45762,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -45231,6 +45778,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -45355,6 +45903,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -45371,6 +45923,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -45386,6 +45939,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -45475,20 +46029,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -45608,9 +46148,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &1721982891
@@ -45623,6 +46163,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -45638,6 +46179,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -45695,9 +46237,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &1722791444
@@ -45710,6 +46252,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -45725,6 +46268,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -45784,9 +46328,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 9a17f8c6efb68f94494374aeb856d202, type: 3}
 --- !u!23 &1725048440
@@ -45799,6 +46343,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -45814,6 +46359,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -45936,6 +46482,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -45953,9 +46503,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b02c82ffc587f8946a50f2cdc83d14d6, type: 3}
 --- !u!23 &1725796091
@@ -45968,6 +46518,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -45983,6 +46534,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -46040,9 +46592,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300014, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &1731399241
@@ -46055,6 +46607,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -46070,6 +46623,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -46164,6 +46718,10 @@ MonoBehaviour:
   _objectMustUnlocked: 1
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock:
   - {fileID: 1972527275}
   - {fileID: 430619358}
@@ -46367,6 +46925,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -46460,6 +47022,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -46577,6 +47143,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -47158,6 +47728,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -47684,9 +48258,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1776106355
@@ -47699,6 +48273,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -47714,6 +48289,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -48046,9 +48622,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: bd4011b7e29c51b499171ddb00e0fcec, type: 3}
 --- !u!23 &1784029532
@@ -48061,6 +48637,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -48076,6 +48653,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -48133,9 +48711,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &1785676104
@@ -48148,6 +48726,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -48163,6 +48742,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -48640,9 +49220,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: dddb12457d377654ea98b9d992eac877, type: 3}
 --- !u!23 &1806431547
@@ -48655,6 +49235,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -48670,6 +49251,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -48764,6 +49346,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -49200,6 +49786,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -49453,9 +50043,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 70a00c52e45bb4741a1d7b522325bf38, type: 3}
 --- !u!23 &1842795329
@@ -49468,6 +50058,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -49483,6 +50074,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -49850,9 +50442,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1852144748
@@ -49865,6 +50457,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -49880,6 +50473,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -50040,9 +50634,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1860697573
@@ -50055,6 +50649,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -50070,6 +50665,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -50127,9 +50723,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300012, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1866888349
@@ -50142,6 +50738,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -50157,6 +50754,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -50327,6 +50925,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -50500,6 +51102,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -50515,6 +51118,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -50605,6 +51209,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -50718,6 +51326,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -50974,9 +51586,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1898382731
@@ -50989,6 +51601,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -51004,6 +51617,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -51155,9 +51769,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300022, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &1900176717
@@ -51170,6 +51784,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -51185,6 +51800,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -51350,9 +51966,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300012, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &1911258410
@@ -51365,6 +51981,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -51380,6 +51997,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -51581,9 +52199,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: f24bbeeb4d83b8b4cb23b37027abdbf9, type: 3}
 --- !u!23 &1929316287
@@ -51596,6 +52214,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -51611,6 +52230,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -51849,6 +52469,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -52154,6 +52778,7 @@ GameObject:
   - component: {fileID: 1943879665}
   - component: {fileID: 1943879664}
   - component: {fileID: 1943879667}
+  - component: {fileID: 1943879668}
   m_Layer: 0
   m_Name: pillow lonely
   m_TagString: Untagged
@@ -52184,9 +52809,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: ce947008c1a6b5e418e40df0b5a5da12, type: 3}
 --- !u!23 &1943879665
@@ -52199,6 +52824,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -52214,6 +52840,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -52304,6 +52931,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -52311,6 +52942,34 @@ MonoBehaviour:
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
+--- !u!114 &1943879668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1943879662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a427107eed8004b43b58be61430305cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
+  _material: {fileID: 2100000, guid: 8371c910b6db2463391a051e571e2558, type: 2}
+  _particleStartSpeed: 0.01
+  _particleStartLifeTime: 1
+  _particleStartSize: 0.2
+  _particleRadius: 0.5
+  _particlePositionX: 4
+  _particlePositionY: 2
+  _particlePositionZ: 6
+  _particleRotationX: 0
+  _particleRotationY: 0
+  _particleRotationZ: 0
+  _particleMaxParticles: 10
+  _particleNormalOffset: 0.1
+  _particleSizeMin: 0.1
+  _particleSizeMax: 0.5
+  _particleColor: {r: 0.16176468, g: 1, b: 0.16754557, a: 0.122}
 --- !u!1 &1947956684
 GameObject:
   m_ObjectHideFlags: 0
@@ -52630,9 +53289,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: 1f6d766af9e209e4fae3ea672b58701e, type: 3}
 --- !u!23 &1979896723
@@ -52645,6 +53304,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -52660,6 +53320,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -52885,6 +53546,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -53107,6 +53772,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -53157,9 +53826,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 5c7e369c4cd9b604594afc2bc7e851d2, type: 3}
 --- !u!23 &1995615114
@@ -53172,6 +53841,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -53187,6 +53857,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -53281,6 +53952,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -53288,6 +53963,34 @@ MonoBehaviour:
   _lightswitch: 0
   _light: {fileID: 0}
   _secondLight: {fileID: 0}
+--- !u!114 &1997381273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1997381267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a427107eed8004b43b58be61430305cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshGameObject: {fileID: 0}
+  _material: {fileID: 2100000, guid: 8371c910b6db2463391a051e571e2558, type: 2}
+  _particleStartSpeed: 1
+  _particleStartLifeTime: 1
+  _particleStartSize: 10
+  _particleRadius: 60
+  _particlePositionX: -100
+  _particlePositionY: 200
+  _particlePositionZ: 0
+  _particleRotationX: 0
+  _particleRotationY: 90
+  _particleRotationZ: 0
+  _particleMaxParticles: 10
+  _particleNormalOffset: 1
+  _particleSizeMin: 50
+  _particleSizeMax: 100
+  _particleColor: {r: 0.13646057, g: 0.8602941, b: 0, a: 0.122}
 --- !u!1001 &2001622200
 Prefab:
   m_ObjectHideFlags: 0
@@ -53467,6 +54170,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -53879,9 +54586,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 6188792a7675c00499d803bd411d5fb4, type: 3}
 --- !u!23 &2016933493
@@ -53894,6 +54601,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -53909,6 +54617,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -54099,9 +54808,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 9a17f8c6efb68f94494374aeb856d202, type: 3}
 --- !u!23 &2022041714
@@ -54114,6 +54823,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -54129,6 +54839,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -54429,6 +55140,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -54549,9 +55264,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300020, guid: f0e6eb7b447123147ac795b263062f03, type: 3}
 --- !u!23 &2033119526
@@ -54564,6 +55279,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -54579,6 +55295,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -54810,7 +55527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2040843464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54886,6 +55603,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -55180,6 +55901,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -55195,6 +55917,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -55902,6 +56625,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: usb
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
@@ -56784,6 +57511,10 @@ MonoBehaviour:
   _objectMustUnlocked: 0
   _animationObjectMustUnlocked: 0
   _itemToUnlock: 
+  _lockedFlavourTextGhost: 
+  _unlockedFlavourTextGhost: 
+  _lockedFlavourTextHuman: 
+  _unlockedFlavourTextHuman: 
   _objectsToUnlock: []
   _showImageOnInteraction: 0
   _ghostImage: {fileID: 0}
