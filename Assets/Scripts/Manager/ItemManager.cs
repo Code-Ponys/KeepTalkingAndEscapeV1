@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TrustfallGames.KeepTalkingAndEscape.DataController;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using TrustfallGames.KeepTalkingAndEscape.Listener;
-using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
@@ -36,13 +35,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             _uiManager = UIManager.GetUiManager();
         }
 
-        private void Update() {
+        private void LateUpdate() {
             _itemsInDatabase = _itemList.Count;
             if(_itemcheck.Count != 0) {
                 var obj = _itemcheck.Dequeue();
-                if(!IsItemInDatabase(obj.ItemName)) {
-                    throw new Exception("The item " + obj.ItemName + " is not in Database. It's assigned to Object Listener of " + obj.gameObject.name + ". Please Check the ID in Inspector and Database");
-                }
+                if(!IsItemInDatabase(obj.ItemName)) throw new Exception("The item " + obj.ItemName + " is not in Database. It's assigned to Object Listener of " + obj.gameObject.name + ". Please Check the ID in Inspector and Database");
             }
         }
 
@@ -122,11 +119,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private bool IsItemInDatabase(string itemId) {
             if(itemId == "") return true;
-            foreach(var obj in _itemList) {
-                if(string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) {
-                    return true;
-                }
-            }
+            foreach(var obj in _itemList)
+                if(string.Equals(obj.ItemId, itemId, StringComparison.CurrentCultureIgnoreCase)) return true;
 
             return false;
         }

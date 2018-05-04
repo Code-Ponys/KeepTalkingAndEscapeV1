@@ -29,26 +29,15 @@ namespace YamlDotNet.Serialization.Utilities
         public static Type GetImplementedGenericInterface(Type type, Type genericInterfaceType)
         {
             foreach (var interfacetype in GetImplementedInterfaces(type))
-            {
-                if (interfacetype.IsGenericType() && interfacetype.GetGenericTypeDefinition() == genericInterfaceType)
-                {
-                    return interfacetype;
-                }
-            }
+                if (interfacetype.IsGenericType() && interfacetype.GetGenericTypeDefinition() == genericInterfaceType) return interfacetype;
             return null;
         }
 
         public static IEnumerable<Type> GetImplementedInterfaces(Type type)
         {
-            if (type.IsInterface())
-            {
-                yield return type;
-            }
+            if (type.IsInterface()) yield return type;
 
-            foreach (var implementedInterface in type.GetInterfaces())
-            {
-                yield return implementedInterface;
-            }
+            foreach (var implementedInterface in type.GetInterfaces()) yield return implementedInterface;
         }
     }
 }

@@ -99,19 +99,25 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private float _pickUpTimerGhost;
         private float _pickUpTimerHuman;
 
+        private SoundManager _soundManager;
+
         [Range(1, 100)] [SerializeField] private float _flavourTextWaitTimer;
         [Range(1, 100)] [SerializeField] private float _pickUpDisplayTimer;
 
         private GameManager _gameManager;
         private ItemManager _itemManager;
 
+        private bool _deathSoundPlayed;
+
         public static UIManager GetUiManager() {
+            if(GameObject.Find("System") == null) return null;
             return GameObject.Find("System").GetComponent<UIManager>();
         }
 
         private void Start() {
             _gameManager = GameManager.GetGameManager();
             _itemManager = ItemManager.GetItemManager();
+            _soundManager = SoundManager.GetSoundManager();
 
             _userInterfaceGhost.renderMode = RenderMode.ScreenSpaceCamera;
             _userInterfaceHuman.renderMode = RenderMode.ScreenSpaceCamera;
@@ -146,16 +152,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             UpdateFlavourText();
             UpdateHealth();
             UpdateItemInHand();
-            UpdateHoverText();
-        }
-
-        private void UpdateHoverText() {
-            if(_instanceIdGhost == 0 && _ghostHoverText.text != "") {
-                _ghostHoverText.text = "";
-            }
-
-            if(_instanceIdHuman == 0 && _humanHoverText.text != "") {
-                _humanHoverText.text = "";
+            
+            if(_gameManager.HumanController.Health <= 0 && !_deathSoundPlayed) {
+                _soundManager.Source.clip = _soundManager.DeathSound;
+                _soundManager.Source.Play();
+                _deathSoundPlayed = true;
+                _soundManager.Source.loop = true;
             }
         }
 
@@ -289,7 +291,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         /// </summary>
         /// <param name="type"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public void HideButtons(CharacterType type) {
+        private void HideButtons(CharacterType type) {
             ShowButtons(type, KeyType.none, KeyType.none, 0);
             switch(type) {
                 case CharacterType.Unassigned:
@@ -305,16 +307,23 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             }
         }
 
-        public int GetLastInstanceId(CharacterType characterType) {
+        public void ClearUI(CharacterType characterType) {
+            HideButtons(characterType);
+            
+        }
+
+        private void HideTexts(CharacterType characterType) {
             switch(characterType) {
                 case CharacterType.Ghost:
-                    return _instanceIdGhost;
+                    _ghostHoverText.text = "";
+                    break;
                 case CharacterType.Human:
-                    return _instanceIdHuman;
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException("characterType", characterType, null);
             }
         }
+        
 
         public Sprite A {
             get {return _a;}
@@ -506,6 +515,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             get {return _transparent;}
         }
 
+        public Image GhostGameOver {
+            get {return _ghostGameOver;}
+            set {_ghostGameOver = value;}
+        }
+
+        public Image HumanGameOver {
+            get {return _humanGameOver;}
+            set {_humanGameOver = value;}
+        }
 
     }
 }

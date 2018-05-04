@@ -21,7 +21,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
 using YamlDotNet.Serialization.Utilities;
@@ -35,17 +34,11 @@ namespace YamlDotNet.Serialization.ValueDeserializers
 
         public NodeValueDeserializer(IList<INodeDeserializer> deserializers, IList<INodeTypeResolver> typeResolvers)
         {
-            if (deserializers == null)
-            {
-                throw new ArgumentNullException("deserializers");
-            }
+            if (deserializers == null) throw new ArgumentNullException("deserializers");
 
             this.deserializers = deserializers;
 
-            if (typeResolvers == null)
-            {
-                throw new ArgumentNullException("typeResolvers");
-            }
+            if (typeResolvers == null) throw new ArgumentNullException("typeResolvers");
             this.typeResolvers = typeResolvers;
         }
 
@@ -60,10 +53,7 @@ namespace YamlDotNet.Serialization.ValueDeserializers
                 foreach (var deserializer in deserializers)
                 {
                     object value;
-                    if (deserializer.Deserialize(parser, nodeType, (r, t) => nestedObjectDeserializer.DeserializeValue(r, t, state, nestedObjectDeserializer), out value))
-                    {
-                        return value;
-                    }
+                    if (deserializer.Deserialize(parser, nodeType, (r, t) => nestedObjectDeserializer.DeserializeValue(r, t, state, nestedObjectDeserializer), out value)) return value;
                 }
             }
             catch (YamlException)
@@ -88,12 +78,7 @@ namespace YamlDotNet.Serialization.ValueDeserializers
         private Type GetTypeFromEvent(NodeEvent nodeEvent, Type currentType)
         {
             foreach (var typeResolver in typeResolvers)
-            {
-                if (typeResolver.Resolve(nodeEvent, ref currentType))
-                {
-                    break;
-                }
-            }
+                if (typeResolver.Resolve(nodeEvent, ref currentType)) break;
             return currentType;
         }
     }

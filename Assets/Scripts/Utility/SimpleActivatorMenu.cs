@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace UnityStandardAssets.Utility
@@ -24,12 +23,9 @@ namespace UnityStandardAssets.Utility
 
         public void NextCamera()
         {
-            int nextactiveobject = m_CurrentActiveObject + 1 >= objects.Length ? 0 : m_CurrentActiveObject + 1;
+            var nextactiveobject = m_CurrentActiveObject + 1 >= objects.Length ? 0 : m_CurrentActiveObject + 1;
 
-            for (int i = 0; i < objects.Length; i++)
-            {
-                objects[i].SetActive(i == nextactiveobject);
-            }
+            for (var i = 0; i < objects.Length; i++) objects[i].SetActive(i == nextactiveobject);
 
             m_CurrentActiveObject = nextactiveobject;
             camSwitchButton.text = objects[m_CurrentActiveObject].name;

@@ -23,9 +23,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
-using System.Text;
 using YamlDotNet.Serialization;
 
 namespace YamlDotNet.RepresentationModel
@@ -72,7 +72,7 @@ namespace YamlDotNet.RepresentationModel
             Load(sequence, state);
             Style = sequence.Style;
 
-            bool hasUnresolvedAliases = false;
+            var hasUnresolvedAliases = false;
             while (!parser.Accept<SequenceEnd>())
             {
                 var child = ParseNode(parser, state);
@@ -80,10 +80,7 @@ namespace YamlDotNet.RepresentationModel
                 hasUnresolvedAliases |= child is YamlAliasNode;
             }
 
-            if (hasUnresolvedAliases)
-            {
-                state.AddNodeWithUnresolvedAliases(this);
-            }
+            if (hasUnresolvedAliases) state.AddNodeWithUnresolvedAliases(this);
 
             parser.Expect<SequenceEnd>();
         }
@@ -108,10 +105,7 @@ namespace YamlDotNet.RepresentationModel
         /// </summary>
         public YamlSequenceNode(IEnumerable<YamlNode> children)
         {
-            foreach (var child in children)
-            {
-                this.children.Add(child);
-            }
+            foreach (var child in children) this.children.Add(child);
         }
 
         /// <summary>
@@ -138,13 +132,8 @@ namespace YamlDotNet.RepresentationModel
         /// <param name="state">The state of the document.</param>
         internal override void ResolveAliases(DocumentLoadingState state)
         {
-            for (int i = 0; i < children.Count; ++i)
-            {
-                if (children[i] is YamlAliasNode)
-                {
-                    children[i] = state.GetNode(children[i].Anchor, true, children[i].Start, children[i].End);
-                }
-            }
+            for (var i = 0; i < children.Count; ++i)
+                if (children[i] is YamlAliasNode) children[i] = state.GetNode(children[i].Anchor, true, children[i].Start, children[i].End);
         }
 
         /// <summary>
@@ -155,10 +144,7 @@ namespace YamlDotNet.RepresentationModel
         internal override void Emit(IEmitter emitter, EmitterState state)
         {
             emitter.Emit(new SequenceStart(Anchor, Tag, true, Style));
-            foreach (var node in children)
-            {
-                node.Save(emitter, state);
-            }
+            foreach (var node in children) node.Save(emitter, state);
             emitter.Emit(new SequenceEnd());
         }
 
@@ -177,18 +163,10 @@ namespace YamlDotNet.RepresentationModel
         public override bool Equals(object obj)
         {
             var other = obj as YamlSequenceNode;
-            if (other == null || !Equals(other) || children.Count != other.children.Count)
-            {
-                return false;
-            }
+            if (other == null || !Equals(other) || children.Count != other.children.Count) return false;
 
-            for (int i = 0; i < children.Count; ++i)
-            {
-                if (!SafeEquals(children[i], other.children[i]))
-                {
-                    return false;
-                }
-            }
+            for (var i = 0; i < children.Count; ++i)
+                if (!SafeEquals(children[i], other.children[i])) return false;
 
             return true;
         }
@@ -203,10 +181,7 @@ namespace YamlDotNet.RepresentationModel
         {
             var hashCode = base.GetHashCode();
 
-            foreach (var item in children)
-            {
-                hashCode = CombineHashCodes(hashCode, GetHashCode(item));
-            }
+            foreach (var item in children) hashCode = CombineHashCodes(hashCode, GetHashCode(item));
             return hashCode;
         }
 
@@ -220,12 +195,7 @@ namespace YamlDotNet.RepresentationModel
             level.Increment();
             yield return this;
             foreach (var child in children)
-            {
-                foreach (var node in child.SafeAllNodes(level))
-                {
-                    yield return node;
-                }
-            }
+            foreach (var node in child.SafeAllNodes(level)) yield return node;
             level.Decrement();
         }
 
@@ -245,19 +215,13 @@ namespace YamlDotNet.RepresentationModel
         /// </returns>
         internal override string ToString(RecursionLevel level)
         {
-            if (!level.TryIncrement())
-            {
-                return MaximumRecursionLevelReachedToStringValue;
-            }
+            if (!level.TryIncrement()) return MaximumRecursionLevelReachedToStringValue;
 
             var text = new StringBuilder("[ ");
 
             foreach (var child in children)
             {
-                if (text.Length > 2)
-                {
-                    text.Append(", ");
-                }
+                if (text.Length > 2) text.Append(", ");
                 text.Append(child.ToString(level));
             }
 

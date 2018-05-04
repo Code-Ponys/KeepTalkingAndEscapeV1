@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class ConGUI : MonoBehaviour {
 	public Transform mainCamera;
@@ -22,23 +21,23 @@ public class ConGUI : MonoBehaviour {
 
 	private Vector3 tmpPos;
 
-	bool visibleBt (){
-		foreach(GameObject tmpObj in effectObProj){
+	private bool visibleBt (){
+		foreach(var tmpObj in effectObProj)
 			if( effectObj[ arrayNo ].name == tmpObj.name){
 				nonProFX = tmpObj;
 				return true;
 			}
-		}
+
 		return false;
 	}
-	
-	void  Start (){
+
+	private void  Start (){
 		tmpPos = initPos = mainCamera.localPosition;
 		
 		haveProFlg = visibleBt();
 	}
-	
-	void  Update (){
+
+	private void  Update (){
 		if( cameraRotCon == 1)cameraTrs.Rotate(0 ,rotSpeed * Time.deltaTime ,0);
 		
 		if(num > numBck){
@@ -59,8 +58,8 @@ public class ConGUI : MonoBehaviour {
 
 		mainCamera.localPosition = tmpPos;
 	}
-	
-	void  OnGUI (){
+
+	private void  OnGUI (){
 		
 		if (GUI.Button ( new Rect(20, 0, 30, 30), "←")) {//return
 			arrayNo --;
@@ -70,10 +69,8 @@ public class ConGUI : MonoBehaviour {
 			haveProFlg = visibleBt();
 		}
 		
-		if (GUI.Button ( new Rect(50, 0, 200, 30), effectObj[ arrayNo ].name )) {
-			effectOn();
-		}
-		
+		if (GUI.Button ( new Rect(50, 0, 200, 30), effectObj[ arrayNo ].name )) effectOn();
+
 		if (GUI.Button ( new Rect(250, 0, 30, 30), "→")) {//next
 			arrayNo ++;
 			if(arrayNo >= effectObj.Length)arrayNo = 0;
@@ -82,28 +79,25 @@ public class ConGUI : MonoBehaviour {
 			haveProFlg = visibleBt();
 		}
 		
-		if( haveProFlg ){
+		if( haveProFlg )
 			if (GUI.Button ( new Rect(50, 30, 300, 70), "+Distorsion" )) {
 				if(nowEffectObj != null)Destroy( nowEffectObj );
 				nowEffectObj = Instantiate( nonProFX );
 			}
-		}
-		
-		
-		if (GUI.Button ( new Rect(300, 0, 200, 30), cameraState[ cameraRotCon ] )) {
-			if( cameraRotCon == 1){
+
+
+		if (GUI.Button ( new Rect(300, 0, 200, 30), cameraState[ cameraRotCon ] ))
+			if( cameraRotCon == 1)
 				cameraRotCon = 0;
-			}else{
+			else
 				cameraRotCon = 1;
-			}
-		}
-		
+
 		num = GUI.VerticalSlider( new Rect(30, 100, 20, 200), num, 0, 20);
 		
 		
 	}
-	
-	void  effectOn (){
+
+	private void  effectOn (){
 		if(nowEffectObj != null)Destroy( nowEffectObj );
 		nowEffectObj = Instantiate(effectObj[ arrayNo ] );
 	}

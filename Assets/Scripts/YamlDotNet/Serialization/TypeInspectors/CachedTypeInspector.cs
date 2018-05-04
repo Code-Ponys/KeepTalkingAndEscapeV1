@@ -21,7 +21,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace YamlDotNet.Serialization.TypeInspectors
 {
@@ -35,10 +34,7 @@ namespace YamlDotNet.Serialization.TypeInspectors
 
         public CachedTypeInspector(ITypeInspector innerTypeDescriptor)
         {
-            if (innerTypeDescriptor == null)
-            {
-                throw new ArgumentNullException("innerTypeDescriptor");
-            }
+            if (innerTypeDescriptor == null) throw new ArgumentNullException("innerTypeDescriptor");
 
             this.innerTypeDescriptor = innerTypeDescriptor;
         }
@@ -46,10 +42,7 @@ namespace YamlDotNet.Serialization.TypeInspectors
         public override IEnumerable<IPropertyDescriptor> GetProperties(Type type, object container)
         {
             List<IPropertyDescriptor> list;
-            if (!cache.TryGetValue(type, out list))
-            {
-                list = new List<IPropertyDescriptor>(innerTypeDescriptor.GetProperties(type, container));
-            }
+            if (!cache.TryGetValue(type, out list)) list = new List<IPropertyDescriptor>(innerTypeDescriptor.GetProperties(type, container));
             return list;
         }
     }

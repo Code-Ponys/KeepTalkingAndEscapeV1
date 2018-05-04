@@ -34,10 +34,7 @@ namespace YamlDotNet.Serialization.NodeDeserializers
             var isNull = evt != null
                 && NodeIsNull(evt);
 
-            if (isNull)
-            {
-                parser.SkipThisAndNestedEvents();
-            }
+            if (isNull) parser.SkipThisAndNestedEvents();
             return isNull;
         }
 
@@ -45,10 +42,7 @@ namespace YamlDotNet.Serialization.NodeDeserializers
         {
             // http://yaml.org/type/null.html
 
-            if (nodeEvent.Tag == "tag:yaml.org,2002:null")
-            {
-                return true;
-            }
+            if (nodeEvent.Tag == "tag:yaml.org,2002:null") return true;
 
             var scalar = nodeEvent as Scalar;
             if (scalar == null || scalar.Style != Core.ScalarStyle.Plain)

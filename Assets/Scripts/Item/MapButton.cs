@@ -23,12 +23,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Datatypes {
         }
 
         private void Update() {
-            if(_active) {
+            if(_active)
                 _highlight.sprite = _mapHandler.Highlight;
-            }
-            else {
+            else
                 _highlight.sprite = _mapHandler.Transpa;
-            }
         }
 
         public void ToggleActive() {

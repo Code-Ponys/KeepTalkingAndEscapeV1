@@ -47,14 +47,8 @@ namespace YamlDotNet.Core
         /// <param name="capacity">The capacity.</param>
         public LookAheadBuffer(TextReader input, int capacity)
         {
-            if (input == null)
-            {
-                throw new ArgumentNullException("input");
-            }
-            if (capacity < 1)
-            {
-                throw new ArgumentOutOfRangeException("capacity", "The capacity must be positive.");
-            }
+            if (input == null) throw new ArgumentNullException("input");
+            if (capacity < 1) throw new ArgumentOutOfRangeException("capacity", "The capacity must be positive.");
 
             this.input = input;
             buffer = new char[capacity];
@@ -76,11 +70,8 @@ namespace YamlDotNet.Core
         /// </summary>
         private int GetIndexForOffset(int offset)
         {
-            int index = firstIndex + offset;
-            if (index >= buffer.Length)
-            {
-                index -= buffer.Length;
-            }
+            var index = firstIndex + offset;
+            if (index >= buffer.Length) index -= buffer.Length;
             return index;
         }
 
@@ -89,21 +80,14 @@ namespace YamlDotNet.Core
         /// </summary>
         public char Peek(int offset)
         {
-            if (offset < 0 || offset >= buffer.Length)
-            {
-                throw new ArgumentOutOfRangeException("offset", "The offset must be betwwen zero and the capacity of the buffer.");
-            }
+            if (offset < 0 || offset >= buffer.Length) throw new ArgumentOutOfRangeException("offset", "The offset must be betwwen zero and the capacity of the buffer.");
 
             Cache(offset);
 
             if (offset < count)
-            {
                 return buffer[GetIndexForOffset(offset)];
-            }
             else
-            {
                 return '\0';
-            }
         }
 
         /// <summary>
@@ -137,10 +121,7 @@ namespace YamlDotNet.Core
         /// </summary>
         public void Skip(int length)
         {
-            if (length < 1 || length > count)
-            {
-                throw new ArgumentOutOfRangeException("length", "The length must be between 1 and the number of characters in the buffer. Use the Peek() and / or Cache() methods to fill the buffer.");
-            }
+            if (length < 1 || length > count) throw new ArgumentOutOfRangeException("length", "The length must be between 1 and the number of characters in the buffer. Use the Peek() and / or Cache() methods to fill the buffer.");
             firstIndex = GetIndexForOffset(length);
             count -= length;
         }

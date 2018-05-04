@@ -68,10 +68,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 		public static void UnRegisterVirtualAxis(string name)
 		{
-			if (name == null)
-			{
-				throw new ArgumentNullException("name");
-			}
+			if (name == null) throw new ArgumentNullException("name");
 			activeInput.UnRegisterVirtualAxis(name);
 		}
 
@@ -266,10 +263,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 			// A controller gameobject should call this function when the button is pressed down
 			public void Pressed()
 			{
-				if (m_Pressed)
-				{
-					return;
-				}
+				if (m_Pressed) return;
 				m_Pressed = true;
 				m_LastPressedFrame = Time.frameCount;
 			}
@@ -310,7 +304,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 			{
 				get
 				{
-					return (m_ReleasedFrame == Time.frameCount - 1);
+					return m_ReleasedFrame == Time.frameCount - 1;
 				}
 			}
 		}

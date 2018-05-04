@@ -16,10 +16,7 @@ namespace YamlDotNet.Serialization.EventEmitters
 
         public override void Emit(MappingStartEventInfo eventInfo, IEmitter emitter)
         {
-            if(tagMappings.ContainsKey(eventInfo.Source.Type))
-            {
-                eventInfo.Tag = tagMappings[eventInfo.Source.Type];
-            }
+            if(tagMappings.ContainsKey(eventInfo.Source.Type)) eventInfo.Tag = tagMappings[eventInfo.Source.Type];
             base.Emit(eventInfo, emitter);
         }
     }

@@ -42,10 +42,7 @@ namespace YamlDotNet.Serialization.ObjectFactories
             if (type.IsInterface())
             {
                 Type implementationType;
-                if (defaultInterfaceImplementations.TryGetValue(type.GetGenericTypeDefinition(), out implementationType))
-                {
-                    type = implementationType.MakeGenericType(type.GetGenericArguments());
-                }
+                if (defaultInterfaceImplementations.TryGetValue(type.GetGenericTypeDefinition(), out implementationType)) type = implementationType.MakeGenericType(type.GetGenericArguments());
             }
 
             try

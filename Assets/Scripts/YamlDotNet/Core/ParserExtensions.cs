@@ -57,12 +57,7 @@ namespace YamlDotNet.Core
         public static bool Accept<T>(this IParser parser) where T : ParsingEvent
         {
             if(parser.Current == null)
-            {
-                if (!parser.MoveNext())
-                {
-                    throw new EndOfStreamException();
-                }
-            }
+                if (!parser.MoveNext()) throw new EndOfStreamException();
             return parser.Current is T;
         }
 
@@ -75,10 +70,7 @@ namespace YamlDotNet.Core
         /// <returns>Returns the current event if it is of type T; otherwise returns null.</returns>
         public static T Allow<T>(this IParser parser) where T : ParsingEvent
         {
-            if (!parser.Accept<T>())
-            {
-                return null;
-            }
+            if (!parser.Accept<T>()) return null;
             var @event = (T)parser.Current;
             parser.MoveNext();
             return @event;
@@ -91,10 +83,7 @@ namespace YamlDotNet.Core
         /// <returns>Returns the current event if it is of type T; otherwise returns null.</returns>
         public static T Peek<T>(this IParser parser) where T : ParsingEvent
         {
-            if (!parser.Accept<T>())
-            {
-                return null;
-            }
+            if (!parser.Accept<T>()) return null;
             return (T)parser.Current;
         }
 

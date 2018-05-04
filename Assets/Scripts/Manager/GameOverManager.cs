@@ -1,7 +1,7 @@
 ﻿using TrustfallGames.KeepTalkingAndEscape.Listener;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 	public class GameOverManager : MonoBehaviour {
@@ -26,7 +26,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 		private int _y = 0;
 
 		// Use this for initialization
-		void Start() {
+		private void Start() {
 			_gameManager = GameManager.GetGameManager();
 			_uiManager = UIManager.GetUiManager();
 			_currentPressedButtonHuman = 5;
@@ -34,12 +34,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 		}
 
 		// Update is called once per frame
-		void Update() {
-			if(_gameManager.HumanController.Health <= 0) {
-				GameOverEnabler();
-			}
+		private void Update() {
+			if(_gameManager.HumanController.Health <= 0) GameOverEnabler();
 
-			if(_gameManager.HumanController.Health <= 0) {
+			if(_uiManager.GhostGameOver.enabled) {
 				UpdateSelection();
 				GameOverInput();
 				Clicked();
@@ -119,7 +117,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             switch(_characterType) {
                 case CharacterType.Human:
                     if(_currentAxisDelay <= 0) {
-                        if(Input.GetButtonDown(ButtonNames.HumanInspect))
+                        if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonB))
                             if(_menu[_y] != null) {
                                 if(_menu[0]) {
                                     _currentPressedButtonHuman =_y;
@@ -144,7 +142,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
                 case CharacterType.Ghost:
                     if(_currentAxisDelay < 0) {
-                       if(Input.GetButtonDown(ButtonNames.GhostInspect))
+                       if(Input.GetButtonDown(ButtonNames.GhostJoystickButtonB))
                            if(_menu[_y] != null) {
                                if(_menu[0]) {
                                    _currentPressedButtonGhost =_y;
@@ -170,15 +168,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
 
 		private void GameOverMenu() {
-			if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) {
-				SceneManager.LoadScene(_scene[0]);
-			}
-			if(_currentPressedButtonHuman == 1 && _currentPressedButtonGhost == 1) {
-				SceneManager.LoadScene(_scene[1]);
-			}
-			if(_currentPressedButtonHuman == 2 && _currentPressedButtonGhost == 2) {
-				Application.Quit();
-			}
+			if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) SceneManager.LoadScene(_scene[0]);
+			if(_currentPressedButtonHuman == 1 && _currentPressedButtonGhost == 1) SceneManager.LoadScene(_scene[1]);
+			if(_currentPressedButtonHuman == 2 && _currentPressedButtonGhost == 2) Application.Quit();
 		}
 	}
 }

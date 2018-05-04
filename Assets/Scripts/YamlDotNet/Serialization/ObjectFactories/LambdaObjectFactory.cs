@@ -32,10 +32,7 @@ namespace YamlDotNet.Serialization.ObjectFactories
 
         public LambdaObjectFactory(Func<Type, object> factory)
         {
-            if (factory == null)
-            {
-                throw new ArgumentNullException("factory");
-            }
+            if (factory == null) throw new ArgumentNullException("factory");
 
             _factory = factory;
         }

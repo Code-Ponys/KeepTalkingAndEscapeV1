@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,43 +18,37 @@ namespace UnityStandardAssets.CrossPlatformInput
 		public string horizontalAxisName = "Horizontal"; // The name given to the horizontal axis for the cross platform input
 		public string verticalAxisName = "Vertical"; // The name given to the vertical axis for the cross platform input
 
-		Vector3 m_StartPos;
-		bool m_UseX; // Toggle for using the x axis
-		bool m_UseY; // Toggle for using the Y axis
-		CrossPlatformInputManager.VirtualAxis m_HorizontalVirtualAxis; // Reference to the joystick in the cross platform input
-		CrossPlatformInputManager.VirtualAxis m_VerticalVirtualAxis; // Reference to the joystick in the cross platform input
+		private Vector3 m_StartPos;
+		private bool m_UseX; // Toggle for using the x axis
+		private bool m_UseY; // Toggle for using the Y axis
+		private CrossPlatformInputManager.VirtualAxis m_HorizontalVirtualAxis; // Reference to the joystick in the cross platform input
+		private CrossPlatformInputManager.VirtualAxis m_VerticalVirtualAxis; // Reference to the joystick in the cross platform input
 
-		void OnEnable()
+		private void OnEnable()
 		{
 			CreateVirtualAxes();
 		}
 
-        void Start()
+		private void Start()
         {
             m_StartPos = transform.position;
         }
 
-		void UpdateVirtualAxes(Vector3 value)
+		private void UpdateVirtualAxes(Vector3 value)
 		{
 			var delta = m_StartPos - value;
 			delta.y = -delta.y;
 			delta /= MovementRange;
-			if (m_UseX)
-			{
-				m_HorizontalVirtualAxis.Update(-delta.x);
-			}
+			if (m_UseX) m_HorizontalVirtualAxis.Update(-delta.x);
 
-			if (m_UseY)
-			{
-				m_VerticalVirtualAxis.Update(delta.y);
-			}
+			if (m_UseY) m_VerticalVirtualAxis.Update(delta.y);
 		}
 
-		void CreateVirtualAxes()
+		private void CreateVirtualAxes()
 		{
 			// set axes to use
-			m_UseX = (axesToUse == AxisOption.Both || axesToUse == AxisOption.OnlyHorizontal);
-			m_UseY = (axesToUse == AxisOption.Both || axesToUse == AxisOption.OnlyVertical);
+			m_UseX = axesToUse == AxisOption.Both || axesToUse == AxisOption.OnlyHorizontal;
+			m_UseY = axesToUse == AxisOption.Both || axesToUse == AxisOption.OnlyVertical;
 
 			// create new axes based on axes to use
 			if (m_UseX)
@@ -73,18 +66,18 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 		public void OnDrag(PointerEventData data)
 		{
-			Vector3 newPos = Vector3.zero;
+			var newPos = Vector3.zero;
 
 			if (m_UseX)
 			{
-				int delta = (int)(data.position.x - m_StartPos.x);
+				var delta = (int)(data.position.x - m_StartPos.x);
 				delta = Mathf.Clamp(delta, - MovementRange, MovementRange);
 				newPos.x = delta;
 			}
 
 			if (m_UseY)
 			{
-				int delta = (int)(data.position.y - m_StartPos.y);
+				var delta = (int)(data.position.y - m_StartPos.y);
 				delta = Mathf.Clamp(delta, -MovementRange, MovementRange);
 				newPos.y = delta;
 			}
@@ -102,17 +95,11 @@ namespace UnityStandardAssets.CrossPlatformInput
 
 		public void OnPointerDown(PointerEventData data) { }
 
-		void OnDisable()
+		private void OnDisable()
 		{
 			// remove the joysticks from the cross platform input
-			if (m_UseX)
-			{
-				m_HorizontalVirtualAxis.Remove();
-			}
-			if (m_UseY)
-			{
-				m_VerticalVirtualAxis.Remove();
-			}
+			if (m_UseX) m_HorizontalVirtualAxis.Remove();
+			if (m_UseY) m_VerticalVirtualAxis.Remove();
 		}
 	}
 }

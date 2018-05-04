@@ -20,10 +20,10 @@ namespace UnityStandardAssets.Utility
         // Update is called once per frame
         private void Update()
         {
-            float deltaTime = Time.deltaTime;
+            var deltaTime = Time.deltaTime;
             if (ignoreTimescale)
             {
-                deltaTime = (Time.realtimeSinceStartup - m_LastRealTime);
+                deltaTime = Time.realtimeSinceStartup - m_LastRealTime;
                 m_LastRealTime = Time.realtimeSinceStartup;
             }
             transform.Translate(moveUnitsPerSecond.value*deltaTime, moveUnitsPerSecond.space);

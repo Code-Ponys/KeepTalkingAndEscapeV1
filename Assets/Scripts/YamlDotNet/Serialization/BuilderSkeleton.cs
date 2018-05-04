@@ -63,10 +63,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public TBuilder WithNamingConvention(INamingConvention namingConvention)
         {
-            if (namingConvention == null)
-            {
-                throw new ArgumentNullException("namingConvention");
-            }
+            if (namingConvention == null) throw new ArgumentNullException("namingConvention");
 
             this.namingConvention = namingConvention;
             return Self;
@@ -77,10 +74,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public TBuilder WithTypeResolver(ITypeResolver typeResolver)
         {
-            if (typeResolver == null)
-            {
-                throw new ArgumentNullException("typeResolver");
-            }
+            if (typeResolver == null) throw new ArgumentNullException("typeResolver");
 
             this.typeResolver = typeResolver;
             return Self;
@@ -126,15 +120,9 @@ namespace YamlDotNet.Serialization
             Action<IRegistrationLocationSelectionSyntax<IYamlTypeConverter>> where
         )
         {
-            if (typeConverter == null)
-            {
-                throw new ArgumentNullException("typeConverter");
-            }
+            if (typeConverter == null) throw new ArgumentNullException("typeConverter");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(typeConverterFactories.CreateRegistrationLocationSelector(typeConverter.GetType(), _ => typeConverter));
             return Self;
@@ -151,15 +139,9 @@ namespace YamlDotNet.Serialization
         )
             where TYamlTypeConverter : IYamlTypeConverter
         {
-            if (typeConverterFactory == null)
-            {
-                throw new ArgumentNullException("typeConverterFactory");
-            }
+            if (typeConverterFactory == null) throw new ArgumentNullException("typeConverterFactory");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(typeConverterFactories.CreateTrackingRegistrationLocationSelector(typeof(TYamlTypeConverter), (wrapped, _) => typeConverterFactory(wrapped)));
             return Self;
@@ -179,10 +161,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public TBuilder WithoutTypeConverter(Type converterType)
         {
-            if (converterType == null)
-            {
-                throw new ArgumentNullException("converterType");
-            }
+            if (converterType == null) throw new ArgumentNullException("converterType");
 
             typeConverterFactories.Remove(converterType);
             return Self;
@@ -209,15 +188,9 @@ namespace YamlDotNet.Serialization
         )
             where TTypeInspector : ITypeInspector
         {
-            if (typeInspectorFactory == null)
-            {
-                throw new ArgumentNullException("typeInspectorFactory");
-            }
+            if (typeInspectorFactory == null) throw new ArgumentNullException("typeInspectorFactory");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(typeInspectorFactories.CreateRegistrationLocationSelector(typeof(TTypeInspector), inner => typeInspectorFactory(inner)));
             return Self;
@@ -234,15 +207,9 @@ namespace YamlDotNet.Serialization
         )
             where TTypeInspector : ITypeInspector
         {
-            if (typeInspectorFactory == null)
-            {
-                throw new ArgumentNullException("typeInspectorFactory");
-            }
+            if (typeInspectorFactory == null) throw new ArgumentNullException("typeInspectorFactory");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(typeInspectorFactories.CreateTrackingRegistrationLocationSelector(typeof(TTypeInspector), (wrapped, inner) => typeInspectorFactory(wrapped, inner)));
             return Self;
@@ -262,10 +229,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public TBuilder WithoutTypeInspector(Type inspectorType)
         {
-            if (inspectorType == null)
-            {
-                throw new ArgumentNullException("inspectorType");
-            }
+            if (inspectorType == null) throw new ArgumentNullException("inspectorType");
 
             typeInspectorFactories.Remove(inspectorType);
             return Self;

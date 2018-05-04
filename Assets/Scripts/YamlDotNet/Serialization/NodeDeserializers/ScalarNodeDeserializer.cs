@@ -94,14 +94,9 @@ namespace YamlDotNet.Serialization.NodeDeserializers
 
                     default:
                         if (expectedType == typeof(object))
-                        {
-                            // Default to string
                             value = scalar.Value;
-                        }
                         else
-                        {
                             value = TypeConverter.ChangeType(scalar.Value, expectedType);
-                        }
                         break;
                 }
             }
@@ -113,17 +108,11 @@ namespace YamlDotNet.Serialization.NodeDeserializers
             bool result;
 
             if (Regex.IsMatch(value, ScalarNodeDeserializer.BooleanTruePattern, RegexOptions.IgnoreCase))
-            {
                 result = true;
-            }
             else if (Regex.IsMatch(value, ScalarNodeDeserializer.BooleanFalsePattern, RegexOptions.IgnoreCase))
-            {
                 result = false;
-            }
             else
-            {
                 throw new FormatException(String.Format("The value \"{0}\" is not a valid YAML Boolean", value));
-            }
 
             return result;
         }
@@ -131,9 +120,9 @@ namespace YamlDotNet.Serialization.NodeDeserializers
         private object DeserializeIntegerHelper(TypeCode typeCode, string value)
         {
             var numberBuilder = new StringBuilder();
-            int currentIndex = 0;
-            bool isNegative = false;
-            int numberBase = 0;
+            var currentIndex = 0;
+            var isNegative = false;
+            var numberBase = 0;
             ulong result = 0;
 
             if (value[0] == '-')
@@ -189,10 +178,7 @@ namespace YamlDotNet.Serialization.NodeDeserializers
                 // Copy remaining digits to the number buffer (skip underscores)
                 while (currentIndex < value.Length)
                 {
-                    if (value[currentIndex] != '_')
-                    {
-                        numberBuilder.Append(value[currentIndex]);
-                    }
+                    if (value[currentIndex] != '_') numberBuilder.Append(value[currentIndex]);
                     currentIndex++;
                 }
 
@@ -221,7 +207,7 @@ namespace YamlDotNet.Serialization.NodeDeserializers
                 var chunks = value.Substring(currentIndex).Split(':');
                 result = 0;
 
-                for (int chunkIndex = 0; chunkIndex < chunks.Length; chunkIndex++)
+                for (var chunkIndex = 0; chunkIndex < chunks.Length; chunkIndex++)
                 {
                     result *= 60;
 
@@ -231,13 +217,9 @@ namespace YamlDotNet.Serialization.NodeDeserializers
             }
 
             if (isNegative)
-            {
                 return CastInteger(checked(-(long)result), typeCode);
-            }
             else
-            {
                 return CastInteger(result, typeCode);
-            }
         }
 
         private static object CastInteger(long number, TypeCode typeCode)

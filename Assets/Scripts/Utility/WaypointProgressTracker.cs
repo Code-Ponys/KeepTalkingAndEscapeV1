@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace UnityStandardAssets.Utility
@@ -58,10 +57,7 @@ namespace UnityStandardAssets.Utility
 
             // You can manually create a transform and assign it to this component *and* the AI,
             // then this component will update it, and the AI can read it.
-            if (target == null)
-            {
-                target = new GameObject(name + " Waypoint Target").transform;
-            }
+            if (target == null) target = new GameObject(name + " Waypoint Target").transform;
 
             Reset();
         }
@@ -88,10 +84,8 @@ namespace UnityStandardAssets.Utility
                 // (this is different to the current progress position, it is a a certain amount ahead along the route)
                 // we use lerp as a simple way of smoothing out the speed over time.
                 if (Time.deltaTime > 0)
-                {
                     speed = Mathf.Lerp(speed, (lastPosition - transform.position).magnitude/Time.deltaTime,
                                        Time.deltaTime);
-                }
                 target.position =
                     circuit.GetRoutePoint(progressDistance + lookAheadForTargetOffset + lookAheadForTargetFactor*speed)
                            .position;
@@ -103,11 +97,8 @@ namespace UnityStandardAssets.Utility
 
                 // get our current progress along the route
                 progressPoint = circuit.GetRoutePoint(progressDistance);
-                Vector3 progressDelta = progressPoint.position - transform.position;
-                if (Vector3.Dot(progressDelta, progressPoint.direction) < 0)
-                {
-                    progressDistance += progressDelta.magnitude*0.5f;
-                }
+                var progressDelta = progressPoint.position - transform.position;
+                if (Vector3.Dot(progressDelta, progressPoint.direction) < 0) progressDistance += progressDelta.magnitude*0.5f;
 
                 lastPosition = transform.position;
             }
@@ -115,11 +106,8 @@ namespace UnityStandardAssets.Utility
             {
                 // point to point mode. Just increase the waypoint if we're close enough:
 
-                Vector3 targetDelta = target.position - transform.position;
-                if (targetDelta.magnitude < pointToPointThreshold)
-                {
-                    progressNum = (progressNum + 1)%circuit.Waypoints.Length;
-                }
+                var targetDelta = target.position - transform.position;
+                if (targetDelta.magnitude < pointToPointThreshold) progressNum = (progressNum + 1)%circuit.Waypoints.Length;
 
 
                 target.position = circuit.Waypoints[progressNum].position;
@@ -127,11 +115,8 @@ namespace UnityStandardAssets.Utility
 
                 // get our current progress along the route
                 progressPoint = circuit.GetRoutePoint(progressDistance);
-                Vector3 progressDelta = progressPoint.position - transform.position;
-                if (Vector3.Dot(progressDelta, progressPoint.direction) < 0)
-                {
-                    progressDistance += progressDelta.magnitude;
-                }
+                var progressDelta = progressPoint.position - transform.position;
+                if (Vector3.Dot(progressDelta, progressPoint.direction) < 0) progressDistance += progressDelta.magnitude;
                 lastPosition = transform.position;
             }
         }

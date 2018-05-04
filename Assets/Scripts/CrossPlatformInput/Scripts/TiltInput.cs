@@ -57,7 +57,6 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             float angle = 0;
             if (Input.acceleration != Vector3.zero)
-            {
                 switch (tiltAroundAxis)
                 {
                     case AxisOptions.ForwardAxis:
@@ -69,9 +68,8 @@ namespace UnityStandardAssets.CrossPlatformInput
                                 centreAngleOffset;
                         break;
                 }
-            }
 
-            float axisValue = Mathf.InverseLerp(-fullTiltAngle, fullTiltAngle, angle)*2 - 1;
+            var axisValue = Mathf.InverseLerp(-fullTiltAngle, fullTiltAngle, angle)*2 - 1;
             switch (mapping.type)
             {
                 case AxisMapping.MappingType.NamedAxis:
@@ -108,9 +106,9 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
         {
             EditorGUI.BeginProperty(position, label, property);
 
-            float x = position.x;
-            float y = position.y;
-            float inspectorWidth = position.width;
+            var x = position.x;
+            var y = position.y;
+            var inspectorWidth = position.width;
 
             // Don't make child fields be indented
             var indent = EditorGUI.indentLevel;
@@ -125,12 +123,12 @@ namespace UnityStandardAssets.CrossPlatformInput.Inspector
                 widths = new[] {1f};
             }
             const float lineHeight = 18;
-            for (int n = 0; n < props.Length; ++n)
+            for (var n = 0; n < props.Length; ++n)
             {
-                float w = widths[n]*inspectorWidth;
+                var w = widths[n]*inspectorWidth;
 
                 // Calculate rects
-                Rect rect = new Rect(x, y, w, lineHeight);
+                var rect = new Rect(x, y, w, lineHeight);
                 x += w;
 
                 EditorGUI.PropertyField(rect, property.FindPropertyRelative(props[n]), GUIContent.none);

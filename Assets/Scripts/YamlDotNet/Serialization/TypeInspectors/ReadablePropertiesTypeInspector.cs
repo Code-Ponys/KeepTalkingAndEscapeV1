@@ -36,10 +36,7 @@ namespace YamlDotNet.Serialization.TypeInspectors
 
         public ReadablePropertiesTypeInspector(ITypeResolver typeResolver)
         {
-            if (typeResolver == null)
-            {
-                throw new ArgumentNullException("typeResolver");
-            }
+            if (typeResolver == null) throw new ArgumentNullException("typeResolver");
 
             _typeResolver = typeResolver;
         }

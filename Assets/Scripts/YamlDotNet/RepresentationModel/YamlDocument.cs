@@ -70,10 +70,7 @@ namespace YamlDotNet.RepresentationModel
                 Debug.Assert(RootNode == null);
                 RootNode = YamlNode.ParseNode(parser, state);
 
-                if (RootNode is YamlAliasNode)
-                {
-                    throw new YamlException();
-                }
+                if (RootNode is YamlAliasNode) throw new YamlException();
             }
 
             state.ResolveAliases();
@@ -102,27 +99,21 @@ namespace YamlDotNet.RepresentationModel
 
                 var random = new Random();
                 foreach (var visitedNode in visitedNodes)
-                {
                     if (visitedNode.Value)
                     {
                         string anchor;
                         // If the existing anchor is not already used, we can have it
                         if (!string.IsNullOrEmpty(visitedNode.Key.Anchor) && !existingAnchors.Contains(visitedNode.Key.Anchor))
-                        {
                             anchor = visitedNode.Key.Anchor;
-                        }
                         else
-                        {
                             do
                             {
                                 anchor = random.Next().ToString(CultureInfo.InvariantCulture);
                             } while (existingAnchors.Contains(anchor));
-                        }
 
                         existingAnchors.Add(anchor);
                         visitedNode.Key.Anchor = anchor;
                     }
-                }
             }
 
             /// <summary>
@@ -133,10 +124,7 @@ namespace YamlDotNet.RepresentationModel
                 bool isDuplicate;
                 if (visitedNodes.TryGetValue(node, out isDuplicate))
                 {
-                    if (!isDuplicate)
-                    {
-                        visitedNodes[node] = true;
-                    }
+                    if (!isDuplicate) visitedNodes[node] = true;
                     return !isDuplicate;
                 }
                 else
@@ -172,10 +160,7 @@ namespace YamlDotNet.RepresentationModel
 
         internal void Save(IEmitter emitter, bool assignAnchors = true)
         {
-            if (assignAnchors)
-            {
-                AssignAnchors();
-            }
+            if (assignAnchors) AssignAnchors();
 
             emitter.Emit(new DocumentStart());
             RootNode.Save(emitter, new EmitterState());

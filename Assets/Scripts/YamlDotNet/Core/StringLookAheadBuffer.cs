@@ -64,10 +64,7 @@ namespace YamlDotNet.Core
 
         public void Skip(int length)
         {
-            if (length < 0)
-            {
-                throw new ArgumentOutOfRangeException("length", "The length must be positive.");
-            }
+            if (length < 0) throw new ArgumentOutOfRangeException("length", "The length must be positive.");
             Position += length;
         }
     }

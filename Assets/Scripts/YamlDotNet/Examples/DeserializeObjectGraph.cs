@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using YamlDotNet.Samples.Helpers;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
-using YamlDotNet.Samples.Helpers;
 
 namespace YamlDotNet.Samples
 {
@@ -33,10 +33,7 @@ namespace YamlDotNet.Samples
             output.WriteLine("Order");
             output.WriteLine("-----");
             output.WriteLine();
-            foreach (var item in order.Items)
-            {
-                output.WriteLine("{0}\t{1}\t{2}\t{3}", item.PartNo, item.Quantity, item.Price, item.Descrip);
-            }
+            foreach (var item in order.Items) output.WriteLine("{0}\t{1}\t{2}\t{3}", item.PartNo, item.Quantity, item.Price, item.Descrip);
             output.WriteLine();
 
             output.WriteLine("Shipping");

@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Splitscreen : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
-		Screen.SetResolution(5760,1440,false);
+	private void Start () {
+		Screen.SetResolution(5120,1440,false);
 	}
 
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using YamlDotNet.RepresentationModel;
 using YamlDotNet.Samples.Helpers;
 
@@ -31,21 +30,16 @@ namespace YamlDotNet.Samples
             var mapping =
                 (YamlMappingNode)yaml.Documents[0].RootNode;
 
-            foreach (var entry in mapping.Children)
-            {
-                output.WriteLine(((YamlScalarNode)entry.Key).Value);
-            }
+            foreach (var entry in mapping.Children) output.WriteLine(((YamlScalarNode)entry.Key).Value);
 
             // List all the items
             var items = (YamlSequenceNode)mapping.Children[new YamlScalarNode("items")];
             foreach (YamlMappingNode item in items)
-            {
                 output.WriteLine(
-                    "{0}\t{1}",
-                    item.Children[new YamlScalarNode("part_no")],
-                    item.Children[new YamlScalarNode("descrip")]
-                );
-            }
+                                 "{0}\t{1}",
+                                 item.Children[new YamlScalarNode("part_no")],
+                                 item.Children[new YamlScalarNode("descrip")]
+                                );
         }
 
         private const string Document = @"---

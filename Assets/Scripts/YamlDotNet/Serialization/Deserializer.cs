@@ -152,10 +152,7 @@ namespace YamlDotNet.Serialization
 
         private void ThrowUnlessInBackwardsCompatibleMode()
         {
-            if (backwardsCompatibleConfiguration == null)
-            {
-                throw new InvalidOperationException("This method / property exists for backwards compatibility reasons, but the Deserializer was created using the new configuration mechanism. To configure the Deserializer, use the DeserializerBuilder.");
-            }
+            if (backwardsCompatibleConfiguration == null) throw new InvalidOperationException("This method / property exists for backwards compatibility reasons, but the Deserializer was created using the new configuration mechanism. To configure the Deserializer, use the DeserializerBuilder.");
         }
 
         [Obsolete("Please use DeserializerBuilder to customize the Deserializer. This property will be removed in future releases.")]
@@ -226,10 +223,7 @@ namespace YamlDotNet.Serialization
         /// </remarks>
         private Deserializer(IValueDeserializer valueDeserializer)
         {
-            if (valueDeserializer == null)
-            {
-                throw new ArgumentNullException("valueDeserializer");
-            }
+            if (valueDeserializer == null) throw new ArgumentNullException("valueDeserializer");
 
             this.valueDeserializer = valueDeserializer;
         }
@@ -293,15 +287,9 @@ namespace YamlDotNet.Serialization
         /// <returns>Returns the deserialized object.</returns>
         public object Deserialize(IParser parser, Type type)
         {
-            if (parser == null)
-            {
-                throw new ArgumentNullException("reader");
-            }
+            if (parser == null) throw new ArgumentNullException("reader");
 
-            if (type == null)
-            {
-                throw new ArgumentNullException("type");
-            }
+            if (type == null) throw new ArgumentNullException("type");
 
             var hasStreamStart = parser.Allow<StreamStart>() != null;
 
@@ -309,23 +297,15 @@ namespace YamlDotNet.Serialization
 
             object result = null;
             if (!parser.Accept<DocumentEnd>() && !parser.Accept<StreamEnd>())
-            {
                 using (var state = new SerializerState())
                 {
                     result = valueDeserializer.DeserializeValue(parser, type, state, valueDeserializer);
                     state.OnDeserialization();
                 }
-            }
 
-            if (hasDocumentStart)
-            {
-                parser.Expect<DocumentEnd>();
-            }
+            if (hasDocumentStart) parser.Expect<DocumentEnd>();
 
-            if (hasStreamStart)
-            {
-                parser.Expect<StreamEnd>();
-            }
+            if (hasStreamStart) parser.Expect<StreamEnd>();
 
             return result;
         }

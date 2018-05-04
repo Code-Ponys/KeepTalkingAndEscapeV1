@@ -41,22 +41,13 @@ namespace YamlDotNet.Serialization.ObjectGraphTraversalStrategies
 
         public FullObjectGraphTraversalStrategy(ITypeInspector typeDescriptor, ITypeResolver typeResolver, int maxRecursion, INamingConvention namingConvention)
         {
-            if (maxRecursion <= 0)
-            {
-                throw new ArgumentOutOfRangeException("maxRecursion", maxRecursion, "maxRecursion must be greater than 1");
-            }
+            if (maxRecursion <= 0) throw new ArgumentOutOfRangeException("maxRecursion", maxRecursion, "maxRecursion must be greater than 1");
 
-            if (typeDescriptor == null)
-            {
-                throw new ArgumentNullException("typeDescriptor");
-            }
+            if (typeDescriptor == null) throw new ArgumentNullException("typeDescriptor");
 
             this.typeDescriptor = typeDescriptor;
 
-            if (typeResolver == null)
-            {
-                throw new ArgumentNullException("typeResolver");
-            }
+            if (typeResolver == null) throw new ArgumentNullException("typeResolver");
 
             this.typeResolver = typeResolver;
 
@@ -71,15 +62,9 @@ namespace YamlDotNet.Serialization.ObjectGraphTraversalStrategies
 
         protected virtual void Traverse<TContext>(IObjectDescriptor value, IObjectGraphVisitor<TContext> visitor, int currentDepth, TContext context)
         {
-            if (++currentDepth > maxRecursion)
-            {
-                throw new InvalidOperationException("Too much recursion when traversing the object graph");
-            }
+            if (++currentDepth > maxRecursion) throw new InvalidOperationException("Too much recursion when traversing the object graph");
 
-            if (!visitor.Enter(value, context))
-            {
-                return;
-            }
+            if (!visitor.Enter(value, context)) return;
 
             var typeCode = value.Type.GetTypeCode();
             switch (typeCode)
@@ -118,15 +103,9 @@ namespace YamlDotNet.Serialization.ObjectGraphTraversalStrategies
 
                     var underlyingType = Nullable.GetUnderlyingType(value.Type);
                     if (underlyingType != null)
-                    {
-                        // This is a nullable type, recursively handle it with its underlying type.
-                        // Note that if it contains null, the condition above already took care of it
                         Traverse(new ObjectDescriptor(value.Value, underlyingType, value.Type, value.ScalarStyle), visitor, currentDepth, context);
-                    }
                     else
-                    {
                         TraverseObject(value, visitor, currentDepth, context);
-                    }
                     break;
             }
         }
@@ -185,10 +164,7 @@ namespace YamlDotNet.Serialization.ObjectGraphTraversalStrategies
 
             visitor.VisitSequenceStart(value, itemType, context);
 
-            foreach (var item in (IEnumerable)value.Value)
-            {
-                Traverse(GetObjectDescriptor(item, itemType), visitor, currentDepth, context);
-            }
+            foreach (var item in (IEnumerable)value.Value) Traverse(GetObjectDescriptor(item, itemType), visitor, currentDepth, context);
 
             visitor.VisitSequenceEnd(value, context);
         }

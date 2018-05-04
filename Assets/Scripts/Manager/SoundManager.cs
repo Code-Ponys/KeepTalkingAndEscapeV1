@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TrustfallGames.KeepTalkingAndEscape.Listener;
-using UnityEngine;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
 	private AudioSource _audioSource;
 
-	[SerializeField] private new bool _dontDestroyOnLoad;
+	[SerializeField] private bool _dontDestroyOnLoad;
 	[SerializeField] private AudioClip _pickupSound;
 	[SerializeField] private AudioClip _damageSound;
 	[SerializeField] private AudioClip _deathSound;
@@ -26,12 +21,14 @@ public class SoundManager : MonoBehaviour {
 	private bool _isChoosingSound;
 
 
-	void Start () {
+	private void Start () {
 
-		if(_dontDestroyOnLoad) {
-			DontDestroyOnLoad(gameObject);
-		}
+		if(_dontDestroyOnLoad) ActivateDontDestroyOnLoad();
 		_audioSource = gameObject.AddComponent<AudioSource>();
+	}
+
+	public void ActivateDontDestroyOnLoad() {
+		DontDestroyOnLoad(gameObject);
 	}
 
 	private void Update() {
@@ -96,5 +93,10 @@ public class SoundManager : MonoBehaviour {
 	
 	public AudioSource Source {
 		get {return _audioSource;}
+	}
+
+	public bool DontDestroyOnLoad1 {
+		get {return _dontDestroyOnLoad;}
+		set {_dontDestroyOnLoad = value;}
 	}
 }

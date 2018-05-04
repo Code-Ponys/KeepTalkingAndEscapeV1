@@ -93,17 +93,11 @@ namespace YamlDotNet.Serialization
                 while (currentType != null)
                 {
                     ++currentPriority;
-                    if (currentType == RegisteredType)
-                    {
-                        return currentPriority;
-                    }
+                    if (currentType == RegisteredType) return currentPriority;
                     currentType = currentType.BaseType();
                 }
 
-                if (matchType.GetInterfaces().Contains(RegisteredType))
-                {
-                    return currentPriority;
-                }
+                if (matchType.GetInterfaces().Contains(RegisteredType)) return currentPriority;
 
                 return 0;
             }
@@ -116,7 +110,7 @@ namespace YamlDotNet.Serialization
             List<AttributeMapping> mappings;
             if (overrides.TryGetValue(new AttributeKey(typeof(T), member), out mappings))
             {
-                int bestMatchPriority = 0;
+                var bestMatchPriority = 0;
                 AttributeMapping bestMatch = null;
 
                 foreach (var mapping in mappings)
@@ -129,10 +123,7 @@ namespace YamlDotNet.Serialization
                     }
                 }
 
-                if (bestMatchPriority > 0)
-                {
-                    return (T)bestMatch.Attribute;
-                }
+                if (bestMatchPriority > 0) return (T)bestMatch.Attribute;
             }
 
             return null;
@@ -179,12 +170,7 @@ namespace YamlDotNet.Serialization
         {
             var clone = new YamlAttributeOverrides();
             foreach (var entry in overrides)
-            {
-                foreach (var item in entry.Value)
-                {
-                    clone.Add(item.RegisteredType, entry.Key.PropertyName, item.Attribute);
-                }
-            }
+            foreach (var item in entry.Value) clone.Add(item.RegisteredType, entry.Key.PropertyName, item.Attribute);
             return clone;
         }
     }

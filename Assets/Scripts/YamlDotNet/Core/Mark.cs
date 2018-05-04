@@ -57,18 +57,9 @@ namespace YamlDotNet.Core
 
         public Mark(int index, int line, int column)
         {
-            if (index < 0)
-            {
-                throw new ArgumentOutOfRangeException("index", "Index must be greater than or equal to zero.");
-            }
-            if (line < 1)
-            {
-                throw new ArgumentOutOfRangeException("line", "Line must be greater than or equal to 1.");
-            }
-            if (column < 1)
-            {
-                throw new ArgumentOutOfRangeException("column", "Column must be greater than or equal to 1.");
-            }
+            if (index < 0) throw new ArgumentOutOfRangeException("index", "Index must be greater than or equal to zero.");
+            if (line < 1) throw new ArgumentOutOfRangeException("line", "Line must be greater than or equal to 1.");
+            if (column < 1) throw new ArgumentOutOfRangeException("column", "Column must be greater than or equal to 1.");
 
             Index = index;
             Line = line;
@@ -116,26 +107,17 @@ namespace YamlDotNet.Core
         /// <summary />
         public int CompareTo(object obj)
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException("obj");
-            }
+            if (obj == null) throw new ArgumentNullException("obj");
             return CompareTo(obj as Mark);
         }
 
         /// <summary />
         public int CompareTo(Mark other)
         {
-            if (other == null)
-            {
-                throw new ArgumentNullException("other");
-            }
+            if (other == null) throw new ArgumentNullException("other");
 
             var cmp = Line.CompareTo(other.Line);
-            if (cmp == 0)
-            {
-                cmp = Column.CompareTo(other.Column);
-            }
+            if (cmp == 0) cmp = Column.CompareTo(other.Column);
             return cmp;
         }
     }

@@ -52,10 +52,7 @@ namespace YamlDotNet.Serialization.NodeDeserializers
                 value = _objectFactory.Create(expectedType);
 
                 dictionary = value as IDictionary;
-                if (dictionary == null)
-                {
-                    dictionary = new GenericDictionaryToNonGenericAdapter(value, genericDictionaryType);
-                }
+                if (dictionary == null) dictionary = new GenericDictionaryToNonGenericAdapter(value, genericDictionaryType);
             }
             else if (typeof(IDictionary).IsAssignableFrom(expectedType))
             {
@@ -90,15 +87,9 @@ namespace YamlDotNet.Serialization.NodeDeserializers
                 if (keyPromise == null)
                 {
                     if (valuePromise == null)
-                    {
-                        // Happy path: both key and value are known
                         result[key] = value;
-                    }
                     else
-                    {
-                        // Key is known, value is pending
                         valuePromise.ValueAvailable += v => result[key] = v;
-                    }
                 }
                 else
                 {

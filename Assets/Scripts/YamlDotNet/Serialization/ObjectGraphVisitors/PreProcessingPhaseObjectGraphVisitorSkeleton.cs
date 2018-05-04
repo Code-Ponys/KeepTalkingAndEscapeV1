@@ -42,23 +42,14 @@ namespace YamlDotNet.Serialization.ObjectGraphVisitors
         bool IObjectGraphVisitor<Nothing>.Enter(IObjectDescriptor value, Nothing context)
         {
             var typeConverter = typeConverters.FirstOrDefault(t => t.Accepts(value.Type));
-            if (typeConverter != null)
-            {
-                return false;
-            }
+            if (typeConverter != null) return false;
 
             var convertible = value.Value as IYamlConvertible;
-            if (convertible != null)
-            {
-                return false;
-            }
+            if (convertible != null) return false;
 
 #pragma warning disable 0618 // IYamlSerializable is obsolete
             var serializable = value.Value as IYamlSerializable;
-            if (serializable != null)
-            {
-                return false;
-            }
+            if (serializable != null) return false;
 #pragma warning restore
 
             return Enter(value);

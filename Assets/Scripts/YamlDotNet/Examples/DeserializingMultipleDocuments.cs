@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
-using YamlDotNet.Serialization;
 using YamlDotNet.Samples.Helpers;
+using YamlDotNet.Serialization;
 
 namespace YamlDotNet.Samples
 {
@@ -38,10 +37,7 @@ namespace YamlDotNet.Samples
                 var doc = deserializer.Deserialize<List<string>>(parser);
 
                 output.WriteLine("## Document");
-                foreach (var item in doc)
-                {
-                    output.WriteLine(item);
-                }
+                foreach (var item in doc) output.WriteLine(item);
             }
         }
 

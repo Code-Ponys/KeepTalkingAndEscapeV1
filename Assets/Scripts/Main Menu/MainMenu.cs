@@ -25,8 +25,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private int _y = 0;
 
         private void Start() {
+            if(GameObject.Find("SoundManagerMenu") == null) {
+                var SoundManagerMenu = Instantiate(Resources.Load("SoundManagerMenu", typeof(GameObject))) as GameObject;
+                SoundManagerMenu.name = "SoundManagerMenu";
+                _soundManager = SoundManagerMenu.GetComponent<SoundManager>();
+                _soundManager.ActivateDontDestroyOnLoad();
+            }
             _soundManager = GameObject.Find("SoundManagerMenu").GetComponent<SoundManager>();
-            _soundManager.Source.loop = false;
             _currentPressedButtonHuman = 5;
             _currentPressedButtonGhost = 5;    
         }
@@ -106,12 +111,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             switch(_characterType) {
                 case CharacterType.Human:
                     if(_currentAxisDelay <= 0) {
-                        if(Input.GetButtonDown(ButtonNames.HumanInspect))
+                        if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonB))
                             if(_menu[_y] != null) {
                                 if(_menu[0]) {
                                     _currentPressedButtonHuman =_y;
                                     _currentAxisDelay = _axisDelay;
-                                    Debug.Log("Pressed Human Button is number: " + _currentPressedButtonHuman + _currentPressedButtonGhost);
+                                    Debug.Log("Pressed Human Button is number: " + _currentPressedButtonHuman);
                                 }
                                 
                                 if(_menu[1]) {
@@ -124,15 +129,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                                     _currentAxisDelay = _axisDelay;
                                 }
                                 
-                                if(_menu[3]) {
-                                    _currentPressedButtonHuman =_y;
-                                    _currentAxisDelay = _axisDelay;
-                                }
-                                
-                                if(_menu[4]) {
-                                    _currentPressedButtonHuman =_y;
-                                    _currentAxisDelay = _axisDelay;
-                                }
                             }
                     }
                     else {
@@ -142,7 +138,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
                 case CharacterType.Ghost:
                     if(_currentAxisDelay < 0) {
-                       if(Input.GetButtonDown(ButtonNames.GhostInspect))
+                       if(Input.GetButtonDown(ButtonNames.GhostJoystickButtonB))
                            if(_menu[_y] != null) {
                                if(_menu[0]) {
                                    _currentPressedButtonGhost =_y;
@@ -159,17 +155,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                                    _currentAxisDelay = _axisDelay;
                                }
                                 
-                               if(_menu[3]) {
-                                   _currentPressedButtonGhost =_y;
-                                   _currentAxisDelay = _axisDelay;
-                               }
-
-                                
-                               if(_menu[4]) {
-                                   _currentPressedButtonGhost =_y;
-                                   _currentAxisDelay = _axisDelay;
-                               }
-
                                Debug.Log("Pressed Ghost Button is number: " + _currentPressedButtonGhost);
                            }
                     }
@@ -182,17 +167,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         private void SceneManagement() {
             if(_currentPressedButtonHuman == 0 && _currentPressedButtonGhost == 0) {
-                _fadeOut = GameObject.Find("Panel").AddComponent<FadeOut>();
+                //_fadeOut = GameObject.Find("Panel").AddComponent<FadeOut>();
                 _currentPressedButtonHuman = 5;
                 _currentPressedButtonGhost = 5;  
-//                SceneManager.LoadScene(_scene[0]);
+                SceneManager.LoadScene(_scene[0]);
             }
-            if(_currentPressedButtonHuman == 3 && _currentPressedButtonGhost == 3) {
-//                _fadeIn = FadeIn.GetFadeIn();
-                SceneManager.LoadScene(_scene[3]);
-            }
+            if(_currentPressedButtonHuman == 1 && _currentPressedButtonGhost == 1) SceneManager.LoadScene(_scene[1]);
 
-            if(_currentPressedButtonHuman == 4 && _currentPressedButtonGhost == 4) Application.Quit();
+            if(_currentPressedButtonHuman == 2 && _currentPressedButtonGhost == 2) Application.Quit();
         }
         
         private CharacterType CharacterType {

@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace UnityStandardAssets.Utility
 {
@@ -23,19 +21,13 @@ namespace UnityStandardAssets.Utility
             var systems = GetComponentsInChildren<ParticleSystem>();
 
             // find out the maximum lifetime of any particles in this effect
-            foreach (var system in systems)
-            {
-                m_MaxLifetime = Mathf.Max(system.main.startLifetime.constant, m_MaxLifetime);
-            }
+            foreach (var system in systems) m_MaxLifetime = Mathf.Max(system.main.startLifetime.constant, m_MaxLifetime);
 
             // wait for random duration
 
-            float stopTime = Time.time + Random.Range(minDuration, maxDuration);
+            var stopTime = Time.time + Random.Range(minDuration, maxDuration);
 
-            while (Time.time < stopTime || m_EarlyStop)
-            {
-                yield return null;
-            }
+            while (Time.time < stopTime || m_EarlyStop) yield return null;
             Debug.Log("stopping " + name);
 
             // turn off emission

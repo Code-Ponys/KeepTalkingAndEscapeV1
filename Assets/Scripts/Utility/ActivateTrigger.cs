@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace UnityStandardAssets.Utility
 {
@@ -31,56 +29,37 @@ namespace UnityStandardAssets.Utility
 
             if (triggerCount == 0 || repeatTrigger)
             {
-                Object currentTarget = target ?? gameObject;
-                Behaviour targetBehaviour = currentTarget as Behaviour;
-                GameObject targetGameObject = currentTarget as GameObject;
-                if (targetBehaviour != null)
-                {
-                    targetGameObject = targetBehaviour.gameObject;
-                }
+                var currentTarget = target ?? gameObject;
+                var targetBehaviour = currentTarget as Behaviour;
+                var targetGameObject = currentTarget as GameObject;
+                if (targetBehaviour != null) targetGameObject = targetBehaviour.gameObject;
 
                 switch (action)
                 {
                     case Mode.Trigger:
-                        if (targetGameObject != null)
-                        {
-                            targetGameObject.BroadcastMessage("DoActivateTrigger");
-                        }
+                        if (targetGameObject != null) targetGameObject.BroadcastMessage("DoActivateTrigger");
                         break;
                     case Mode.Replace:
                         if (source != null)
-                        {
                             if (targetGameObject != null)
                             {
                                 Instantiate(source, targetGameObject.transform.position,
                                             targetGameObject.transform.rotation);
                                 DestroyObject(targetGameObject);
                             }
-                        }
+
                         break;
                     case Mode.Activate:
-                        if (targetGameObject != null)
-                        {
-                            targetGameObject.SetActive(true);
-                        }
+                        if (targetGameObject != null) targetGameObject.SetActive(true);
                         break;
                     case Mode.Enable:
-                        if (targetBehaviour != null)
-                        {
-                            targetBehaviour.enabled = true;
-                        }
+                        if (targetBehaviour != null) targetBehaviour.enabled = true;
                         break;
                     case Mode.Animate:
-                        if (targetGameObject != null)
-                        {
-                            targetGameObject.GetComponent<Animation>().Play();
-                        }
+                        if (targetGameObject != null) targetGameObject.GetComponent<Animation>().Play();
                         break;
                     case Mode.Deactivate:
-                        if (targetGameObject != null)
-                        {
-                            targetGameObject.SetActive(false);
-                        }
+                        if (targetGameObject != null) targetGameObject.SetActive(false);
                         break;
                 }
             }

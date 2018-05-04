@@ -21,7 +21,6 @@
 
 using System;
 using System.Diagnostics;
-using System.Linq;
 
 namespace YamlDotNet.Core
 {
@@ -65,9 +64,9 @@ namespace YamlDotNet.Core
         {
             var character = buffer.Peek(offset);
             return
-                (character >= '0' && character <= '9') ||
-                (character >= 'A' && character <= 'Z') ||
-                (character >= 'a' && character <= 'z') ||
+                character >= '0' && character <= '9' ||
+                character >= 'A' && character <= 'Z' ||
+                character >= 'a' && character <= 'z' ||
                 character == '_' ||
                 character == '-';
         }
@@ -84,10 +83,10 @@ namespace YamlDotNet.Core
                 character == '\x9' ||
                 character == '\xA' ||
                 character == '\xD' ||
-                (character >= '\x20' && character <= '\x7E') ||
+                character >= '\x20' && character <= '\x7E' ||
                 character == '\x85' ||
-                (character >= '\xA0' && character <= '\xD7FF') ||
-                (character >= '\xE000' && character <= '\xFFFD');
+                character >= '\xA0' && character <= '\xD7FF' ||
+                character >= '\xE000' && character <= '\xFFFD';
         }
 
         public bool IsDigit(int offset = 0)
@@ -105,23 +104,17 @@ namespace YamlDotNet.Core
         {
             var character = buffer.Peek(offset);
             return
-                (character >= '0' && character <= '9') ||
-                (character >= 'A' && character <= 'F') ||
-                (character >= 'a' && character <= 'f');
+                character >= '0' && character <= '9' ||
+                character >= 'A' && character <= 'F' ||
+                character >= 'a' && character <= 'f';
         }
 
         public int AsHex(int offset)
         {
             var character = buffer.Peek(offset);
 
-            if (character <= '9')
-            {
-                return character - '0';
-            }
-            if (character <= 'F')
-            {
-                return character - 'A' + 10;
-            }
+            if (character <= '9') return character - '0';
+            if (character <= 'F') return character - 'A' + 10;
             return character - 'a' + 10;
         }
 

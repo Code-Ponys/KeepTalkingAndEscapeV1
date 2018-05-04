@@ -20,10 +20,10 @@
 //  SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
-using System.Collections.Generic;
 
 namespace YamlDotNet.RepresentationModel
 {
@@ -79,22 +79,13 @@ namespace YamlDotNet.RepresentationModel
         /// Parses the node represented by the next event in <paramref name="parser" />.
         /// </summary>
         /// <returns>Returns the node that has been parsed.</returns>
-        static internal YamlNode ParseNode(IParser parser, DocumentLoadingState state)
+        internal static YamlNode ParseNode(IParser parser, DocumentLoadingState state)
         {
-            if (parser.Accept<Scalar>())
-            {
-                return new YamlScalarNode(parser, state);
-            }
+            if (parser.Accept<Scalar>()) return new YamlScalarNode(parser, state);
 
-            if (parser.Accept<SequenceStart>())
-            {
-                return new YamlSequenceNode(parser, state);
-            }
+            if (parser.Accept<SequenceStart>()) return new YamlSequenceNode(parser, state);
 
-            if (parser.Accept<MappingStart>())
-            {
-                return new YamlMappingNode(parser, state);
-            }
+            if (parser.Accept<MappingStart>()) return new YamlMappingNode(parser, state);
 
             if (parser.Accept<AnchorAlias>())
             {
@@ -119,13 +110,9 @@ namespace YamlDotNet.RepresentationModel
         internal void Save(IEmitter emitter, EmitterState state)
         {
             if (!string.IsNullOrEmpty(Anchor) && !state.EmittedAnchors.Add(Anchor))
-            {
                 emitter.Emit(new AnchorAlias(Anchor));
-            }
             else
-            {
                 Emit(emitter, state);
-            }
         }
 
         /// <summary>
@@ -158,17 +145,11 @@ namespace YamlDotNet.RepresentationModel
         protected static bool SafeEquals(object first, object second)
         {
             if (first != null)
-            {
                 return first.Equals(second);
-            }
             else if (second != null)
-            {
                 return second.Equals(first);
-            }
             else
-            {
                 return true;
-            }
         }
 
         /// <summary>

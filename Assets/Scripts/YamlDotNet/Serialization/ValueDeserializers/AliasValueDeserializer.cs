@@ -33,10 +33,7 @@ namespace YamlDotNet.Serialization.ValueDeserializers
 
         public AliasValueDeserializer(IValueDeserializer innerDeserializer)
         {
-            if (innerDeserializer == null)
-            {
-                throw new ArgumentNullException("innerDeserializer");
-            }
+            if (innerDeserializer == null) throw new ArgumentNullException("innerDeserializer");
 
             this.innerDeserializer = innerDeserializer;
         }
@@ -46,15 +43,11 @@ namespace YamlDotNet.Serialization.ValueDeserializers
             public void OnDeserialization()
             {
                 foreach (var promise in Values)
-                {
                     if (!promise.HasValue)
-                    {
                         throw new AnchorNotFoundException(promise.Alias.Start, promise.Alias.End, string.Format(
-                            "Anchor '{0}' not found",
-                            promise.Alias.Value
-                        ));
-                    }
-                }
+                                                                                                                "Anchor '{0}' not found",
+                                                                                                                promise.Alias.Value
+                                                                                                               ));
             }
         }
 
@@ -83,25 +76,16 @@ namespace YamlDotNet.Serialization.ValueDeserializers
             {
                 get
                 {
-                    if (!HasValue)
-                    {
-                        throw new InvalidOperationException("Value not set");
-                    }
+                    if (!HasValue) throw new InvalidOperationException("Value not set");
                     return value;
                 }
                 set
                 {
-                    if (HasValue)
-                    {
-                        throw new InvalidOperationException("Value already set");
-                    }
+                    if (HasValue) throw new InvalidOperationException("Value already set");
                     HasValue = true;
                     this.value = value;
 
-                    if (ValueAvailable != null)
-                    {
-                        ValueAvailable(value);
-                    }
+                    if (ValueAvailable != null) ValueAvailable(value);
                 }
             }
         }
@@ -126,10 +110,7 @@ namespace YamlDotNet.Serialization.ValueDeserializers
             string anchor = null;
 
             var nodeEvent = parser.Peek<NodeEvent>();
-            if (nodeEvent != null && !string.IsNullOrEmpty(nodeEvent.Anchor))
-            {
-                anchor = nodeEvent.Anchor;
-            }
+            if (nodeEvent != null && !string.IsNullOrEmpty(nodeEvent.Anchor)) anchor = nodeEvent.Anchor;
 
             value = innerDeserializer.DeserializeValue(parser, expectedType, state, nestedObjectDeserializer);
 
@@ -139,17 +120,11 @@ namespace YamlDotNet.Serialization.ValueDeserializers
 
                 ValuePromise valuePromise;
                 if (!aliasState.TryGetValue(anchor, out valuePromise))
-                {
                     aliasState.Add(anchor, new ValuePromise(value));
-                }
                 else if (!valuePromise.HasValue)
-                {
                     valuePromise.Value = value;
-                }
                 else
-                {
                     aliasState[anchor] = new ValuePromise(value);
-                }
             }
 
             return value;

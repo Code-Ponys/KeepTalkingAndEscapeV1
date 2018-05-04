@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace UnityStandardAssets.Utility
@@ -49,10 +48,7 @@ namespace UnityStandardAssets.Utility
 
         public void SetFocusPoint()
         {
-            if (m_Refocus)
-            {
-                Camera.transform.LookAt(Lookatpoint);
-            }
+            if (m_Refocus) Camera.transform.LookAt(Lookatpoint);
         }
     }
 }

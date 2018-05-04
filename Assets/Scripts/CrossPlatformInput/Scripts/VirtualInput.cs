@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-
 
 namespace UnityStandardAssets.CrossPlatformInput
 {
@@ -43,10 +41,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 m_VirtualAxes.Add(axis.name, axis);
 
                 // if we dont want to match with the input manager setting then revert to always using virtual
-                if (!axis.matchWithInputManager)
-                {
-                    m_AlwaysUseVirtual.Add(axis.name);
-                }
+                if (!axis.matchWithInputManager) m_AlwaysUseVirtual.Add(axis.name);
             }
         }
 
@@ -64,10 +59,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 m_VirtualButtons.Add(button.name, button);
 
                 // if we dont want to match to the input manager then always use a virtual axis
-                if (!button.matchWithInputManager)
-                {
-                    m_AlwaysUseVirtual.Add(button.name);
-                }
+                if (!button.matchWithInputManager) m_AlwaysUseVirtual.Add(button.name);
             }
         }
 
@@ -75,20 +67,14 @@ namespace UnityStandardAssets.CrossPlatformInput
         public void UnRegisterVirtualAxis(string name)
         {
             // if we have an axis with that name then remove it from our dictionary of registered axes
-            if (m_VirtualAxes.ContainsKey(name))
-            {
-                m_VirtualAxes.Remove(name);
-            }
+            if (m_VirtualAxes.ContainsKey(name)) m_VirtualAxes.Remove(name);
         }
 
 
         public void UnRegisterVirtualButton(string name)
         {
             // if we have a button with this name then remove it from our dictionary of registered buttons
-            if (m_VirtualButtons.ContainsKey(name))
-            {
-                m_VirtualButtons.Remove(name);
-            }
+            if (m_VirtualButtons.ContainsKey(name)) m_VirtualButtons.Remove(name);
         }
 
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,12 +35,7 @@ namespace UnityStandardAssets.Utility
 
             // remove any gameobjects added (fire, skid trails, etc)
             foreach (var t in GetComponentsInChildren<Transform>())
-            {
-                if (!originalStructure.Contains(t))
-                {
-                    t.parent = null;
-                }
-            }
+                if (!originalStructure.Contains(t)) t.parent = null;
 
             transform.position = originalPosition;
             transform.rotation = originalRotation;

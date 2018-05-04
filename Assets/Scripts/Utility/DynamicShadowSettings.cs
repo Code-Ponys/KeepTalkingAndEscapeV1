@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace UnityStandardAssets.Utility
@@ -28,23 +27,17 @@ namespace UnityStandardAssets.Utility
         // Update is called once per frame
         private void Update()
         {
-            Ray ray = new Ray(Camera.main.transform.position, -Vector3.up);
+            var ray = new Ray(Camera.main.transform.position, -Vector3.up);
             RaycastHit hit;
-            float height = transform.position.y;
-            if (Physics.Raycast(ray, out hit))
-            {
-                height = hit.distance;
-            }
+            var height = transform.position.y;
+            if (Physics.Raycast(ray, out hit)) height = hit.distance;
 
-            if (Mathf.Abs(height - m_SmoothHeight) > 1)
-            {
-                m_SmoothHeight = Mathf.SmoothDamp(m_SmoothHeight, height, ref m_ChangeSpeed, adaptTime);
-            }
+            if (Mathf.Abs(height - m_SmoothHeight) > 1) m_SmoothHeight = Mathf.SmoothDamp(m_SmoothHeight, height, ref m_ChangeSpeed, adaptTime);
 
-            float i = Mathf.InverseLerp(minHeight, maxHeight, m_SmoothHeight);
+            var i = Mathf.InverseLerp(minHeight, maxHeight, m_SmoothHeight);
 
             QualitySettings.shadowDistance = Mathf.Lerp(minShadowDistance, maxShadowDistance, i);
-            sunLight.shadowBias = Mathf.Lerp(minShadowBias, maxShadowBias, 1 - ((1 - i)*(1 - i)));
+            sunLight.shadowBias = Mathf.Lerp(minShadowBias, maxShadowBias, 1 - (1 - i)*(1 - i));
             sunLight.shadowStrength = Mathf.Lerp(m_OriginalStrength, 0, i);
         }
     }

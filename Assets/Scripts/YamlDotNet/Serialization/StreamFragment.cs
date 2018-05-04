@@ -54,13 +54,10 @@ namespace YamlDotNet.Serialization
         {
             events.Clear();
 
-            int depth = 0;
+            var depth = 0;
             do
             {
-                if (!parser.MoveNext())
-                {
-                    throw new InvalidOperationException("The parser has reached the end before deserialization completed.");
-                }
+                if (!parser.MoveNext()) throw new InvalidOperationException("The parser has reached the end before deserialization completed.");
 
                 events.Add(parser.Current);
                 depth += parser.Current.NestingIncrease;
@@ -74,10 +71,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         void IYamlConvertible.Write(IEmitter emitter, ObjectSerializer nestedObjectSerializer)
         {
-            foreach (var item in events)
-            {
-                emitter.Emit(item);
-            }
+            foreach (var item in events) emitter.Emit(item);
         }
         #endregion
     }

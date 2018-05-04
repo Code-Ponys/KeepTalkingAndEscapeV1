@@ -98,15 +98,9 @@ namespace YamlDotNet.Serialization
         )
             where TEventEmitter : IEventEmitter
         {
-            if (eventEmitterFactory == null)
-            {
-                throw new ArgumentNullException("eventEmitterFactory");
-            }
+            if (eventEmitterFactory == null) throw new ArgumentNullException("eventEmitterFactory");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(eventEmitterFactories.CreateRegistrationLocationSelector(typeof(TEventEmitter), inner => eventEmitterFactory(inner)));
             return Self;
@@ -123,15 +117,9 @@ namespace YamlDotNet.Serialization
         )
             where TEventEmitter : IEventEmitter
         {
-            if (eventEmitterFactory == null)
-            {
-                throw new ArgumentNullException("eventEmitterFactory");
-            }
+            if (eventEmitterFactory == null) throw new ArgumentNullException("eventEmitterFactory");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(eventEmitterFactories.CreateTrackingRegistrationLocationSelector(typeof(TEventEmitter), (wrapped, inner) => eventEmitterFactory(wrapped, inner)));
             return Self;
@@ -151,10 +139,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public SerializerBuilder WithoutEventEmitter(Type eventEmitterType)
         {
-            if (eventEmitterType == null)
-            {
-                throw new ArgumentNullException("eventEmitterType");
-            }
+            if (eventEmitterType == null) throw new ArgumentNullException("eventEmitterType");
 
             eventEmitterFactories.Remove(eventEmitterType);
             return this;
@@ -165,21 +150,12 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public SerializerBuilder WithTagMapping(string tag, Type type)
         {
-            if (tag == null)
-            {
-                throw new ArgumentNullException("tag");
-            }
+            if (tag == null) throw new ArgumentNullException("tag");
 
-            if (type == null)
-            {
-                throw new ArgumentNullException("type");
-            }
+            if (type == null) throw new ArgumentNullException("type");
 
             string alreadyRegisteredTag;
-            if (tagMappings.TryGetValue(type, out alreadyRegisteredTag))
-            {
-                throw new ArgumentException(string.Format("Type already has a registered tag '{0}' for type '{1}'", alreadyRegisteredTag, type.FullName), "type");
-            }
+            if (tagMappings.TryGetValue(type, out alreadyRegisteredTag)) throw new ArgumentException(string.Format("Type already has a registered tag '{0}' for type '{1}'", alreadyRegisteredTag, type.FullName), "type");
 
             tagMappings.Add(type, tag);
             return this;
@@ -190,15 +166,9 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public SerializerBuilder WithoutTagMapping(Type type)
         {
-            if (type == null)
-            {
-                throw new ArgumentNullException("type");
-            }
+            if (type == null) throw new ArgumentNullException("type");
 
-            if (!tagMappings.Remove(type))
-            {
-                throw new KeyNotFoundException(string.Format("Tag for type '{0}' is not registered", type.FullName));
-            }
+            if (!tagMappings.Remove(type)) throw new KeyNotFoundException(string.Format("Tag for type '{0}' is not registered", type.FullName));
             return this;
         }
 
@@ -287,15 +257,9 @@ namespace YamlDotNet.Serialization
         )
             where TObjectGraphVisitor : IObjectGraphVisitor<Nothing>
         {
-            if (objectGraphVisitor == null)
-            {
-                throw new ArgumentNullException("objectGraphVisitor");
-            }
+            if (objectGraphVisitor == null) throw new ArgumentNullException("objectGraphVisitor");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(preProcessingPhaseObjectGraphVisitorFactories.CreateRegistrationLocationSelector(typeof(TObjectGraphVisitor), _ => objectGraphVisitor));
             return this;
@@ -318,15 +282,9 @@ namespace YamlDotNet.Serialization
         )
             where TObjectGraphVisitor : IObjectGraphVisitor<Nothing>
         {
-            if (objectGraphVisitorFactory == null)
-            {
-                throw new ArgumentNullException("objectGraphVisitorFactory");
-            }
+            if (objectGraphVisitorFactory == null) throw new ArgumentNullException("objectGraphVisitorFactory");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(preProcessingPhaseObjectGraphVisitorFactories.CreateTrackingRegistrationLocationSelector(typeof(TObjectGraphVisitor), (wrapped, _) => objectGraphVisitorFactory(wrapped)));
             return this;
@@ -346,10 +304,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public SerializerBuilder WithoutPreProcessingPhaseObjectGraphVisitor(Type objectGraphVisitorType)
         {
-            if (objectGraphVisitorType == null)
-            {
-                throw new ArgumentNullException("objectGraphVisitorType");
-            }
+            if (objectGraphVisitorType == null) throw new ArgumentNullException("objectGraphVisitorType");
 
             preProcessingPhaseObjectGraphVisitorFactories.Remove(objectGraphVisitorType);
             return this;
@@ -378,15 +333,9 @@ namespace YamlDotNet.Serialization
         )
             where TObjectGraphVisitor : IObjectGraphVisitor<IEmitter>
         {
-            if (objectGraphVisitorFactory == null)
-            {
-                throw new ArgumentNullException("objectGraphVisitorFactory");
-            }
+            if (objectGraphVisitorFactory == null) throw new ArgumentNullException("objectGraphVisitorFactory");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(emissionPhaseObjectGraphVisitorFactories.CreateRegistrationLocationSelector(typeof(TObjectGraphVisitor), args => objectGraphVisitorFactory(args)));
             return this;
@@ -404,15 +353,9 @@ namespace YamlDotNet.Serialization
         )
             where TObjectGraphVisitor : IObjectGraphVisitor<IEmitter>
         {
-            if (objectGraphVisitorFactory == null)
-            {
-                throw new ArgumentNullException("objectGraphVisitorFactory");
-            }
+            if (objectGraphVisitorFactory == null) throw new ArgumentNullException("objectGraphVisitorFactory");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(emissionPhaseObjectGraphVisitorFactories.CreateTrackingRegistrationLocationSelector(typeof(TObjectGraphVisitor), (wrapped, args) => objectGraphVisitorFactory(wrapped, args)));
             return this;
@@ -432,10 +375,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public SerializerBuilder WithoutEmissionPhaseObjectGraphVisitor(Type objectGraphVisitorType)
         {
-            if (objectGraphVisitorType == null)
-            {
-                throw new ArgumentNullException("objectGraphVisitorType");
-            }
+            if (objectGraphVisitorType == null) throw new ArgumentNullException("objectGraphVisitorType");
 
             emissionPhaseObjectGraphVisitorFactories.Remove(objectGraphVisitorType);
             return this;
@@ -501,10 +441,7 @@ namespace YamlDotNet.Serialization
                 var graph = new ObjectDescriptor(value, actualType, staticType);
 
                 var preProcessingPhaseObjectGraphVisitors = preProcessingPhaseObjectGraphVisitorFactories.BuildComponentList(typeConverters);
-                foreach (var visitor in preProcessingPhaseObjectGraphVisitors)
-                {
-                    traversalStrategy.Traverse(graph, visitor, null);
-                }
+                foreach (var visitor in preProcessingPhaseObjectGraphVisitors) traversalStrategy.Traverse(graph, visitor, null);
 
                 ObjectSerializer nestedObjectSerializer = (v, t) => SerializeValue(emitter, v, t);
 

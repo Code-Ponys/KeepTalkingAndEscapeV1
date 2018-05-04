@@ -40,19 +40,12 @@ namespace YamlDotNet.RepresentationModel
         /// <param name="node">The node.</param>
         public void AddAnchor(YamlNode node)
         {
-            if (node.Anchor == null)
-            {
-                throw new ArgumentException("The specified node does not have an anchor");
-            }
+            if (node.Anchor == null) throw new ArgumentException("The specified node does not have an anchor");
 
             if (anchors.ContainsKey(node.Anchor))
-            {
                 anchors[node.Anchor] = node;
-            }
             else
-            {
                 anchors.Add(node.Anchor, node);
-            }
         }
 
         /// <summary>
@@ -67,17 +60,11 @@ namespace YamlDotNet.RepresentationModel
         {
             YamlNode target;
             if (anchors.TryGetValue(anchor, out target))
-            {
                 return target;
-            }
             else if (throwException)
-            {
                 throw new AnchorNotFoundException(start, end, string.Format(CultureInfo.InvariantCulture, "The anchor '{0}' does not exists", anchor));
-            }
             else
-            {
                 return null;
-            }
         }
 
         /// <summary>
@@ -96,10 +83,7 @@ namespace YamlDotNet.RepresentationModel
         /// </summary>
         public void ResolveAliases()
         {
-            foreach (var node in nodesWithUnresolvedAliases)
-            {
-                node.ResolveAliases(this);
-            }
+            foreach (var node in nodesWithUnresolvedAliases) node.ResolveAliases(this);
         }
     }
 }

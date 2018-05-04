@@ -1,9 +1,6 @@
 ﻿using System;
-using NUnit.Framework.Internal;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityStandardAssets.Characters.FirstPerson;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     /// <summary>
@@ -219,30 +216,10 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void Update() {
-            IsCharacterLookingAtMe();
-            if(_ghostLookingAtMe) {
-                _ghostReachable = CanCharacterReach(_gameManager.Ghost);
-            }
-            else {
-                _ghostReachable = false;
-                _humanReachable = false;
-            }
-
-            if(_humanLookingAtMe) {
-                _humanReachable = CanCharacterReach(_gameManager.Human);
-            }
-            else {
-                _humanLookingAtMe = false;
-                _humanReachable = false;
-            }
-
-            UpdateUi();
 
             UpdateGhostDrivenAnimation();
             UpdateHumanNumPad();
             UpdateHumanMap();
-            KeyInteraction();
-            BlockSoundAttacher();
             UpdateMotherState();
             UpdateDamageParticle();
         }
@@ -253,15 +230,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private void UpdateDamageParticle() {
             if(_removeParticleOnNoDamage == null) return;
             var damageDisabled = true;
-            if(_disableDamageWithObject != null) {
-                damageDisabled = _disableDamageWithObject._damageDisabled;
-            }
+            if(_disableDamageWithObject != null) damageDisabled = _disableDamageWithObject._damageDisabled;
 
-            if(_disableDamageByGhost) {
-                if(damageDisabled) {
+            if(_disableDamageByGhost)
+                if(damageDisabled)
                     damageDisabled = _damageDisabledByGhost;
-                }
-            }
 
             if(damageDisabled) {
                 Destroy(_removeParticleOnNoDamage);
@@ -286,8 +259,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_secondGameObject.GetComponent<AnimationController>() == null) throw new Exception(gameObject + "has no Animation Controller");
                 _motherObjectActive = _secondGameObject.GetComponent<AnimationController>().Open;
             }
-            else
+            else {
                 return;
+            }
 
             if(_toggleActiveGameobjectByMother)
                 if(_motherObjectActive) {
@@ -322,47 +296,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 _objectUnlocked = _numButtonHandler.CodeSolved;
         }
 
-        /// <summary>
-        ///     Checks which player is looking at the object. Raycast shows how far the player is from the object
-        /// </summary>
-        private void IsCharacterLookingAtMe() {
-            var ghostCamera = _gameManager.GhostCamera;
-            var humanCamera = _gameManager.HumanCamera;
-
-
-            RaycastHit hit;
-            //Check Ghost;
-            var cameraCenter = ghostCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f,
-                                                                          ghostCamera.nearClipPlane));
-            if(Physics.Raycast(cameraCenter, ghostCamera.transform.forward, out hit, 300)) {
-                var obj = hit.transform.gameObject;
-                _ghostLookingAtMe = obj == _meshGameObject;
-            }
-
-            //Check Human;
-            cameraCenter =
-                humanCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f,
-                                                           humanCamera.nearClipPlane));
-            if(Physics.Raycast(cameraCenter, humanCamera.transform.forward, out hit, 300)) {
-                var obj = hit.transform.gameObject;
-                _humanLookingAtMe = obj == _meshGameObject;
-            }
-        }
-
-        /// <summary>
-        ///     Controls the Inputs made by the players
-        /// </summary>
-        private void KeyInteraction() {
-            if(_gameManager.HumanController.Health <= 0) return;
-            KeyInteractionHuman();
-
-            //Mostly same like player 1 but for player 2
-            KeyInteractionGhost();
-        }
-
-        /// <summary>
-        ///     KeyInteraction for Ghost aka Player 2
-        /// </summary>
+        
+        
         private void KeyInteractionGhost() {
             if(!_ghostReachable && _ghostActiveObject != null && _ghostActiveObject.activeSelf) {
                 _ghostInactiveObject.SetActive(true);
@@ -384,6 +319,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_itemToUnlock != "" && !_objectUnlocked) {
                     _uiManager.GhostFlavourText = _lockedFlavourTextGhost;
                 }
+
                 if(_numButtonHandler != null && _objectUnlocked)
                     _uiManager.GhostFlavourText = _unlockedFlavourTextGhost;
                 if(_numButtonHandler != null && !_objectUnlocked) {
@@ -454,6 +390,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
 
+        public void KeyInteraction() {
+            KeyInteractionGhost();
+            KeyInteractionHuman();
+        }
+
         /// <summary>
         ///     KeyInteraction for Human aka Player 1
         /// </summary>
@@ -462,13 +403,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             if(!_humanReachable) return;
 
             if(Input.GetButtonDown(ButtonNames.HumanInspect)) {
-
                 _uiManager.HumanFlavourText = _humanFlavourText;
                 if(_itemToUnlock != "" && _objectUnlocked)
                     _uiManager.HumanFlavourText = _unlockedFlavourTextHuman;
                 if(_itemToUnlock != "" && !_objectUnlocked) {
                     _uiManager.HumanFlavourText = _lockedFlavourTextHuman;
                 }
+
                 if(_numButtonHandler != null && _objectUnlocked)
                     _uiManager.HumanFlavourText = _unlockedFlavourTextHuman;
                 if(_numButtonHandler != null && !_objectUnlocked) {
@@ -612,28 +553,33 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
         }
 
+
+        /// <summary>
+        ///     KeyInteraction for Human aka Player 1
+        /// </summary>
+        /// <returns></returns>
         private bool IsObjectUnlocked() {
             var unlocked = true;
 
-            if(_objectMustUnlocked) {
-                foreach(var obj in _objectsToUnlock) {
+            if(_objectMustUnlocked)
+                foreach(var obj in _objectsToUnlock)
                     if(obj.ObjectUnlocked == false) {
                         _uiManager.HumanFlavourText = _blockedMessage;
+                        _audioSource.clip = _blockSound;
+                        _audioSource.Play();
                         unlocked = false;
                         break;
                     }
-                }
-            }
 
-            if(_animationObjectMustUnlocked) {
-                foreach(var obj in _objectsToUnlock) {
+            if(_animationObjectMustUnlocked)
+                foreach(var obj in _objectsToUnlock)
                     if(obj._animationUnlocked == false) {
                         _uiManager.HumanFlavourText = _blockedMessage;
+                        _audioSource.clip = _blockSound;
+                        _audioSource.Play();
                         unlocked = false;
                         break;
                     }
-                }
-            }
 
             if(!unlocked) return unlocked;
             return unlocked;
@@ -672,150 +618,12 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 if(_cancelPickupOnDamage) return true;
             }
 
-            if(_gameManager.HumanController.Health <= 0) {
-                _soundManager.Source.clip = _soundManager.DeathSound;
-                _soundManager.Source.Play();
-                _isGameOver = true;
-            }
 
             return false;
         }
 
-        private void BlockSoundAttacher() {
-            if(_blockSound != null && _uiManager.HumanFlavourText == _blockedMessage) {
-                _audioSource.clip = _blockSound;
-                _audioSource.Play();
-            }
-        }
 
-        private void UpdateUi() {
-            UpdateGhostUi();
-            UpdateHumanUi();
-        }
 
-        private void UpdateHumanUi() {
-            if(!_humanReachable && _uiManager.HumanHoverText == _objectDescription && _objectDescription != "" && _uiManager.GetLastInstanceId(CharacterType.Human) == GetInstanceID()) {
-                _uiManager.HideButtons(CharacterType.Human);
-                return;
-            }
-
-            if(!_humanReachable) return;
-
-            _uiManager.HumanHoverText = _objectDescription;
-            if(_humanFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_humanFlavourText != "")
-                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A, GetInstanceID());
-        }
-
-        private void UpdateGhostUi() {
-            //if(_gameManager.GhostDrivenAnimationActive && _ghostDrivenAnimationActive != true) return;
-            if(_ghostDrivenAnimationActive) {
-                _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType, KeyType.A);
-                return;
-            }
-
-            if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription && _objectDescription != "" && _uiManager.GetLastInstanceId(CharacterType.Ghost) == GetInstanceID()) {
-                _uiManager.HideButtons(CharacterType.Ghost);
-                return;
-            }
-
-            if(!_ghostReachable) {
-                return;
-            }
-
-            _uiManager.GhostHoverText = _objectDescription;
-            if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-                return;
-            }
-
-            if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-                return;
-            }
-
-            if(_disableDamageByGhost && _damageDisabledByGhost && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-                return;
-            }
-
-            if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_ghostFlavourText == "" && _ghostCanOpen) {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction && !_animationUnlocked) {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction && _animationUnlocked) {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-                return;
-            }
-
-            if(!_ghostCanOpen && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_ghostCanOpen && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-            }
-        }
-
-        private bool ObjectInteractable(CharacterType characterType) {
-            if(characterType == CharacterType.Ghost && _ghostCanOpen == false) return false;
-            if(_animationType != AnimationType.None) return true;
-            if(_itemName != "") return true;
-            if(_lightswitch) return true;
-            return false;
-        }
-
-        /// <summary>
-        /// Determines if the players are close enough to the object
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        private bool CanCharacterReach(CharacterController obj) {
-            var characterpos = obj.GetComponent<Transform>().position;
-            var closesPointToCharacter = _meshGameObject.GetComponent<Collider>().ClosestPointOnBounds(characterpos);
-            characterpos.y = 0;
-            if(obj == _gameManager.Ghost) {
-                if(closesPointToCharacter.y > _gameManager.GhostHeight) return false;
-            }
-            else {
-                if(closesPointToCharacter.y > _gameManager.HumanHeight) return false;
-            }
-
-            closesPointToCharacter.y = 0;
-            var distance = Vector3.Distance(characterpos, closesPointToCharacter);
-            return distance < 150;
-        }
 
         private void StartAnimation(GameObject parentGameObject) {
             _animationController.StartNewAnimation(parentGameObject, this);
@@ -827,6 +635,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         }
 
         private void OnDisable() {
+            if(_gameManager == null) return;
             if(_numButtonHandler != null) {
                 _numButtonHandler.CloseButtonField();
                 _gameManager.HumanNumPadActive = false;
@@ -838,6 +647,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             }
 
             if(_canBeTakenToInventory) {
+                if(UIManager.GetUiManager() == null) return;
                 UIManager.GetUiManager().HideButtons(CharacterType.Human);
             }
         }
@@ -940,8 +750,24 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             set {_audioSource = value;}
         }
 
-        public bool IsGameOver {
-            get {return _isGameOver;}
+        public string ObjectDescription {
+            get {return _objectDescription;}
+        }
+
+        public string GhostFlavourText {
+            get {return _ghostFlavourText;}
+        }
+
+        public string HumanFlavourText {
+            get {return _humanFlavourText;}
+        }
+
+        public bool GhostCanOpen {
+            get {return _ghostCanOpen;}
+        }
+
+        public bool Lightswitch {
+            get {return _lightswitch;}
         }
     }
 }

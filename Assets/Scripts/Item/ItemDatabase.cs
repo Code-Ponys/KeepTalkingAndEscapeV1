@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using TrustfallGames.KeepTalkingAndEscape.DataController;
-using TrustfallGames.KeepTalkingAndEscape.Listener;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 

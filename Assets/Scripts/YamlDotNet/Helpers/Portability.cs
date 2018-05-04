@@ -86,7 +86,7 @@ namespace YamlDotNet
         {
             var instancePublic = BindingFlags.Instance | BindingFlags.Public;
             return type.IsInterface
-                ? (new Type[] { type })
+                ? new Type[] { type }
                     .Concat(type.GetInterfaces())
                     .SelectMany(i => i.GetProperties(instancePublic))
                 : type.GetProperties(instancePublic);
@@ -113,10 +113,7 @@ namespace YamlDotNet
         public static Exception Unwrap(this TargetInvocationException ex)
         {
             var result = ex.InnerException;
-            if (remoteStackTraceField != null)
-            {
-                remoteStackTraceField.SetValue(ex.InnerException, ex.InnerException.StackTrace + "\r\n");
-            }
+            if (remoteStackTraceField != null) remoteStackTraceField.SetValue(ex.InnerException, ex.InnerException.StackTrace + "\r\n");
             return result;
         }
 

@@ -51,18 +51,12 @@ namespace YamlDotNet.Serialization.Utilities
         /// </summary>
         public void OnDeserialization()
         {
-            foreach (var callback in items.Values.OfType<IPostDeserializationCallback>())
-            {
-                callback.OnDeserialization();
-            }
+            foreach (var callback in items.Values.OfType<IPostDeserializationCallback>()) callback.OnDeserialization();
         }
 
         public void Dispose()
         {
-            foreach (var disposable in items.Values.OfType<IDisposable>())
-            {
-                disposable.Dispose();
-            }
+            foreach (var disposable in items.Values.OfType<IDisposable>()) disposable.Dispose();
         }
     }
 }

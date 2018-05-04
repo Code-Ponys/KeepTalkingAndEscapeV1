@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace YamlDotNet.RepresentationModel
+﻿namespace YamlDotNet.RepresentationModel
 {
     /// <summary>
     /// Specifies the type of node in the representation model.

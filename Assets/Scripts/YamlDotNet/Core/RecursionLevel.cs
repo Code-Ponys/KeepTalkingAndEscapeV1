@@ -45,10 +45,7 @@ namespace YamlDotNet.Core
         /// </summary>
         public void Increment()
         {
-            if (!TryIncrement())
-            {
-                throw new MaximumRecursionLevelReachedException();
-            }
+            if (!TryIncrement()) throw new MaximumRecursionLevelReachedException();
         }
 
         /// <summary>
@@ -70,10 +67,7 @@ namespace YamlDotNet.Core
         /// </summary>
         public void Decrement()
         {
-            if (current == 0)
-            {
-                throw new InvalidOperationException("Attempted to decrement RecursionLevel to a negative value");
-            }
+            if (current == 0) throw new InvalidOperationException("Attempted to decrement RecursionLevel to a negative value");
             --current;
         }
     }

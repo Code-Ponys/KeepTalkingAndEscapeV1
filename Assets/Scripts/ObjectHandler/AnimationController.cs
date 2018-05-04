@@ -216,9 +216,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private void ActivateChildOnHold() {
             //Abbrechen
 
-            if(Input.GetButtonDown(ButtonNames.GetButtonName(KeyType.A))) {
-                _ghostDrivenAnimationActive = false;
-            }
+            if(Input.GetButtonDown(ButtonNames.GetButtonName(KeyType.A))) _ghostDrivenAnimationActive = false;
 
             if(_animationType != AnimationType.GhostActivateOnKeyHold) return;
             if(_ghostDrivenAnimationActive)
@@ -330,12 +328,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
             _animationActive = true;
             if(_open)
-            {
                 _objectInteractionListener.Source.clip = _objectInteractionListener.CloseSound;
-            }
-            else {
+            else
                 _objectInteractionListener.Source.clip = _objectInteractionListener.OpenSound;
-            }
             _objectInteractionListener.Source.Play();
         }
 
@@ -437,13 +432,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 result.x = b.x + a.x;
             }
 
-            if(a.x > 0 && b.x < 0) {
-                result.x = b.x - a.x;
-            }
+            if(a.x > 0 && b.x < 0) result.x = b.x - a.x;
 
-            if(a.x > 0 && b.x > 0) {
-                result.x = b.x - a.x;
-            }
+            if(a.x > 0 && b.x > 0) result.x = b.x - a.x;
 
             if(a.x < 0 && b.x < 0) {
                 a.x = a.x * -1;
@@ -455,13 +446,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 result.y = b.y + a.y;
             }
 
-            if(a.y > 0 && b.y < 0) {
-                result.y = b.y - a.y;
-            }
+            if(a.y > 0 && b.y < 0) result.y = b.y - a.y;
 
-            if(a.y > 0 && b.y > 0) {
-                result.y = b.y - a.y;
-            }
+            if(a.y > 0 && b.y > 0) result.y = b.y - a.y;
 
             if(a.y < 0 && b.y < 0) {
                 a.y = a.y * -1;
@@ -473,13 +460,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 result.z = b.z + a.z;
             }
 
-            if(a.z > 0 && b.z < 0) {
-                result.z = b.z - a.z;
-            }
+            if(a.z > 0 && b.z < 0) result.z = b.z - a.z;
 
-            if(a.z > 0 && b.z > 0) {
-                result.z = b.z - a.z;
-            }
+            if(a.z > 0 && b.z > 0) result.z = b.z - a.z;
 
             if(a.z < 0 && b.z < 0) {
                 a.z = a.z * -1;

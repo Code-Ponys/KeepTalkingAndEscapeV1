@@ -38,10 +38,7 @@ namespace YamlDotNet.Serialization.Utilities
         public void Add(string anchor, object @object)
         {
             objectsByAnchor.Add(anchor, @object);
-            if (@object != null)
-            {
-                anchorsByObject.Add(@object, anchor);
-            }
+            if (@object != null) anchorsByObject.Add(@object, anchor);
         }
 
         /// <summary>
@@ -64,10 +61,7 @@ namespace YamlDotNet.Serialization.Utilities
             get
             {
                 object value;
-                if (objectsByAnchor.TryGetValue(anchor, out value))
-                {
-                    return value;
-                }
+                if (objectsByAnchor.TryGetValue(anchor, out value)) return value;
 
                 throw new AnchorNotFoundException(string.Format(CultureInfo.InvariantCulture, "The anchor '{0}' does not exists", anchor));
             }

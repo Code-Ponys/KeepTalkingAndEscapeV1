@@ -31,10 +31,7 @@ namespace YamlDotNet.Serialization.NodeTypeResolvers
 
         public TagNodeTypeResolver(IDictionary<string, Type> tagMappings)
         {
-            if (tagMappings == null)
-            {
-                throw new ArgumentNullException("tagMappings");
-            }
+            if (tagMappings == null) throw new ArgumentNullException("tagMappings");
 
             this.tagMappings = tagMappings;
         }

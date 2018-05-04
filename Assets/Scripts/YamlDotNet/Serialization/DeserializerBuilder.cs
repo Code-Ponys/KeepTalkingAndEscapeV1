@@ -98,10 +98,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public DeserializerBuilder WithObjectFactory(IObjectFactory objectFactory)
         {
-            if (objectFactory == null)
-            {
-                throw new ArgumentNullException("objectFactory");
-            }
+            if (objectFactory == null) throw new ArgumentNullException("objectFactory");
 
             this.objectFactory = objectFactory;
             return this;
@@ -112,10 +109,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public DeserializerBuilder WithObjectFactory(Func<Type, object> objectFactory)
         {
-            if (objectFactory == null)
-            {
-                throw new ArgumentNullException("objectFactory");
-            }
+            if (objectFactory == null) throw new ArgumentNullException("objectFactory");
 
             return WithObjectFactory(new LambdaObjectFactory(objectFactory));
         }
@@ -138,15 +132,9 @@ namespace YamlDotNet.Serialization
             Action<IRegistrationLocationSelectionSyntax<INodeDeserializer>> where
         )
         {
-            if (nodeDeserializer == null)
-            {
-                throw new ArgumentNullException("nodeDeserializer");
-            }
+            if (nodeDeserializer == null) throw new ArgumentNullException("nodeDeserializer");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(nodeDeserializerFactories.CreateRegistrationLocationSelector(nodeDeserializer.GetType(), _ => nodeDeserializer));
             return this;
@@ -163,15 +151,9 @@ namespace YamlDotNet.Serialization
         )
             where TNodeDeserializer : INodeDeserializer
         {
-            if (nodeDeserializerFactory == null)
-            {
-                throw new ArgumentNullException("nodeDeserializerFactory");
-            }
+            if (nodeDeserializerFactory == null) throw new ArgumentNullException("nodeDeserializerFactory");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(nodeDeserializerFactories.CreateTrackingRegistrationLocationSelector(typeof(TNodeDeserializer), (wrapped, _) => nodeDeserializerFactory(wrapped)));
             return this;
@@ -191,10 +173,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public DeserializerBuilder WithoutNodeDeserializer(Type nodeDeserializerType)
         {
-            if (nodeDeserializerType == null)
-            {
-                throw new ArgumentNullException("nodeDeserializerType");
-            }
+            if (nodeDeserializerType == null) throw new ArgumentNullException("nodeDeserializerType");
 
             nodeDeserializerFactories.Remove(nodeDeserializerType);
             return this;
@@ -218,15 +197,9 @@ namespace YamlDotNet.Serialization
             Action<IRegistrationLocationSelectionSyntax<INodeTypeResolver>> where
         )
         {
-            if (nodeTypeResolver == null)
-            {
-                throw new ArgumentNullException("nodeTypeResolver");
-            }
+            if (nodeTypeResolver == null) throw new ArgumentNullException("nodeTypeResolver");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(nodeTypeResolverFactories.CreateRegistrationLocationSelector(nodeTypeResolver.GetType(), _ => nodeTypeResolver));
             return this;
@@ -243,15 +216,9 @@ namespace YamlDotNet.Serialization
         )
             where TNodeTypeResolver : INodeTypeResolver
         {
-            if (nodeTypeResolverFactory == null)
-            {
-                throw new ArgumentNullException("nodeTypeResolverFactory");
-            }
+            if (nodeTypeResolverFactory == null) throw new ArgumentNullException("nodeTypeResolverFactory");
 
-            if (where == null)
-            {
-                throw new ArgumentNullException("where");
-            }
+            if (where == null) throw new ArgumentNullException("where");
 
             where(nodeTypeResolverFactories.CreateTrackingRegistrationLocationSelector(typeof(TNodeTypeResolver), (wrapped, _) => nodeTypeResolverFactory(wrapped)));
             return this;
@@ -271,10 +238,7 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public DeserializerBuilder WithoutNodeTypeResolver(Type nodeTypeResolverType)
         {
-            if (nodeTypeResolverType == null)
-            {
-                throw new ArgumentNullException("nodeTypeResolverType");
-            }
+            if (nodeTypeResolverType == null) throw new ArgumentNullException("nodeTypeResolverType");
 
             nodeTypeResolverFactories.Remove(nodeTypeResolverType);
             return this;
@@ -285,21 +249,12 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public DeserializerBuilder WithTagMapping(string tag, Type type)
         {
-            if (tag == null)
-            {
-                throw new ArgumentNullException("tag");
-            }
+            if (tag == null) throw new ArgumentNullException("tag");
 
-            if (type == null)
-            {
-                throw new ArgumentNullException("type");
-            }
+            if (type == null) throw new ArgumentNullException("type");
 
             Type alreadyRegisteredType;
-            if (tagMappings.TryGetValue(tag, out alreadyRegisteredType))
-            {
-                throw new ArgumentException(string.Format("Type already has a registered type '{0}' for tag '{1}'", alreadyRegisteredType.FullName, tag), "tag");
-            }
+            if (tagMappings.TryGetValue(tag, out alreadyRegisteredType)) throw new ArgumentException(string.Format("Type already has a registered type '{0}' for tag '{1}'", alreadyRegisteredType.FullName, tag), "tag");
 
             tagMappings.Add(tag, type);
             return this;
@@ -310,15 +265,9 @@ namespace YamlDotNet.Serialization
         /// </summary>
         public DeserializerBuilder WithoutTagMapping(string tag)
         {
-            if (tag == null)
-            {
-                throw new ArgumentNullException("tag");
-            }
+            if (tag == null) throw new ArgumentNullException("tag");
 
-            if (!tagMappings.Remove(tag))
-            {
-                throw new KeyNotFoundException(string.Format("Tag '{0}' is not registered", tag));
-            }
+            if (!tagMappings.Remove(tag)) throw new KeyNotFoundException(string.Format("Tag '{0}' is not registered", tag));
             return this;
         }
 

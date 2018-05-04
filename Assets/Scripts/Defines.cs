@@ -1,6 +1,4 @@
-﻿using System;
-
-public enum AnimationType {
+﻿public enum AnimationType {
     None,
     Open,
     GhostActivateOnKeyHold,
@@ -75,7 +73,7 @@ public static class ButtonNames {
             case KeyType.A:
                 return GhostJoystickButtonA;
             case KeyType.B:
-                return GhostjoystickButtonB;
+                return GhostJoystickButtonB;
             case KeyType.X:
                 return GhostJoystickButtonX;
             case KeyType.Y:
@@ -159,12 +157,12 @@ public static class ButtonNames {
         get {return _humanJoystickButtonA;}
     }
 
-    public static string GhostjoystickButtonB {
-        get {return _ghostjoystickButtonB;}
+    public static string GhostJoystickButtonB {
+        get {return _ghostJoystickButtonB;}
     }
 
-    public static string HumanjoystickButtonB {
-        get {return _humanjoystickButtonB;}
+    public static string HumanJoystickButtonB {
+        get {return _humanJoystickButtonB;}
     }
 
     public static string GhostJoystickButtonX {
@@ -230,8 +228,8 @@ public static class ButtonNames {
     private static string _humanInventory = "Human Inventory";
     private static string _ghostJoystickButtonA = "Ghost Joystick Button A";
     private static string _humanJoystickButtonA = "Human Joystick Button A";
-    private static string _ghostjoystickButtonB = "Ghost Joystick Button B";
-    private static string _humanjoystickButtonB = "Human Joystick Button B";
+    private static string _ghostJoystickButtonB = "Ghost Joystick Button B";
+    private static string _humanJoystickButtonB = "Human Joystick Button B";
     private static string _ghostJoystickButtonX = "Ghost Joystick Button X";
     private static string _humanJoystickButtonX = "Human Joystick Button X";
     private static string _ghostJoystickButtonY = "Ghost Joystick Button Y";

@@ -26,16 +26,11 @@ namespace UnityStandardAssets.Utility
 
         private void CheckStatus(Camera camera)
         {
-            if (camera == null)
-            {
-                throw new Exception("FOVKick camera is null, please supply the camera to the constructor");
-            }
+            if (camera == null) throw new Exception("FOVKick camera is null, please supply the camera to the constructor");
 
             if (IncreaseCurve == null)
-            {
                 throw new Exception(
-                    "FOVKick Increase curve is null, please define the curve for the field of view kicks");
-            }
+                                    "FOVKick Increase curve is null, please define the curve for the field of view kicks");
         }
 
 
@@ -47,10 +42,10 @@ namespace UnityStandardAssets.Utility
 
         public IEnumerator FOVKickUp()
         {
-            float t = Mathf.Abs((Camera.fieldOfView - originalFov)/FOVIncrease);
+            var t = Mathf.Abs((Camera.fieldOfView - originalFov)/FOVIncrease);
             while (t < TimeToIncrease)
             {
-                Camera.fieldOfView = originalFov + (IncreaseCurve.Evaluate(t/TimeToIncrease)*FOVIncrease);
+                Camera.fieldOfView = originalFov + IncreaseCurve.Evaluate(t/TimeToIncrease)*FOVIncrease;
                 t += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
@@ -59,10 +54,10 @@ namespace UnityStandardAssets.Utility
 
         public IEnumerator FOVKickDown()
         {
-            float t = Mathf.Abs((Camera.fieldOfView - originalFov)/FOVIncrease);
+            var t = Mathf.Abs((Camera.fieldOfView - originalFov)/FOVIncrease);
             while (t > 0)
             {
-                Camera.fieldOfView = originalFov + (IncreaseCurve.Evaluate(t/TimeToDecrease)*FOVIncrease);
+                Camera.fieldOfView = originalFov + IncreaseCurve.Evaluate(t/TimeToDecrease)*FOVIncrease;
                 t -= Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }

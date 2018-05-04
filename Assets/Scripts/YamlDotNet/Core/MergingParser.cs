@@ -46,12 +46,9 @@ namespace YamlDotNet.Core
         {
             if (_currentIndex < 0)
             {
-                while (_innerParser.MoveNext())
-                {
-                    _allEvents.Add(_innerParser.Current);
-                }
+                while (_innerParser.MoveNext()) _allEvents.Add(_innerParser.Current);
 
-                for (int i = _allEvents.Count - 2; i >= 0; --i)
+                for (var i = _allEvents.Count - 2; i >= 0; --i)
                 {
                     var merge = _allEvents[i] as Scalar;
                     if (merge != null && merge.Value == "<<")
@@ -88,10 +85,7 @@ namespace YamlDotNet.Core
                                 }
                             }
 
-                            if (sequenceEndFound)
-                            {
-                                continue;
-                            }
+                            if (sequenceEndFound) continue;
                         }
 
                         throw new SemanticErrorException(merge.Start, merge.End, "Unrecognized merge key pattern");

@@ -48,18 +48,12 @@ namespace YamlDotNet.Serialization
                     var member = p.GetCustomAttribute<YamlMemberAttribute>();
                     if (member != null)
                     {
-                        if (member.SerializeAs != null)
-                        {
-                            descriptor.TypeOverride = member.SerializeAs;
-                        }
+                        if (member.SerializeAs != null) descriptor.TypeOverride = member.SerializeAs;
 
                         descriptor.Order = member.Order;
                         descriptor.ScalarStyle = member.ScalarStyle;
 
-                        if (member.Alias != null)
-                        {
-                            descriptor.Name = member.Alias;
-                        }
+                        if (member.Alias != null) descriptor.Name = member.Alias;
                     }
 
                     return (IPropertyDescriptor)descriptor;

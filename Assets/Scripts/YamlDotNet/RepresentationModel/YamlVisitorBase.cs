@@ -100,10 +100,7 @@ namespace YamlDotNet.RepresentationModel
         /// </param>
         protected virtual void VisitChildren(YamlStream stream)
         {
-            foreach (var document in stream.Documents)
-            {
-                document.Accept(this);
-            }
+            foreach (var document in stream.Documents) document.Accept(this);
         }
 
         /// <summary>
@@ -114,10 +111,7 @@ namespace YamlDotNet.RepresentationModel
         /// </param>
         protected virtual void VisitChildren(YamlDocument document)
         {
-            if (document.RootNode != null)
-            {
-                document.RootNode.Accept(this);
-            }
+            if (document.RootNode != null) document.RootNode.Accept(this);
         }
 
         /// <summary>
@@ -128,10 +122,7 @@ namespace YamlDotNet.RepresentationModel
         /// </param>
         protected virtual void VisitChildren(YamlSequenceNode sequence)
         {
-            foreach (var node in sequence.Children)
-            {
-                node.Accept(this);
-            }
+            foreach (var node in sequence.Children) node.Accept(this);
         }
 
         /// <summary>
@@ -142,10 +133,7 @@ namespace YamlDotNet.RepresentationModel
         /// </param>
         protected virtual void VisitChildren(YamlMappingNode mapping)
         {
-            foreach (var pair in mapping.Children)
-            {
-                VisitPair(pair.Key, pair.Value);
-            }
+            foreach (var pair in mapping.Children) VisitPair(pair.Key, pair.Value);
         }
     }
 }

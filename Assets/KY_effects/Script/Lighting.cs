@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class Lighting : MonoBehaviour {
 
@@ -21,7 +21,7 @@ public float flashingOff = 0;
 public float flashingOffPower = 0;
 public float flashingOffIntensity = 1;
 
-void Start (){
+	private void Start (){
 	lightPower = this.GetComponent<Light>();
 	
 	flash();
@@ -30,9 +30,9 @@ void Start (){
 	setFlashingOff();
 }
 
-void Update (){
+	private void Update (){
 	
-	if( flashingFlg ){
+	if( flashingFlg )
 		if( lightOffFlg ){
 			lightPower.intensity -= lighting * Time.deltaTime;
 			if( lightPower.intensity <= minLight)lightOffFlg = false;
@@ -40,18 +40,17 @@ void Update (){
 			lightPower.intensity += lighting * Time.deltaTime;
 			if( lightPower.intensity > maxLight )lightOffFlg = true;
 		}
-	}else	if( lightPower.intensity > 0 && lightPower.enabled && !lightKeepFlg){
+	else	if( lightPower.intensity > 0 && lightPower.enabled && !lightKeepFlg)
 		lightPower.intensity -= lighting * Time.deltaTime;
-	}
-	
+
 	if( lightKeepFlg && keepTime > 0){
 		keepTime -= Time.deltaTime;
 		if( keepTime <= 0 )lightKeepFlg = false;
 	}
 }
 
-	
-	IEnumerator flash (){
+
+	private IEnumerator flash (){
 		if( flashFlg ){
 			lightPower.enabled = false;
 			yield return new WaitForSeconds( flashTimer );
@@ -59,21 +58,21 @@ void Update (){
 		}
 	}
 
-	IEnumerator setRev (){
+	private IEnumerator setRev (){
 		if( revOnTime > 0){
 			yield return new WaitForSeconds( revOnTime );
 			lighting *= -1; 
 		}
 	}
 
-	IEnumerator keepOn (){
+	private IEnumerator keepOn (){
 		if(  keepOnTime > 0){
 			yield return new WaitForSeconds( keepOnTime );
 			lightKeepFlg = true;
 		}
 	}
 
-	IEnumerator setFlashingOff (){
+	private IEnumerator setFlashingOff (){
 		if(  flashingOff > 0){
 			yield return new WaitForSeconds( flashingOff );
 			flashingFlg = false;

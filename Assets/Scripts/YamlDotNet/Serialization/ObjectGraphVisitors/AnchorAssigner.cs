@@ -87,19 +87,13 @@ namespace YamlDotNet.Serialization.ObjectGraphVisitors
 
         private void VisitObject(IObjectDescriptor value)
         {
-            if(value.Value != null)
-            {
-                assignments.Add(value.Value, new AnchorAssignment());
-            }
+            if(value.Value != null) assignments.Add(value.Value, new AnchorAssignment());
         }
 
         string IAliasProvider.GetAlias(object target)
         {
             AnchorAssignment assignment;
-            if (target != null && assignments.TryGetValue(target, out assignment))
-            {
-                return assignment.Anchor;
-            }
+            if (target != null && assignments.TryGetValue(target, out assignment)) return assignment.Anchor;
             return null;
         }
     }

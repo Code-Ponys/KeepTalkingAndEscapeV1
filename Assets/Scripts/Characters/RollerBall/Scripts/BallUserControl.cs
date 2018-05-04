@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -24,15 +23,10 @@ namespace UnityStandardAssets.Vehicles.Ball
 
             // get the transform of the main camera
             if (Camera.main != null)
-            {
                 cam = Camera.main.transform;
-            }
             else
-            {
                 Debug.LogWarning(
-                    "Warning: no main camera found. Ball needs a Camera tagged \"MainCamera\", for camera-relative controls.");
-                // we use world-relative controls in this case, which may not be what the user wants, but hey, we warned them!
-            }
+                                 "Warning: no main camera found. Ball needs a Camera tagged \"MainCamera\", for camera-relative controls.");
         }
 
 
@@ -40,8 +34,8 @@ namespace UnityStandardAssets.Vehicles.Ball
         {
             // Get the axis and jump input.
 
-            float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            float v = CrossPlatformInputManager.GetAxis("Vertical");
+            var h = CrossPlatformInputManager.GetAxis("Horizontal");
+            var v = CrossPlatformInputManager.GetAxis("Vertical");
             jump = CrossPlatformInputManager.GetButton("Jump");
 
             // calculate move direction

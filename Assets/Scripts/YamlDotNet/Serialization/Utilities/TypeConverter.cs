@@ -26,7 +26,6 @@
 using System;
 using System.ComponentModel;
 using System.Globalization;
-using System.Linq;
 using System.Reflection;
 
 namespace YamlDotNet.Serialization.Utilities
@@ -104,18 +103,12 @@ namespace YamlDotNet.Serialization.Utilities
         public static object ChangeType(object value, Type destinationType, CultureInfo culture)
         {
             // Handle null and DBNull
-            if (value == null || value is DBNull)
-            {
-                return destinationType.IsValueType() ? Activator.CreateInstance(destinationType) : null;
-            }
+            if (value == null || value is DBNull) return destinationType.IsValueType() ? Activator.CreateInstance(destinationType) : null;
 
             var sourceType = value.GetType();
 
             // If the source type is compatible with the destination type, no conversion is needed
-            if (destinationType.IsAssignableFrom(sourceType))
-            {
-                return value;
-            }
+            if (destinationType.IsAssignableFrom(sourceType)) return value;
 
             // Nullable types get a special treatment
             if (destinationType.IsGenericType())
@@ -150,82 +143,61 @@ namespace YamlDotNet.Serialization.Utilities
 #if !PORTABLE
             // Try with the source type's converter
             var sourceConverter = TypeDescriptor.GetConverter(value);
-            if (sourceConverter != null && sourceConverter.CanConvertTo(destinationType))
-            {
-                return sourceConverter.ConvertTo(null, culture, value, destinationType);
-            }
+            if (sourceConverter != null && sourceConverter.CanConvertTo(destinationType)) return sourceConverter.ConvertTo(null, culture, value, destinationType);
 
             // Try with the destination type's converter
             var destinationConverter = TypeDescriptor.GetConverter(destinationType);
-            if (destinationConverter != null && destinationConverter.CanConvertFrom(sourceType))
-            {
-                return destinationConverter.ConvertFrom(null, culture, value);
-            }
+            if (destinationConverter != null && destinationConverter.CanConvertFrom(sourceType)) return destinationConverter.ConvertFrom(null, culture, value);
 #endif
 
             // Try to find a casting operator in the source or destination type
             foreach (var type in new[] { sourceType, destinationType })
+            foreach (var method in type.GetPublicStaticMethods())
             {
-                foreach (var method in type.GetPublicStaticMethods())
+                var isCastingOperator =
+                    method.IsSpecialName &&
+                    (method.Name == "op_Implicit" || method.Name == "op_Explicit") &&
+                    destinationType.IsAssignableFrom(method.ReturnParameter.ParameterType);
+
+                if (isCastingOperator)
                 {
-                    var isCastingOperator =
-                        method.IsSpecialName &&
-                        (method.Name == "op_Implicit" || method.Name == "op_Explicit") &&
-                        destinationType.IsAssignableFrom(method.ReturnParameter.ParameterType);
+                    var parameters = method.GetParameters();
 
-                    if (isCastingOperator)
-                    {
-                        var parameters = method.GetParameters();
+                    var isCompatible =
+                        parameters.Length == 1 &&
+                        parameters[0].ParameterType.IsAssignableFrom(sourceType);
 
-                        var isCompatible =
-                            parameters.Length == 1 &&
-                            parameters[0].ParameterType.IsAssignableFrom(sourceType);
-
-                        if (isCompatible)
+                    if (isCompatible)
+                        try
                         {
-                            try
-                            {
-                                return method.Invoke(null, new[] { value });
-                            }
-                            catch (TargetInvocationException ex)
-                            {
-                                throw ex.Unwrap();
-                            }
+                            return method.Invoke(null, new[] { value });
                         }
-                    }
+                        catch (TargetInvocationException ex)
+                        {
+                            throw ex.Unwrap();
+                        }
                 }
             }
 
             // If source type is string, try to find a Parse or TryParse method
             if (sourceType == typeof(string))
-            {
                 try
                 {
                     // Try with - public static T Parse(string, IFormatProvider)
                     var parseMethod = destinationType.GetPublicStaticMethod("Parse", typeof(string), typeof(IFormatProvider));
-                    if (parseMethod != null)
-                    {
-                        return parseMethod.Invoke(null, new object[] { value, culture });
-                    }
+                    if (parseMethod != null) return parseMethod.Invoke(null, new object[] { value, culture });
 
                     // Try with - public static T Parse(string)
                     parseMethod = destinationType.GetPublicStaticMethod("Parse", typeof(string));
-                    if (parseMethod != null)
-                    {
-                        return parseMethod.Invoke(null, new object[] { value });
-                    }
+                    if (parseMethod != null) return parseMethod.Invoke(null, new object[] { value });
                 }
                 catch (TargetInvocationException ex)
                 {
                     throw ex.Unwrap();
                 }
-            }
 
             // Handle TimeSpan
-            if (destinationType == typeof(TimeSpan))
-            {
-                return TimeSpan.Parse((string)ChangeType(value, typeof(string), CultureInfo.InvariantCulture));
-            }
+            if (destinationType == typeof(TimeSpan)) return TimeSpan.Parse((string)ChangeType(value, typeof(string), CultureInfo.InvariantCulture));
 
             // Default to the Convert class
             return Convert.ChangeType(value, destinationType, CultureInfo.InvariantCulture);

@@ -23,10 +23,15 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using YamlDotNet.Core.Events;
 using YamlDotNet.Core.Tokens;
-using MappingStyle = YamlDotNet.Core.Events.MappingStyle;
-using ParsingEvent = YamlDotNet.Core.Events.ParsingEvent;
-using SequenceStyle = YamlDotNet.Core.Events.SequenceStyle;
+using AnchorAlias = YamlDotNet.Core.Tokens.AnchorAlias;
+using Comment = YamlDotNet.Core.Tokens.Comment;
+using DocumentEnd = YamlDotNet.Core.Tokens.DocumentEnd;
+using DocumentStart = YamlDotNet.Core.Tokens.DocumentStart;
+using Scalar = YamlDotNet.Core.Tokens.Scalar;
+using StreamEnd = YamlDotNet.Core.Tokens.StreamEnd;
+using StreamStart = YamlDotNet.Core.Tokens.StreamStart;
 
 namespace YamlDotNet.Core
 {
@@ -47,22 +52,17 @@ namespace YamlDotNet.Core
         private Token GetCurrentToken()
         {
             if (currentToken == null)
-            {
                 while (scanner.MoveNextWithoutConsuming())
                 {
                     currentToken = scanner.Current;
 
                     var commentToken = currentToken as Comment;
                     if (commentToken != null)
-                    {
                         pendingEvents.Enqueue(new Events.Comment(commentToken.Value, commentToken.IsInline, commentToken.Start, commentToken.End));
-                    }
                     else
-                    {
                         break;
-                    }
                 }
-            }
+
             return currentToken;
         }
 
@@ -237,12 +237,7 @@ namespace YamlDotNet.Core
             // Parse extra document end indicators.
 
             if (!isImplicit)
-            {
-                while (GetCurrentToken() is DocumentEnd)
-                {
-                    Skip();
-                }
-            }
+                while (GetCurrentToken() is DocumentEnd) Skip();
 
             // Parse an isImplicit document.
 
@@ -262,15 +257,12 @@ namespace YamlDotNet.Core
 
             else if (!(GetCurrentToken() is StreamEnd))
             {
-                Mark start = GetCurrentToken().Start;
+                var start = GetCurrentToken().Start;
                 var directives = new TagDirectiveCollection();
                 var versionDirective = ProcessDirectives(directives);
 
                 var current = GetCurrentToken();
-                if (!(current is DocumentStart))
-                {
-                    throw new SemanticErrorException(current.Start, current.End, "Did not find expected <document start>.");
-                }
+                if (!(current is DocumentStart)) throw new SemanticErrorException(current.Start, current.End, "Did not find expected <document start>.");
 
                 states.Push(ParserState.DocumentEnd);
 
@@ -289,10 +281,7 @@ namespace YamlDotNet.Core
 
                 ParsingEvent evt = new Events.StreamEnd(GetCurrentToken().Start, GetCurrentToken().End);
                 // Do not call skip here because that would throw an exception
-                if (scanner.MoveNextWithoutConsuming())
-                {
-                    throw new InvalidOperationException("The scanner should contain no more tokens.");
-                }
+                if (scanner.MoveNextWithoutConsuming()) throw new InvalidOperationException("The scanner should contain no more tokens.");
                 return evt;
             }
         }
@@ -303,7 +292,7 @@ namespace YamlDotNet.Core
         private VersionDirective ProcessDirectives(TagDirectiveCollection tags)
         {
             VersionDirective version = null;
-            bool hasOwnDirectives = false;
+            var hasOwnDirectives = false;
 
             while (true)
             {
@@ -312,25 +301,16 @@ namespace YamlDotNet.Core
 
                 if ((currentVersion = GetCurrentToken() as VersionDirective) != null)
                 {
-                    if (version != null)
-                    {
-                        throw new SemanticErrorException(currentVersion.Start, currentVersion.End, "Found duplicate %YAML directive.");
-                    }
+                    if (version != null) throw new SemanticErrorException(currentVersion.Start, currentVersion.End, "Found duplicate %YAML directive.");
 
-                    if (currentVersion.Version.Major != Constants.MajorVersion || currentVersion.Version.Minor != Constants.MinorVersion)
-                    {
-                        throw new SemanticErrorException(currentVersion.Start, currentVersion.End, "Found incompatible YAML document.");
-                    }
+                    if (currentVersion.Version.Major != Constants.MajorVersion || currentVersion.Version.Minor != Constants.MinorVersion) throw new SemanticErrorException(currentVersion.Start, currentVersion.End, "Found incompatible YAML document.");
 
                     version = currentVersion;
                     hasOwnDirectives = true;
                 }
                 else if ((tag = GetCurrentToken() as TagDirective) != null)
                 {
-                    if (tags.Contains(tag.Handle))
-                    {
-                        throw new SemanticErrorException(tag.Start, tag.End, "Found duplicate %TAG directive.");
-                    }
+                    if (tags.Contains(tag.Handle)) throw new SemanticErrorException(tag.Start, tag.End, "Found duplicate %TAG directive.");
                     tags.Add(tag);
                     hasOwnDirectives = true;
                 }
@@ -344,10 +324,7 @@ namespace YamlDotNet.Core
 
             AddTagDirectives(tags, Constants.DefaultTagDirectives);
 
-            if (hasOwnDirectives)
-            {
-                tagDirectives.Clear();
-            }
+            if (hasOwnDirectives) tagDirectives.Clear();
 
             AddTagDirectives(tagDirectives, tags);
 
@@ -357,12 +334,7 @@ namespace YamlDotNet.Core
         private static void AddTagDirectives(TagDirectiveCollection directives, IEnumerable<TagDirective> source)
         {
             foreach (var directive in source)
-            {
-                if (!directives.Contains(directive))
-                {
-                    directives.Add(directive);
-                }
-            }
+                if (!directives.Contains(directive)) directives.Add(directive);
         }
 
         /// <summary>
@@ -436,50 +408,31 @@ namespace YamlDotNet.Core
                 return evt;
             }
 
-            Mark start = GetCurrentToken().Start;
+            var start = GetCurrentToken().Start;
 
             Anchor anchor = null;
             Tag tag = null;
 
             // The anchor and the tag can be in any order. This loop repeats at most twice.
             while (true)
-            {
                 if (anchor == null && (anchor = GetCurrentToken() as Anchor) != null)
-                {
                     Skip();
-                }
                 else if (tag == null && (tag = GetCurrentToken() as Tag) != null)
-                {
                     Skip();
-                }
                 else
-                {
                     break;
-                }
-            }
 
             string tagName = null;
             if (tag != null)
-            {
                 if (string.IsNullOrEmpty(tag.Handle))
-                {
                     tagName = tag.Suffix;
-                }
                 else if (tagDirectives.Contains(tag.Handle))
-                {
                     tagName = string.Concat(tagDirectives[tag.Handle].Prefix, tag.Suffix);
-                }
                 else
-                {
                     throw new SemanticErrorException(tag.Start, tag.End, "While parsing a node, find undefined tag handle.");
-                }
-            }
-            if (string.IsNullOrEmpty(tagName))
-            {
-                tagName = null;
-            }
+            if (string.IsNullOrEmpty(tagName)) tagName = null;
 
-            string anchorName = anchor != null ? string.IsNullOrEmpty(anchor.Value) ? null : anchor.Value : null;
+            var anchorName = anchor != null ? string.IsNullOrEmpty(anchor.Value) ? null : anchor.Value : null;
 
             var isImplicit = string.IsNullOrEmpty(tagName);
 
@@ -501,16 +454,12 @@ namespace YamlDotNet.Core
                 var scalar = GetCurrentToken() as Scalar;
                 if (scalar != null)
                 {
-                    bool isPlainImplicit = false;
-                    bool isQuotedImplicit = false;
-                    if ((scalar.Style == ScalarStyle.Plain && tagName == null) || tagName == Constants.DefaultHandle)
-                    {
+                    var isPlainImplicit = false;
+                    var isQuotedImplicit = false;
+                    if (scalar.Style == ScalarStyle.Plain && tagName == null || tagName == Constants.DefaultHandle)
                         isPlainImplicit = true;
-                    }
                     else if (tagName == null)
-                    {
                         isQuotedImplicit = true;
-                    }
 
                     state = states.Pop();
                     ParsingEvent evt = new Events.Scalar(anchorName, tagName, scalar.Value, scalar.Style, isPlainImplicit, isQuotedImplicit, start, scalar.End);
@@ -571,9 +520,9 @@ namespace YamlDotNet.Core
 
         private ParsingEvent ParseDocumentEnd()
         {
-            bool isImplicit = true;
-            Mark start = GetCurrentToken().Start;
-            Mark end = start;
+            var isImplicit = true;
+            var start = GetCurrentToken().Start;
+            var end = start;
 
             if (GetCurrentToken() is DocumentEnd)
             {
@@ -602,7 +551,7 @@ namespace YamlDotNet.Core
 
             if (GetCurrentToken() is BlockEntry)
             {
-                Mark mark = GetCurrentToken().End;
+                var mark = GetCurrentToken().End;
 
                 Skip();
                 if (!(GetCurrentToken() is BlockEntry || GetCurrentToken() is BlockEnd))
@@ -639,7 +588,7 @@ namespace YamlDotNet.Core
         {
             if (GetCurrentToken() is BlockEntry)
             {
-                Mark mark = GetCurrentToken().End;
+                var mark = GetCurrentToken().End;
                 Skip();
 
                 if (!(GetCurrentToken() is BlockEntry || GetCurrentToken() is Key || GetCurrentToken() is Value || GetCurrentToken() is BlockEnd))
@@ -681,7 +630,7 @@ namespace YamlDotNet.Core
 
             if (GetCurrentToken() is Key)
             {
-                Mark mark = GetCurrentToken().End;
+                var mark = GetCurrentToken().End;
                 Skip();
                 if (!(GetCurrentToken() is Key || GetCurrentToken() is Value || GetCurrentToken() is BlockEnd))
                 {
@@ -725,7 +674,7 @@ namespace YamlDotNet.Core
         {
             if (GetCurrentToken() is Value)
             {
-                Mark mark = GetCurrentToken().End;
+                var mark = GetCurrentToken().End;
                 Skip();
 
                 if (!(GetCurrentToken() is Key || GetCurrentToken() is Value || GetCurrentToken() is BlockEnd))
@@ -772,7 +721,6 @@ namespace YamlDotNet.Core
             if (!(GetCurrentToken() is FlowSequenceEnd))
             {
                 if (!isFirst)
-                {
                     if (GetCurrentToken() is FlowEntry)
                     {
                         Skip();
@@ -782,7 +730,6 @@ namespace YamlDotNet.Core
                         var current = GetCurrentToken();
                         throw new SemanticErrorException(current.Start, current.End, "While parsing a flow sequence, did not find expected ',' or ']'.");
                     }
-                }
 
                 if (GetCurrentToken() is Key)
                 {
@@ -818,7 +765,7 @@ namespace YamlDotNet.Core
             }
             else
             {
-                Mark mark = GetCurrentToken().End;
+                var mark = GetCurrentToken().End;
                 Skip();
                 state = ParserState.FlowSequenceEntryMappingValue;
                 return ProcessEmptyScalar(mark);
@@ -880,7 +827,6 @@ namespace YamlDotNet.Core
             if (!(GetCurrentToken() is FlowMappingEnd))
             {
                 if (!isFirst)
-                {
                     if (GetCurrentToken() is FlowEntry)
                     {
                         Skip();
@@ -890,7 +836,6 @@ namespace YamlDotNet.Core
                         var current = GetCurrentToken();
                         throw new SemanticErrorException(current.Start, current.End, "While parsing a flow mapping,  did not find expected ',' or '}'.");
                     }
-                }
 
                 if (GetCurrentToken() is Key)
                 {

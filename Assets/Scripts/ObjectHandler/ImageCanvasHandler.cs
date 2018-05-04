@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.Mime;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,15 +10,17 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private Image _image;
         private GameObject _buttonDisplay;
         [SerializeField] private CharacterType _characterType;
-        private bool _canvasActive;
+        [SerializeField] private bool _canvasActive;
 
 
         private void Start() {
+            
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _image = GameObject.Find(gameObject.name + "/Image").GetComponent<Image>();
-            _image.sprite = _uiManager.Transparent;
             _buttonDisplay = GameObject.Find(gameObject.name + "/Buttonsdisplay");
+            if(_canvasActive) return;
+            _image.sprite = _uiManager.Transparent;
             _buttonDisplay.SetActive(false);
         }
 
@@ -29,17 +30,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                     break;
                 case CharacterType.Ghost:
                     _gameManager.GhostImageCanvasActive = _canvasActive;
-                    if(Input.GetButtonDown(ButtonNames.GhostJoystickButtonA)) {
-                        HideCanvas();
-                    }
+                    if(Input.GetButtonDown(ButtonNames.GhostJoystickButtonA)) HideCanvas();
 
                     break;
                 case CharacterType.Human:
                     _gameManager.HumanImageCanvasActive = _canvasActive;
 
-                    if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonA)) {
-                        HideCanvas();
-                    }
+                    if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonA)) HideCanvas();
 
                     break;
                 default:

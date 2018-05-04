@@ -2,10 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
-
 using UnityEngine;
-using UnityEngine.Serialization;
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -37,12 +34,12 @@ namespace YamlDotNet.Samples.Helpers {
         public static string[] GetAllTestNames() {
             bool skipMethods;
             var results = new List<string>();
-            foreach (Type t in Assembly.GetExecutingAssembly().GetTypes()) {
+            foreach (var t in Assembly.GetExecutingAssembly().GetTypes())
                 if (t.Namespace == "YamlDotNet.Samples" && t.IsClass) {
                     skipMethods = false;
-                    foreach (MethodInfo mi in t.GetMethods()) {
+                    foreach (var mi in t.GetMethods()) {
                         if (mi.Name == "Main") {
-                            SampleAttribute sa = (SampleAttribute) Attribute.GetCustomAttribute(mi, typeof(SampleAttribute));
+                            var sa = (SampleAttribute) Attribute.GetCustomAttribute(mi, typeof(SampleAttribute));
                             if (sa != null) {
                                 results.Add(t.Name);
                                 skipMethods = true;
@@ -52,19 +49,19 @@ namespace YamlDotNet.Samples.Helpers {
                         if (skipMethods) break;
                     }
                 }
-            }
+
             return results.ToArray();
         }
 
         public static string[] GetAllTestTitles() {
             bool skipMethods;
             var results = new List<string>();
-            foreach (Type t in Assembly.GetExecutingAssembly().GetTypes()) {
+            foreach (var t in Assembly.GetExecutingAssembly().GetTypes())
                 if (t.Namespace == "YamlDotNet.Samples" && t.IsClass) {
                     skipMethods = false;
-                    foreach (MethodInfo mi in t.GetMethods()) {
+                    foreach (var mi in t.GetMethods()) {
                         if (mi.Name == "Main") {
-                            SampleAttribute sa = (SampleAttribute) Attribute.GetCustomAttribute(mi, typeof(SampleAttribute));
+                            var sa = (SampleAttribute) Attribute.GetCustomAttribute(mi, typeof(SampleAttribute));
                             if (sa != null) {
                                 results.Add(sa.Title);
                                 skipMethods = true;
@@ -74,18 +71,18 @@ namespace YamlDotNet.Samples.Helpers {
                         if (skipMethods) break;
                     }
                 }
-            }
+
             return results.ToArray();
         }
 
         private void Start() {
             bool skipMethods;
-            foreach (Type t in Assembly.GetExecutingAssembly().GetTypes()) {
+            foreach (var t in Assembly.GetExecutingAssembly().GetTypes())
                 if (t.Namespace == "YamlDotNet.Samples" && t.IsClass && Array.IndexOf(disabledTests, t.Name) == -1) {
                     skipMethods = false;
-                    foreach (MethodInfo mi in t.GetMethods()) {
+                    foreach (var mi in t.GetMethods()) {
                         if (mi.Name == "Main") {
-                            SampleAttribute sa = (SampleAttribute) Attribute.GetCustomAttribute(mi, typeof(SampleAttribute));
+                            var sa = (SampleAttribute) Attribute.GetCustomAttribute(mi, typeof(SampleAttribute));
                             if (sa != null) {
                                 helper.WriteLine("{0} - {1}", sa.Title, sa.Description);
                                 var testObject = t.GetConstructor(new Type[] { typeof(StringTestOutputHelper) }).Invoke(new object[] { helper });
@@ -99,7 +96,6 @@ namespace YamlDotNet.Samples.Helpers {
                         if (skipMethods) break;
                     }
                 }
-            }
         }
     }
 
@@ -117,18 +113,18 @@ namespace YamlDotNet.Samples.Helpers {
             allTests  = ExampleRunner.GetAllTestNames();
             allTitles = ExampleRunner.GetAllTestTitles();
             enabledTests = new bool[allTests.Length];
-            for (int i = 0;  i < allTests.Length; i++)
+            for (var i = 0;  i < allTests.Length; i++)
                 enabledTests[i] = Array.IndexOf(runner.disabledTests, allTests[i]) == -1;
         }
 
         public override void OnInspectorGUI() {
-            int nextDisabledIndex = 0;
-            for (int i = 0;  i < allTests.Length; i++) {
+            var nextDisabledIndex = 0;
+            for (var i = 0;  i < allTests.Length; i++) {
                 EditorGUI.BeginChangeCheck();
                 if (!enabledTests[i])
                     nextDisabledIndex++;
                 enabledTests[i] = EditorGUILayout.Toggle(allTitles[i], enabledTests[i]);
-                if (EditorGUI.EndChangeCheck()) {
+                if (EditorGUI.EndChangeCheck())
                     if (enabledTests[i]) {
                         var l = new List<string>(runner.disabledTests);
                         l.Remove(allTests[i]);
@@ -138,7 +134,6 @@ namespace YamlDotNet.Samples.Helpers {
                         l.Insert(nextDisabledIndex, allTests[i]);
                         runner.disabledTests = l.ToArray();
                     }
-                }
             }
         }
     }

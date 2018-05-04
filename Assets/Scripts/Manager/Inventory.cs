@@ -105,15 +105,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private void InventoryVisible() {
             switch(_characterType) {
                 case CharacterType.Ghost:
-                    if(Input.GetButtonDown(ButtonNames.GhostInventory)) {
-                        ToggleInventoryVisibility();
-                    }
+                    if(Input.GetButtonDown(ButtonNames.GhostInventory)) ToggleInventoryVisibility();
 
                     break;
                 case CharacterType.Human:
-                    if(Input.GetButtonDown(ButtonNames.HumanInventory)) {
-                        ToggleInventoryVisibility();
-                    }
+                    if(Input.GetButtonDown(ButtonNames.HumanInventory)) ToggleInventoryVisibility();
 
                     break;
                 default:
@@ -154,7 +150,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     combine[0].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
                     combine[1].AddComponent<ItemCombineSlotHandler>().CharacterType = CharacterType.Human;
 
-                    Debug.Log("_slots: " + _slots.Length + " | selector Human: " + _selectorHuman.Length + " | selector Ghost: " + _selectorGhost.Length);
                     break;
                 case CharacterType.Human:
                     for(var i = 0; i < 4; i++)

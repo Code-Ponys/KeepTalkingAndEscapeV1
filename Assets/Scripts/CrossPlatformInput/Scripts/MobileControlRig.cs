@@ -1,8 +1,7 @@
-using System;
+using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-using UnityEngine;
 
 
 namespace UnityStandardAssets.CrossPlatformInput
@@ -41,11 +40,11 @@ namespace UnityStandardAssets.CrossPlatformInput
             if (Application.isPlaying) //if in the editor, need to check if we are playing, as start is also called just after exiting play
 #endif
             {
-                UnityEngine.EventSystems.EventSystem system = GameObject.FindObjectOfType<UnityEngine.EventSystems.EventSystem>();
+                var system = GameObject.FindObjectOfType<UnityEngine.EventSystems.EventSystem>();
 
                 if (system == null)
                 {//the scene have no event system, spawn one
-                    GameObject o = new GameObject("EventSystem");
+                    var o = new GameObject("EventSystem");
 
                     o.AddComponent<UnityEngine.EventSystems.EventSystem>();
                     o.AddComponent<UnityEngine.EventSystems.StandaloneInputModule>();
@@ -86,10 +85,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         private void EnableControlRig(bool enabled)
         {
-            foreach (Transform t in transform)
-            {
-                t.gameObject.SetActive(enabled);
-            }
+            foreach (Transform t in transform) t.gameObject.SetActive(enabled);
         }
 
 #if UNITY_EDITOR

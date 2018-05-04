@@ -20,7 +20,6 @@
 //  SOFTWARE.
 
 using System;
-using System.Runtime.Serialization;
 
 namespace YamlDotNet.Core
 {

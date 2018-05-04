@@ -24,7 +24,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 		private int _y = 0;
 
 		// Use this for initialization
-		void Start() {
+		private void Start() {
 			
 			_uiManager = UIManager.GetUiManager();
 			_gameManager = GameManager.GetGameManager();
@@ -46,7 +46,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 		}
 
 		// Update is called once per frame
-		void Update() {
+		private void Update() {
 			ToggleMenuVisible();
 			if(!_menuActive) return;
 			
@@ -60,11 +60,9 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 		/// Toggles Inventory visibility. Rearranges the items, if the other inventory is closed
 		/// </summary>
 		private void ToggleMenuVisible() {
-			Debug.Log("Test");
 			switch(_characterType) {
 				case CharacterType.Ghost:
 					if(Input.GetButtonDown(ButtonNames.GhostMenu)) {
-						Debug.Log("Open Menu");
 						_menuActive = true;
 						_uiManager.TriggerMenu(true,CharacterType.Ghost);
 						_y = 0;
@@ -73,7 +71,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 					break;
 				case CharacterType.Human:
 					if(Input.GetButtonDown(ButtonNames.HumanMenu)) {
-						Debug.Log("Open Menu");
 						_menuActive = true;
 						_uiManager.TriggerMenu(true,CharacterType.Human);
 						_y = 0;
@@ -152,7 +149,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 			switch(_characterType) {
 				case CharacterType.Human:
 					if(_currentAxisDelay <= 0) {
-						if(Input.GetButtonDown(ButtonNames.HumanInspect))
+						if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonB))
 							if(_menu[_y] != null) {
 								if(_menu[0]) {
 									_currentPressedButtonHuman = _y;
@@ -178,7 +175,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
 				case CharacterType.Ghost:
 					if(_currentAxisDelay < 0) {
-						if(Input.GetButtonDown(ButtonNames.GhostInspect))
+						if(Input.GetButtonDown(ButtonNames.GhostJoystickButtonB))
 							if(_menu[_y] != null) {
 								if(_menu[0]) {
 									_currentPressedButtonGhost = _y;
@@ -205,28 +202,23 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 		}
 
 		private void StartMenuMenu() {
-			if(_currentPressedButtonHuman == 0 || _currentPressedButtonGhost == 0) {
+			if(_currentPressedButtonHuman == 0 || _currentPressedButtonGhost == 0)
 				switch(_characterType) {
-						case CharacterType.Ghost:
-							_menuActive = false;
-							_uiManager.TriggerMenu(false, CharacterType.Ghost);
+					case CharacterType.Ghost:
+						_menuActive = false;
+						_uiManager.TriggerMenu(false, CharacterType.Ghost);
 
-							_currentPressedButtonGhost = 5;
-							break;
-						case CharacterType.Human:
-							_menuActive = false;
-							_uiManager.TriggerMenu(false, CharacterType.Human);
-							_currentPressedButtonHuman = 5;
-							break;
+						_currentPressedButtonGhost = 5;
+						break;
+					case CharacterType.Human:
+						_menuActive = false;
+						_uiManager.TriggerMenu(false, CharacterType.Human);
+						_currentPressedButtonHuman = 5;
+						break;
 				}
-			}
-			if(_currentPressedButtonHuman == 1 && _currentPressedButtonGhost == 1) {
-				SceneManager.LoadScene(_scene[0]);
-			}
+			if(_currentPressedButtonHuman == 1 && _currentPressedButtonGhost == 1) SceneManager.LoadScene(_scene[0]);
 
-			if(_currentPressedButtonHuman == 2 && _currentPressedButtonGhost == 2) {
-				Application.Quit();
-			}
+			if(_currentPressedButtonHuman == 2 && _currentPressedButtonGhost == 2) Application.Quit();
 		}
 		
 		public bool MenuActive {

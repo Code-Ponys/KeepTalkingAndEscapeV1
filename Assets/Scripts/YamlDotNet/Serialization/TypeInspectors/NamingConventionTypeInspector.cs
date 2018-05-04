@@ -36,17 +36,11 @@ namespace YamlDotNet.Serialization.TypeInspectors
 
         public NamingConventionTypeInspector(ITypeInspector innerTypeDescriptor, INamingConvention namingConvention)
         {
-            if (innerTypeDescriptor == null)
-            {
-                throw new ArgumentNullException("innerTypeDescriptor");
-            }
+            if (innerTypeDescriptor == null) throw new ArgumentNullException("innerTypeDescriptor");
 
             this.innerTypeDescriptor = innerTypeDescriptor;
 
-            if (namingConvention == null)
-            {
-                throw new ArgumentNullException("namingConvention");
-            }
+            if (namingConvention == null) throw new ArgumentNullException("namingConvention");
 
             this.namingConvention = namingConvention;
         }
@@ -57,10 +51,7 @@ namespace YamlDotNet.Serialization.TypeInspectors
                 .Select(p =>
                 {
                     var attribute = p.GetCustomAttribute<YamlMemberAttribute>();
-                    if (attribute != null && !attribute.ApplyNamingConventions)
-                    {
-                        return p;
-                    }
+                    if (attribute != null && !attribute.ApplyNamingConventions) return p;
                     return (IPropertyDescriptor)new PropertyDescriptor(p) { Name = namingConvention.Apply(p.Name) };
                 });
         }

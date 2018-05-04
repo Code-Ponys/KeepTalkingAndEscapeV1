@@ -43,10 +43,7 @@ namespace YamlDotNet.Helpers
             addMethod = genericCollectionType.GetPublicInstanceMethod("Add");
             countGetter = genericCollectionType.GetPublicProperty("Count").GetGetMethod();
 
-            if (genericListType != null)
-            {
-                indexerSetter = genericListType.GetPublicProperty("Item").GetSetMethod();
-            }
+            if (genericListType != null) indexerSetter = genericListType.GetPublicProperty("Item").GetSetMethod();
         }
 
         public int Add(object value)

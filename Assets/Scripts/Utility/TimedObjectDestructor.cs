@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace UnityStandardAssets.Utility
@@ -17,10 +16,7 @@ namespace UnityStandardAssets.Utility
 
         private void DestroyNow()
         {
-            if (m_DetachChildren)
-            {
-                transform.DetachChildren();
-            }
+            if (m_DetachChildren) transform.DetachChildren();
             DestroyObject(gameObject);
         }
     }

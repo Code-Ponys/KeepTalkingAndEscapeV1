@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BackgroundSound : MonoBehaviour {
 	private AudioSource _audioSource;
@@ -8,7 +6,7 @@ public class BackgroundSound : MonoBehaviour {
 	[SerializeField] private AudioClip _backgroundSounds;
 
 	// Use this for initialization
-	void Start () {
+	private void Start () {
 		_audioSource = gameObject.AddComponent<AudioSource>();
 		if(_backgroundSounds != null) {
 			_audioSource.clip = _backgroundSounds;
@@ -19,9 +17,7 @@ public class BackgroundSound : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if(_backgroundSounds != null) {
-			_audioSource.loop = true;
-		}
+	private void Update () {
+		if(_backgroundSounds != null) _audioSource.loop = true;
 	}
 }

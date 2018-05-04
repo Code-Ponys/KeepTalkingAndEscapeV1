@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Listener {
     public class MapHandler : MonoBehaviour {
@@ -20,12 +19,18 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool _codeSolved;
 
         private GameManager _gameManager;
+        private SoundManager _soundManager;
+        private AudioSource _source;
         private bool _humanMapActive;
 
         private bool _closedFirstTime;
         private float _wait = 0.5f;
         [SerializeField] private float _closeTimeAfterCodeSolved;
 
+        private void Start() {
+            _soundManager = SoundManager.GetSoundManager();
+            _source = gameObject.AddComponent<AudioSource>();
+        }
 
         public void RegisterButton(MapButton button) {
             _buttons.Add(button);
@@ -34,14 +39,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
 
         private void Update() {
-            if(_visibilityObject.activeSelf) {
-                if(_wait < 0) {
+            if(_visibilityObject.activeSelf)
+                if(_wait < 0)
                     InputMap();
-                }
-                else {
+                else
                     _wait = _wait - Time.deltaTime;
-                }
-            }
             AutoClose();
         }
 
@@ -93,6 +95,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                         if(_passwordText.Length > 2 && _password[2] == _passwordText[2]) {
                             Debug.Log(_password[2] + " " + _passwordText[2]);
                             _codeSolved = true;
+                            _source.clip = _soundManager.SuccessComboSound;
+                            _source.Play();
                         }
                         else {
                             if(_passwordText.Length > 2) {
@@ -116,9 +120,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
                 }
             }
 
-            if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonA)) {
-                CloseMap();
-            }
+            if(Input.GetButtonDown(ButtonNames.HumanJoystickButtonA)) CloseMap();
         }
         
         private void AutoClose() {

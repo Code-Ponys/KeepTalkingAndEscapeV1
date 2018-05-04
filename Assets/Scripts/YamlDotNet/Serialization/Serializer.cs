@@ -82,10 +82,7 @@ namespace YamlDotNet.Serialization
                     emittingVisitor = new AnchorAssigningObjectGraphVisitor(emittingVisitor, eventEmitter, anchorAssigner);
                 }
 
-                if (!IsOptionSet(SerializationOptions.EmitDefaults))
-                {
-                    emittingVisitor = new DefaultExclusiveObjectGraphVisitor(emittingVisitor);
-                }
+                if (!IsOptionSet(SerializationOptions.EmitDefaults)) emittingVisitor = new DefaultExclusiveObjectGraphVisitor(emittingVisitor);
 
                 return emittingVisitor;
             }
@@ -95,40 +92,26 @@ namespace YamlDotNet.Serialization
                 var writer = new WriterEventEmitter();
 
                 if (IsOptionSet(SerializationOptions.JsonCompatible))
-                {
                     return new JsonEventEmitter(writer);
-                }
                 else
-                {
                     return new TypeAssigningEventEmitter(writer, IsOptionSet(SerializationOptions.Roundtrip));
-                }
             }
 
             private IObjectGraphTraversalStrategy CreateTraversalStrategy()
             {
                 ITypeInspector typeDescriptor = new ReadablePropertiesTypeInspector(typeResolver);
-                if (IsOptionSet(SerializationOptions.Roundtrip))
-                {
-                    typeDescriptor = new ReadableAndWritablePropertiesTypeInspector(typeDescriptor);
-                }
+                if (IsOptionSet(SerializationOptions.Roundtrip)) typeDescriptor = new ReadableAndWritablePropertiesTypeInspector(typeDescriptor);
 
                 typeDescriptor = new YamlAttributeOverridesInspector(typeDescriptor, overrides);
                 typeDescriptor = new YamlAttributesTypeInspector(typeDescriptor);
                 typeDescriptor = new NamingConventionTypeInspector(typeDescriptor, namingConvention);
 
-                if (IsOptionSet(SerializationOptions.DefaultToStaticType))
-                {
-                    typeDescriptor = new CachedTypeInspector(typeDescriptor);
-                }
+                if (IsOptionSet(SerializationOptions.DefaultToStaticType)) typeDescriptor = new CachedTypeInspector(typeDescriptor);
 
                 if (IsOptionSet(SerializationOptions.Roundtrip))
-                {
                     return new RoundtripObjectGraphTraversalStrategy(Converters, typeDescriptor, typeResolver, 50);
-                }
                 else
-                {
                     return new FullObjectGraphTraversalStrategy(typeDescriptor, typeResolver, 50, namingConvention);
-                }
             }
 
             public void SerializeValue(IEmitter emitter, object value, Type type)
@@ -153,10 +136,7 @@ namespace YamlDotNet.Serialization
 
         private void ThrowUnlessInBackwardsCompatibleMode()
         {
-            if (backwardsCompatibleConfiguration == null)
-            {
-                throw new InvalidOperationException("This method / property exists for backwards compatibility reasons, but the Serializer was created using the new configuration mechanism. To configure the Serializer, use the SerializerBuilder.");
-            }
+            if (backwardsCompatibleConfiguration == null) throw new InvalidOperationException("This method / property exists for backwards compatibility reasons, but the Serializer was created using the new configuration mechanism. To configure the Serializer, use the SerializerBuilder.");
         }
 
         /// <summary>
@@ -201,10 +181,7 @@ namespace YamlDotNet.Serialization
         /// </remarks>
         private Serializer(IValueSerializer valueSerializer)
         {
-            if (valueSerializer == null)
-            {
-                throw new ArgumentNullException("valueSerializer");
-            }
+            if (valueSerializer == null) throw new ArgumentNullException("valueSerializer");
 
             this.valueSerializer = valueSerializer;
         }
@@ -260,10 +237,7 @@ namespace YamlDotNet.Serialization
         /// <param name="graph">The object to serialize.</param>
         public void Serialize(IEmitter emitter, object graph)
         {
-            if (emitter == null)
-            {
-                throw new ArgumentNullException("emitter");
-            }
+            if (emitter == null) throw new ArgumentNullException("emitter");
 
             EmitDocument(emitter, graph, null);
         }
@@ -276,15 +250,9 @@ namespace YamlDotNet.Serialization
         /// <param name="type">The static type of the object to serialize.</param>
         public void Serialize(IEmitter emitter, object graph, Type type)
         {
-            if (emitter == null)
-            {
-                throw new ArgumentNullException("emitter");
-            }
+            if (emitter == null) throw new ArgumentNullException("emitter");
 
-            if (type == null)
-            {
-                throw new ArgumentNullException("type");
-            }
+            if (type == null) throw new ArgumentNullException("type");
 
             EmitDocument(emitter, graph, type);
         }
@@ -294,7 +262,7 @@ namespace YamlDotNet.Serialization
             emitter.Emit(new StreamStart());
             emitter.Emit(new DocumentStart());
 
-            IValueSerializer actualValueSerializer = backwardsCompatibleConfiguration ?? valueSerializer;
+            var actualValueSerializer = backwardsCompatibleConfiguration ?? valueSerializer;
             actualValueSerializer.SerializeValue(emitter, graph, type);
 
             emitter.Emit(new DocumentEnd(true));

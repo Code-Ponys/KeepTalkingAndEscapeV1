@@ -105,10 +105,7 @@ namespace YamlDotNet.Serialization.EventEmitters
             }
 
             eventInfo.IsPlainImplicit = true;
-            if (eventInfo.Style == ScalarStyle.Any)
-            {
-                eventInfo.Style = suggestedStyle;
-            }
+            if (eventInfo.Style == ScalarStyle.Any) eventInfo.Style = suggestedStyle;
 
             base.Emit(eventInfo, emitter);
         }
@@ -128,12 +125,7 @@ namespace YamlDotNet.Serialization.EventEmitters
         private void AssignTypeIfDifferent(ObjectEventInfo eventInfo)
         {
             if (_assignTypeWhenDifferent && eventInfo.Source.Value != null)
-            {
-                if (eventInfo.Source.Type != eventInfo.Source.StaticType)
-                {
-                    eventInfo.Tag = "!" + eventInfo.Source.Type.AssemblyQualifiedName;
-                }
-            }
+                if (eventInfo.Source.Type != eventInfo.Source.StaticType) eventInfo.Tag = "!" + eventInfo.Source.Type.AssemblyQualifiedName;
         }
     }
 }

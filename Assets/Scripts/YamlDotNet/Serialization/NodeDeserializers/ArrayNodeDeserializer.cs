@@ -59,10 +59,7 @@ namespace YamlDotNet.Serialization.NodeDeserializers
 
             public int Add(object value)
             {
-                if (count == data.Length)
-                {
-                    Array.Resize(ref data, data.Length * 2);
-                }
+                if (count == data.Length) Array.Resize(ref data, data.Length * 2);
                 data[count] = value;
                 return count++;
             }
@@ -142,10 +139,7 @@ namespace YamlDotNet.Serialization.NodeDeserializers
 
             public IEnumerator GetEnumerator()
             {
-                for (int i = 0; i < count; ++i)
-                {
-                    yield return data[i];
-                }
+                for (var i = 0; i < count; ++i) yield return data[i];
             }
         }
     }

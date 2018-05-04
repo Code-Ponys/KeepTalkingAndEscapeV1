@@ -67,13 +67,9 @@ namespace YamlDotNet.Serialization
         {
             Type mapping;
             if (mappings.TryGetValue(tag, out mapping))
-            {
                 return mapping;
-            }
             else
-            {
                 return null;
-            }
         }
     }
 }

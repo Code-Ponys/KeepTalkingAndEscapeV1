@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
@@ -20,15 +19,26 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private bool _ghostImageCanvasActive;
         [SerializeField] private float _humanHeight = 330;
         [SerializeField] private float _ghostHeight = 450;
+        [SerializeField] private PlayerInteractionHandler _playerInteractionHandlerGhost;
+        [SerializeField] private PlayerInteractionHandler _playerInteractionHandlerHuman;
 
         public static GameManager GetGameManager() {
             return GameObject.Find("System").GetComponent<GameManager>();
         }
 
         private void Start() {
-            if(GameObject.Find("SoundManagerMenu") != null) {
-                Destroy(GameObject.Find("SoundManagerMenu"));
-            }
+
+        }
+
+        private void Update() {
+            if(GameObject.Find("SoundManagerMenu") != null) Destroy(GameObject.Find("SoundManagerMenu"));
+        }
+
+        public CharacterController GetCharacterController(CharacterType characterType) {
+            if(characterType == CharacterType.Ghost)
+                return _ghost;
+            if(characterType == CharacterType.Human)
+                return _human;
         }
 
         public bool HumanMapActive {
@@ -85,6 +95,14 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         public bool GhostImageCanvasActive {
             get {return _ghostImageCanvasActive;}
             set {_ghostImageCanvasActive = value;}
+        }
+
+        public PlayerInteractionHandler PlayerInteractionHandlerGhost {
+            get {return _playerInteractionHandlerGhost;}
+        }
+
+        public PlayerInteractionHandler PlayerInteractionHandlerHuman {
+            get {return _playerInteractionHandlerHuman;}
         }
     }
 }

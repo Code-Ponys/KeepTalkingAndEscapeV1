@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
@@ -13,7 +12,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 		}
 
 		// Update is called once per frame
-		void Update() {
+		private void Update() {
 			if(_faded) return;
 			var temp = _fadeRenderer.material.color;
 			//Begins Fade Out

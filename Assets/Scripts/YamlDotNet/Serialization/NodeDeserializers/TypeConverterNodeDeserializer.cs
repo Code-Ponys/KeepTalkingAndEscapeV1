@@ -32,10 +32,7 @@ namespace YamlDotNet.Serialization.NodeDeserializers
 
         public TypeConverterNodeDeserializer(IEnumerable<IYamlTypeConverter> converters)
         {
-            if (converters == null)
-            {
-                throw new ArgumentNullException("converters");
-            }
+            if (converters == null) throw new ArgumentNullException("converters");
 
             this.converters = converters;
         }

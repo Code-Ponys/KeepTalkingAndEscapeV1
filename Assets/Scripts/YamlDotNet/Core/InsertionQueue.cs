@@ -60,12 +60,9 @@ namespace YamlDotNet.Core
         /// <returns>Returns the item that been dequeued.</returns>
         public T Dequeue()
         {
-            if (Count == 0)
-            {
-                throw new InvalidOperationException("The queue is empty");
-            }
+            if (Count == 0) throw new InvalidOperationException("The queue is empty");
 
-            T item = items[0];
+            var item = items[0];
             items.RemoveAt(0);
             return item;
         }

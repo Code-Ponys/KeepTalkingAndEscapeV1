@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace TrustfallGames.KeepTalkingAndEscape.Manager {
     public class Credits : MonoBehaviour {
@@ -20,13 +18,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private int _y = 0;
 
         // Use this for initialization
-        void Start() {
+        private void Start() {
             _currentPressedButtonHuman = 5;
             _currentPressedButtonGhost = 5;
         }
 
         // Update is called once per frame
-        void Update() {
+        private void Update() {
             UpdateSelection();
             Clicked();
             SceneManagement();
@@ -87,21 +85,15 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             switch(_characterType) {
                 case CharacterType.Human:
                     if(Input.GetButtonDown(ButtonNames.HumanInspect))
-                        if(_menu[_y] != null) {
-                            if(_menu[0]) {
-                                _currentPressedButtonHuman = _y;
-                            }
-                        }
+                        if(_menu[_y] != null)
+                            if(_menu[0]) _currentPressedButtonHuman = _y;
 
                     break;
 
                 case CharacterType.Ghost:
                     if(Input.GetButtonDown(ButtonNames.GhostInspect))
-                        if(_menu[_y] != null) {
-                            if(_menu[0]) {
-                                _currentPressedButtonGhost = _y;
-                            }
-                        }
+                        if(_menu[_y] != null)
+                            if(_menu[0]) _currentPressedButtonGhost = _y;
 
                     break;
             }

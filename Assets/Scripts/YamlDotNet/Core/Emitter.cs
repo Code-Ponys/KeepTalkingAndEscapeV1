@@ -26,9 +26,14 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using YamlDotNet.Core.Events;
-using ParsingEvent = YamlDotNet.Core.Events.ParsingEvent;
-using TagDirective = YamlDotNet.Core.Tokens.TagDirective;
-using VersionDirective = YamlDotNet.Core.Tokens.VersionDirective;
+using YamlDotNet.Core.Tokens;
+using AnchorAlias = YamlDotNet.Core.Events.AnchorAlias;
+using Comment = YamlDotNet.Core.Events.Comment;
+using DocumentEnd = YamlDotNet.Core.Events.DocumentEnd;
+using DocumentStart = YamlDotNet.Core.Events.DocumentStart;
+using Scalar = YamlDotNet.Core.Events.Scalar;
+using StreamEnd = YamlDotNet.Core.Events.StreamEnd;
+using StreamStart = YamlDotNet.Core.Events.StreamStart;
 
 namespace YamlDotNet.Core
 {
@@ -137,17 +142,12 @@ namespace YamlDotNet.Core
         public Emitter(TextWriter output, int bestIndent, int bestWidth, bool isCanonical)
         {
             if (bestIndent < MinBestIndent || bestIndent > MaxBestIndent)
-            {
                 throw new ArgumentOutOfRangeException("bestIndent", string.Format(CultureInfo.InvariantCulture,
-                    "The bestIndent parameter must be between {0} and {1}.", MinBestIndent, MaxBestIndent));
-            }
+                                                                                  "The bestIndent parameter must be between {0} and {1}.", MinBestIndent, MaxBestIndent));
 
             this.bestIndent = bestIndent;
 
-            if (bestWidth <= bestIndent * 2)
-            {
-                throw new ArgumentOutOfRangeException("bestWidth", "The bestWidth parameter must be greater than bestIndent * 2.");
-            }
+            if (bestWidth <= bestIndent * 2) throw new ArgumentOutOfRangeException("bestWidth", "The bestWidth parameter must be greater than bestIndent * 2.");
 
             this.bestWidth = bestWidth;
 
@@ -192,10 +192,7 @@ namespace YamlDotNet.Core
         /// </summary>
         private bool NeedMoreEvents()
         {
-            if (events.Count == 0)
-            {
-                return true;
-            }
+            if (events.Count == 0) return true;
 
             int accumulate;
             switch (events.Peek().Type)
@@ -216,10 +213,7 @@ namespace YamlDotNet.Core
                     return false;
             }
 
-            if (events.Count > accumulate)
-            {
-                return false;
-            }
+            if (events.Count > accumulate) return false;
 
             var level = 0;
             foreach (var evt in events)
@@ -238,10 +232,7 @@ namespace YamlDotNet.Core
                         --level;
                         break;
                 }
-                if (level == 0)
-                {
-                    return false;
-                }
+                if (level == 0) return false;
             }
 
             return true;
@@ -264,17 +255,11 @@ namespace YamlDotNet.Core
             if (nodeEvent != null)
             {
                 var scalar = evt as Scalar;
-                if (scalar != null)
-                {
-                    AnalyzeScalar(scalar);
-                }
+                if (scalar != null) AnalyzeScalar(scalar);
 
                 AnalyzeAnchor(nodeEvent.Anchor, false);
 
-                if (!string.IsNullOrEmpty(nodeEvent.Tag) && (isCanonical || nodeEvent.IsCanonical))
-                {
-                    AnalyzeTag(nodeEvent.Tag);
-                }
+                if (!string.IsNullOrEmpty(nodeEvent.Tag) && (isCanonical || nodeEvent.IsCanonical)) AnalyzeTag(nodeEvent.Tag);
             }
         }
 
@@ -354,10 +339,7 @@ namespace YamlDotNet.Core
                     if (buffer.Check("?:"))
                     {
                         flowIndicators = true;
-                        if (followedByWhitespace)
-                        {
-                            blockIndicators = true;
-                        }
+                        if (followedByWhitespace) blockIndicators = true;
                     }
 
                     if (buffer.Check('-') && followedByWhitespace)
@@ -368,18 +350,12 @@ namespace YamlDotNet.Core
                 }
                 else
                 {
-                    if (buffer.Check(",?[]{}"))
-                    {
-                        flowIndicators = true;
-                    }
+                    if (buffer.Check(",?[]{}")) flowIndicators = true;
 
                     if (buffer.Check(':'))
                     {
                         flowIndicators = true;
-                        if (followedByWhitespace)
-                        {
-                            blockIndicators = true;
-                        }
+                        if (followedByWhitespace) blockIndicators = true;
                     }
 
                     if (buffer.Check('#') && preceededByWhitespace)
@@ -391,52 +367,28 @@ namespace YamlDotNet.Core
                     singleQuotes |= buffer.Check('\'');
                 }
 
-                if (!specialCharacters && !buffer.IsPrintable())
-                {
-                    specialCharacters = true;
-                }
+                if (!specialCharacters && !buffer.IsPrintable()) specialCharacters = true;
 
-                if (buffer.IsBreak())
-                {
-                    lineBreaks = true;
-                }
+                if (buffer.IsBreak()) lineBreaks = true;
 
                 if (buffer.IsSpace())
                 {
-                    if (isFirst)
-                    {
-                        leadingSpace = true;
-                    }
+                    if (isFirst) leadingSpace = true;
 
-                    if (buffer.Buffer.Position >= buffer.Buffer.Length - 1)
-                    {
-                        trailingSpace = true;
-                    }
+                    if (buffer.Buffer.Position >= buffer.Buffer.Length - 1) trailingSpace = true;
 
-                    if (previousBreak)
-                    {
-                        breakSpace = true;
-                    }
+                    if (previousBreak) breakSpace = true;
 
                     previousSpace = true;
                     previousBreak = false;
                 }
                 else if (buffer.IsBreak())
                 {
-                    if (isFirst)
-                    {
-                        leadingBreak = true;
-                    }
+                    if (isFirst) leadingBreak = true;
 
-                    if (buffer.Buffer.Position >= buffer.Buffer.Length - 1)
-                    {
-                        trailingBreak = true;
-                    }
+                    if (buffer.Buffer.Position >= buffer.Buffer.Length - 1) trailingBreak = true;
 
-                    if (previousSpace)
-                    {
-                        spaceBreak = true;
-                    }
+                    if (previousSpace) spaceBreak = true;
 
                     previousSpace = false;
                     previousBreak = true;
@@ -449,10 +401,7 @@ namespace YamlDotNet.Core
 
                 preceededByWhitespace = buffer.IsWhiteBreakOrZero();
                 buffer.Skip(1);
-                if (!buffer.EndOfInput)
-                {
-                    followedByWhitespace = buffer.IsWhiteBreakOrZero(1);
-                }
+                if (!buffer.EndOfInput) followedByWhitespace = buffer.IsWhiteBreakOrZero(1);
 
                 isFirst = false;
             }
@@ -468,10 +417,7 @@ namespace YamlDotNet.Core
                 scalarData.isBlockPlainAllowed = false;
             }
 
-            if (trailingSpace)
-            {
-                scalarData.isBlockAllowed = false;
-            }
+            if (trailingSpace) scalarData.isBlockAllowed = false;
 
             if (breakSpace)
             {
@@ -495,25 +441,16 @@ namespace YamlDotNet.Core
                 scalarData.isBlockPlainAllowed = false;
             }
 
-            if (flowIndicators)
-            {
-                scalarData.isFlowPlainAllowed = false;
-            }
+            if (flowIndicators) scalarData.isFlowPlainAllowed = false;
 
-            if (blockIndicators)
-            {
-                scalarData.isBlockPlainAllowed = false;
-            }
+            if (blockIndicators) scalarData.isBlockPlainAllowed = false;
 
             scalarData.hasSingleQuotes = singleQuotes;
         }
 
         private bool ValueIsRepresentableInOutputEncoding(string value)
         {
-            if (outputUsesUnicodeEncoding)
-            {
-                return true;
-            }
+            if (outputUsesUnicodeEncoding) return true;
 
             try
             {
@@ -543,14 +480,12 @@ namespace YamlDotNet.Core
         {
             tagData.handle = tag;
             foreach (var tagDirective in tagDirectives)
-            {
                 if (tag.StartsWith(tagDirective.Prefix, StringComparison.Ordinal))
                 {
                     tagData.handle = tagDirective.Handle;
                     tagData.suffix = tag.Substring(tagDirective.Prefix.Length);
                     break;
                 }
-            }
         }
 
         private void StateMachine(ParsingEvent evt)
@@ -643,13 +578,9 @@ namespace YamlDotNet.Core
         private void EmitComment(Comment comment)
         {
             if (comment.IsInline)
-            {
                 Write(' ');
-            }
             else
-            {
                 WriteIndent();
-            }
 
             Write("# ");
             Write(comment.Value);
@@ -663,10 +594,7 @@ namespace YamlDotNet.Core
         /// </summary>
         private void EmitStreamStart(ParsingEvent evt)
         {
-            if (!(evt is StreamStart))
-            {
-                throw new ArgumentException("Expected STREAM-START.", "evt");
-            }
+            if (!(evt is StreamStart)) throw new ArgumentException("Expected STREAM-START.", "evt");
 
             indent = -1;
             column = 0;
@@ -707,23 +635,14 @@ namespace YamlDotNet.Core
                     WriteIndent();
                 }
 
-                foreach (var tagDirective in documentTagDirectives)
-                {
-                    AppendTagDirectiveTo(tagDirective, false, tagDirectives);
-                }
+                foreach (var tagDirective in documentTagDirectives) AppendTagDirectiveTo(tagDirective, false, tagDirectives);
 
-                foreach (var tagDirective in Constants.DefaultTagDirectives)
-                {
-                    AppendTagDirectiveTo(tagDirective, true, tagDirectives);
-                }
+                foreach (var tagDirective in Constants.DefaultTagDirectives) AppendTagDirectiveTo(tagDirective, true, tagDirectives);
 
                 if (documentTagDirectives.Count > 0)
                 {
                     isImplicit = false;
-                    foreach (var tagDirective in Constants.DefaultTagDirectives)
-                    {
-                        AppendTagDirectiveTo(tagDirective, true, documentTagDirectives);
-                    }
+                    foreach (var tagDirective in Constants.DefaultTagDirectives) AppendTagDirectiveTo(tagDirective, true, documentTagDirectives);
 
                     foreach (var tagDirective in documentTagDirectives)
                     {
@@ -734,19 +653,13 @@ namespace YamlDotNet.Core
                     }
                 }
 
-                if (CheckEmptyDocument())
-                {
-                    isImplicit = false;
-                }
+                if (CheckEmptyDocument()) isImplicit = false;
 
                 if (!isImplicit)
                 {
                     WriteIndent();
                     WriteIndicator("---", true, false, false);
-                    if (isCanonical)
-                    {
-                        WriteIndent();
-                    }
+                    if (isCanonical) WriteIndent();
                 }
 
                 state = EmitterState.DocumentContent;
@@ -774,24 +687,15 @@ namespace YamlDotNet.Core
             if (tagCollection == null)
                 return directives;
 
-            foreach (var tagDirective in tagCollection)
-            {
-                AppendTagDirectiveTo(tagDirective, false, directives);
-            }
-            foreach (var tagDirective in Constants.DefaultTagDirectives)
-            {
-                directives.Remove(tagDirective);
-            }
+            foreach (var tagDirective in tagCollection) AppendTagDirectiveTo(tagDirective, false, directives);
+            foreach (var tagDirective in Constants.DefaultTagDirectives) directives.Remove(tagDirective);
             return directives;
         }
 
         // ReSharper disable UnusedParameter.Local
         private void AnalyzeVersionDirective(VersionDirective versionDirective)
         {
-            if (versionDirective.Version.Major != Constants.MajorVersion || versionDirective.Version.Minor != Constants.MinorVersion)
-            {
-                throw new YamlException("Incompatible %YAML directive");
-            }
+            if (versionDirective.Version.Major != Constants.MajorVersion || versionDirective.Version.Minor != Constants.MinorVersion) throw new YamlException("Incompatible %YAML directive");
         }
         // ReSharper restore UnusedParameter.Local
 
@@ -799,10 +703,7 @@ namespace YamlDotNet.Core
         {
             if (tagDirectives.Contains(value))
             {
-                if (!allowDuplicates)
-                {
-                    throw new YamlException("Duplicate %TAG directive.");
-                }
+                if (!allowDuplicates) throw new YamlException("Duplicate %TAG directive.");
             }
             else
             {
@@ -882,57 +783,26 @@ namespace YamlDotNet.Core
             var style = scalar.Style;
             var noTag = tagData.handle == null && tagData.suffix == null;
 
-            if (noTag && !scalar.IsPlainImplicit && !scalar.IsQuotedImplicit)
-            {
-                throw new YamlException("Neither tag nor isImplicit flags are specified.");
-            }
+            if (noTag && !scalar.IsPlainImplicit && !scalar.IsQuotedImplicit) throw new YamlException("Neither tag nor isImplicit flags are specified.");
 
-            if (style == ScalarStyle.Any)
-            {
-                style = scalarData.isMultiline ? ScalarStyle.Folded : ScalarStyle.Plain;
-            }
+            if (style == ScalarStyle.Any) style = scalarData.isMultiline ? ScalarStyle.Folded : ScalarStyle.Plain;
 
-            if (isCanonical)
-            {
-                style = ScalarStyle.DoubleQuoted;
-            }
+            if (isCanonical) style = ScalarStyle.DoubleQuoted;
 
-            if (isSimpleKeyContext && scalarData.isMultiline)
-            {
-                style = ScalarStyle.DoubleQuoted;
-            }
+            if (isSimpleKeyContext && scalarData.isMultiline) style = ScalarStyle.DoubleQuoted;
 
             if (style == ScalarStyle.Plain)
             {
-                if ((flowLevel != 0 && !scalarData.isFlowPlainAllowed) || (flowLevel == 0 && !scalarData.isBlockPlainAllowed))
-                {
-                    style = (scalarData.isSingleQuotedAllowed && !scalarData.hasSingleQuotes) ? ScalarStyle.SingleQuoted : ScalarStyle.DoubleQuoted;
-                }
-                if (string.IsNullOrEmpty(scalarData.value) && (flowLevel != 0 || isSimpleKeyContext))
-                {
-                    style = ScalarStyle.SingleQuoted;
-                }
-                if (noTag && !scalar.IsPlainImplicit)
-                {
-                    style = ScalarStyle.SingleQuoted;
-                }
+                if (flowLevel != 0 && !scalarData.isFlowPlainAllowed || flowLevel == 0 && !scalarData.isBlockPlainAllowed) style = scalarData.isSingleQuotedAllowed && !scalarData.hasSingleQuotes ? ScalarStyle.SingleQuoted : ScalarStyle.DoubleQuoted;
+                if (string.IsNullOrEmpty(scalarData.value) && (flowLevel != 0 || isSimpleKeyContext)) style = ScalarStyle.SingleQuoted;
+                if (noTag && !scalar.IsPlainImplicit) style = ScalarStyle.SingleQuoted;
             }
 
             if (style == ScalarStyle.SingleQuoted)
-            {
-                if (!scalarData.isSingleQuotedAllowed)
-                {
-                    style = ScalarStyle.DoubleQuoted;
-                }
-            }
+                if (!scalarData.isSingleQuotedAllowed) style = ScalarStyle.DoubleQuoted;
 
             if (style == ScalarStyle.Literal || style == ScalarStyle.Folded)
-            {
-                if (!scalarData.isBlockAllowed || flowLevel != 0 || isSimpleKeyContext)
-                {
-                    style = ScalarStyle.DoubleQuoted;
-                }
-            }
+                if (!scalarData.isBlockAllowed || flowLevel != 0 || isSimpleKeyContext) style = ScalarStyle.DoubleQuoted;
 
             scalarData.style = style;
         }
@@ -970,10 +840,7 @@ namespace YamlDotNet.Core
 
         private void WritePlainScalar(string value, bool allowBreaks)
         {
-            if (!isWhitespace)
-            {
-                Write(' ');
-            }
+            if (!isWhitespace) Write(' ');
 
             var previousSpace = false;
             var previousBreak = false;
@@ -984,31 +851,21 @@ namespace YamlDotNet.Core
                 if (IsSpace(character))
                 {
                     if (allowBreaks && !previousSpace && column > bestWidth && index + 1 < value.Length && value[index + 1] != ' ')
-                    {
                         WriteIndent();
-                    }
                     else
-                    {
                         Write(character);
-                    }
                     previousSpace = true;
                 }
                 else if (IsBreak(character, out breakCharacter))
                 {
-                    if (!previousBreak && character == '\n')
-                    {
-                        WriteBreak();
-                    }
+                    if (!previousBreak && character == '\n') WriteBreak();
                     WriteBreak(breakCharacter);
                     isIndentation = true;
                     previousBreak = true;
                 }
                 else
                 {
-                    if (previousBreak)
-                    {
-                        WriteIndent();
-                    }
+                    if (previousBreak) WriteIndent();
                     Write(character);
                     isIndentation = false;
                     previousSpace = false;
@@ -1019,10 +876,7 @@ namespace YamlDotNet.Core
             isWhitespace = false;
             isIndentation = false;
 
-            if (isRootContext)
-            {
-                isOpenEnded = true;
-            }
+            if (isRootContext) isOpenEnded = true;
         }
 
         private void WriteSingleQuotedScalar(string value, bool allowBreaks)
@@ -1041,35 +895,22 @@ namespace YamlDotNet.Core
                 {
                     if (allowBreaks && !previousSpace && column > bestWidth && index != 0 && index + 1 < value.Length &&
                         value[index + 1] != ' ')
-                    {
                         WriteIndent();
-                    }
                     else
-                    {
                         Write(character);
-                    }
                     previousSpace = true;
                 }
                 else if (IsBreak(character, out breakCharacter))
                 {
-                    if (!previousBreak && character == '\n')
-                    {
-                        WriteBreak();
-                    }
+                    if (!previousBreak && character == '\n') WriteBreak();
                     WriteBreak(breakCharacter);
                     isIndentation = true;
                     previousBreak = true;
                 }
                 else
                 {
-                    if (previousBreak)
-                    {
-                        WriteIndent();
-                    }
-                    if (character == '\'')
-                    {
-                        Write(character);
-                    }
+                    if (previousBreak) WriteIndent();
+                    if (character == '\'') Write(character);
                     Write(character);
                     isIndentation = false;
                     previousSpace = false;
@@ -1193,10 +1034,7 @@ namespace YamlDotNet.Core
                     if (allowBreaks && !previousSpace && column > bestWidth && index > 0 && index + 1 < value.Length)
                     {
                         WriteIndent();
-                        if (value[index + 1] == ' ')
-                        {
-                            Write('\\');
-                        }
+                        if (value[index + 1] == ' ') Write('\\');
                     }
                     else
                     {
@@ -1228,13 +1066,10 @@ namespace YamlDotNet.Core
             isIndentation = true;
             isWhitespace = true;
 
-            for (int i = 0; i < value.Length; ++i)
+            for (var i = 0; i < value.Length; ++i)
             {
                 var character = value[i];
-                if (character == '\r' && (i + 1) < value.Length && value[i + 1] == '\n')
-                {
-                    continue;
-                }
+                if (character == '\r' && i + 1 < value.Length && value[i + 1] == '\n') continue;
 
                 char breakCharacter;
                 if (IsBreak(character, out breakCharacter))
@@ -1245,10 +1080,7 @@ namespace YamlDotNet.Core
                 }
                 else
                 {
-                    if (previousBreak)
-                    {
-                        WriteIndent();
-                    }
+                    if (previousBreak) WriteIndent();
                     Write(character);
                     isIndentation = false;
                     previousBreak = false;
@@ -1277,14 +1109,8 @@ namespace YamlDotNet.Core
                     if (!previousBreak && !leadingSpaces && character == '\n')
                     {
                         var k = 0;
-                        while (i + k < value.Length && IsBreak(value[i + k], out ignoredBreak))
-                        {
-                            ++k;
-                        }
-                        if (i + k < value.Length && !(IsBlank(value[i + k]) || IsBreak(value[i + k], out ignoredBreak)))
-                        {
-                            WriteBreak();
-                        }
+                        while (i + k < value.Length && IsBreak(value[i + k], out ignoredBreak)) ++k;
+                        if (i + k < value.Length && !(IsBlank(value[i + k]) || IsBreak(value[i + k], out ignoredBreak))) WriteBreak();
                     }
                     WriteBreak(breakCharacter);
                     isIndentation = true;
@@ -1298,13 +1124,9 @@ namespace YamlDotNet.Core
                         leadingSpaces = IsBlank(character);
                     }
                     if (!previousBreak && character == ' ' && i + 1 < value.Length && value[i + 1] != ' ' && column > bestWidth)
-                    {
                         WriteIndent();
-                    }
                     else
-                    {
                         Write(character);
-                    }
                     isIndentation = false;
                     previousBreak = false;
                 }
@@ -1349,10 +1171,10 @@ namespace YamlDotNet.Core
                 character == '\x9' ||
                     character == '\xA' ||
                     character == '\xD' ||
-                    (character >= '\x20' && character <= '\x7E') ||
+                    character >= '\x20' && character <= '\x7E' ||
                     character == '\x85' ||
-                    (character >= '\xA0' && character <= '\xD7FF') ||
-                    (character >= '\xE000' && character <= '\xFFFD');
+                    character >= '\xA0' && character <= '\xD7FF' ||
+                    character >= '\xE000' && character <= '\xFFFD';
         }
 
         private static bool IsHighSurrogate(char c)
@@ -1378,13 +1200,9 @@ namespace YamlDotNet.Core
             var sequenceStart = (SequenceStart)evt;
 
             if (flowLevel != 0 || isCanonical || sequenceStart.Style == SequenceStyle.Flow || CheckEmptySequence())
-            {
                 state = EmitterState.FlowSequenceFirstItem;
-            }
             else
-            {
                 state = EmitterState.BlockSequenceFirstItem;
-            }
         }
 
         /// <summary>
@@ -1398,13 +1216,9 @@ namespace YamlDotNet.Core
             var mappingStart = (MappingStart)evt;
 
             if (flowLevel != 0 || isCanonical || mappingStart.Style == MappingStyle.Flow || CheckEmptyMapping())
-            {
                 state = EmitterState.FlowMappingFirstKey;
-            }
             else
-            {
                 state = EmitterState.BlockMappingFirstKey;
-            }
         }
 
         private void ProcessAnchor()
@@ -1418,18 +1232,12 @@ namespace YamlDotNet.Core
 
         private void ProcessTag()
         {
-            if (tagData.handle == null && tagData.suffix == null)
-            {
-                return;
-            }
+            if (tagData.handle == null && tagData.suffix == null) return;
 
             if (tagData.handle != null)
             {
                 WriteTagHandle(tagData.handle);
-                if (tagData.suffix != null)
-                {
-                    WriteTagContent(tagData.suffix, false);
-                }
+                if (tagData.suffix != null) WriteTagContent(tagData.suffix, false);
             }
             else
             {
@@ -1491,15 +1299,9 @@ namespace YamlDotNet.Core
                 return;
             }
 
-            if (!isFirst)
-            {
-                WriteIndicator(",", false, false, false);
-            }
+            if (!isFirst) WriteIndicator(",", false, false, false);
 
-            if (isCanonical || column > bestWidth)
-            {
-                WriteIndent();
-            }
+            if (isCanonical || column > bestWidth) WriteIndent();
 
             states.Push(EmitterState.FlowSequenceItem);
 
@@ -1532,14 +1334,8 @@ namespace YamlDotNet.Core
                 return;
             }
 
-            if (!isFirst)
-            {
-                WriteIndicator(",", false, false, false);
-            }
-            if (isCanonical || column > bestWidth)
-            {
-                WriteIndent();
-            }
+            if (!isFirst) WriteIndicator(",", false, false, false);
+            if (isCanonical || column > bestWidth) WriteIndent();
 
             if (!isCanonical && CheckSimpleKey())
             {
@@ -1565,10 +1361,7 @@ namespace YamlDotNet.Core
             }
             else
             {
-                if (isCanonical || column > bestWidth)
-                {
-                    WriteIndent();
-                }
+                if (isCanonical || column > bestWidth) WriteIndent();
                 WriteIndicator(":", true, false, false);
             }
             states.Push(EmitterState.FlowMappingKey);
@@ -1580,10 +1373,7 @@ namespace YamlDotNet.Core
         /// </summary>
         private void EmitBlockSequenceItem(ParsingEvent evt, bool isFirst)
         {
-            if (isFirst)
-            {
-                IncreaseIndent(false, (isMappingContext && !isIndentation));
-            }
+            if (isFirst) IncreaseIndent(false, isMappingContext && !isIndentation);
 
             if (evt is SequenceEnd)
             {
@@ -1604,10 +1394,7 @@ namespace YamlDotNet.Core
         /// </summary>
         private void EmitBlockMappingKey(ParsingEvent evt, bool isFirst)
         {
-            if (isFirst)
-            {
-                IncreaseIndent(false, false);
-            }
+            if (isFirst) IncreaseIndent(false, false);
 
             if (evt is MappingEnd)
             {
@@ -1654,13 +1441,9 @@ namespace YamlDotNet.Core
             indents.Push(indent);
 
             if (indent < 0)
-            {
                 indent = isFlow ? bestIndent : 0;
-            }
             else if (!isIndentless)
-            {
                 indent += bestIndent;
-            }
         }
 
         #region Check Methods
@@ -1677,10 +1460,7 @@ namespace YamlDotNet.Core
                 if (index == 2)
                 {
                     var scalar = parsingEvent as Scalar;
-                    if (scalar != null)
-                    {
-                        return string.IsNullOrEmpty(scalar.Value);
-                    }
+                    if (scalar != null) return string.IsNullOrEmpty(scalar.Value);
                     break;
                 }
             }
@@ -1693,10 +1473,7 @@ namespace YamlDotNet.Core
         /// </summary>
         private bool CheckSimpleKey()
         {
-            if (events.Count < 1)
-            {
-                return false;
-            }
+            if (events.Count < 1) return false;
 
             int length;
             switch (events.Peek().Type)
@@ -1706,10 +1483,7 @@ namespace YamlDotNet.Core
                     break;
 
                 case EventType.Scalar:
-                    if (scalarData.isMultiline)
-                    {
-                        return false;
-                    }
+                    if (scalarData.isMultiline) return false;
 
                     length =
                         SafeStringLength(anchorData.anchor) +
@@ -1719,10 +1493,7 @@ namespace YamlDotNet.Core
                     break;
 
                 case EventType.SequenceStart:
-                    if (!CheckEmptySequence())
-                    {
-                        return false;
-                    }
+                    if (!CheckEmptySequence()) return false;
                     length =
                         SafeStringLength(anchorData.anchor) +
                             SafeStringLength(tagData.handle) +
@@ -1730,10 +1501,7 @@ namespace YamlDotNet.Core
                     break;
 
                 case EventType.MappingStart:
-                    if (!CheckEmptySequence())
-                    {
-                        return false;
-                    }
+                    if (!CheckEmptySequence()) return false;
                     length =
                         SafeStringLength(anchorData.anchor) +
                             SafeStringLength(tagData.handle) +
@@ -1754,10 +1522,7 @@ namespace YamlDotNet.Core
 
         private bool CheckEmptySequence()
         {
-            if (events.Count < 2)
-            {
-                return false;
-            }
+            if (events.Count < 2) return false;
 
             // Todo: must be something better than this FakeList
             var eventList = new FakeList<ParsingEvent>(events);
@@ -1766,10 +1531,7 @@ namespace YamlDotNet.Core
 
         private bool CheckEmptyMapping()
         {
-            if (events.Count < 2)
-            {
-                return false;
-            }
+            if (events.Count < 2) return false;
 
             // Todo: must be something better than this FakeList
             var eventList = new FakeList<ParsingEvent>(events);
@@ -1803,18 +1565,12 @@ namespace YamlDotNet.Core
                 isOpenEnded = true;
             }
 
-            if (chompHint != null)
-            {
-                WriteIndicator(chompHint, false, false, false);
-            }
+            if (chompHint != null) WriteIndicator(chompHint, false, false, false);
         }
 
         private void WriteIndicator(string indicator, bool needWhitespace, bool whitespace, bool indentation)
         {
-            if (needWhitespace && !isWhitespace)
-            {
-                Write(' ');
-            }
+            if (needWhitespace && !isWhitespace) Write(' ');
 
             Write(indicator);
 
@@ -1827,15 +1583,9 @@ namespace YamlDotNet.Core
         {
             var currentIndent = Math.Max(indent, 0);
 
-            if (!isIndentation || column > currentIndent || (column == currentIndent && !isWhitespace))
-            {
-                WriteBreak();
-            }
+            if (!isIndentation || column > currentIndent || column == currentIndent && !isWhitespace) WriteBreak();
 
-            while (column < currentIndent)
-            {
-                Write(' ');
-            }
+            while (column < currentIndent) Write(' ');
 
             isWhitespace = true;
             isIndentation = true;
@@ -1851,10 +1601,7 @@ namespace YamlDotNet.Core
 
         private void WriteTagHandle(string value)
         {
-            if (!isWhitespace)
-            {
-                Write(' ');
-            }
+            if (!isWhitespace) Write(' ');
 
             Write(value);
 
@@ -1864,10 +1611,7 @@ namespace YamlDotNet.Core
 
         private void WriteTagContent(string value, bool needsWhitespace)
         {
-            if (needsWhitespace && !isWhitespace)
-            {
-                Write(' ');
-            }
+            if (needsWhitespace && !isWhitespace) Write(' ');
 
             Write(UrlEncode(value));
 
@@ -1880,10 +1624,7 @@ namespace YamlDotNet.Core
             return uriReplacer.Replace(text, delegate (Match match)
             {
                 var buffer = new StringBuilder();
-                foreach (var toEncode in Encoding.UTF8.GetBytes(match.Value))
-                {
-                    buffer.AppendFormat("%{0:X02}", toEncode);
-                }
+                foreach (var toEncode in Encoding.UTF8.GetBytes(match.Value)) buffer.AppendFormat("%{0:X02}", toEncode);
                 return buffer.ToString();
             });
         }
@@ -1903,13 +1644,9 @@ namespace YamlDotNet.Core
         private void WriteBreak(char breakCharacter = '\n')
         {
             if (breakCharacter == '\n')
-            {
                 output.WriteLine();
-            }
             else
-            {
                 output.Write(breakCharacter);
-            }
             column = 0;
         }
 

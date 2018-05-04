@@ -67,10 +67,7 @@ namespace YamlDotNet.RepresentationModel
         /// </summary>
         public YamlStream(IEnumerable<YamlDocument> documents)
         {
-            foreach (var document in documents)
-            {
-                this.documents.Add(document);
-            }
+            foreach (var document in documents) this.documents.Add(document);
         }
 
         /// <summary>
@@ -125,10 +122,7 @@ namespace YamlDotNet.RepresentationModel
             IEmitter emitter = new Emitter(output);
             emitter.Emit(new StreamStart());
 
-            foreach (var document in documents)
-            {
-                document.Save(emitter, assignAnchors);
-            }
+            foreach (var document in documents) document.Save(emitter, assignAnchors);
 
             emitter.Emit(new StreamEnd());
         }

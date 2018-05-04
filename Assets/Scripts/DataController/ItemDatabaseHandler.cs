@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using TrustfallGames.KeepTalkingAndEscape.Datatypes;
-using TrustfallGames.KeepTalkingAndEscape.Listener;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 using YamlDotNet.Serialization;

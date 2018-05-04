@@ -68,10 +68,7 @@ namespace YamlDotNet.Core
 
                 while (currentIndex < index)
                 {
-                    if (!collection.MoveNext())
-                    {
-                        throw new ArgumentOutOfRangeException("index");
-                    }
+                    if (!collection.MoveNext()) throw new ArgumentOutOfRangeException("index");
                     ++currentIndex;
                 }
 

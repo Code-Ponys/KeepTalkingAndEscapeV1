@@ -22,7 +22,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Text;
 using YamlDotNet.Core;
 using YamlDotNet.Core.Events;
@@ -70,7 +69,7 @@ namespace YamlDotNet.RepresentationModel
             Load(mapping, state);
             Style = mapping.Style;
 
-            bool hasUnresolvedAliases = false;
+            var hasUnresolvedAliases = false;
             while (!parser.Accept<MappingEnd>())
             {
                 var key = ParseNode(parser, state);
@@ -88,10 +87,7 @@ namespace YamlDotNet.RepresentationModel
                 hasUnresolvedAliases |= key is YamlAliasNode || value is YamlAliasNode;
             }
 
-            if (hasUnresolvedAliases)
-            {
-                state.AddNodeWithUnresolvedAliases(this);
-            }
+            if (hasUnresolvedAliases) state.AddNodeWithUnresolvedAliases(this);
 
             parser.Expect<MappingEnd>();
         }
@@ -123,10 +119,7 @@ namespace YamlDotNet.RepresentationModel
         /// </summary>
         public YamlMappingNode(IEnumerable<KeyValuePair<YamlNode, YamlNode>> children)
         {
-            foreach (var child in children)
-            {
-                this.children.Add(child);
-            }
+            foreach (var child in children) this.children.Add(child);
         }
 
         /// <summary>
@@ -149,10 +142,7 @@ namespace YamlDotNet.RepresentationModel
                 while (enumerator.MoveNext())
                 {
                     var key = enumerator.Current;
-                    if (!enumerator.MoveNext())
-                    {
-                        throw new ArgumentException("When constructing a mapping node with a sequence, the number of elements of the sequence must be even.");
-                    }
+                    if (!enumerator.MoveNext()) throw new ArgumentException("When constructing a mapping node with a sequence, the number of elements of the sequence must be even.");
 
                     Add(key, enumerator.Current);
                 }
@@ -211,37 +201,24 @@ namespace YamlDotNet.RepresentationModel
             {
                 if (entry.Key is YamlAliasNode)
                 {
-                    if (keysToUpdate == null)
-                    {
-                        keysToUpdate = new Dictionary<YamlNode, YamlNode>();
-                    }
+                    if (keysToUpdate == null) keysToUpdate = new Dictionary<YamlNode, YamlNode>();
                     keysToUpdate.Add(entry.Key, state.GetNode(entry.Key.Anchor, true, entry.Key.Start, entry.Key.End));
                 }
                 if (entry.Value is YamlAliasNode)
                 {
-                    if (valuesToUpdate == null)
-                    {
-                        valuesToUpdate = new Dictionary<YamlNode, YamlNode>();
-                    }
+                    if (valuesToUpdate == null) valuesToUpdate = new Dictionary<YamlNode, YamlNode>();
                     valuesToUpdate.Add(entry.Key, state.GetNode(entry.Value.Anchor, true, entry.Value.Start, entry.Value.End));
                 }
             }
             if (valuesToUpdate != null)
-            {
-                foreach (var entry in valuesToUpdate)
-                {
-                    children[entry.Key] = entry.Value;
-                }
-            }
+                foreach (var entry in valuesToUpdate) children[entry.Key] = entry.Value;
             if (keysToUpdate != null)
-            {
                 foreach (var entry in keysToUpdate)
                 {
-                    YamlNode value = children[entry.Key];
+                    var value = children[entry.Key];
                     children.Remove(entry.Key);
                     children.Add(entry.Value, value);
                 }
-            }
         }
 
         /// <summary>
@@ -275,18 +252,12 @@ namespace YamlDotNet.RepresentationModel
         public override bool Equals(object obj)
         {
             var other = obj as YamlMappingNode;
-            if (other == null || !Equals(other) || children.Count != other.children.Count)
-            {
-                return false;
-            }
+            if (other == null || !Equals(other) || children.Count != other.children.Count) return false;
 
             foreach (var entry in children)
             {
                 YamlNode otherNode;
-                if (!other.children.TryGetValue(entry.Key, out otherNode) || !SafeEquals(entry.Value, otherNode))
-                {
-                    return false;
-                }
+                if (!other.children.TryGetValue(entry.Key, out otherNode) || !SafeEquals(entry.Value, otherNode)) return false;
             }
 
             return true;
@@ -321,14 +292,8 @@ namespace YamlDotNet.RepresentationModel
             yield return this;
             foreach (var child in children)
             {
-                foreach (var node in child.Key.SafeAllNodes(level))
-                {
-                    yield return node;
-                }
-                foreach (var node in child.Value.SafeAllNodes(level))
-                {
-                    yield return node;
-                }
+                foreach (var node in child.Key.SafeAllNodes(level)) yield return node;
+                foreach (var node in child.Value.SafeAllNodes(level)) yield return node;
             }
             level.Decrement();
         }
@@ -349,19 +314,13 @@ namespace YamlDotNet.RepresentationModel
         /// </returns>
         internal override string ToString(RecursionLevel level)
         {
-            if (!level.TryIncrement())
-            {
-                return MaximumRecursionLevelReachedToStringValue;
-            }
+            if (!level.TryIncrement()) return MaximumRecursionLevelReachedToStringValue;
 
             var text = new StringBuilder("{ ");
 
             foreach (var child in children)
             {
-                if (text.Length > 2)
-                {
-                    text.Append(", ");
-                }
+                if (text.Length > 2) text.Append(", ");
                 text.Append("{ ").Append(child.Key.ToString(level)).Append(", ").Append(child.Value.ToString(level)).Append(" }");
             }
 
@@ -406,21 +365,17 @@ namespace YamlDotNet.RepresentationModel
         /// </summary>
         public static YamlMappingNode FromObject(object mapping)
         {
-            if (mapping == null)
-            {
-                throw new ArgumentNullException("mapping");
-            }
+            if (mapping == null) throw new ArgumentNullException("mapping");
 
             var result = new YamlMappingNode(0);
             foreach (var property in mapping.GetType().GetPublicProperties())
-            {
                 if (property.CanRead && property.GetGetMethod().GetParameters().Length == 0)
                 {
                     var value = property.GetValue(mapping, null);
-                    var valueNode = (value as YamlNode) ?? (Convert.ToString(value));
+                    var valueNode = value as YamlNode ?? Convert.ToString(value);
                     result.Add(property.Name, valueNode);
                 }
-            }
+
             return result;
         }
     }

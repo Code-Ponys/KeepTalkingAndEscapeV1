@@ -40,10 +40,7 @@ namespace YamlDotNet.Serialization.TypeInspectors
             {
                 if (!enumerator.MoveNext())
                 {
-                    if (ignoreUnmatched)
-                    {
-                        return null;
-                    }
+                    if (ignoreUnmatched) return null;
 
                     throw new SerializationException(
                         string.Format(
@@ -58,17 +55,15 @@ namespace YamlDotNet.Serialization.TypeInspectors
                 var property = enumerator.Current;
 
                 if (enumerator.MoveNext())
-                {
                     throw new SerializationException(
-                        string.Format(
-                            CultureInfo.InvariantCulture,
-                            "Multiple properties with the name/alias '{0}' already exists on type '{1}', maybe you're misusing YamlAlias or maybe you are using the wrong naming convention? The matching properties are: {2}",
-                            name,
-                            type.FullName,
-                            string.Join(", ", candidates.Select(p => p.Name).ToArray())
-                        )
-                    );
-                }
+                                                     string.Format(
+                                                                   CultureInfo.InvariantCulture,
+                                                                   "Multiple properties with the name/alias '{0}' already exists on type '{1}', maybe you're misusing YamlAlias or maybe you are using the wrong naming convention? The matching properties are: {2}",
+                                                                   name,
+                                                                   type.FullName,
+                                                                   string.Join(", ", candidates.Select(p => p.Name).ToArray())
+                                                                  )
+                                                    );
 
                 return property;
             }
