@@ -12,8 +12,12 @@ public class PlayerInteractionHandler : MonoBehaviour {
 
     [SerializeField] private CharacterType _characterType;
 
-    private GameObject _gameObjectLookingAt;
     private ObjectInteractionListener _currentObjectInteractionListener;
+    private GameObject _gameObjectLookingAt;
+    private bool reachable;
+
+    [SerializeField] private float _viewDistance;
+    [SerializeField] private float _reachDistance;
 
     // Use this for initialization
     void Start() {
@@ -24,11 +28,16 @@ public class PlayerInteractionHandler : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         UpdateCurrentObject();
-        if(_gameObjectLookingAt == null) {
+        if(_currentObjectInteractionListener == null) {
             _uiManager.ClearUI(_characterType);
+        }
+
+        CanCharacterReach();
+        
+        if(reachable) {
+            _currentObjectInteractionListener.KeyInteraction();
             return;
         }
-        _currentObjectInteractionListener.KeyInteraction();
     }
 
     private void UpdateCurrentObject() {
@@ -47,8 +56,15 @@ public class PlayerInteractionHandler : MonoBehaviour {
 
         var cameraCenter = characterCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, characterCamera.nearClipPlane));
 
-        if(Physics.Raycast(cameraCenter, characterCamera.transform.forward, out gameObjectLookingAt, 300)) {
+        if(Physics.Raycast(cameraCenter, characterCamera.transform.forward, out gameObjectLookingAt, _viewDistance)) {
+            if(gameObjectLookingAt.transform == null) {
+                _currentObjectInteractionListener = null;
+                _gameObjectLookingAt = null;
+                return;
+            }
+
             _gameObjectLookingAt = gameObjectLookingAt.transform.gameObject;
+            _currentObjectInteractionListener = _gameObjectLookingAt.GetComponent<ObjectInteractionListener>();
         }
     }
 
@@ -57,7 +73,7 @@ public class PlayerInteractionHandler : MonoBehaviour {
     /// </summary>
     /// <param name="obj"></param>
     /// <returns></returns>
-    private bool CanCharacterReach() {
+    private void CanCharacterReach() {
         if(_gameObjectLookingAt == null) return false;
         var character = _gameManager.GetCharacterController(_characterType);
         var characterpos = character.GetComponent<Transform>().position;
@@ -73,9 +89,10 @@ public class PlayerInteractionHandler : MonoBehaviour {
 
         closesPointToCharacter.y = 0;
         var distance = Vector3.Distance(characterpos, closesPointToCharacter);
-        return distance < 150;
+        reachable = distance < _reachDistance;
     }
 
+    //TODO: Move to UI Manager
     private bool ObjectInteractable() {
         if(_characterType == CharacterType.Ghost && _currentObjectInteractionListener.GhostCanOpen == false) return false;
         if(_currentObjectInteractionListener.AnimationType != AnimationType.None) return true;
@@ -85,99 +102,102 @@ public class PlayerInteractionHandler : MonoBehaviour {
     }
 
     private void UpdateUi() {
-        UpdateGhostUi();
+        if(_characterType == CharacterType.Ghost) {
+            UpdateGhostUi();
+            return;
+        }
         UpdateHumanUi();
     }
-    
-            private void UpdateHumanUi() {
-            if(!_humanReachable && _uiManager.HumanHoverText == _objectDescription && _objectDescription != "" && _uiManager.GetLastInstanceId(CharacterType.Human) == GetInstanceID()) {
-                _uiManager.HideButtons(CharacterType.Human);
-                return;
-            }
 
-            if(!_humanReachable) return;
-
-            _uiManager.HumanHoverText = _objectDescription;
-            if(_humanFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_humanFlavourText != "")
-                _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A, GetInstanceID());
+    private void UpdateHumanUi() {
+        if(!_humanReachable && _uiManager.HumanHoverText == _objectDescription && _objectDescription != "" && _uiManager.GetLastInstanceId(CharacterType.Human) == GetInstanceID()) {
+            _uiManager.HideButtons(CharacterType.Human);
+            return;
         }
 
-        private void UpdateGhostUi() {
-            //if(_gameManager.GhostDrivenAnimationActive && _ghostDrivenAnimationActive != true) return;
-            if(_ghostDrivenAnimationActive) {
-                _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType, KeyType.A);
-                return;
-            }
+        if(!_humanReachable) return;
 
-            if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription && _objectDescription != "" && _uiManager.GetLastInstanceId(CharacterType.Ghost) == GetInstanceID()) {
-                _uiManager.HideButtons(CharacterType.Ghost);
-                return;
-            }
-
-            if(!_ghostReachable) return;
-
-            _uiManager.GhostHoverText = _objectDescription;
-            if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-                return;
-            }
-
-            if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-                return;
-            }
-
-            if(_disableDamageByGhost && _damageDisabledByGhost && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-                return;
-            }
-
-            if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_ghostFlavourText == "" && _ghostCanOpen) {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction && !_animationUnlocked) {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction && _animationUnlocked) {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-                return;
-            }
-
-            if(!_ghostCanOpen && _ghostFlavourText != "") {
-                _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, GetInstanceID());
-                return;
-            }
-
-            if(_ghostCanOpen && _ghostFlavourText != "") _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
+        _uiManager.HumanHoverText = _objectDescription;
+        if(_humanFlavourText == "") {
+            _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none, GetInstanceID());
+            return;
         }
+
+        if(_humanFlavourText != "")
+            _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A, GetInstanceID());
+    }
+
+    private void UpdateGhostUi() {
+        //if(_gameManager.GhostDrivenAnimationActive && _ghostDrivenAnimationActive != true) return;
+        if(_ghostDrivenAnimationActive) {
+            _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType, KeyType.A);
+            return;
+        }
+
+        if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription && _objectDescription != "" && _uiManager.GetLastInstanceId(CharacterType.Ghost) == GetInstanceID()) {
+            _uiManager.HideButtons(CharacterType.Ghost);
+            return;
+        }
+
+        if(!_ghostReachable) return;
+
+        _uiManager.GhostHoverText = _objectDescription;
+        if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
+            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
+            return;
+        }
+
+        if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
+            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
+            return;
+        }
+
+        if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText == "") {
+            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
+            return;
+        }
+
+        if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText != "") {
+            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
+            return;
+        }
+
+        if(_disableDamageByGhost && _damageDisabledByGhost && _ghostFlavourText != "") {
+            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, GetInstanceID());
+            return;
+        }
+
+        if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
+            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
+            return;
+        }
+
+        if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
+            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
+            return;
+        }
+
+        if(_ghostFlavourText == "" && _ghostCanOpen) {
+            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
+            return;
+        }
+
+        if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction && !_animationUnlocked) {
+            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
+            return;
+        }
+
+        if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction && _animationUnlocked) {
+            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
+            return;
+        }
+
+        if(!_ghostCanOpen && _ghostFlavourText != "") {
+            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, GetInstanceID());
+            return;
+        }
+
+        if(_ghostCanOpen && _ghostFlavourText != "") _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
+    }
 
 }
