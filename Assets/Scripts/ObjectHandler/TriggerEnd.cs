@@ -13,9 +13,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
 
         private void OnTriggerEnter(Collider other) {
             Debug.Log("Test");
-            _uiManager.TriggerGameOverScreen(true);
-            _uiManager.GhostGameOver.sprite = _imageGhost;
-            _uiManager.HumanGameOver.sprite = _imageHuman;
         }
     }
 }

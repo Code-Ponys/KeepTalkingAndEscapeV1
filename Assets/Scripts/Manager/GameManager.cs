@@ -39,6 +39,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                 return _ghost;
             if(characterType == CharacterType.Human)
                 return _human;
+            return null;
         }
 
         public bool HumanMapActive {

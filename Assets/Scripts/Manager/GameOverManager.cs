@@ -37,16 +37,16 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 		private void Update() {
 			if(_gameManager.HumanController.Health <= 0) GameOverEnabler();
 
-			if(_uiManager.GhostGameOver.enabled) {
-				UpdateSelection();
-				GameOverInput();
-				Clicked();
-				GameOverMenu();
-			}
+//			if(_uiManager.GhostGameOver.enabled) {
+//				UpdateSelection();
+//				GameOverInput();
+//				Clicked();
+//				GameOverMenu();
+//			}
 		}
 
 		private void GameOverEnabler() {
-			_uiManager.TriggerGameOverScreen(true);
+			//_uiManager.TriggerGameOverScreen(true);
 //			Time.timeScale = 0;
 		}
 		

@@ -35,24 +35,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Text _humanFirstButtonText;
         [SerializeField] private Text _humanSecondButtonText;
 
-        //GhostGameOver
-        [SerializeField] private Image _ghostGameOver;
-        [SerializeField] private Image _ghostMainMenuButton;
-        [SerializeField] private Text _ghostMainMenuButtonText;
-        [SerializeField] private Image _ghostReplayButton;
-        [SerializeField] private Text _ghostReplayButtonText;
-        [SerializeField] private Image _ghostQuitMenuButton;
-        [SerializeField] private Text _ghostQuitMenuButtonText;
-
-        //HumanGameOver
-        [SerializeField] private Image _humanGameOver;
-        [SerializeField] private Image _humanMainMenuButton;
-        [SerializeField] private Text _humanMainMenuButtonText;
-        [SerializeField] private Image _humanReplayButton;
-        [SerializeField] private Text _humanReplayButtonText;
-        [SerializeField] private Image _humanQuitButtonMenu;
-        [SerializeField] private Text _humanQuitButtonText;
-
         //MenuGhost
         [SerializeField] private StartMenu _menuGhost;
         [SerializeField] private Image _ghostContinue;
@@ -108,6 +90,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private ItemManager _itemManager;
 
         private bool _deathSoundPlayed;
+        private bool _ghostReachable;
+        private bool _humanReachable;
+        private bool _ghostCanOpen;
+        private string _objectDescriptionGhost;
+        private string _objectDescriptionHuman;
+        private ObjectInteractionListener _currentInteractionListenerHuman;
+        private ObjectInteractionListener _currentInteractionListenerGhost;
 
         public static UIManager GetUiManager() {
             if(GameObject.Find("System") == null) return null;
@@ -126,10 +115,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
             ClearUI();
 
-            TriggerMenu(false,CharacterType.Ghost);
-            TriggerMenu(false,CharacterType.Human);
-            
-            TriggerGameOverScreen(false);
+            TriggerMenu(false, CharacterType.Ghost);
+            TriggerMenu(false, CharacterType.Human);
         }
 
         private void ClearUI() {
@@ -152,7 +139,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             UpdateFlavourText();
             UpdateHealth();
             UpdateItemInHand();
-            
+
             if(_gameManager.HumanController.Health <= 0 && !_deathSoundPlayed) {
                 _soundManager.Source.clip = _soundManager.DeathSound;
                 _soundManager.Source.Play();
@@ -219,12 +206,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             }
         }
 
-        public void ShowButtons(CharacterType type, KeyType firstButton, KeyType secondButton, int instanceId) {
+        public void ShowButtons(CharacterType type, KeyType firstButton, KeyType secondButton) {
             switch(type) {
                 case CharacterType.Unassigned:
                     break;
                 case CharacterType.Ghost:
-                    _instanceIdGhost = instanceId;
                     _ghostFirstButton.sprite = GetSprite(firstButton);
                     switch(firstButton) {
                         case KeyType.A:
@@ -254,7 +240,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
                     break;
                 case CharacterType.Human:
-                    _instanceIdHuman = instanceId;
                     _humanFirstButton.sprite = GetSprite(firstButton);
                     switch(firstButton) {
                         case KeyType.B:
@@ -291,8 +276,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         /// </summary>
         /// <param name="type"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        private void HideButtons(CharacterType type) {
-            ShowButtons(type, KeyType.none, KeyType.none, 0);
+        public void HideButtons(CharacterType type) {
+            ShowButtons(type, KeyType.none, KeyType.none);
             switch(type) {
                 case CharacterType.Unassigned:
                     break;
@@ -309,7 +294,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         public void ClearUI(CharacterType characterType) {
             HideButtons(characterType);
-            
         }
 
         private void HideTexts(CharacterType characterType) {
@@ -323,7 +307,84 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     throw new ArgumentOutOfRangeException("characterType", characterType, null);
             }
         }
-        
+
+        private void UpdateHumanUI() {
+            if(_currentInteractionListenerHuman == null) {
+                HideButtons(CharacterType.Human);
+                return;
+            }
+
+            //Show text if the object is inside the view distance
+            HumanHoverText = _currentInteractionListenerHuman.ObjectDescription;
+
+            if(!_humanReachable) return;
+
+            if(_objectDescriptionHuman.Equals("")) {
+                ShowButtons(CharacterType.Human, KeyType.A, KeyType.none);
+                return;
+            }
+
+            if(!_objectDescriptionHuman.Equals(""))
+                ShowButtons(CharacterType.Human, KeyType.A, KeyType.B);
+        }
+
+        private void UpdateGhostUI() {
+            //Show Keys while in ghost animation
+            if(_gameManager.GhostDrivenAnimationActive) {
+                ShowButtonsAnimation(CharacterType.Ghost, _currentInteractionListenerGhost.KeyType, KeyType.B);
+                return;
+            }
+
+            if(_currentInteractionListenerGhost == null) {
+                HideButtons(CharacterType.Ghost);
+                return;
+            }
+
+            //Show text if the object is inside the view distance
+            GhostHoverText = _objectDescriptionGhost;
+
+            if(!_ghostReachable) return;
+
+            if(_currentInteractionListenerGhost.ActivateObjectWithGhostInteraction && _currentInteractionListenerGhost.GhostFlavourText.Equals("")) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                return;
+            }
+
+            if(_currentInteractionListenerGhost.ActivateObjectWithGhostInteraction && !_currentInteractionListenerGhost.GhostFlavourText.Equals("")) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                return;
+            }
+
+
+            if(_currentInteractionListenerGhost.GhostFlavourText.Equals("") && _ghostCanOpen) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                return;
+            }
+
+            if(!_ghostCanOpen && !_currentInteractionListenerGhost.GhostFlavourText.Equals("")
+                              && _currentInteractionListenerGhost.ShowImageOnInteraction
+                              && !_currentInteractionListenerGhost.AnimationUnlocked) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                return;
+            }
+
+            if(!_ghostCanOpen && !_currentInteractionListenerGhost.GhostFlavourText.Equals("")
+                              && _currentInteractionListenerGhost.ShowImageOnInteraction
+                              && _currentInteractionListenerGhost.AnimationUnlocked) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                return;
+            }
+
+            if(!_ghostCanOpen && !_currentInteractionListenerGhost.GhostFlavourText.Equals("")) {
+                ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
+                return;
+            }
+
+            if(_ghostCanOpen && !_currentInteractionListenerGhost.GhostFlavourText.Equals("")) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+            }
+        }
+
 
         public Sprite A {
             get {return _a;}
@@ -452,25 +513,24 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             }
         }
 
-        public void TriggerGameOverScreen(bool state) {
-            _ghostGameOver.enabled = state;
-            _ghostMainMenuButton.enabled = state;
-            _ghostMainMenuButtonText.enabled = state;
-            _ghostReplayButton.enabled = state;
-            _ghostReplayButtonText.enabled = state;
-            _ghostQuitMenuButton.enabled = state;
-            _ghostQuitMenuButtonText.enabled = state;
+        public void SetCurrentDisplayObject(ObjectInteractionListener interactionListener, bool reachable, CharacterType characterType) {
+            switch(characterType) {
+                case CharacterType.Ghost:
+                    _currentInteractionListenerGhost = interactionListener;
+                    _ghostReachable = reachable;
+                    _ghostCanOpen = interactionListener.GhostCanOpen;
+                    _objectDescriptionGhost = interactionListener.ObjectDescription;
+                    break;
+                case CharacterType.Human:
+                    _currentInteractionListenerHuman = interactionListener;
+                    _humanReachable = reachable;
+                    _objectDescriptionHuman = interactionListener.ObjectDescription;
 
-            _humanGameOver.enabled = state;
-            _humanMainMenuButton.enabled = state;
-            _humanMainMenuButtonText.enabled = state;
-            _humanReplayButton.enabled = state;
-            _humanReplayButtonText.enabled = state;
-            _humanQuitButtonMenu.enabled = state;
-            _humanQuitButtonText.enabled = state;
-
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("characterType", characterType, null);
+            }
         }
-        
 
         public string GhostHoverText {
             get {return _ghostHoverText.text;}
@@ -513,16 +573,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         public Sprite Transparent {
             get {return _transparent;}
-        }
-
-        public Image GhostGameOver {
-            get {return _ghostGameOver;}
-            set {_ghostGameOver = value;}
-        }
-
-        public Image HumanGameOver {
-            get {return _humanGameOver;}
-            set {_humanGameOver = value;}
         }
 
     }
