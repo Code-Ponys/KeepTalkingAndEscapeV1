@@ -90,6 +90,13 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         private ItemManager _itemManager;
 
         private bool _deathSoundPlayed;
+        private bool _ghostReachable;
+        private bool _humanReachable;
+        private bool _ghostCanOpen;
+        private string _objectDescriptionGhost;
+        private string _objectDescriptionHuman;
+        private ObjectInteractionListener _currentInteractionListenerHuman;
+        private ObjectInteractionListener _currentInteractionListenerGhost;
 
         public static UIManager GetUiManager() {
             if(GameObject.Find("System") == null) return null;
