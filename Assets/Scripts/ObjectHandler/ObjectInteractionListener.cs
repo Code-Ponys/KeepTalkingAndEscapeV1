@@ -732,6 +732,18 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         public AudioClip CloseSound {
             get {return _closeSound;}
         }
+        
+        public bool ActivateObjectWithGhostInteraction {
+            get {return _activateObjectWithGhostInteraction;}
+        }
+
+        public bool AnimationUnlocked {
+            get {return _animationUnlocked;}
+        }
+
+        public bool ShowImageOnInteraction {
+            get {return _showImageOnInteraction;}
+        }
 
 //        public AudioClip RadioSound {
 //            get {return _radioSound;}
