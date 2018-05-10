@@ -108,10 +108,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
             ClearUI();
 
-            TriggerMenu(false,CharacterType.Ghost);
-            TriggerMenu(false,CharacterType.Human);
-            
-            TriggerGameOverScreen(false);
+            TriggerMenu(false, CharacterType.Ghost);
+            TriggerMenu(false, CharacterType.Human);
         }
 
         private void ClearUI() {
@@ -134,7 +132,7 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             UpdateFlavourText();
             UpdateHealth();
             UpdateItemInHand();
-            
+
             if(_gameManager.HumanController.Health <= 0 && !_deathSoundPlayed) {
                 _soundManager.Source.clip = _soundManager.DeathSound;
                 _soundManager.Source.Play();
@@ -201,12 +199,11 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             }
         }
 
-        public void ShowButtons(CharacterType type, KeyType firstButton, KeyType secondButton, int instanceId) {
+        public void ShowButtons(CharacterType type, KeyType firstButton, KeyType secondButton) {
             switch(type) {
                 case CharacterType.Unassigned:
                     break;
                 case CharacterType.Ghost:
-                    _instanceIdGhost = instanceId;
                     _ghostFirstButton.sprite = GetSprite(firstButton);
                     switch(firstButton) {
                         case KeyType.A:
@@ -236,7 +233,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
                     break;
                 case CharacterType.Human:
-                    _instanceIdHuman = instanceId;
                     _humanFirstButton.sprite = GetSprite(firstButton);
                     switch(firstButton) {
                         case KeyType.B:
@@ -273,8 +269,8 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         /// </summary>
         /// <param name="type"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        private void HideButtons(CharacterType type) {
-            ShowButtons(type, KeyType.none, KeyType.none, 0);
+        public void HideButtons(CharacterType type) {
+            ShowButtons(type, KeyType.none, KeyType.none);
             switch(type) {
                 case CharacterType.Unassigned:
                     break;
@@ -291,7 +287,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         public void ClearUI(CharacterType characterType) {
             HideButtons(characterType);
-            
         }
 
         private void HideTexts(CharacterType characterType) {
@@ -305,7 +300,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     throw new ArgumentOutOfRangeException("characterType", characterType, null);
             }
         }
-        
 
         private void UpdateHumanUI() {
             if(_currentInteractionListenerHuman == null) {
@@ -530,7 +524,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
                     throw new ArgumentOutOfRangeException("characterType", characterType, null);
             }
         }
-        
 
         public string GhostHoverText {
             get {return _ghostHoverText.text;}
