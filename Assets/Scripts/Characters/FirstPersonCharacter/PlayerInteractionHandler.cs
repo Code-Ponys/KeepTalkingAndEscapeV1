@@ -102,7 +102,6 @@ public class PlayerInteractionHandler : MonoBehaviour {
         reachable = distance < _reachDistance;
     }
 
-    //TODO: Move to UI Manager
     private bool ObjectInteractable() {
         if(_characterType == CharacterType.Ghost && _currentObjectInteractionListener.GhostCanOpen == false) return false;
         if(_currentObjectInteractionListener.AnimationType != AnimationType.None) return true;
