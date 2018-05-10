@@ -35,24 +35,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         [SerializeField] private Text _humanFirstButtonText;
         [SerializeField] private Text _humanSecondButtonText;
 
-        //GhostGameOver
-        [SerializeField] private Image _ghostGameOver;
-        [SerializeField] private Image _ghostMainMenuButton;
-        [SerializeField] private Text _ghostMainMenuButtonText;
-        [SerializeField] private Image _ghostReplayButton;
-        [SerializeField] private Text _ghostReplayButtonText;
-        [SerializeField] private Image _ghostQuitMenuButton;
-        [SerializeField] private Text _ghostQuitMenuButtonText;
-
-        //HumanGameOver
-        [SerializeField] private Image _humanGameOver;
-        [SerializeField] private Image _humanMainMenuButton;
-        [SerializeField] private Text _humanMainMenuButtonText;
-        [SerializeField] private Image _humanReplayButton;
-        [SerializeField] private Text _humanReplayButtonText;
-        [SerializeField] private Image _humanQuitButtonMenu;
-        [SerializeField] private Text _humanQuitButtonText;
-
         //MenuGhost
         [SerializeField] private StartMenu _menuGhost;
         [SerializeField] private Image _ghostContinue;
@@ -452,22 +434,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             }
         }
 
-        public void TriggerGameOverScreen(bool state) {
-            _ghostGameOver.enabled = state;
-            _ghostMainMenuButton.enabled = state;
-            _ghostMainMenuButtonText.enabled = state;
-            _ghostReplayButton.enabled = state;
-            _ghostReplayButtonText.enabled = state;
-            _ghostQuitMenuButton.enabled = state;
-            _ghostQuitMenuButtonText.enabled = state;
-
-            _humanGameOver.enabled = state;
-            _humanMainMenuButton.enabled = state;
-            _humanMainMenuButtonText.enabled = state;
-            _humanReplayButton.enabled = state;
-            _humanReplayButtonText.enabled = state;
-            _humanQuitButtonMenu.enabled = state;
-            _humanQuitButtonText.enabled = state;
 
         }
         
@@ -513,16 +479,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
 
         public Sprite Transparent {
             get {return _transparent;}
-        }
-
-        public Image GhostGameOver {
-            get {return _ghostGameOver;}
-            set {_ghostGameOver = value;}
-        }
-
-        public Image HumanGameOver {
-            get {return _humanGameOver;}
-            set {_humanGameOver = value;}
         }
 
     }
