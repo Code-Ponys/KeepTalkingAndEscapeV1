@@ -102,102 +102,11 @@ public class PlayerInteractionHandler : MonoBehaviour {
     }
 
     private void UpdateUi() {
-        if(_characterType == CharacterType.Ghost) {
-            UpdateGhostUi();
-            return;
-        }
-        UpdateHumanUi();
+        SendUiData();
     }
 
-    private void UpdateHumanUi() {
-        if(!_humanReachable && _uiManager.HumanHoverText == _objectDescription && _objectDescription != "" && _uiManager.GetLastInstanceId(CharacterType.Human) == GetInstanceID()) {
-            _uiManager.HideButtons(CharacterType.Human);
-            return;
-        }
-
-        if(!_humanReachable) return;
-
-        _uiManager.HumanHoverText = _objectDescription;
-        if(_humanFlavourText == "") {
-            _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.none, GetInstanceID());
-            return;
-        }
-
-        if(_humanFlavourText != "")
-            _uiManager.ShowButtons(CharacterType.Human, KeyType.B, KeyType.A, GetInstanceID());
-    }
-
-    private void UpdateGhostUi() {
-        //if(_gameManager.GhostDrivenAnimationActive && _ghostDrivenAnimationActive != true) return;
-        if(_ghostDrivenAnimationActive) {
-            _uiManager.ShowButtonsAnimation(CharacterType.Ghost, _keyType, KeyType.A);
-            return;
-        }
-
-        if(!_ghostReachable && _uiManager.GhostHoverText == _objectDescription && _objectDescription != "" && _uiManager.GetLastInstanceId(CharacterType.Ghost) == GetInstanceID()) {
-            _uiManager.HideButtons(CharacterType.Ghost);
-            return;
-        }
-
-        if(!_ghostReachable) return;
-
-        _uiManager.GhostHoverText = _objectDescription;
-        if(_activateObjectWithGhostInteraction && _ghostFlavourText == "") {
-            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-            return;
-        }
-
-        if(_activateObjectWithGhostInteraction && _ghostFlavourText != "") {
-            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-            return;
-        }
-
-        if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText == "") {
-            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-            return;
-        }
-
-        if(_disableDamageByGhost && !_damageDisabledByGhost && _ghostFlavourText != "") {
-            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-            return;
-        }
-
-        if(_disableDamageByGhost && _damageDisabledByGhost && _ghostFlavourText != "") {
-            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, GetInstanceID());
-            return;
-        }
-
-        if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText != "") {
-            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-            return;
-        }
-
-        if(_animationType == AnimationType.GhostMoveOnKeySmash && _ghostFlavourText == "") {
-            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-            return;
-        }
-
-        if(_ghostFlavourText == "" && _ghostCanOpen) {
-            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-            return;
-        }
-
-        if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction && !_animationUnlocked) {
-            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none, GetInstanceID());
-            return;
-        }
-
-        if(!_ghostCanOpen && _ghostFlavourText != "" && _showImageOnInteraction && _animationUnlocked) {
-            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
-            return;
-        }
-
-        if(!_ghostCanOpen && _ghostFlavourText != "") {
-            _uiManager.ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none, GetInstanceID());
-            return;
-        }
-
-        if(_ghostCanOpen && _ghostFlavourText != "") _uiManager.ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A, GetInstanceID());
+    private void SendUiData() {
+        _uiManager.SetCurrentDisplayObject(_currentObjectInteractionListener, reachable, _characterType);
     }
 
 }
