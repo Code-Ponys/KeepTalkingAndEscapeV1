@@ -33,7 +33,7 @@ public class PlayerInteractionHandler : MonoBehaviour {
         }
 
         CanCharacterReach();
-        
+
         if(reachable) {
             _currentObjectInteractionListener.KeyInteraction();
             return;
@@ -74,17 +74,27 @@ public class PlayerInteractionHandler : MonoBehaviour {
     /// <param name="obj"></param>
     /// <returns></returns>
     private void CanCharacterReach() {
-        if(_gameObjectLookingAt == null) return false;
+        if(_gameObjectLookingAt == null) {
+            reachable = false;
+            return;
+        }
+
         var character = _gameManager.GetCharacterController(_characterType);
         var characterpos = character.GetComponent<Transform>().position;
         characterpos.y = 0;
         var closesPointToCharacter = _gameObjectLookingAt.GetComponent<Collider>().ClosestPointOnBounds(characterpos);
 
         if(_characterType == CharacterType.Ghost) {
-            if(closesPointToCharacter.y > _gameManager.GhostHeight) return false;
+            if(closesPointToCharacter.y > _gameManager.GhostHeight) {
+                reachable = false;
+                return;
+            };
         }
         else if(_characterType == CharacterType.Human) {
-            if(closesPointToCharacter.y > _gameManager.HumanHeight) return false;
+            if(closesPointToCharacter.y > _gameManager.HumanHeight) {
+                reachable = false;
+                return;
+            }
         }
 
         closesPointToCharacter.y = 0;
