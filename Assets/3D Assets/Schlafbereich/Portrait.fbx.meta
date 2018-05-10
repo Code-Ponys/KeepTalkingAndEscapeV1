@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e2656871a6b37254e997db8fc2a3b261
-timeCreated: 1519138940
+guid: 213dd16f873546a4bbff8c8b069738f2
+timeCreated: 1525963917
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,32 +11,22 @@ ModelImporter:
     400000: augenknopf
     400002: bilderrahmen
     400004: //RootNode
-    2100000: Material augenknopf
-    2100002: Material Bilderrahmen
+    2100000: Material Bilderrahmen
+    2100002: Material augenknopf
     2300000: augenknopf
     2300002: bilderrahmen
     3300000: augenknopf
     3300002: bilderrahmen
-    4300000: augenknopf
-    4300002: bilderrahmen
+    4300000: bilderrahmen
+    4300002: augenknopf
     6400000: augenknopf
     6400002: bilderrahmen
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material Bilderrahmen
-    second: {fileID: 2100000, guid: 6161f200069749249bb890aca96b34fe, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material augenknopf
-    second: {fileID: 2100000, guid: 270b6c28abda2b945ba1dca2a92272fb, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
