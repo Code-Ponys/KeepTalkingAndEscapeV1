@@ -307,6 +307,84 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
         }
         
 
+        private void UpdateHumanUI() {
+            if(_currentInteractionListenerHuman == null) {
+                HideButtons(CharacterType.Human);
+                return;
+            }
+
+            //Show text if the object is inside the view distance
+            HumanHoverText = _currentInteractionListenerHuman.ObjectDescription;
+
+            if(!_humanReachable) return;
+
+            if(_objectDescriptionHuman.Equals("")) {
+                ShowButtons(CharacterType.Human, KeyType.A, KeyType.none);
+                return;
+            }
+
+            if(!_objectDescriptionHuman.Equals(""))
+                ShowButtons(CharacterType.Human, KeyType.A, KeyType.B);
+        }
+
+        private void UpdateGhostUI() {
+            //Show Keys while in ghost animation
+            if(_gameManager.GhostDrivenAnimationActive) {
+                ShowButtonsAnimation(CharacterType.Ghost, _currentInteractionListenerGhost.KeyType, KeyType.B);
+                return;
+            }
+
+            if(_currentInteractionListenerGhost == null) {
+                HideButtons(CharacterType.Ghost);
+                return;
+            }
+
+            //Show text if the object is inside the view distance
+            GhostHoverText = _objectDescriptionGhost;
+
+            if(!_ghostReachable) return;
+
+            if(_currentInteractionListenerGhost.ActivateObjectWithGhostInteraction && _currentInteractionListenerGhost.GhostFlavourText.Equals("")) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                return;
+            }
+
+            if(_currentInteractionListenerGhost.ActivateObjectWithGhostInteraction && !_currentInteractionListenerGhost.GhostFlavourText.Equals("")) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                return;
+            }
+
+
+            if(_currentInteractionListenerGhost.GhostFlavourText.Equals("") && _ghostCanOpen) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                return;
+            }
+
+            if(!_ghostCanOpen && !_currentInteractionListenerGhost.GhostFlavourText.Equals("")
+                              && _currentInteractionListenerGhost.ShowImageOnInteraction
+                              && !_currentInteractionListenerGhost.AnimationUnlocked) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.none);
+                return;
+            }
+
+            if(!_ghostCanOpen && !_currentInteractionListenerGhost.GhostFlavourText.Equals("")
+                              && _currentInteractionListenerGhost.ShowImageOnInteraction
+                              && _currentInteractionListenerGhost.AnimationUnlocked) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+                return;
+            }
+
+            if(!_ghostCanOpen && !_currentInteractionListenerGhost.GhostFlavourText.Equals("")) {
+                ShowButtons(CharacterType.Ghost, KeyType.A, KeyType.none);
+                return;
+            }
+
+            if(_ghostCanOpen && !_currentInteractionListenerGhost.GhostFlavourText.Equals("")) {
+                ShowButtons(CharacterType.Ghost, KeyType.B, KeyType.A);
+            }
+        }
+
+
         public Sprite A {
             get {return _a;}
         }
@@ -434,7 +512,23 @@ namespace TrustfallGames.KeepTalkingAndEscape.Manager {
             }
         }
 
+        public void SetCurrentDisplayObject(ObjectInteractionListener interactionListener, bool reachable, CharacterType characterType) {
+            switch(characterType) {
+                case CharacterType.Ghost:
+                    _currentInteractionListenerGhost = interactionListener;
+                    _ghostReachable = reachable;
+                    _ghostCanOpen = interactionListener.GhostCanOpen;
+                    _objectDescriptionGhost = interactionListener.ObjectDescription;
+                    break;
+                case CharacterType.Human:
+                    _currentInteractionListenerHuman = interactionListener;
+                    _humanReachable = reachable;
+                    _objectDescriptionHuman = interactionListener.ObjectDescription;
 
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("characterType", characterType, null);
+            }
         }
         
 
