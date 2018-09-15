@@ -1,5 +1,4 @@
 ﻿using System;
-using NUnit.Framework.Internal;
 using TrustfallGames.KeepTalkingAndEscape.Manager;
 using UnityEngine;
 using UnityEngine.UI;
@@ -203,7 +202,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
             _uiManager = UIManager.GetUiManager();
             _gameManager = GameManager.GetGameManager();
             _itemManager = ItemManager.GetItemManager();
-            _soundManager = SoundManager.GetSoundManager();
             if(_meshGameObject == null) _meshGameObject = gameObject;
 
             if(AnimationType != AnimationType.None) _animationController = gameObject.AddComponent<AnimationController>();
@@ -642,8 +640,6 @@ namespace TrustfallGames.KeepTalkingAndEscape.Listener {
         private bool CalculateDamage() {
             if(_disableDamageWithObject != null && !_damageObjectRecieved)
                 if(!_disableDamageWithObject._damageDisabled) {
-                    _soundManager.Source.clip = _soundManager.DamageSound;
-                    _soundManager.Source.Play();
                     _gameManager.HumanController.TakeHealth(1);
                     _uiManager.HumanFlavourText = _damageObjectMessage;
 

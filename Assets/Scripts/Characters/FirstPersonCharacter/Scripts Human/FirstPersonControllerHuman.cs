@@ -46,10 +46,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
         private GameManager _gameManager;
         private StartMenu _startMenu;
+        private SoundManager _soundManager;
 
         // Use this for initialization
         private void Start()
         {
+            _soundManager = SoundManager.GetSoundManager();
             _gameManager = GameManager.GetGameManager();
             _inventory = Inventory.GetInstance(CharacterType.Human);
             _startMenu = StartMenu.GetInstance(CharacterType.Human);
@@ -108,6 +110,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         public void TakeHealth(int health) {
+            _soundManager.Source.clip = _soundManager.DamageSound;
+            _soundManager.Source.Play();
             Health = Health - health;
         }
 
